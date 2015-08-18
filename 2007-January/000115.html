@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20while%20registration%20in%20HSS%3A%0A%09%22RegistrationFailed%3AForbidden%22&In-Reply-To=%3C006301c72e5d%24579901f0%240b40000a%40blr.velankani.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000117.html">
+   <LINK REL="Next"  HREF="000116.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;</H1>
+    <B>Gaurav Kansal</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20while%20registration%20in%20HSS%3A%0A%09%22RegistrationFailed%3AForbidden%22&In-Reply-To=%3C006301c72e5d%24579901f0%240b40000a%40blr.velankani.com%3E"
+       TITLE="[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;">gkansal at velankani.com
+       </A><BR>
+    <I>Tue Jan  2 12:01:23 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000117.html">[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+</A></li>
+        <LI>Next message: <A HREF="000116.html">[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+ 
+
+Following are some of logs I captured:
+
+ 
+
+If you see the second last log, URI in Authorization header is going as
+uri=&quot;sip:sip2ims.open-ims.test&quot;. Is this the problem?
+
+ 
+
+ 
+
+ 
+
+ 
+
+        REGISTER sip:open-ims.test SIP/2.0
+
+        Via: SIP/2.0/UDP 127.0.0.1:4060;branch=z9hG4bK93fa.1a4642c2.0
+
+        Via: SIP/2.0/UDP
+127.0.0.1:3060;rport=3060;branch=z9hG4bK93fa.e006012.0
+
+        Via: SIP/2.0/UDP
+10.0.64.16:5062;received=127.0.0.1;rport=5062;branch=z9hG4bK82610B2
+
+        CSeq: 2534 REGISTER
+
+        To: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Expires: 240
+
+        From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">1567492724 at 10.0.64.16</A>
+
+        Content-Length: 0
+
+        User-Agent: KPhoneSI/1.0
+
+        Event: registration
+
+        Allow-Events: presence
+
+        Max-Forwards: 15
+
+        Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+        Require: path
+
+        P-Charging-Vector: icid-value=&quot;abcd459a39950000002b&quot;;
+icid-gen-addr=&quot;127.0.0.1&quot;; orig-ioi=&quot;open-ims.test&quot;
+
+        Contact: &quot;Bob&quot;
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 10.0.64.16</A>:5062;transport=udp&gt;;q=1;methods=&quot;INVITE, MESSAGE, INFO,
+SUBSCRIBE, OPTIONS, BYE, CANCEL, NOTIFY, ACK, REFER&quot;
+
+        Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;,
+realm=&quot;open-ims.test&quot;,, integrity-protected=&quot;no&quot;
+
+        P-Visited-Network-ID: open-ims.test
+
+ 
+
+ 
+
+        REGISTER sip:scscf.open-ims.test:6060 SIP/2.0
+
+        Via: SIP/2.0/UDP 127.0.0.1;branch=z9hG4bK93fa.d30cf7c1.0
+
+        Via: SIP/2.0/UDP 127.0.0.1:4060;branch=z9hG4bK93fa.1a4642c2.0
+
+        Via: SIP/2.0/UDP
+127.0.0.1:3060;rport=3060;branch=z9hG4bK93fa.e006012.0
+
+        Via: SIP/2.0/UDP
+10.0.64.16:5062;received=127.0.0.1;rport=5062;branch=z9hG4bK82610B2
+
+        CSeq: 2534 REGISTER
+
+        To: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Expires: 240
+
+        From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">1567492724 at 10.0.64.16</A>
+
+        Content-Length: 0
+
+        User-Agent: KPhoneSI/1.0
+
+        Event: registration
+
+        Allow-Events: presence
+
+        Max-Forwards: 14
+
+        Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+        Require: path
+
+        P-Charging-Vector: icid-value=&quot;abcd459a39950000002b&quot;;
+icid-gen-addr=&quot;127.0.0.1&quot;; orig-ioi=&quot;open-ims.test&quot;
+
+        Contact: &quot;Bob&quot;
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 10.0.64.16</A>:5062;transport=udp&gt;;q=1;methods=&quot;INVITE, MESSAGE, INFO,
+SUBSCRIBE, OPTIONS, BYE, CANCEL, NOTIFY, ACK, REFER&quot;
+
+        Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;,
+realm=&quot;open-ims.test&quot;,, integrity-protected=&quot;no&quot;
+
+        P-Visited-Network-ID: open-ims.test
+
+ 
+
+ 
+
+ 
+
+ 
+
+        SIP/2.0 401 Unauthorized - Challenging the UE
+
+        Via: SIP/2.0/UDP 127.0.0.1;branch=z9hG4bK93fa.d30cf7c1.0
+
+        Via: SIP/2.0/UDP 127.0.0.1:4060;branch=z9hG4bK93fa.1a4642c2.0
+
+        Via: SIP/2.0/UDP
+127.0.0.1:3060;rport=3060;branch=z9hG4bK93fa.e006012.0
+
+        Via: SIP/2.0/UDP
+10.0.64.16:5062;received=127.0.0.1;rport=5062;branch=z9hG4bK82610B2
+
+        CSeq: 2534 REGISTER
+
+        To: &quot;Bob&quot;
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-262a
+
+        From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">1567492724 at 10.0.64.16</A>
+
+        WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;eX0/gzz6z+3qLO9bRML/9QAAAAAADAAAQJR0gG8G6Fw=&quot;, algorithm=AKAv1-MD5,
+ck=&quot;e165d97f9086816056010d1ffceabe73&quot;, ik=&quot;4d9740bdafd1401a0af957a8041d2ee3&quot;
+
+
+        Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+        Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">orig at scscf.open-ims.test</A>:6060;lr&gt;
+
+        Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+
+        Content-Length: 0
+
+        Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=3505
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==4&quot;
+
+ 
+
+ 
+
+ 
+
+ 
+
+        SIP/2.0 401 Unauthorized - Challenging the UE
+
+        Via: SIP/2.0/UDP 127.0.0.1:4060;branch=z9hG4bK93fa.1a4642c2.0
+
+        Via: SIP/2.0/UDP
+127.0.0.1:3060;rport=3060;branch=z9hG4bK93fa.e006012.0
+
+        Via: SIP/2.0/UDP
+10.0.64.16:5062;received=127.0.0.1;rport=5062;branch=z9hG4bK82610B2
+
+        CSeq: 2534 REGISTER
+
+        To: &quot;Bob&quot;
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=d7837ce6bbd631122d10546eb75bb4cf-262a
+
+        From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">1567492724 at 10.0.64.16</A>
+
+        WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+nonce=&quot;eX0/gzz6z+3qLO9bRML/9QAAAAAADAAAQJR0gG8G6Fw=&quot;, algorithm=AKAv1-MD5,
+ck=&quot;e165d97f9086816056010d1ffceabe73&quot;, ik=&quot;4d9740bdafd1401a0af957a8041d2ee3&quot;
+
+
+        Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+        Service-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">orig at scscf.open-ims.test</A>:6060;lr&gt;
+
+        Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+
+        Content-Length: 0
+
+        Warning: 392 127.0.0.1:6060 &quot;Noisy feedback tells:  pid=3505
+req_src_ip=127.0.0.1 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==4&quot;
+
+ 
+
+ 
+
+ 
+
+ 
+
+        REGISTER sip:open-ims.test SIP/2.0
+
+        Via: SIP/2.0/UDP 127.0.0.1:4060;branch=z9hG4bKa3fa.d0a259e6.0
+
+        Via: SIP/2.0/UDP
+127.0.0.1:3060;rport=3060;branch=z9hG4bKa3fa.6557ee62.0
+
+        Via: SIP/2.0/UDP
+10.0.64.16:5062;received=127.0.0.1;rport=5062;branch=z9hG4bK37F1EEB7
+
+        CSeq: 2535 REGISTER
+
+        To: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Expires: 240
+
+        From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">1567492724 at 10.0.64.16</A>
+
+        Content-Length: 0
+
+        User-Agent: KPhoneSI/1.0
+
+        Event: registration
+
+        Allow-Events: presence
+
+        Max-Forwards: 15
+
+        Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+        Require: path
+
+        P-Charging-Vector: icid-value=&quot;abcd459a39950000002c&quot;;
+icid-gen-addr=&quot;127.0.0.1&quot;; orig-ioi=&quot;open-ims.test&quot;
+
+        Contact: &quot;Bob&quot;
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 10.0.64.16</A>:5062;transport=udp&gt;;q=1;methods=&quot;INVITE, MESSAGE, INFO,
+SUBSCRIBE, OPTIONS, BYE, CANCEL, NOTIFY, ACK, REFER&quot;
+
+        Authorization: Digest username=&quot;bob&quot;, realm=&quot;open-ims.test&quot;,
+nonce=&quot;459a3ac1d9b56b60fb2034bba3e06fdd74b24c63&quot;,
+uri=&quot;sip:sip2ims.open-ims.test&quot;, cnonce=&quot;abcdefghi&quot;, nc=00000001,
+response=&quot;ee90c20829e8fc6896e692a8caea6c32&quot;,
+opaque=&quot;AKAv1-MD5eX0/gzz6z+3qLO9bRML/9QAAAAAADAAAQJR0gG8G6Fw=&quot;,
+integrity-protected=&quot;no&quot;
+
+        P-Visited-Network-ID: open-ims.test
+
+ 
+
+ 
+
+ 
+
+ 
+
+        SIP/2.0 403 Forbidden - HSS User Unknown
+
+        Via: SIP/2.0/UDP 127.0.0.1:4060;branch=z9hG4bKa3fa.d0a259e6.0
+
+        Via: SIP/2.0/UDP
+127.0.0.1:3060;rport=3060;branch=z9hG4bKa3fa.6557ee62.0
+
+        Via: SIP/2.0/UDP
+10.0.64.16:5062;received=127.0.0.1;rport=5062;branch=z9hG4bK37F1EEB7
+
+        CSeq: 2535 REGISTER
+
+        To: &quot;Bob&quot;
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=a6a1c5f60faecf035a1ae5b6e96e979a-e610
+
+        From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+
+        Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">1567492724 at 10.0.64.16</A>
+
+        Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+
+        Content-Length: 0
+
+        Warning: 392 127.0.0.1:5060 &quot;Noisy feedback tells:  pid=3486
+req_src_ip=127.0.0.1 req_src_port=4060 in_uri=sip:open-ims.test
+out_uri=sip:open-ims.test via_cnt==3&quot;
+
+ 
+
+ 
+
+Regards,
+
+Gaurav Kansal
+
+ 
+
+-----Original Message-----
+From: Franz Edler [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>] 
+Sent: Tuesday, January 02, 2007 3:29 PM
+To: 'Gaurav Kansal'; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: RE: [OpenIMSCore-HSS] Error while registration in HSS:
+&quot;RegistrationFailed:Forbidden&quot;
+
+ 
+
+Hello Gaurav,
+
+ 
+
+I would be further helpful to see a Wireshark trace, most easy to produce
+
+with tcpdump:
+
+tcpdump -i any -s 3000 -w /tmp/trace1.pcap port 3060 or port 4060 or port
+
+5060 or port 6060 or port 3868 or port 3869 or port 3870
+
+ 
+
+At a first look I see from HSS
+
+&gt;<i> de.fhg.fokus.cx.exceptions.ims.UserUnknown
+</I>
+Based on the authentication user name there is no user provisioned.
+
+ 
+
+The output 
+
+&gt;<i> Digest username=&quot;alice&quot;, realm=&quot;open-ims.test&quot;,
+</I>
+also shows, that the username is not provisioned as a NAI (<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">user at domain</A>), at
+
+least somewhere the domain-name is lost.
+
+ 
+
+Maybe that helps.
+
+ 
+
+Franz
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070102/c648a97f/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070102/c648a97f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000117.html">[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+</A></li>
+	<LI>Next message: <A HREF="000116.html">[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

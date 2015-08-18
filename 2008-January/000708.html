@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Behaviour of the HSS when the visited network is	unknown
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Behaviour%20of%20the%20HSS%20when%20the%20visited%20network%20is%0A%09unknown&In-Reply-To=%3C00E47B21F2156640838B288A86560DB604A4551F%40esealmw107.eemea.ericsson.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000707.html">
+   <LINK REL="Next"  HREF="000709.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Behaviour of the HSS when the visited network is	unknown</H1>
+    <B>Rosa Maria Martinez Perallon</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Behaviour%20of%20the%20HSS%20when%20the%20visited%20network%20is%0A%09unknown&In-Reply-To=%3C00E47B21F2156640838B288A86560DB604A4551F%40esealmw107.eemea.ericsson.se%3E"
+       TITLE="[OpenIMSCore-HSS] Behaviour of the HSS when the visited network is	unknown">rosa.maria.martinez.perallon at ericsson.com
+       </A><BR>
+    <I>Fri Jan 11 11:47:52 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000707.html">[OpenIMSCore-HSS] Interface Zh, Cx and Sh
+</A></li>
+        <LI>Next message: <A HREF="000709.html">[OpenIMSCore-HSS] Behaviour of the HSS when the visited network	is unknown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#708">[ date ]</a>
+              <a href="thread.html#708">[ thread ]</a>
+              <a href="subject.html#708">[ subject ]</a>
+              <a href="author.html#708">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I have a comment/question about the behaviour of the FHoSS when the
+visited network is not found in the database when it receives a UAR.
+
+According to the specification TS 29.228, the Result-Code should be
+DIAMETER_ERROR_ROAMING_NOT_ALLOWED when the Public User Identity is not
+allowed to roam in the visited network.
+
+When the UAR is received, the HSS of the OpenIMSCore checks if the
+visited network is in the database and if it is not, replies with
+&quot;DIAMETER_UNABLE_TO_COMPLY&quot; and just when the visited network is known
+but it is not associated to the public identity returns a roaming not
+allowed message.
+
+In my opinion, if a visited network is not in the database is basically
+because the roaming in that network is not allowed to any user since
+there is no roaming agreement. Why is then the DIAMETER_UNABLE_TO_COMPLY
+sent instead of DIAMETER_ERROR_ROAMING_NOT_ALLOWED?
+
+Thank you in advance
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080111/971bf487/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080111/971bf487/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000707.html">[OpenIMSCore-HSS] Interface Zh, Cx and Sh
+</A></li>
+	<LI>Next message: <A HREF="000709.html">[OpenIMSCore-HSS] Behaviour of the HSS when the visited network	is unknown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#708">[ date ]</a>
+              <a href="thread.html#708">[ thread ]</a>
+              <a href="subject.html#708">[ subject ]</a>
+              <a href="author.html#708">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

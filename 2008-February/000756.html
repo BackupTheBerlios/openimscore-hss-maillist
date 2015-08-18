@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] can not run /FHoSS/trunk/deploy/startup.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20can%20not%20run%20/FHoSS/trunk/deploy/startup.sh&In-Reply-To=%3C20080216183503.25143.qmail%40m57.vnn.vn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000755.html">
+   <LINK REL="Next"  HREF="000757.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] can not run /FHoSS/trunk/deploy/startup.sh</H1>
+    <B>daoanhha99 at vnn.vn</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20can%20not%20run%20/FHoSS/trunk/deploy/startup.sh&In-Reply-To=%3C20080216183503.25143.qmail%40m57.vnn.vn%3E"
+       TITLE="[OpenIMSCore-HSS] can not run /FHoSS/trunk/deploy/startup.sh">daoanhha99 at vnn.vn
+       </A><BR>
+    <I>Sat Feb 16 19:35:03 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000755.html">[OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer
+</A></li>
+        <LI>Next message: <A HREF="000757.html">[OpenIMSCore-HSS] software IMS for client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#756">[ date ]</a>
+              <a href="thread.html#756">[ thread ]</a>
+              <a href="subject.html#756">[ subject ]</a>
+              <a href="author.html#756">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> OpenIMSCore]# ./FHoSS/trunk/deploy/startup.sh
+Building Classpath
+Classpath is lib/*.jar:.:log4j.properties:..
+Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError:
+de/fhg/fokus/hss/main/HSSContai
+ner
+Caused by: java.lang.ClassNotFoundException: de.fhg.fokus.hss.main.HSSContainer
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:276)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+        at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+i installed java by package : &quot;jdk-6u4-linux-i586-rpm.bin&quot;
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> OpenIMSCore]# java -version
+java version &quot;1.6.0_04&quot;
+Java(TM) SE Runtime Environment (build 1.6.0_04-b12)
+Java HotSpot(TM) Client VM (build 10.0-b19, mixed mode, sharing)
+
+I configured java in /etc/profile :
+JAVA_HOME=/usr/java/jdk1604
+ANT_HOME=/usr/local/apache-ant-1.7.0
+PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$PATH
+export PATH JAVA_HOME ANT_HOME
+export CLASSPATH=.
+
+But it doesn't work propety, ex : i write hello.java file in /root/Desktop, after
+compile that file, i run it :
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> trunk]# java /root/Desktop/hello
+Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: /root/Desktop/hello
+Caused by: java.lang.ClassNotFoundException: .root.Desktop.hello
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:200)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:188)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:276)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:251)
+        at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+
+Tell me the way to configuing java !!!!                          Tks.....so......much
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000755.html">[OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer
+</A></li>
+	<LI>Next message: <A HREF="000757.html">[OpenIMSCore-HSS] software IMS for client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#756">[ date ]</a>
+              <a href="thread.html#756">[ thread ]</a>
+              <a href="subject.html#756">[ subject ]</a>
+              <a href="author.html#756">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-CSCS%20Interconnecting%20problem&In-Reply-To=%3C45F69176.6050101%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000241.html">
+   <LINK REL="Next"  HREF="000245.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-CSCS%20Interconnecting%20problem&In-Reply-To=%3C45F69176.6050101%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Mar 13 12:56:38 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000241.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+        <LI>Next message: <A HREF="000245.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+
+Hi SRINI VASAN,
+
+You have almost answered to your question :) If you cannot ping the
+scscf.open-ims.test, icscf.open-ims.test or hss.open-ims.test is clear
+that your core will not work.
+You have still a dns configuration error somewhere. Please take a look
+on the dns howto available here:
+<A HREF="http://www.openimscore.org/docs/install.html#annexa">http://www.openimscore.org/docs/install.html#annexa</A>
+You probably forgot to add the sub-domains(scscf, icscf, hss) to the
+dnszone file.
+
+Cheers,
+Adrian
+
+
+SRINI VASAN.R.J wrote:
+&gt;<i> 
+</I>&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i>    I have downloaded ser_ims and FHoSS from openimscore.org
+</I>&gt;<i> &lt;<A HREF="http://openimscore.org">http://openimscore.org</A>&gt;, I followed the all the installation steps.
+</I>&gt;<i> P-CSCF,S-CSCF,I-CSCF are running successfuly but the problem is I_CSCF,
+</I>&gt;<i> S-CSCF is not interacting with HSS.
+</I>&gt;<i> 
+</I>&gt;<i>   When i try ping open-ims.test its giving correct result when i try to
+</I>&gt;<i> ping scscf.open-ims.test or icscf.open-ims.test or hss.open-ims.test,
+</I>&gt;<i> its throwing unknown host error.
+</I>&gt;<i> 
+</I>&gt;<i>  In my system i am using Red hat linux Enterprise edition.
+</I>&gt;<i>  java  &quot;java version &quot;1.5.0_11&quot;
+</I>&gt;<i>  bind is installed and running.
+</I>&gt;<i> 
+</I>&gt;<i>  If any of u come across this problem,kindly let me know the solution.
+</I>&gt;<i> 
+</I>&gt;<i> When i start SCSCF and HSS i am getting the following warnings
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> SCSCF LOG
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 12(4907) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test
+</I>&gt;<i> 12(4907) WARNING:peer_connect(): Error opening connection to
+</I>&gt;<i> hss.open-ims.test:3868 &gt;No such file or directory
+</I>&gt;<i> 12(4907) DBG:sm_process(): Peer hss.open-ims.test       State
+</I>&gt;<i> Wait_Conn_Ack    Event I_Rcv_Conn_NAck
+</I>&gt;<i> 12(4907) --- Peer List: ---
+</I>&gt;<i> 12(4907)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i> 12(4907) ------------------
+</I>&gt;<i> 12(4907) --- Peer List: ---
+</I>&gt;<i> 12(4907)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i> 12(4907) ------------------
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> HSS Log
+</I>&gt;<i> 
+</I>&gt;<i> 2007-03-13 16:18:09,193 DEBUG de.fhg.fokus.hss.diam.HssDiameterStack -
+</I>&gt;<i> startup exiting
+</I>&gt;<i> 2007-03-13 16:18:09,203 INFO  de.fhg.fokus.hss.main.HssServer - main
+</I>&gt;<i> FHoSS was started and is ready for use!
+</I>&gt;<i> 2007-03-13 16:18:09,204 INFO  de.fhg.fokus.hss.main.HssServer -
+</I>&gt;<i> waitForExit Type 'exit' if you want to exit.
+</I>&gt;<i> 2007-03-13 16:18:35,734 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> peer icscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> 2007-03-13 16:18:35,735 ERROR
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> StateMachine: Peer icscf.open-ims.test can not be resolved.
+</I>&gt;<i> 2007-03-13 16:18:35,746 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> peer scscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> 2007-03-13 16:18:35,747 ERROR
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> StateMachine: Peer scscf.open-ims.test can not be resolved.
+</I>&gt;<i> 2007-03-13 16:19:05,820 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> peer icscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> 2007-03-13 16:19:05,821 ERROR
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> StateMachine: Peer icscf.open-ims.test can not be resolved.
+</I>&gt;<i> 2007-03-13 16:19:05,823 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> peer scscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> 2007-03-13 16:19:05,824 ERROR
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> StateMachine: Peer scscf.open-ims.test can not be resolved.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFF9pF16Yml36HNIwcRAplnAJ9VzRm5smi5uyC7Rd+OSE0pt2oniACfVZG/
+2yb5/JSB73Hm5XMLw82Vc1k=
+=Z0gX
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000241.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+	<LI>Next message: <A HREF="000245.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#242">[ date ]</a>
+              <a href="thread.html#242">[ thread ]</a>
+              <a href="subject.html#242">[ subject ]</a>
+              <a href="author.html#242">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

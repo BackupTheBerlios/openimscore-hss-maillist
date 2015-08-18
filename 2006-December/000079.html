@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Problem with registration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20registration&In-Reply-To=%3CA91F30A632473A47B40C18D2B107CA6F02B0C077%40esealmw105.eemea.ericsson.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000078.html">
+   <LINK REL="Next"  HREF="000082.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Problem with registration</H1>
+    <B>Outi Koski (AC/EDD)</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20registration&In-Reply-To=%3CA91F30A632473A47B40C18D2B107CA6F02B0C077%40esealmw105.eemea.ericsson.se%3E"
+       TITLE="[OpenIMSCore-HSS] Problem with registration">outi.koski at ericsson.com
+       </A><BR>
+    <I>Mon Dec 11 17:57:09 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000078.html">[OpenIMSCore-HSS] FHoSS compilation errors
+</A></li>
+        <LI>Next message: <A HREF="000082.html">[OpenIMSCore-HSS] Problem with registration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#79">[ date ]</a>
+              <a href="thread.html#79">[ thread ]</a>
+              <a href="subject.html#79">[ subject ]</a>
+              <a href="author.html#79">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I had everything (registration, call session, instant messaging) working
+faultlessly with the previous version of the Open Source Core, but then
+I decided to update the system to the newest release... And now already
+on the registration I get the following message from the HSS
+
+Any ideas how I could fix it? Or is it a problem in the release?
+
+Outi
+
+
+[main] INFO  de.fhg.fokus.hss.main.HssServer  - FHoSS was started and is
+ready to use.
+Type 'exit' to exit
+[Thread-8] INFO  de.fhg.fokus.hss.diam.cx.MARCommandListener  - MAR of
+User: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> is being processed
+[Thread-7] INFO  de.fhg.fokus.hss.diam.cx.SARCommandListener  - SAR of
+User: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> is being processed
+[Thread-7] INFO  de.fhg.fokus.hss.server.cx.op.PullCxOperation  - The
+current status of IMPU sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> is registered
+[Thread-7] INFO  de.fhg.fokus.hss.server.cx.op.PullCxOperation  - user
+status of sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> set to registered
+Exception in thread &quot;Thread-7&quot; java.lang.NoSuchMethodError: 
+org.exolab.castor.xml.util.XMLFieldDescriptorImpl.setClassDescriptor(Lor
+g/exolab/castor/mapping/ClassDescriptor;)V
+        at 
+de.fhg.fokus.cx.datatypes.TSePoTriDescriptor.&lt;init&gt;(TSePoTriDescriptor.j
+ava:185)
+        at 
+de.fhg.fokus.cx.datatypes.SPTDescriptor.&lt;init&gt;(SPTDescriptor.java:54)
+        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native
+
+Method)
+        at 
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorA
+ccessorImpl.java:39)
+        at 
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingCons
+tructorAccessorImpl.java:27)
+        at
+java.lang.reflect.Constructor.newInstance(Constructor.java:494)
+        at java.lang.Class.newInstance0(Class.java:350)
+        at java.lang.Class.newInstance(Class.java:303)
+        at 
+org.exolab.castor.xml.util.ClassDescriptorResolverImpl.resolve(ClassDesc
+riptorResolverImpl.java:242)
+        at org.exolab.castor.xml.Validator.validate(Validator.java:111)
+        at 
+org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:216)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:886)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:754)
+        at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+        at 
+org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:250)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:886)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:754)
+        at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+        at 
+org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:216)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:886)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:754)
+        at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+        at 
+org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:216)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:886)
+        at 
+org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescr
+iptorImpl.java:754)
+        at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+        at
+org.exolab.castor.xml.Marshaller.validate(Marshaller.java:2017)
+        at org.exolab.castor.xml.Marshaller.marshal(Marshaller.java:763)
+        at org.exolab.castor.xml.Marshaller.marshal(Marshaller.java:663)
+        at 
+de.fhg.fokus.cx.datatypes.IMSSubscription.marshal(IMSSubscription.java:7
+2)
+        at 
+de.fhg.fokus.hss.diam.cx.SARCommandListener.saveIMSSubscription(SARComma
+ndListener.java:214)
+        at 
+de.fhg.fokus.hss.diam.cx.SARCommandListener.recvMessage(SARCommandListen
+er.java:170)
+        at 
+de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.jav
+a:100)
+
+
+
+
+
+ 
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061211/a0487230/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061211/a0487230/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000078.html">[OpenIMSCore-HSS] FHoSS compilation errors
+</A></li>
+	<LI>Next message: <A HREF="000082.html">[OpenIMSCore-HSS] Problem with registration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#79">[ date ]</a>
+              <a href="thread.html#79">[ thread ]</a>
+              <a href="subject.html#79">[ subject ]</a>
+              <a href="author.html#79">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

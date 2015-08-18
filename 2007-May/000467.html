@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20The%20FHoss%20DiameterPeer%20problem%3F&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA10FC671%40EXCHSRV.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000466.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] The FHoss DiameterPeer problem?</H1>
+    <B>Shengyao Chen</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20The%20FHoss%20DiameterPeer%20problem%3F&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA10FC671%40EXCHSRV.fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] The FHoss DiameterPeer problem?">Shengyao.Chen at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu May 31 16:11:25 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000466.html">[OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#467">[ date ]</a>
+              <a href="thread.html#467">[ thread ]</a>
+              <a href="subject.html#467">[ subject ]</a>
+              <a href="author.html#467">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The FHoSS can be connected with more then 4 DiameterPeers without any problems. 
+There are Diameter configure files both at FHoSS and at DiameterPeers connected to the FHoSS. Have you modified them correctly?
+
+e.g. at FHoSS:
+
+ &lt;Peer FQDN=&quot;icscf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3869&quot;&gt;
+ &lt;Peer FQDN=&quot;scscf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3870&quot;&gt;
+ &lt;Peer FQDN=&quot;scscf1.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3871&quot;&gt;
+ &lt;Peer FQDN=&quot;scscf2.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3872&quot;&gt;
+
+
+at S-CSCF1: 
+ &lt;DiameterPeer
+	FQDN=&quot;scscf1.open-ims.test&quot;
+	...
+ &gt;
+
+ &lt;Acceptor port=&quot;3871&quot; bind=&quot;127.0.0.1&quot;&gt;
+
+at S-CSCF2:
+ &lt;DiameterPeer
+	FQDN=&quot;scscf2.open-ims.test&quot;
+	...
+ &gt;
+
+ &lt;Acceptor port=&quot;3872&quot; bind=&quot;127.0.0.1&quot;&gt;
+
+- Shengyao
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> 
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] On Behalf 
+</I>&gt;<i> Of fancy_xiao
+</I>&gt;<i> Sent: Donnerstag, 31. Mai 2007 05:45
+</I>&gt;<i> To: openimscore-hss
+</I>&gt;<i> Subject: [OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> openimscore-hss&#65292;&#20320;&#22909; 
+</I>&gt;<i>   
+</I>&gt;<i>  when FHoSS Peers increase to 4 or more, the Cx Client can't 
+</I>&gt;<i> conneted to FHoSS&#65281; why? 
+</I>&gt;<i>   
+</I>&gt;<i>   
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> 
+</I>&gt;<i> 2007-05-31 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000466.html">[OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#467">[ date ]</a>
+              <a href="thread.html#467">[ thread ]</a>
+              <a href="subject.html#467">[ subject ]</a>
+              <a href="author.html#467">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

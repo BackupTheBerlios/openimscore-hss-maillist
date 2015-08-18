@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data	does not exist
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%3A%20package%20de.fhg.fokus.zh.data%0A%09does%20not%20exist&In-Reply-To=%3C1168260448.4034.23.camel%40bulwp125.europe.nokia.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000120.html">
+   <LINK REL="Next"  HREF="000127.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data	does not exist</H1>
+    <B>Zoltan Toth</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%3A%20package%20de.fhg.fokus.zh.data%0A%09does%20not%20exist&In-Reply-To=%3C1168260448.4034.23.camel%40bulwp125.europe.nokia.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data	does not exist">zoltan.1.toth at nokia.com
+       </A><BR>
+    <I>Mon Jan  8 13:47:28 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000120.html">[OpenIMSCore-HSS] No PPR sent on changing the service profile
+</A></li>
+        <LI>Next message: <A HREF="000127.html">[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data does not exist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#122">[ date ]</a>
+              <a href="thread.html#122">[ thread ]</a>
+              <a href="subject.html#122">[ subject ]</a>
+              <a href="author.html#122">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I tried to compile the daily snapshot from FHoSS20061214.r0072.tgz.
+`ant compile' failed with the following errors:
+
+    [javac] /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:49: package de.fhg.fokus.zh.data does not exist
+    [javac] import de.fhg.fokus.zh.data.Guss;
+    [javac]                             ^
+    [javac] /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:64: cannot find symbol
+    [javac] symbol  : class Guss
+    [javac] location: class de.fhg.fokus.zh.ZhAuthDataResponse
+    [javac]     private Guss guss;
+    [javac]             ^
+...
+(Total: 36 errors)
+
+I checked and the named package and its classes are really not included
+in the snapshot. Moreover, I can't see them if I browse the SVN source.
+
+Have these files been forgotten to be checked into SVN?
+
+BR,
+
+Elek
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000120.html">[OpenIMSCore-HSS] No PPR sent on changing the service profile
+</A></li>
+	<LI>Next message: <A HREF="000127.html">[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data does not exist
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#122">[ date ]</a>
+              <a href="thread.html#122">[ thread ]</a>
+              <a href="subject.html#122">[ subject ]</a>
+              <a href="author.html#122">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS - Compilation error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-%20Compilation%20error&In-Reply-To=%3C1172736669.11159.3.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000226.html">
+   <LINK REL="Next"  HREF="000227.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS - Compilation error</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-%20Compilation%20error&In-Reply-To=%3C1172736669.11159.3.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] HSS - Compilation error">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Mar  1 09:11:09 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000226.html">[OpenIMSCore-HSS] HSS - Compilation error
+</A></li>
+        <LI>Next message: <A HREF="000227.html">[OpenIMSCore-HSS] FHoSS user register error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#228">[ date ]</a>
+              <a href="thread.html#228">[ thread ]</a>
+              <a href="subject.html#228">[ subject ]</a>
+              <a href="author.html#228">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+this error is not related to the JAVA_HOME environment but to missing
+Internet connection. Please see
+<A HREF="http://www.openimscore.org/docs/faq.html#HSS">http://www.openimscore.org/docs/faq.html#HSS</A> for hints on how to fix it.
+
+Best regards,
+
+Peter
+
+On Thu, 2007-03-01 at 11:45 +0530, SRINI VASAN.R.J wrote:
+&gt;<i>  Hi Prateek,
+</I>&gt;<i>      
+</I>&gt;<i>            I set the JAVA_HOME enviroinmental variable then i tried
+</I>&gt;<i> ant gen compile command, I encountered the same error.Some Packages
+</I>&gt;<i> are missing (FHoSS.FHoSS.src.de.fhg.fokus.zh.data  package is missing)
+</I>&gt;<i>  
+</I>&gt;<i> Regards,
+</I>&gt;<i> Srinivasan .R.J
+</I>&gt;<i>    
+</I>&gt;<i>  
+</I>&gt;<i> On 3/1/07, Shadangi Prateek-a24134 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">prateek at motorola.com</A>&gt; wrote: 
+</I>&gt;<i>         Hi Srini,
+</I>&gt;<i>         You have to set JAVA_HOME environment variable to the dir
+</I>&gt;<i>         where you have installed java before doing ant gen compile
+</I>&gt;<i>         deploy.
+</I>&gt;<i>         e:g
+</I>&gt;<i>         $ export JAVA_HOME=/usr/java
+</I>&gt;<i>          
+</I>&gt;<i>         Regards,
+</I>&gt;<i>         Prateek
+</I>&gt;<i>         
+</I>&gt;<i>         
+</I>&gt;<i>         ______________________________________________________________
+</I>&gt;<i>         From: SRINI VASAN.R.J [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rjsrinivasan at gmail.com</A>] 
+</I>&gt;<i>         Sent: Thursday, March 01, 2007 10:42 AM
+</I>&gt;<i>         To: Shadangi Prateek-a24134
+</I>&gt;<i>         Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> 
+</I>&gt;<i>         
+</I>&gt;<i>         Subject: Re: [OpenIMSCore-HSS] HSS - Compilation error
+</I>&gt;<i>         
+</I>&gt;<i>         
+</I>&gt;<i>          
+</I>&gt;<i>         
+</I>&gt;<i>          Hi prateek,
+</I>&gt;<i>          
+</I>&gt;<i>                   i didnt set JAVA_HOME, I set java path is env
+</I>&gt;<i>         PATH.whether that is enough, I am configuring HSS on Linux
+</I>&gt;<i>         machine.
+</I>&gt;<i>          
+</I>&gt;<i>         Regards,
+</I>&gt;<i>         Srini.
+</I>&gt;<i>         
+</I>&gt;<i>          
+</I>&gt;<i>         On 3/1/07, Shadangi Prateek-a24134 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">prateek at motorola.com</A>&gt;
+</I>&gt;<i>         wrote: 
+</I>&gt;<i>                 Hi Srini,
+</I>&gt;<i>                 Just to make sure, Have you set JAVA_HOME env varibale
+</I>&gt;<i>                 before doing ant gen compile deploy.
+</I>&gt;<i>                  
+</I>&gt;<i>                 Regards,
+</I>&gt;<i>                 Prateek
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 ______________________________________________________
+</I>&gt;<i>                 From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+</I>&gt;<i>                 [mailto: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] On
+</I>&gt;<i>                 Behalf Of SRINI VASAN.R.J
+</I>&gt;<i>                 Sent: Thursday, March 01, 2007 10:10 AM
+</I>&gt;<i>                 To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> 
+</I>&gt;<i>                 Subject: Re: [OpenIMSCore-HSS] HSS - Compilation error
+</I>&gt;<i>                 
+</I>&gt;<i>                  
+</I>&gt;<i>                 
+</I>&gt;<i>                 Hi,
+</I>&gt;<i>                 
+</I>&gt;<i>                     While i am trying to compile Hss, I encountered
+</I>&gt;<i>                 following errors , It saying some package is missing,
+</I>&gt;<i>                 I got some suggestions from Umut but still that
+</I>&gt;<i>                 problem is not resolved. I am using java 1.5.0.11
+</I>&gt;<i>                 
+</I>&gt;<i>                  ---------------------------------------------------------------------------------------------------- 
+</I>&gt;<i>                 
+</I>&gt;<i>                  [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at CSCF</A> ~]# java -version
+</I>&gt;<i>                 
+</I>&gt;<i>                 java version &quot;1.5.0_11&quot;
+</I>&gt;<i>                 
+</I>&gt;<i>                 Java(TM) 2 Runtime Environment, Standard Edition
+</I>&gt;<i>                 (build 1.5.0_11-b03)
+</I>&gt;<i>                 
+</I>&gt;<i>                 Java HotSpot(TM) Client VM (build 1.5.0_11-b03, mixed
+</I>&gt;<i>                 mode, sharing)
+</I>&gt;<i>                 
+</I>&gt;<i>                 ----------------------------------------------------------------------------------------------------
+</I>&gt;<i>                 
+</I>&gt;<i>                  [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at CSCF</A> FHoSS]# ant compile
+</I>&gt;<i>                 
+</I>&gt;<i>                 Buildfile: build.xml
+</I>&gt;<i>                 
+</I>&gt;<i>                 init:
+</I>&gt;<i>                 
+</I>&gt;<i>                 compile:
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] Compiling 126 source files
+</I>&gt;<i>                 to /opt/OpenIMSCore/FHoSS/FHoSS/bin 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] Note: Some input files use unchecked or
+</I>&gt;<i>                 unsafe operations.
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] Note: Recompile with -Xlint:unchecked for
+</I>&gt;<i>                 details.
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] Compiling 282 source files
+</I>&gt;<i>                 to /opt/OpenIMSCore/FHoSS/FHoSS/bin
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:49: package de.fhg.fokus.zh.data does not exist
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.Guss;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:64: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.zh.ZhAuthDataResponse
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]     private Guss guss;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:69: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.zh.ZhAuthDataResponse
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]     public Guss getGuss()
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]            ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:76: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.zh.ZhAuthDataResponse
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]     public void setGuss(Guss guss)
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java:64: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.Guss;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:75: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.BsfInfo;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:76: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.Flags;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:77: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.Guss;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:78: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.TflagsItem;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:79: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.TuidsItem;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:80: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.TussListItem;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java :81: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.Uids;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:82: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.Uss;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:83: package de.fhg.fokus.zh.data does not exist 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] import de.fhg.fokus.zh.data.UssList;
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:169: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]     private Guss generateGuss() 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:238: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Flags
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]     private void buildFlags(int value,
+</I>&gt;<i>                 Flags flagList){
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                                        ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java:185: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.diam.zh.MARzhCommandListener
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         Guss guss =
+</I>&gt;<i>                 authDataResponse.getGuss();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:152: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             Guss guss = generateGuss();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:173: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         Guss guss = new Guss();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:173: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Guss
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         Guss guss = new Guss();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:178: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class BsfInfo
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         BsfInfo bsfInfo = new BsfInfo();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:178: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class BsfInfo
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         BsfInfo bsfInfo = new BsfInfo();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                               ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:190: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Uids
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         Uids uids = new Uids();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:190: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class Uids
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         Uids uids = new Uids();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:195: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class TuidsItem
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             TuidsItem item = new
+</I>&gt;<i>                 TuidsItem();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:195: cannot find symbol 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class TuidsItem
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             TuidsItem item = new
+</I>&gt;<i>                 TuidsItem();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                                  ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:201: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class UssList
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         UssList ussList = new UssList();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:201: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class UssList
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]         UssList ussList = new UssList(); 
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                               ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:208: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class TussListItem
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             TussListItem ussItem = new
+</I>&gt;<i>                 TussListItem();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             ^
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 [javac] /opt/OpenIMSCore/FHoSS/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java:208: cannot find symbol
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] symbol  : class TussListItem
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac] location: class
+</I>&gt;<i>                 de.fhg.fokus.hss.server.zh.HSSzhOperationsImpl
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]             TussListItem ussItem = new
+</I>&gt;<i>                 TussListItem();
+</I>&gt;<i>                 
+</I>&gt;<i>                     [javac]                                       ^ 
+</I>&gt;<i>                 
+</I>&gt;<i>                 Thanks &amp; Regards,
+</I>&gt;<i>                 
+</I>&gt;<i>                 Srinivasan.R.J
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>                  
+</I>&gt;<i>                 On 2/28/07, Umut Emin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">umut.emin at fokus.fraunhofer.de</A> &gt;
+</I>&gt;<i>                 wrote: 
+</I>&gt;<i>                         Hello Srinivasan,
+</I>&gt;<i>                         
+</I>&gt;<i>                         i checked out the latest revision(158) and did
+</I>&gt;<i>                         a
+</I>&gt;<i>                         ant gen compile deploy. There were no
+</I>&gt;<i>                         problems. I 
+</I>&gt;<i>                         guess you haven't installed all packages that
+</I>&gt;<i>                         is
+</I>&gt;<i>                         needed for the FHoSS.
+</I>&gt;<i>                         
+</I>&gt;<i>                         Get the latest version of FHoSS properly and
+</I>&gt;<i>                         check out
+</I>&gt;<i>                         these two links and see if you have something
+</I>&gt;<i>                         missing.
+</I>&gt;<i>                         <A HREF="http://openimscore.org/docs/install.html#step3">http://openimscore.org/docs/install.html#step3</A>
+</I>&gt;<i>                         <A HREF="http://openimscore.org/docs/FHoSS/index.html">http://openimscore.org/docs/FHoSS/index.html</A> 
+</I>&gt;<i>                         
+</I>&gt;<i>                         Greetz,
+</I>&gt;<i>                         Umut
+</I>&gt;<i>                         
+</I>&gt;<i>                         On Wed, 2007-02-28 at 22:10 +0530, SRINI
+</I>&gt;<i>                         VASAN.R.J wrote:
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt; Hi,
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt;         When  i am trying to compile hss
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt;    First i did :  ant gen -- It was
+</I>&gt;<i>                         sucessfull 
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt;    then    i tried with ant compile -- some
+</I>&gt;<i>                         packages are missing 
+</I>&gt;<i>                         &gt; (package
+</I>&gt;<i>                         openimscore.FHoSS.trunk.src.de.fhg.fokus.zh.data is
+</I>&gt;<i>                         &gt; missing) . I dont know how to proceed
+</I>&gt;<i>                         further. If any of come accross 
+</I>&gt;<i>                         &gt; the same problem. Let me know the details.
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt;  Thank you, 
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         &gt; Regards,
+</I>&gt;<i>                         &gt; Srinivasan.R.J
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         _______________________________________________
+</I>&gt;<i>                         &gt; OpenIMSCore-HSS mailing list 
+</I>&gt;<i>                         &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> 
+</I>&gt;<i>                         &gt;
+</I>&gt;<i>                         <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>                         
+</I>&gt;<i>                 
+</I>&gt;<i>                 
+</I>&gt;<i>         
+</I>&gt;<i>         
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000226.html">[OpenIMSCore-HSS] HSS - Compilation error
+</A></li>
+	<LI>Next message: <A HREF="000227.html">[OpenIMSCore-HSS] FHoSS user register error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#228">[ date ]</a>
+              <a href="thread.html#228">[ thread ]</a>
+              <a href="subject.html#228">[ subject ]</a>
+              <a href="author.html#228">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

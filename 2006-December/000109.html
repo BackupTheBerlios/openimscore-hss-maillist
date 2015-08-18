@@ -1,0 +1,465 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] compile FHoss error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20compile%20FHoss%20error&In-Reply-To=%3C20061221093108.49869D24B9%40mail.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000111.html">
+   <LINK REL="Next"  HREF="000110.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] compile FHoss error</H1>
+    <B>zhengbiao.wan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20compile%20FHoss%20error&In-Reply-To=%3C20061221093108.49869D24B9%40mail.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] compile FHoss error">zhengbiao.wan at vlichina.com
+       </A><BR>
+    <I>Thu Dec 21 10:29:53 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000111.html">[OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot;	afterentering roaming-data
+</A></li>
+        <LI>Next message: <A HREF="000110.html">[OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot; after	entering roaming-data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#109">[ date ]</a>
+              <a href="thread.html#109">[ thread ]</a>
+              <a href="subject.html#109">[ subject ]</a>
+              <a href="author.html#109">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi:
+
+Ok.Problem have resolved following your comments.Thanks!
+
+However ,other error occur when compiling   FHoSS20061214.r0072.tgz packet .
+Anybody can give me some advise ?Thanks!
+
+ 
+
+Best regards
+
+                                             Tandy
+
+Following Log:
+
+Buildfile: build.xml
+
+ 
+
+init:
+
+ 
+
+compile:
+
+    [javac] Compiling 329 source files to /home/vimp/OpenIMSCore/FHoSS/bin
+
+    [javac]
+/home/vimp/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/codec/HexCoDec.java:7
+1: error: Invalid checked exception class
+`de.fhg.fokus.milenage.codec.CoDecException' in `throws' clause. The
+exception must be a subclass of an exception thrown by
+`de.fhg.fokus.milenage.codec.CoDecImpl.decode(java.lang.String,int)' from
+class `de.fhg.fokus.milenage.codec.CoDecImpl'.
+
+    [javac]        public byte[] decode(String string, int requestedLength)
+
+    [javac]                      ^
+
+    [javac]
+/home/vimp/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/codec/HexCoDec.java:9
+3: error: Invalid checked exception class
+`de.fhg.fokus.milenage.codec.CoDecException' in `throws' clause. The
+exception must be a subclass of an exception thrown by
+`de.fhg.fokus.milenage.codec.CoDecImpl.encode(byte[],int,int)' from class
+`de.fhg.fokus.milenage.codec.CoDecImpl'.
+
+    [javac]        public String encode(byte[] bytes, int requestedLength,
+int startIndex)
+
+    [javac]                      ^
+
+    [javac]
+/home/vimp/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/codec/Base64CoDec.jav
+a:88: error: Invalid checked exception class
+`de.fhg.fokus.milenage.codec.CoDecException' in `throws' clause. The
+exception must be a subclass of an exception thrown by
+`de.fhg.fokus.milenage.codec.CoDecImpl.decode(java.lang.String,int)' from
+class `de.fhg.fokus.milenage.codec.CoDecImpl'.
+
+    [javac]        public byte[] decode(String string, int requestedLength)
+throws CoDecException
+
+    [javac]                      ^
+
+    [javac]
+/home/vimp/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/codec/Base64CoDec.jav
+a:101: error: Invalid checked exception class
+`de.fhg.fokus.milenage.codec.CoDecException' in `throws' clause. The
+exception must be a subclass of an exception thrown by
+`de.fhg.fokus.milenage.codec.CoDecImpl.encode(byte[],int,int)' from class
+`de.fhg.fokus.milenage.codec.CoDecImpl'.
+
+    [javac]        public String encode(byte[] bytes, int requestedLength,
+int startIndex) throws CoDecException
+
+    [javac]                      ^
+
+    [javac] 4 errors
+
+ 
+
+BUILD FAILED
+
+file:/home/vimp/OpenIMSCore/FHoSS/build.xml:89: Compile failed; see the
+compiler error output for details.
+
+ 
+
+ 
+
+  _____  
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A>] 
+Sent: 2006&#24180;12&#26376;21&#26085; 14:35
+To: zhengbiao.wan
+Subject: Re: compile FHoss error
+
+ 
+
+
+
+Hi, Hope the machine on which u want to compile doesn't have an Internet
+connection. You need to copy a specific xml file, and make a single line
+change in xsd directory and Zh.. file. For this go through this:
+<A HREF="000078.html">http://lists.berlios.de/pipermail/openimscore-hss/2006-December/000078.html</A>
+
+Cheers
+
+Ashish Chaturvedi
+Tata Consultancy Services
+TCS Towers, 249 D&amp;E Udyog Vihar,
+Phase IV, Gurgaon
+Gurgaon,Haryana
+India
+Mailto: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A>
+Website: <A HREF="http://www.tcs.com">http://www.tcs.com</A>
+
+ 
+&quot;zhengbiao.wan&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">zhengbiao.wan at vlichina.com</A>&gt;
+12/20/2006 13:39 ZE8
+
+To   &quot;'Adrian-Daniel Popescu'&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>&gt;,
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A>&gt;
+cc   &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>&gt;
+bcc   
+Subject   compile FHoss error
+ 
+
+Hello&#65292;all:
+Anybody can interpret following error while anting compile FHoSS packet
+in linux platform.Thanks!
+Compiling 329 source files to /home/vimp/FHoSS/bin
+[javac] /home/vimp/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:49:
+error: Class or interface `de.fhg.fokus.zh.data.Guss' not found in import.
+
+[javac]    import de.fhg.fokus.zh.data.Guss;
+[javac]           ^
+[javac] /home/vimp/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:64:
+
+error: Type `Guss' not found in declaration of field `guss'.
+[javac]        private Guss guss;
+[javac]                ^
+[javac] /home/vimp/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:69:
+error: Type `Guss' not found in the declaration of the return type of method
+`getGuss'.
+
+[javac]        public Guss getGuss()
+[javac]               ^
+[javac] /home/vimp/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:76:
+
+error: Type `Guss' not found in the declaration of the argument `guss' of
+method `setGuss'.
+
+[javac]        public void setGuss(Guss guss)
+[javac]                            ^
+[javac]
+
+/home/vimp/FHoSS/src/de/fhg/fokus/zh/exceptions/UnknownImpi.java:0: internal
+compiler error: Segmentation fault
+
+[javac] Please submit a full bug report,
+[javac] with preprocessed source if appropriate.
+[javac] See &lt;URL:<A HREF="http://bugzilla.redhat.com/bugzilla/">http://bugzilla.redhat.com/bugzilla/</A>&gt; for instructions.
+
+BUILD FAILED
+file:/home/vimp/FHoSS/build.xml:89: Compile failed; see the compiler error
+output for details.
+
+
+best regards
+tandy
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] On Behalf Of Adrian-Daniel
+Popescu
+Sent: 2006&#24180;12&#26376;19&#26085; 1:02
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A>
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: Re: [OpenIMSCore-HSS] java.sql.SQLException: Connections could not
+be acquired from the underlying database!
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hello Ashish,
+
+Very strange... this problem is persistent or only occurs from time to
+time? We have some problems with hibernate, and we are working in
+solving them but these occurs only casually and refers to the connectors
+that hibernate use in operating with the database.
+
+If your error is persistent, please test if the hss user (not the root
+user!) has the rights in operating with &quot;hssdb&quot;. Normally this is
+automatically set after you run the sql scripts in the last command
+(grant all privileges...) but maybe an unusual operation occurred and
+this operation wasn't executed correctly. If hss user has no rights to
+operate with the database, the hibernate connection will fail always.
+Probably this is your problem.
+
+Cheers,
+Adrian
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A> wrote:
+&gt;<i> Hi,
+</I>&gt;<i> I finished entire deployments without any errors and even mysql database
+</I>is
+&gt;<i> in running condition. But when i executed HSS and tried to operate it
+</I>&gt;<i> through the web link, I am facing some problem in accessing database.
+</I>&gt;<i> The error reported in web page is:
+</I>&gt;<i>
+</I>&gt;<i> org.hibernate.exception.GenericJDBCException: Cannot open connection
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.exception.ErrorCodeConverter.handledNonSpecificException(Error
+CodeConverter.java:92)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.exception.ErrorCodeConverter.convert(ErrorCodeConverter.java:8
+0)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java
+:<i>43)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java
+:<i>29)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:3
+01)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.jdbc.ConnectionManager.getConnection(ConnectionManager.java:11
+0)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.jdbc.AbstractBatcher.prepareQueryStatement(AbstractBatcher.jav
+a:88)
+&gt;<i>       at
+</I>&gt;<i> org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:1162)
+</I>&gt;<i>       at org.hibernate.loader.Loader.doQuery(Loader.java:390)
+</I>&gt;<i>       at
+</I>&gt;<i> org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.
+</I>java:218)
+&gt;<i>       at org.hibernate.loader.Loader.doList(Loader.java:1593)
+</I>&gt;<i>       at org.hibernate.loader.Loader.list(Loader.java:1577)
+</I>&gt;<i>       at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:395)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:271)
+&gt;<i>       at org.hibernate.impl.SessionImpl.list(SessionImpl.java:844)
+</I>&gt;<i>       at org.hibernate.impl.QueryImpl.list(QueryImpl.java:74)
+</I>&gt;<i>       at
+</I>&gt;<i> de.fhg.fokus.hss.action.ImsuSearchAction.execute(ImsuSearchAction.java:88)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.struts.action.RequestProcessor.processActionPerform(RequestProces
+sor.java:419)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:224)
+&gt;<i>       at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i>       at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i>       at javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i>       at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Application
+FilterChain.java:252)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterCh
+ain.java:173)
+&gt;<i>       at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.
+</I>java:213)
+&gt;<i>       at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.
+</I>java:178)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase
+.java:482)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126
+)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105
+)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java
+:<i>107)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+&gt;<i>       at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConne
+ction(Http11Protocol.java:744)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.jav
+a:527)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWo
+rkerThread.java:80)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.jav
+a:684)
+&gt;<i>       at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i> Caused by: java.sql.SQLException: Connections could not be acquired from
+</I>&gt;<i> the underlying database!
+</I>&gt;<i>       at com.mchange.v2.sql.SqlUtils.toSQLException(SqlUtils.java:104)
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C
+3P0PooledConnectionPool.java:264)
+&gt;<i>       at
+</I>&gt;<i>
+</I>com.mchange.v2.c3p0.PoolBackedDataSource.getConnection(PoolBackedDataSource.
+java:94)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.connection.C3P0ConnectionProvider.getConnection(C3P0Connection
+Provider.java:35)
+&gt;<i>       at
+</I>&gt;<i>
+</I>org.hibernate.jdbc.ConnectionManager.openConnection(ConnectionManager.java:2
+98)
+&gt;<i>       ... 33 more
+</I>&gt;<i> Caused by: com.mchange.v2.resourcepool.CannotAcquireResourceException: A
+</I>&gt;<i> ResourcePool could not acquire a resource from its primary factory or
+</I>&gt;<i> source.
+</I>&gt;<i>       at
+</I>&gt;<i>
+</I>com.mchange.v2.resourcepool.BasicResourcePool.awaitAcquire(BasicResourcePool
+.java:972)
+&gt;<i>       at
+</I>&gt;<i>
+</I>com.mchange.v2.resourcepool.BasicResourcePool.checkoutResource(BasicResource
+Pool.java:208)
+&gt;<i>       at
+</I>&gt;<i>
+</I>com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool.checkoutPooledConnection(C
+3P0PooledConnectionPool.java:260)
+&gt;<i>       ... 36 more
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I manually tried logging in mysql with the same user(hss) used by web and
+</I>&gt;<i> got success in performing operations. But when application does so, it
+</I>&gt;<i> fails.
+</I>&gt;<i>
+</I>&gt;<i> Ashish Chaturvedi
+</I>&gt;<i> Mailto: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A>
+</I>&gt;<i> =====-----=====-----=====
+</I>&gt;<i> Notice: The information contained in this e-mail
+</I>&gt;<i> message and/or attachments to it may contain
+</I>&gt;<i> confidential or privileged information. If you are
+</I>&gt;<i> not the intended recipient, any dissemination, use,
+</I>&gt;<i> review, distribution, printing or copying of the
+</I>&gt;<i> information contained in this e-mail message
+</I>&gt;<i> and/or attachments to it are strictly prohibited. If
+</I>&gt;<i> you have received this communication in error,
+</I>&gt;<i> please notify us by reply e-mail or telephone and
+</I>&gt;<i> immediately and permanently delete the message
+</I>&gt;<i> and any attachments. Thank you
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFhslt6Yml36HNIwcRAoIAAJ9RYW6zbPuyopnR2nX/7UWuo/zohACfXPXm
+6bZaaWppqWkcAoFhGuhmw8c=
+=1Sca
+-----END PGP SIGNATURE-----
+_______________________________________________
+OpenIMSCore-HSS mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+
+
+ForwardSourceID:NT0000E116 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061221/dfa4b0db/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061221/dfa4b0db/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000111.html">[OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot;	afterentering roaming-data
+</A></li>
+	<LI>Next message: <A HREF="000110.html">[OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot; after	entering roaming-data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#109">[ date ]</a>
+              <a href="thread.html#109">[ thread ]</a>
+              <a href="subject.html#109">[ subject ]</a>
+              <a href="author.html#109">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

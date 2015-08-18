@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Question about RTR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Question%20about%20RTR&In-Reply-To=%3C4794944E.9020106%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000717.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Question about RTR</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Question%20about%20RTR&In-Reply-To=%3C4794944E.9020106%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Question about RTR">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jan 21 13:47:10 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000717.html">[OpenIMSCore-HSS] Question about RTR
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#718">[ date ]</a>
+              <a href="thread.html#718">[ thread ]</a>
+              <a href="subject.html#718">[ subject ]</a>
+              <a href="author.html#718">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>This is probably a matter of operator specific trigger. We have some
+buttons so far. Probably a triggering interface would be very useful. I
+expect that this functionality is indicated in the Subscription
+Management interfaces - see the 3GPP specs on IMS Management R7/8 - see:
+
+Requirements &#8211; 32.140 7.0.0
+Architecture &#8211; 32.141 7.0.0
+IRP Requirements &#8211; 32.171 7.0.0
+IRP IS &#8211; 32.172 7.0.0
+IRP Bulk CM XML SS &#8211; 32.175 7.0.0
+
+
+Cheers,
+-Dragos
+
+Rosa Maria Martinez Perallon wrote:
+&gt;<i>  
+</I>&gt;<i> Hello again,
+</I>&gt;<i>
+</I>&gt;<i> This information is useful for me but I think I didn't ask my question
+</I>&gt;<i> properly.
+</I>&gt;<i> What I would like to know is what might happen in the HSS before it
+</I>&gt;<i> sends the RTR to the S-CSCF. 
+</I>&gt;<i> I don't know which diameter message may trigger the RTR in the HSS. 
+</I>&gt;<i> For example, I don't think that the HSS makes the decision of S-CSCF
+</I>&gt;<i> re-direction, who decides this and how to notify the HSS? 
+</I>&gt;<i>
+</I>&gt;<i> As Franz said, if a cell phone is stolen how to do this de-registration?
+</I>&gt;<i> modyfing manually the HSS? Sending a specific message to the HSS?
+</I>&gt;<i>
+</I>&gt;<i> Thank you for your answers
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Dragos.Vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Monday, January 21, 2008 12:23 PM
+</I>&gt;<i> To: Rosa Maria Martinez Perallon
+</I>&gt;<i> Cc: Franz Edler; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] Question about RTR
+</I>&gt;<i>
+</I>&gt;<i> I don't remember exactly the docs, but there are some status-codes that
+</I>&gt;<i> can be returned together with the &quot;reg&quot; event package, which indicate a
+</I>&gt;<i> lot of the intended use.
+</I>&gt;<i>
+</I>&gt;<i> The RTR could indicate a permanent de-registration and the user should
+</I>&gt;<i> not retry to re-register - e.g. subscription terminated immediately. Or
+</I>&gt;<i> it could be temporary and the user should retry - for SIM card
+</I>&gt;<i> invalidation or when there is a doubt about a user's security measures.
+</I>&gt;<i> Also something interesting that can be achieved for a carrier grade
+</I>&gt;<i> network would be to move subscribers from an S-CSCF to another in a nice
+</I>&gt;<i> manner - then they all receive such a RTR which just indicates that they
+</I>&gt;<i> should re-register. When they do, the network would orchestrate a nice
+</I>&gt;<i> re-direction.
+</I>&gt;<i>
+</I>&gt;<i> P.S. - it's the right list - just that general IMS questions sometimes
+</I>&gt;<i> have lower priority.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i> Franz Edler wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> The thing is that I have read in the TS 29.228 document that the HSS 
+</I>&gt;&gt;&gt;<i> can initiate de-registration for a user due to administrative
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i> reasons.
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> Could you give me any example of something that might trigger this?
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i> When your handy has been stolen and you want it to be locked.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards
+</I>&gt;&gt;<i> Franz
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> -----------------------------------------
+</I>&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> Fraunhofer FOKUS/NGNI
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin,Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> Mobile +49 (0)176 - 48 32 16 00
+</I>&gt;<i> Web www.fokus.fraunhofer.de www.openimscore.org We could change the
+</I>&gt;<i> world if God would give us the source code...
+</I>&gt;<i> -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)176 - 48 32 16 00
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000717.html">[OpenIMSCore-HSS] Question about RTR
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#718">[ date ]</a>
+              <a href="thread.html#718">[ thread ]</a>
+              <a href="subject.html#718">[ subject ]</a>
+              <a href="author.html#718">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS console not up.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20console%20not%20up.&In-Reply-To=%3C468E6DE9.6010900%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000578.html">
+   <LINK REL="Next"  HREF="000579.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS console not up.</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20console%20not%20up.&In-Reply-To=%3C468E6DE9.6010900%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSS console not up.">adp at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Jul  6 18:29:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000578.html">[OpenIMSCore-HSS] HSS console not up.
+</A></li>
+        <LI>Next message: <A HREF="000579.html">[OpenIMSCore-HSS] [SVN-FHoSS] r386 - Fixed IMPI load on NULL	Charging-Info-Set
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#581">[ date ]</a>
+              <a href="thread.html#581">[ thread ]</a>
+              <a href="subject.html#581">[ subject ]</a>
+              <a href="author.html#581">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi Harish,
+
+There was a small bug in the embedded tomcat configuration which was
+causing this strange behaviour. Please update to last revision and try
+again. I've just committed the update.
+
+Regards,
+Adrian
+
+
+It was a setting forgotten into the embedded Tomcat.
+
+harish kulkarni wrote:
+&gt;<i> Hello All,
+</I>&gt;<i>  
+</I>&gt;<i> I am interested in testing 'Sh' interface. And not interested in
+</I>&gt;<i> bring-up cscf functionality.
+</I>&gt;<i>  
+</I>&gt;<i> I have compiled HSS and brought it up, and verified mysql db
+</I>&gt;<i> connectivity using...
+</I>&gt;<i>  
+</I>&gt;<i> &quot;mysql -u hss -p -h localhost&quot; if i pass the password &quot;hss&quot; then i am
+</I>&gt;<i> able to connect to db.
+</I>&gt;<i>  
+</I>&gt;<i> on browser hss console is not coming up. i am using this link to connect
+</I>&gt;<i> to HSS console == &gt; &quot;<A HREF="http://127.0.0.1:8080/hss.web.console">http://127.0.0.1:8080/hss.web.console</A>&quot;
+</I>&gt;<i>  
+</I>&gt;<i> Could some body help me to understand what's worng.. is there any log
+</I>&gt;<i> file which i can refer to know what's happening on the console interface?.
+</I>&gt;<i>  
+</I>&gt;<i> -Thanks in advance
+</I>&gt;<i>  
+</I>&gt;<i> Harish
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGjm3p6Yml36HNIwcRAg4KAJ4gmeS17N1HyR3j0n37HOplAITAWgCfXCF2
+eSwBkNfwIQ3kOamfjI+nca4=
+=udsT
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000578.html">[OpenIMSCore-HSS] HSS console not up.
+</A></li>
+	<LI>Next message: <A HREF="000579.html">[OpenIMSCore-HSS] [SVN-FHoSS] r386 - Fixed IMPI load on NULL	Charging-Info-Set
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#581">[ date ]</a>
+              <a href="thread.html#581">[ thread ]</a>
+              <a href="subject.html#581">[ subject ]</a>
+              <a href="author.html#581">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

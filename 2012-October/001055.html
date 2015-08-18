@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Deploying Web Service in FHoSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2012-October/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Deploying%20Web%20Service%20in%20FHoSS&In-Reply-To=%3CCAOCjumHZ8%3D92_dBgH5YZp2GTxwcFkXuvX0v5md7ErzvZCZqQVQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001054.html">
+   <LINK REL="Next"  HREF="001056.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Deploying Web Service in FHoSS</H1>
+    <B>Carsten Bock</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Deploying%20Web%20Service%20in%20FHoSS&In-Reply-To=%3CCAOCjumHZ8%3D92_dBgH5YZp2GTxwcFkXuvX0v5md7ErzvZCZqQVQ%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Deploying Web Service in FHoSS">carstenbock at users.sourceforge.net
+       </A><BR>
+    <I>Wed Oct  3 13:47:25 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001054.html">[OpenIMSCore-HSS] Deploying Web Service in FHoSS
+</A></li>
+        <LI>Next message: <A HREF="001056.html">[OpenIMSCore-HSS] Deploying Web Service in FHoSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1055">[ date ]</a>
+              <a href="thread.html#1055">[ thread ]</a>
+              <a href="subject.html#1055">[ subject ]</a>
+              <a href="author.html#1055">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+just for the record:
+I've never seen a common way to provision a HSS. All proprietary HSS'
+had a proprietary interface for provisioning accounts...
+
+Carsten
+
+2012/10/3 Jo&#227;o Miguel Penetra &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">miguel.penetra at gmail.com</A>&gt;:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Yes I know that you're not supposed to use it for real-life deployments but
+</I>&gt;<i> as I am a student that is doing research in this area I want to get as close
+</I>&gt;<i> as possible to real HSS. I just wanted to know if there is a defined
+</I>&gt;<i> specification on how this is done. I'm just trying to follow specifications
+</I>&gt;<i> but I haven't found anything on this matter.
+</I>&gt;<i>
+</I>&gt;<i> Thanks once again,
+</I>&gt;<i> Jo&#227;o
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 3 October 2012 12:37, Carsten Bock &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">carstenbock at users.sourceforge.net</A>&gt;
+</I>&gt;<i> wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> of course this can be done with any language, where you can speak with
+</I>&gt;&gt;<i> a MySQL-Server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please bear in mind: The Fraunhofer HSS / FHoSS is for research and
+</I>&gt;&gt;<i> development and not for real-life deployment. Thus it scales not very
+</I>&gt;&gt;<i> well (it doesn't have to) and the Webfrontend is the only way to add
+</I>&gt;&gt;<i> users    &quot;normally&quot;. You should not use it for real-life
+</I>&gt;&gt;<i> deployments...
+</I>&gt;&gt;<i> Other HSS's will have a proper interface for mass deployments.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Carsten
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2012/10/3 Jo&#227;o Miguel Penetra &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">miguel.penetra at gmail.com</A>&gt;:
+</I>&gt;&gt;<i> &gt; I'm still analyzing requirements but I'll probably use Java in my
+</I>&gt;&gt;<i> &gt; webserver.
+</I>&gt;&gt;<i> &gt; Is this only possible with PHP? Can you give me more information about
+</I>&gt;&gt;<i> &gt; how
+</I>&gt;&gt;<i> &gt; this is done? Just to be safe, are you sure that there is no standard
+</I>&gt;&gt;<i> &gt; way to
+</I>&gt;&gt;<i> &gt; do this provisioning? How is it done normally? I know I can have
+</I>&gt;&gt;<i> &gt; transparent
+</I>&gt;&gt;<i> &gt; data in HSS but I think that it's better to separate different types of
+</I>&gt;&gt;<i> &gt; contents in more than one database.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Thanks a lot for your fasts answers,
+</I>&gt;&gt;<i> &gt; Jo&#227;o
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; On 3 October 2012 10:37, Carsten Bock
+</I>&gt;&gt;<i> &gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">carstenbock at users.sourceforge.net</A>&gt;
+</I>&gt;&gt;<i> &gt; wrote:
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; No necessarily a shell script. On the webserver, where the clients can
+</I>&gt;&gt;<i> &gt;&gt; register, you are probably running PHP? So you could let your
+</I>&gt;&gt;<i> &gt;&gt; webserver add them to the database. Or you could simply write a SOAP
+</I>&gt;&gt;<i> &gt;&gt; to MySQL-API using PHP if you want to...
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; Carsten
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; 2012/10/3 Jo&#227;o Miguel Penetra &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">miguel.penetra at gmail.com</A>&gt;:
+</I>&gt;&gt;<i> &gt;&gt; &gt; Hello,
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; The thing is that my Web Server where the clients register themselves
+</I>&gt;&gt;<i> &gt;&gt; &gt; is
+</I>&gt;&gt;<i> &gt;&gt; &gt; not
+</I>&gt;&gt;<i> &gt;&gt; &gt; the same as the one that is running FHoSS. Are you suggesting I
+</I>&gt;&gt;<i> &gt;&gt; &gt; should
+</I>&gt;&gt;<i> &gt;&gt; &gt; run a
+</I>&gt;&gt;<i> &gt;&gt; &gt; shell script to provision new users?
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; Jo&#227;o
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; On 2 October 2012 16:30, Carsten Bock &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">carsten at ng-voice.com</A>&gt; wrote:
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Hi,
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; depending on, what you want to do, you could always write directly
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; into the database...
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Carsten
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; 2012/10/1 Jo&#227;o Miguel Penetra &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">miguel.penetra at gmail.com</A>&gt;:
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; Hello, I have two questions for you tonight.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; I am doing research on IMS and I'm trying to create a way to
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; Provision
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; HSS with new accounts from a separate server where the users are
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; going
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; to
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; register with my service. I read references and searched a lot but
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; I
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; didn't
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; find any better way than implementing a web service on HSS to make
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; provision. Is there a better way to do this?
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; The other problem is that I am unable to deploy applications to
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; modified
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; tomcat that you created. Can you please tell me if this is
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; possible?
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; I've
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; unlocked the manager page on the web client but I can't make use
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; of
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; deployment options there. I also tried to deploy by hand but I
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; suppose
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; auto deployment option is turned off.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; Thanks for your time,
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; Jo&#227;o Miguel Penetra
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; _______________________________________________
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; --
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Carsten Bock
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; CEO (Gesch&#228;ftsf&#252;hrer)
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; ng-voice GmbH
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Schomburgstr. 80
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; D-22767 Hamburg / Germany
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; <A HREF="http://www.ng-voice.com">http://www.ng-voice.com</A>
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">carsten at ng-voice.com</A>
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Office +49 40 34927219
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Fax +49 40 34927220
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Sitz der Gesellschaft: Hamburg
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Registergericht: Amtsgericht Hamburg, HRB 120189
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Gesch&#228;ftsf&#252;hrer: Carsten Bock
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Ust-ID: DE279344284
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Hier finden Sie unsere handelsrechtlichen Pflichtangaben:
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; <A HREF="http://www.ng-voice.com/imprint/">http://www.ng-voice.com/imprint/</A>
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; --
+</I>&gt;&gt;<i> &gt;&gt; &gt; Jo&#227;o Miguel Penetra
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; --
+</I>&gt;&gt;<i> &gt; Jo&#227;o Miguel Penetra
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Jo&#227;o Miguel Penetra
+</I></PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001054.html">[OpenIMSCore-HSS] Deploying Web Service in FHoSS
+</A></li>
+	<LI>Next message: <A HREF="001056.html">[OpenIMSCore-HSS] Deploying Web Service in FHoSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1055">[ date ]</a>
+              <a href="thread.html#1055">[ thread ]</a>
+              <a href="subject.html#1055">[ subject ]</a>
+              <a href="author.html#1055">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

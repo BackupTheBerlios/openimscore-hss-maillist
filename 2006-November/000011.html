@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Howto add a PBX to IFC?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Howto%20add%20a%20PBX%20to%20IFC%3F&In-Reply-To=%3C1164625767.10556.25.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000010.html">
+   <LINK REL="Next"  HREF="000012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Howto add a PBX to IFC?</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Howto%20add%20a%20PBX%20to%20IFC%3F&In-Reply-To=%3C1164625767.10556.25.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] Howto add a PBX to IFC?">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Nov 27 12:09:27 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000010.html">[OpenIMSCore-HSS] Howto add a PBX to IFC?
+</A></li>
+        <LI>Next message: <A HREF="000012.html">[OpenIMSCore-HSS] Howto add a PBX to IFC?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sebastian,
+
+you basically define the SIP URI to be addressed as an application
+server in the FHoSS. Once this one is stored, you simply add a trigger
+point that should trigger the sending of messages to this SIP AS (see
+the default_tp entry in the FHoSS as a reference).
+
+One strange behaviour though is that you have to press &quot;reload&quot; on some
+browsers the first time you access the web management console to make
+the &quot;create&quot; buttons appear (as hssAdmin) - I guess you were referring
+to this ...
+
+Cheers,
+
+Peter
+
+On Mon, 2006-11-27 at 11:44 +0100, Sebastian Felis wrote:
+&gt;<i> Hi all.
+</I>&gt;<i> 
+</I>&gt;<i> is it possible to add a application servers to the Initial Filter 
+</I>&gt;<i> Criteria like a presence agent or PBX? If so, how?
+</I>&gt;<i> 
+</I>&gt;<i> Thank you in advance
+</I>&gt;<i> 
+</I>&gt;<i> Sebastian Felis
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000010.html">[OpenIMSCore-HSS] Howto add a PBX to IFC?
+</A></li>
+	<LI>Next message: <A HREF="000012.html">[OpenIMSCore-HSS] Howto add a PBX to IFC?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

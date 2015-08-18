@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C6F18020CA4C7484E900C66F96C310064%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000845.html">
+   <LINK REL="Next"  HREF="000848.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C6F18020CA4C7484E900C66F96C310064%40notebook%3E"
+       TITLE="[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)">franz.edler at inode.at
+       </A><BR>
+    <I>Tue Aug  5 07:54:07 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000845.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+        <LI>Next message: <A HREF="000848.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#846">[ date ]</a>
+              <a href="thread.html#846">[ thread ]</a>
+              <a href="subject.html#846">[ subject ]</a>
+              <a href="author.html#846">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sundar,
+ 
+&gt;<i> If you think the SAR can only be sent on successful registration, what
+</I>&gt;<i> do you think the SAR types Authentication-Failed,
+</I>&gt;<i> Authentication-Timeout are for? These are defined values in 29.229 and
+</I>&gt;<i> their behaviour is defined in 29.228
+</I>
+I agree. From my point of view there is some text missing in TS 29.228
+&#167;6.3.1. After HSS downloads the SIP-Auth-Data-Item and sets the Public User
+Identity&#146;s authentication pending flag there should be a timer set in
+S-CSCF. After timeout or several unsuccessful authentication attempts the
+S-CSCF should send a SAR with the above mentioned Server-Assignment-Type AVP
+values.
+
+I did not look into the code, but according to your finding there is some
+timeout procedure implemented.
+
+&gt;<i> The spec does define that the S-CSCF can send a SAR with a type of
+</I>&gt;<i> Authentication-Failure or Authentication-Timeout. If these are sent,
+</I>&gt;<i> these would be after the MAR/MAA exchange.
+</I>
+Yes. As stated above.
+ 
+&gt;<i> &gt; So we have the user flag set in IMPI
+</I>&gt;<i> &gt; and in IMPI_IMPU table. This seems obvious to me.
+</I>&gt;<i> 
+</I>&gt;<i> Did you mean IMPU instead of IMPI. The code currently sets it on the
+</I>&gt;<i> IMPI_IMPU and the IMPU objects.
+</I>
+Yes. Sorry, I meant IMPU.
+
+&gt;<i> This is where the second difference is. The spec only mentions that
+</I>&gt;<i> the Public User Identity specific to the PrivateUserIdentity should
+</I>&gt;<i> have the flag set. This I believe translates to the IMPI_IMPU object
+</I>&gt;<i> meaning that the flag should be set in the IMPI_IMPU object. But the
+</I>&gt;<i> current code also sets it in the IMPU object. The question is why do
+</I>&gt;<i> we also set it in the IMPU object? Once we understand the first
+</I>&gt;<i> difference, then this can be handled as it is mostly implementation
+</I>&gt;<i> detail.
+</I>
+This I cannot answer. It is an implementation detail and in my view - it
+does not hurt as long as it handled symmetric regarding set and reset.
+
+&gt;<i> The spec defines a way to set the AuthPending flag. And it defines a
+</I>&gt;<i> way to clear it. They both are defined exactly the same as far as where
+</I>&gt;<i> - on which object - this pending flag is being cleared from. The only
+</I>&gt;<i> diff is one sets it and the other clears it. So clearing after setting
+</I>&gt;<i> it should leave the user back where he was as far as the Auth Pending
+</I>&gt;<i> state goes.  Problem is the current code does not behave this way. It
+</I>&gt;<i> sets it in  two object (the MAR code sets it in IMPI_IMPU and the IMPU
+</I>&gt;<i> objects) but clears it from only one object (the SAR
+</I>&gt;<i> Auth-Timeout/Auth-Failure code clears it only from the IMPI_IMPU).
+</I>&gt;<i> This by itself indicates to me that the code is not doing something
+</I>&gt;<i> right. It should be clearing it from the same objects that it is
+</I>&gt;<i> setting it in.
+</I>
+I did not look into the code. Maybe Dragos can comment on this.
+
+I never detected that the AuthPending flag is reset. I always have the
+situation that after offering wrong credentials during authentication the
+S-CSCF requests an additional authentication vector and HSS denies this
+request (DIAMETER_UNABLE_TO_COMPLY). In this case the AuthPending flag is
+never reset. This behaviour also seems worth to dig deeper. I will do that
+later.
+
+Regards
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000845.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+	<LI>Next message: <A HREF="000848.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#846">[ date ]</a>
+              <a href="thread.html#846">[ thread ]</a>
+              <a href="subject.html#846">[ subject ]</a>
+              <a href="author.html#846">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Problem with registration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20registration&In-Reply-To=%3C457DA647.9090402%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000079.html">
+   <LINK REL="Next"  HREF="000080.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Problem with registration</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20registration&In-Reply-To=%3C457DA647.9090402%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Problem with registration">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Dec 11 19:41:11 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000079.html">[OpenIMSCore-HSS] Problem with registration
+</A></li>
+        <LI>Next message: <A HREF="000080.html">[OpenIMSCore-HSS] Compilation errors
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#82">[ date ]</a>
+              <a href="thread.html#82">[ thread ]</a>
+              <a href="subject.html#82">[ subject ]</a>
+              <a href="author.html#82">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi Outi,
+
+Please regenerate the src-gen. The castor version was updated to the
+last version and some changes occurred also in the generated classes.
+For sure, the old generated classes do not work with the updated
+sources. I think that this is the problem that you have.
+
+Cheers,
+Adrian
+
+Outi Koski (AC/EDD) wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> I had everything (registration, call session, instant messaging) working
+</I>&gt;<i> faultlessly with the previous version of the Open Source Core, but then
+</I>&gt;<i> I decided to update the system to the newest release? And now already on
+</I>&gt;<i> the registration I get the following message from the HSS
+</I>&gt;<i> 
+</I>&gt;<i> Any ideas how I could fix it? Or is it a problem in the release?
+</I>&gt;<i> 
+</I>&gt;<i> Outi
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> [main] INFO  de.fhg.fokus.hss.main.HssServer  - FHoSS was started and is
+</I>&gt;<i> ready to use.
+</I>&gt;<i> Type 'exit' to exit
+</I>&gt;<i> [Thread-8] INFO  de.fhg.fokus.hss.diam.cx.MARCommandListener  - MAR of
+</I>&gt;<i> User: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> is being processed
+</I>&gt;<i> [Thread-7] INFO  de.fhg.fokus.hss.diam.cx.SARCommandListener  - SAR of
+</I>&gt;<i> User: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> is being processed
+</I>&gt;<i> [Thread-7] INFO  de.fhg.fokus.hss.server.cx.op.PullCxOperation  - The
+</I>&gt;<i> current status of IMPU sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> is registered
+</I>&gt;<i> [Thread-7] INFO  de.fhg.fokus.hss.server.cx.op.PullCxOperation  - user
+</I>&gt;<i> status of sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> set to registered
+</I>&gt;<i> Exception in thread &quot;Thread-7&quot; java.lang.NoSuchMethodError:
+</I>&gt;<i> org.exolab.castor.xml.util.XMLFieldDescriptorImpl.setClassDescriptor(Lorg/exolab/castor/mapping/ClassDescriptor;)V
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.cx.datatypes.TSePoTriDescriptor.&lt;init&gt;(TSePoTriDescriptor.java:185)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.cx.datatypes.SPTDescriptor.&lt;init&gt;(SPTDescriptor.java:54)
+</I>&gt;<i>         at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native
+</I>&gt;<i> Method)
+</I>&gt;<i>         at
+</I>&gt;<i> sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+</I>&gt;<i>         at
+</I>&gt;<i> sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+</I>&gt;<i>         at java.lang.reflect.Constructor.newInstance(Constructor.java:494)
+</I>&gt;<i>         at java.lang.Class.newInstance0(Class.java:350)
+</I>&gt;<i>         at java.lang.Class.newInstance(Class.java:303)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.ClassDescriptorResolverImpl.resolve(ClassDescriptorResolverImpl.java:242)
+</I>&gt;<i>         at org.exolab.castor.xml.Validator.validate(Validator.java:111)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:216)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:886)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:754)
+</I>&gt;<i>         at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:250)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:886)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:754)
+</I>&gt;<i>         at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:216)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:886)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:754)
+</I>&gt;<i>         at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.FieldValidator.validate(FieldValidator.java:216)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:886)
+</I>&gt;<i>         at
+</I>&gt;<i> org.exolab.castor.xml.util.XMLClassDescriptorImpl.validate(XMLClassDescriptorImpl.java:754)
+</I>&gt;<i>         at org.exolab.castor.xml.Validator.validate(Validator.java:122)
+</I>&gt;<i>         at org.exolab.castor.xml.Marshaller.validate(Marshaller.java:2017)
+</I>&gt;<i>         at org.exolab.castor.xml.Marshaller.marshal(Marshaller.java:763)
+</I>&gt;<i>         at org.exolab.castor.xml.Marshaller.marshal(Marshaller.java:663)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.cx.datatypes.IMSSubscription.marshal(IMSSubscription.java:72)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.diam.cx.SARCommandListener.saveIMSSubscription(SARCommandListener.java:214)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.diam.cx.SARCommandListener.recvMessage(SARCommandListener.java:170)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFfaZH6Yml36HNIwcRAmz6AJ9b6rvpWfbttdlHcXsgC+9LgYcfwwCZAR45
+g7nCXFYCgmdsPcPNUGtLrQs=
+=shfu
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000079.html">[OpenIMSCore-HSS] Problem with registration
+</A></li>
+	<LI>Next message: <A HREF="000080.html">[OpenIMSCore-HSS] Compilation errors
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#82">[ date ]</a>
+              <a href="thread.html#82">[ thread ]</a>
+              <a href="subject.html#82">[ subject ]</a>
+              <a href="author.html#82">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

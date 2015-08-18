@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20%5BOpenIMSCore-Users%5D%20Load%20tests&In-Reply-To=%3C45A78504.9090501%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000137.html">
+   <LINK REL="Next"  HREF="000139.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20%5BOpenIMSCore-Users%5D%20Load%20tests&In-Reply-To=%3C45A78504.9090501%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Jan 12 13:54:28 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000137.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+        <LI>Next message: <A HREF="000139.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#138">[ date ]</a>
+              <a href="thread.html#138">[ thread ]</a>
+              <a href="subject.html#138">[ subject ]</a>
+              <a href="author.html#138">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hmm... I don't think that we ever did performance tests with FHoSS, so
+we hope that you won't be disappointed in the results ;-). With the
+CSCF, we did quite some.
+
+-Dragos
+
+
+Jose Silva wrote:
+&gt;<i> ---------- Forwarded message ----------
+</I>&gt;<i> From: Jose Silva &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">joesilvas at gmail.com</A>&gt;
+</I>&gt;<i> Date: 10/01/2007 10:02
+</I>&gt;<i> Subject: Re: [OpenIMSCore-Users] Load tests
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-users at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> What about the FHoSS, should I only look into DiameterPeerHSS.xml or
+</I>&gt;<i> are there more places a could alter to optimize performance?
+</I>&gt;<i>
+</I>&gt;<i> regards,
+</I>&gt;<i> Jose Silva
+</I>&gt;<i>
+</I>&gt;<i> 2007/1/9, Dragos Vingarzan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt;:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi Jose,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Add more shared memory to the CSCFs using the command line parameter and
+</I>&gt;&gt;<i> then increase the sizes of the hash-tables. Also tune the number of
+</I>&gt;&gt;<i> forked processes based on your hardware configuration: too few and it
+</I>&gt;&gt;<i> will just not load the CPUs, too many and it will spend to much time
+</I>&gt;&gt;<i> while context switching.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -Dragos
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Jose Silva wrote:
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> Hi,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I'm going to do some load tests on the openimscore but before I start,
+</I>&gt;&gt;&gt;<i> I want to ask if anybody can point me out what parts of the
+</I>&gt;&gt;&gt;<i> openimscore I should tune.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Thanks in advance,
+</I>&gt;&gt;&gt;<i> Jose Silva
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> OpenIMSCore-Users mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-Users at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-users">https://lists.berlios.de/mailman/listinfo/openimscore-users</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i> -----------------------------------------
+</I>&gt;&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;&gt;<i> FOKUS/NGNI
+</I>&gt;&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;&gt;<i> 10589 Berlin,Germany
+</I>&gt;&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;&gt;<i> Mobile +49 (0)163 - 159 - 5221
+</I>&gt;&gt;<i> eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;&gt;<i> Web www.fokus.fraunhofer.de
+</I>&gt;&gt;<i> We could change the world if God would give us the source code...
+</I>&gt;&gt;<i> -----------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000137.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+	<LI>Next message: <A HREF="000139.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#138">[ date ]</a>
+              <a href="thread.html#138">[ thread ]</a>
+              <a href="subject.html#138">[ subject ]</a>
+              <a href="author.html#138">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

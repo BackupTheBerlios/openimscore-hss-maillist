@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20Sh%20interface%20-%20ALL_IDENTITIES&In-Reply-To=%3C48C164DC.8020809%40amphinicy.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000856.html">
+   <LINK REL="Next"  HREF="000863.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES</H1>
+    <B>Marko Djuric</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20Sh%20interface%20-%20ALL_IDENTITIES&In-Reply-To=%3C48C164DC.8020809%40amphinicy.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES">Marko.Djuric at amphinicy.com
+       </A><BR>
+    <I>Fri Sep  5 18:57:00 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000856.html">[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+</A></li>
+        <LI>Next message: <A HREF="000863.html">[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#857">[ date ]</a>
+              <a href="thread.html#857">[ thread ]</a>
+              <a href="subject.html#857">[ subject ]</a>
+              <a href="author.html#857">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Dragos,
+
+Thank you for your fast response.
+
+I'm not sure if this could be done in a single SQL query, since one 
+result set is for one specific public identity and complete result set 
+should include multiple public identities.
+
+Should we really be worried about severity of this performance issue? 
+Even in more complex systems, this query would probably not be repeated 
+multiple times in short time and thus impact on overall performance 
+shouldn't be much of a problem.
+
+Still, if I find better solution, I will provide it to this community.
+
+
+Best regards,
+Marko
+
+Dragos Vingarzan wrote:
+&gt;<i> Hi Marko,
+</I>&gt;<i>
+</I>&gt;<i> Good point. But could we retrieve this in a single SQL query? I think
+</I>&gt;<i> that it would be more efficient to do an SQL join. Would you do it, or
+</I>&gt;<i> shall I?
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i> Marko Djuric wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have noticed that when ALL_IDENTITIES Identity-Set is used to retrieve 
+</I>&gt;&gt;<i> all public addresses (in User-Data request) for specific user over Sh 
+</I>&gt;&gt;<i> interface, only public identities within user's private identity are 
+</I>&gt;&gt;<i> retrieved.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Referring to 3GPP TS 29.328 document (Table 6.1.1.1 Sh-Pull), all 
+</I>&gt;&gt;<i> non-barred public identities for all private identities should probably 
+</I>&gt;&gt;<i> be returned.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I'm suggesting following modifications:
+</I>&gt;&gt;<i> FHoSS/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+</I>&gt;&gt;<i> 250a251,281
+</I>&gt;&gt;<i>  &gt;       // added for ALL_IDENTITIES
+</I>&gt;&gt;<i>  &gt;       public static List get_all_within_same_IMSU(Session session, 
+</I>&gt;&gt;<i> int id_impu){
+</I>&gt;&gt;<i>  &gt;               List resultList = new ArrayList();
+</I>&gt;&gt;<i>  &gt;
+</I>&gt;&gt;<i>  &gt;               List impiList = 
+</I>&gt;&gt;<i> IMPI_DAO.get_all_IMPI_for_IMPU_ID(session, id_impu);
+</I>&gt;&gt;<i>  &gt;               if (impiList.size() == 0) {
+</I>&gt;&gt;<i>  &gt;                       return resultList;
+</I>&gt;&gt;<i>  &gt;               }
+</I>&gt;&gt;<i>  &gt;
+</I>&gt;&gt;<i>  &gt;
+</I>&gt;&gt;<i>  &gt;               IMPU impu = null;
+</I>&gt;&gt;<i>  &gt;               Integer impu_id = null;
+</I>&gt;&gt;<i>  &gt;               List allImpuList = null;
+</I>&gt;&gt;<i>  &gt;               for (int i = 0; i &lt; impiList.size(); i++) {
+</I>&gt;&gt;<i>  &gt;                       IMPI impi = (IMPI) impiList.get(i);
+</I>&gt;&gt;<i>  &gt;
+</I>&gt;&gt;<i>  &gt;                       allImpuList = 
+</I>&gt;&gt;<i> IMPU_DAO.get_all_IMPU_ID_for_IMSU(session, impi.getId_imsu());
+</I>&gt;&gt;<i>  &gt;                       if (allImpuList != null &amp;&amp; allImpuList.size() &gt; 
+</I>&gt;&gt;<i> 0) {
+</I>&gt;&gt;<i>  &gt;                               for (int j = 0; j &lt; allImpuList.size(); 
+</I>&gt;&gt;<i> j++) {
+</I>&gt;&gt;<i>  &gt;                                       impu_id = (Integer) 
+</I>&gt;&gt;<i> allImpuList.get(j);
+</I>&gt;&gt;<i>  &gt;                                       impu = 
+</I>&gt;&gt;<i> IMPU_DAO.get_by_ID(session,impu_id);
+</I>&gt;&gt;<i>  &gt;                                       if (impu != null) {
+</I>&gt;&gt;<i>  &gt;                                               resultList.add(impu);
+</I>&gt;&gt;<i>  &gt;                                       }
+</I>&gt;&gt;<i>  &gt;                               }
+</I>&gt;&gt;<i>  &gt;                       }
+</I>&gt;&gt;<i>  &gt;               }
+</I>&gt;&gt;<i>  &gt;
+</I>&gt;&gt;<i>  &gt;               return resultList;
+</I>&gt;&gt;<i>  &gt;       }
+</I>&gt;&gt;<i>  &gt;
+</I>&gt;&gt;<i> FHoSS/src/src/de/fhg/fokus/hss/sh/op/UDR.java
+</I>&gt;&gt;<i> 284c296
+</I>&gt;&gt;<i> &lt;                                                               impuList 
+</I>&gt;&gt;<i> = IMPU_DAO.get_all_within_same_IMPI_Associations(session, impu.getId());
+</I>&gt;&gt;<i> ---
+</I>&gt;&gt;<i>  &gt;                                                               
+</I>&gt;&gt;<i> impuList = IMPU_DAO.get_all_within_same_IMSU(session, impu.getId());
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best regards,
+</I>&gt;&gt;<i> Marko
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000856.html">[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+</A></li>
+	<LI>Next message: <A HREF="000863.html">[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#857">[ date ]</a>
+              <a href="thread.html#857">[ thread ]</a>
+              <a href="subject.html#857">[ subject ]</a>
+              <a href="author.html#857">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

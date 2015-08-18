@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSSDB tables- clarification
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSSDB%20tables-%20clarification&In-Reply-To=%3C464D89B6.7070405%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000400.html">
+   <LINK REL="Next"  HREF="000404.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSSDB tables- clarification</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSSDB%20tables-%20clarification&In-Reply-To=%3C464D89B6.7070405%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSSDB tables- clarification">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri May 18 13:10:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000400.html">[OpenIMSCore-HSS] HSSDB tables- clarification
+</A></li>
+        <LI>Next message: <A HREF="000404.html">[OpenIMSCore-HSS] HSSDB tables- clarification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#403">[ date ]</a>
+              <a href="thread.html#403">[ thread ]</a>
+              <a href="subject.html#403">[ subject ]</a>
+              <a href="author.html#403">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello Abhishek,
+
+I am not sure that I understood your question :( Do you want to have
+your own table related to an application server?
+The designed tables in the HSS should be able to store all the specific
+data for an application server in general, so I not see the point why do
+you need a specific table... Please clarify a little in more details
+what tables do you want to create because I still not get your point...
+
+Cheers,
+Adrian
+
+abhishek wrote:
+&gt;<i>  
+</I>&gt;<i> Hi Dragos,
+</I>&gt;<i> 	   Thanks.
+</I>&gt;<i> 	I have a requirement to create my own db table .
+</I>&gt;<i> Is there anyway that I can create and access it through the Fhoss from
+</I>&gt;<i> Application Server?
+</I>&gt;<i> Well if yes , what are the steps that I should follow to make it work?
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Abhishek.R.S
+</I>&gt;<i> 		
+</I>&gt;<i> 		
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Thursday, May 17, 2007 8:50 PM
+</I>&gt;<i> To: abhishek
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-cscf at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: HSSDB tables- clarification
+</I>&gt;<i> 
+</I>&gt;<i> Hello Abhishek,
+</I>&gt;<i> 
+</I>&gt;<i> You have unfortunately posted on the wrong mailing list as the CSCF do not
+</I>&gt;<i> have anything to do with the respective tables. Please be more careful about
+</I>&gt;<i> this if you would like to get a better and faster response.
+</I>&gt;<i> 
+</I>&gt;<i> The tables in cause are used for Sh interface notifications. To see anything
+</I>&gt;<i> in them you probably would need to:
+</I>&gt;<i> - have an AS that uses the Sh interface
+</I>&gt;<i> - subscribe from that AS to certain events on the HSS
+</I>&gt;<i> - modify data in the HSS
+</I>&gt;<i> - wait for the Sh notification part to be fully implemented in the new HSS
+</I>&gt;<i> branch.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -Dragos
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> abhishek wrote:
+</I>&gt;&gt;<i> hi dragos,
+</I>&gt;&gt;<i>                 I just want to know the use of DB tables such as
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> 1.notify_ifc
+</I>&gt;&gt;<i> 2.rep_data
+</I>&gt;&gt;<i> 3.notify_rep_data
+</I>&gt;&gt;<i> 4.notify_scscfname
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> and the like
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> When r these put to use?
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> bcz i always find them empty even if i have a appln server and i pass 
+</I>&gt;&gt;<i> and get back responses from it.
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Abhishek.R.S
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> SASKEN BUSINESS DISCLAIMER
+</I>&gt;&gt;<i> -------------------------
+</I>&gt;&gt;<i> This message may contain confidential, proprietary or legally 
+</I>&gt;&gt;<i> privileged information. In case you are not the original intended 
+</I>&gt;&gt;<i> Recipient of the message, you must not, directly or indirectly, use, 
+</I>&gt;&gt;<i> Disclose, distribute, print, or copy any part of this message and you 
+</I>&gt;&gt;<i> are requested to delete it and inform the sender. Any views expressed 
+</I>&gt;&gt;<i> in this message are those of the individual sender unless otherwise 
+</I>&gt;&gt;<i> stated. Nothing contained in this message shall be construed as an 
+</I>&gt;&gt;<i> offer or acceptance of any offer by Sasken Communication Technologies 
+</I>&gt;&gt;<i> Limited (&quot;Sasken&quot;) unless sent with that express intent and with due 
+</I>&gt;&gt;<i> authority of Sasken. Sasken has taken enough precautions to prevent 
+</I>&gt;&gt;<i> the spread of viruses. However the company accepts no liability for 
+</I>&gt;&gt;<i> any damage caused by any virus transmitted by this email
+</I>&gt;&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> --
+</I>&gt;<i> -----------------------------------------
+</I>&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> Fraunhofer FOKUS/NGNI
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin,Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> Web www.fokus.fraunhofer.de www.openimscore.org We could change the world if
+</I>&gt;<i> God would give us the source code...
+</I>&gt;<i> -----------------------------------------------------------------
+</I>&gt;<i> SASKEN BUSINESS DISCLAIMER
+</I>&gt;<i> -------------------------
+</I>&gt;<i> This message may contain confidential, proprietary or legally privileged information. In 
+</I>&gt;<i> case you are not the original intended Recipient of the message, you must not, directly or 
+</I>&gt;<i> indirectly, use, Disclose, distribute, print, or copy any part of this message and you are 
+</I>&gt;<i> requested to delete it and inform the sender. Any views expressed in this message are 
+</I>&gt;<i> those of the individual sender unless otherwise stated. Nothing contained in this message 
+</I>&gt;<i> shall be construed as an offer or acceptance of any offer by Sasken Communication 
+</I>&gt;<i> Technologies Limited (&quot;Sasken&quot;) unless sent with that express intent and with due 
+</I>&gt;<i> authority of Sasken. Sasken has taken enough precautions to prevent the spread of 
+</I>&gt;<i> viruses. However the company accepts no liability for any damage caused by any virus 
+</I>&gt;<i> transmitted by this email
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGTYm26Yml36HNIwcRAkV9AJ9tOi96d69j2bIo38Ft2xuYzuaE+QCdF5VN
+XhlyXQPXdrlNRJDGKaAwYlA=
+=osZl
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000400.html">[OpenIMSCore-HSS] HSSDB tables- clarification
+</A></li>
+	<LI>Next message: <A HREF="000404.html">[OpenIMSCore-HSS] HSSDB tables- clarification
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#403">[ date ]</a>
+              <a href="thread.html#403">[ thread ]</a>
+              <a href="subject.html#403">[ subject ]</a>
+              <a href="author.html#403">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

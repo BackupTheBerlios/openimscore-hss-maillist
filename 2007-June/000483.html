@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS Authentication Scheme
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20Authentication%20Scheme&In-Reply-To=%3Cb33002040706040713p67f99a2fwad0da2d242cc17d4%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000480.html">
+   <LINK REL="Next"  HREF="000485.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS Authentication Scheme</H1>
+    <B>JF</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20Authentication%20Scheme&In-Reply-To=%3Cb33002040706040713p67f99a2fwad0da2d242cc17d4%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS Authentication Scheme">jfkavaka at gmail.com
+       </A><BR>
+    <I>Mon Jun  4 16:13:28 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000480.html">[OpenIMSCore-HSS] FHoSS Authentication Scheme
+</A></li>
+        <LI>Next message: <A HREF="000485.html">[OpenIMSCore-HSS] FHoSS Authentication Scheme
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#483">[ date ]</a>
+              <a href="thread.html#483">[ thread ]</a>
+              <a href="subject.html#483">[ subject ]</a>
+              <a href="author.html#483">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>What if a user wants to use different terminals with different auth schemes?
+Should he use different public identities for the same private id?
+
+IMO the best behavior would be to detect the algorithm parameter in
+the first REGISTER.
+The problem we have faced is that some clients don't send this
+parameter at all in the first REGISTER, so we can't really support
+multiple auth schemes at the same time.
+
+JF
+
+On 6/4/07, Dragos Vingarzan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt; wrote:
+&gt;<i> Hi Richard,
+</I>&gt;<i>
+</I>&gt;<i> The HSS-Selected options would allow you to (almost) fully control the
+</I>&gt;<i> authentication type per user from the HSS (this is done by sending an
+</I>&gt;<i> authentication scheme AVP with the value of &quot;Unknown&quot; in the MAR request
+</I>&gt;<i> for authentication vectors). Unfortunately I think that this feature is
+</I>&gt;<i> only available in the new HSS branch where the HSS has a full bitmap of
+</I>&gt;<i> allowable authentication mechanisms/user as well as default algorithms
+</I>&gt;<i> if the S-CSCF is set to HSS-Selected. The S-CSCF cfg will still be
+</I>&gt;<i> useful as the HSS configures only what is allowed or default and not
+</I>&gt;<i> what will actually be used.
+</I>&gt;<i>
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Richard Good wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I am using the UCTIMSClient to access the OpenIMSCore.  I have noticed
+</I>&gt;<i> &gt; that I cannot change the authentication scheme using the FHoSS interface
+</I>&gt;<i> &gt; alone - I also have to change the scscf config file specifying the
+</I>&gt;<i> &gt; registration_default_algorithm.  If that specified in the FHoSS is not
+</I>&gt;<i> &gt; that same as that specified in the scscf config file I get
+</I>&gt;<i> &gt; HSS returned no authentication vectors
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I have this problem even if I set registration_default_algorithm to
+</I>&gt;<i> &gt; HSS-selected.  Is this a bug or is there a reason that the config file
+</I>&gt;<i> &gt; and FHoSS interface need to be set separately?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; regards,
+</I>&gt;<i> &gt; Richard
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> -----------------------------------------
+</I>&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> Fraunhofer FOKUS/NGNI
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin,Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> Web www.fokus.fraunhofer.de www.openimscore.org
+</I>&gt;<i> We could change the world if God would give us the source code...
+</I>&gt;<i> -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000480.html">[OpenIMSCore-HSS] FHoSS Authentication Scheme
+</A></li>
+	<LI>Next message: <A HREF="000485.html">[OpenIMSCore-HSS] FHoSS Authentication Scheme
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#483">[ date ]</a>
+              <a href="thread.html#483">[ thread ]</a>
+              <a href="subject.html#483">[ subject ]</a>
+              <a href="author.html#483">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

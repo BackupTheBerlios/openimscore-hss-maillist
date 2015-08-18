@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] A bug of AKA Authentication ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20A%20bug%20of%20AKA%20Authentication%20%3F&In-Reply-To=%3CCOL112-W139DE0749877E8BCDA4247E0C70%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] A bug of AKA Authentication ?</H1>
+    <B>zhouxw</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20A%20bug%20of%20AKA%20Authentication%20%3F&In-Reply-To=%3CCOL112-W139DE0749877E8BCDA4247E0C70%40phx.gbl%3E"
+       TITLE="[OpenIMSCore-HSS] A bug of AKA Authentication ?">nj_zxw10 at hotmail.com
+       </A><BR>
+    <I>Thu Nov 17 14:46:23 CET 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001038.html">[OpenIMSCore-HSS] =?UTF-8?B?5Zue5aSNOiBPcGVuSU0=?=SCore-HSS Digest,	Vol 55, Issue 1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1037">[ date ]</a>
+              <a href="thread.html#1037">[ thread ]</a>
+              <a href="subject.html#1037">[ subject ]</a>
+              <a href="author.html#1037">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi All, 
+ 
+According to the 3gpp 33.102 spec: 
+&quot;The AMF used to calculate MAC&#8209;S assumes a dummy value of all zeros so that it does not need to be transmitted in the clear in the re-synch message&quot;
+ 
+But in function synchronize() of MAR.java, we can find that the original AMF value is used for calculating xmac_s, so xmac will not match the mac_s which tranfered from UE.
+ 
+Thanks
+  		 	   		  
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20111117/210039b9/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20111117/210039b9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001038.html">[OpenIMSCore-HSS] =?UTF-8?B?5Zue5aSNOiBPcGVuSU0=?=SCore-HSS Digest,	Vol 55, Issue 1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1037">[ date ]</a>
+              <a href="thread.html#1037">[ thread ]</a>
+              <a href="subject.html#1037">[ subject ]</a>
+              <a href="author.html#1037">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

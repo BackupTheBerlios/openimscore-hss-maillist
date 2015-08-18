@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] when i use HSS  branch to test , MAR send to Hss but not received MAA!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20when%20i%20use%20HSS%20%20branch%20to%20test%20%2C%0A%20MAR%20send%20to%20Hss%20but%20not%20received%20MAA%21&In-Reply-To=%3C462DDC9B.1000105%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000353.html">
+   <LINK REL="Next"  HREF="000357.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] when i use HSS  branch to test , MAR send to Hss but not received MAA!</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20when%20i%20use%20HSS%20%20branch%20to%20test%20%2C%0A%20MAR%20send%20to%20Hss%20but%20not%20received%20MAA%21&In-Reply-To=%3C462DDC9B.1000105%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] when i use HSS  branch to test , MAR send to Hss but not received MAA!">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 24 12:31:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000353.html">[OpenIMSCore-HSS] when i use HSS  branch to test ,	MAR send to Hss but not received MAA!
+</A></li>
+        <LI>Next message: <A HREF="000357.html">[OpenIMSCore-HSS] When use FHoSS to Register ,	RTR and PPR can't use?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#356">[ date ]</a>
+              <a href="thread.html#356">[ thread ]</a>
+              <a href="subject.html#356">[ subject ]</a>
+              <a href="author.html#356">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi fancy_xiao,
+
+What SQN do you have for the corresponding IMPI? It seems that you have
+an empty string there. Moreover, please use the interface to provide the
+SQN (in hexa format, 12 characters; e.g. 000000000000 -&gt; for a starting
+SQN value).
+
+- -Adrian
+
+fancy_xiao wrote:
+&gt;<i> openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i>  
+</I>&gt;<i> the MAR package is attached!
+</I>&gt;<i>  
+</I>&gt;<i> And HSS DEBUG INFO :
+</I>&gt;<i>  
+</I>&gt;<i> Added task to queue!
+</I>&gt;<i> Processing MAR!
+</I>&gt;<i> Exception in thread &quot;Thread-18&quot; java.lang.NumberFormatException: For
+</I>&gt;<i> input string: &quot;&quot;
+</I>&gt;<i>         at
+</I>&gt;<i> java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+</I>&gt;<i>         at java.lang.Integer.parseInt(Integer.java:447)
+</I>&gt;<i>         at de.fhg.fokus.hss.auth.HexCodec.decode(HexCodec.java:76)
+</I>&gt;<i>         at de.fhg.fokus.hss.cx.op.MAR.generateAuthVector(MAR.java:438)
+</I>&gt;<i>         at de.fhg.fokus.hss.cx.op.MAR.generateAuthVectors(MAR.java:509)
+</I>&gt;<i>         at de.fhg.fokus.hss.cx.op.MAR.processRequest(MAR.java:283)
+</I>&gt;<i>         at de.fhg.fokus.hss.main.Task.execute(Task.java:91)
+</I>&gt;<i>         at de.fhg.fokus.hss.main.Worker.run(Worker.java:65)
+</I>&gt;<i> 2007-04-24 16:58:07,629 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - Snd_DWA Diameter:
+</I>&gt;<i> Code=280 AppID=0 HbHID=10793 E2EID=-1574936729
+</I>&gt;<i>         AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+</I>&gt;<i>         AVP: Code=264 M Len=15 Data=0x7465737432342e617374726f2e677a
+</I>&gt;<i> INT_Data=1952805748 Char_Data=&quot;test24.astro.gz&quot;
+</I>&gt;<i>         AVP: Code=296 M Len=8 Data=0x617374726f2e677a
+</I>&gt;<i> INT_Data=1634956402 Char_Data=&quot;astro.gz&quot;
+</I>&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i> _*&#26412;&#37038;&#20214;&#38468;&#20214;&#28165;&#21333;&#22914;&#19979;&#65306;*_
+</I>&gt;<i>   (1) MAR.cap (0.5 K)
+</I>&gt;<i> 
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &lt;mailto:&lt;!--AID_FROMADDRESS_BEGIN--&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&lt;!--AID_FROMADDRESS_END--&gt;&gt;
+</I>&gt;<i> 2007-04-24
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGLdya6Yml36HNIwcRAqmvAJ9zpLozqQbodpovx3j+3gxPeD+E0ACgmSMm
+IB879yrluZOYxaHmtuas2HU=
+=+GOL
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000353.html">[OpenIMSCore-HSS] when i use HSS  branch to test ,	MAR send to Hss but not received MAA!
+</A></li>
+	<LI>Next message: <A HREF="000357.html">[OpenIMSCore-HSS] When use FHoSS to Register ,	RTR and PPR can't use?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#356">[ date ]</a>
+              <a href="thread.html#356">[ thread ]</a>
+              <a href="subject.html#356">[ subject ]</a>
+              <a href="author.html#356">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

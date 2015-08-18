@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Questions about realm routing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Questions%20about%20realm%20routing&In-Reply-To=%3C49EDB719.6080207%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000923.html">
+   <LINK REL="Next"  HREF="000924.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Questions about realm routing</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Questions%20about%20realm%20routing&In-Reply-To=%3C49EDB719.6080207%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Questions about realm routing">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 21 14:07:53 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000923.html">[OpenIMSCore-HSS] Questions about realm routing
+</A></li>
+        <LI>Next message: <A HREF="000924.html">[OpenIMSCore-HSS] Patches for &quot;SIP Digest&quot; authentication scheme
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#929">[ date ]</a>
+              <a href="thread.html#929">[ thread ]</a>
+              <a href="subject.html#929">[ subject ]</a>
+              <a href="author.html#929">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Juan Miguel,
+
+yes, what you see is the intended behavior. So the routing mechanism is 
+somehow following the Diameter recommendations. The metrics are there to 
+order the hosts, but not necessarily to do a round-robin balancing. In 
+fact we have never considered this. The metric-ordered host list is then 
+used to find the first connected peer to send to.
+
+For balancing you would need to use some sort of load-balancer that 
+would proxy messages based on the balancing rule. I wrote in the past 
+something like this and it is quite easy to get one if you use the 
+JavaDiameterPeer.
+
+Then you should be aware of the Subscriber Location Function (SLF) in 
+IMS, which practically splits the subscriber base between different 
+HSSs. We do not support unfortunately yet the required Dx interface for 
+example so that this would work in redirect mode, but if you build one 
+in proxy mode it would work even faster, although you would create a bit 
+of a sensitive bottleneck point of failure.
+
+In case that you won't use an SLF, so when you don't want to fragment 
+the subscriber base, then you need to also consider the fact that you 
+will need to keep your DB back-ends in sync. If you have just one 
+back-end for all you won't get much performance improvement through 
+multile HSSs anyway as most of an HSS efforts would be actually wasted 
+in the DBMS.
+
+Now getting back to the realm-routing. In case that you are interested 
+in contributing a load-balancing extra future, I would be very 
+interested in accepting such a patch. It could work such that 
+additionally to the metric, you could attach and extra balancing factor 
+to each host. Then for connected hosts with the same metric a balancing 
+algorithm could be employed to select one based on history and the 
+balancing factors.
+
+Cheers,
+-Dragos
+
+Juan Miguel Espinosa Carlin wrote:
+&gt;<i> Hi everybody!
+</I>&gt;<i>
+</I>&gt;<i> I have been struggling at configuring realm routing in my Open IMS Core
+</I>&gt;<i> deployment (release 608).
+</I>&gt;<i>
+</I>&gt;<i> The problem in an scenario with two hss is that ALL the requests (around
+</I>&gt;<i> 20 REGISTERs per second) are handled by the hss with the highest
+</I>&gt;<i> configured metric, while the hss with the lowest metric does nothing.
+</I>&gt;<i>
+</I>&gt;<i> This is the case for the hss1 in the example that I'm sending attached
+</I>&gt;<i> to this message: even though the hss1 is overloaded, no requests are
+</I>&gt;<i> handled by the hss2.
+</I>&gt;<i>
+</I>&gt;<i> For this same example, if the metric given to the hss2 is higher that
+</I>&gt;<i> the one given to hss1, then ALL the requests are handled by hss2 and the
+</I>&gt;<i> hss1 is never queried.
+</I>&gt;<i>
+</I>&gt;<i> Moreover, if both hss have the same metric, all the requests are handled
+</I>&gt;<i> by the hss that appears last in the configuration file.
+</I>&gt;<i>
+</I>&gt;<i> Is this the proper behavior of this kind of balancing? I want to achieve
+</I>&gt;<i> some round-robin assignment of the hss having two equal databases and I
+</I>&gt;<i> thought realm routing was exactly that: am I right? If that is the case,
+</I>&gt;<i> am I missing something in the configuration?
+</I>&gt;<i>
+</I>&gt;<i> I checked again the TCP port bindings and they seem to be correct.
+</I>&gt;<i>
+</I>&gt;<i> Any hints will be kindly appreciated.
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i>
+</I>&gt;<i> 	Juan Miguel
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)176 - 48 32 16 00
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000923.html">[OpenIMSCore-HSS] Questions about realm routing
+</A></li>
+	<LI>Next message: <A HREF="000924.html">[OpenIMSCore-HSS] Patches for &quot;SIP Digest&quot; authentication scheme
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#929">[ date ]</a>
+              <a href="thread.html#929">[ thread ]</a>
+              <a href="subject.html#929">[ subject ]</a>
+              <a href="author.html#929">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

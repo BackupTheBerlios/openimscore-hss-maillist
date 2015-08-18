@@ -1,0 +1,1716 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20not%20getting%20connected%20to%20SCSCF&In-Reply-To=%3CH000008e00071b7f.1165486037.dakghar.aylus.com%40MHS%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000057.html">
+   <LINK REL="Next"  HREF="000059.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS not getting connected to SCSCF</H1>
+    <B>Babu George</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20not%20getting%20connected%20to%20SCSCF&In-Reply-To=%3CH000008e00071b7f.1165486037.dakghar.aylus.com%40MHS%3E"
+       TITLE="[OpenIMSCore-HSS] HSS not getting connected to SCSCF">bgeorge at aylus.com
+       </A><BR>
+    <I>Thu Dec  7 11:07:18 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000057.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+        <LI>Next message: <A HREF="000059.html">[OpenIMSCore-HSS] Unable to start ICSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#58">[ date ]</a>
+              <a href="thread.html#58">[ thread ]</a>
+              <a href="subject.html#58">[ subject ]</a>
+              <a href="author.html#58">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dragon,
+ Thanks for pointing out the error.I corrected it.Now HSS&amp;SCSCF are 
+getting connected.
+Thanks
+Babu
+
+-----Original Message-----
+From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+Sent: Thursday, December 07, 2006 3:19 PM
+To: Babu George
+Cc: openimscore-hss
+Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+
+Yes... because I am not sure that trying to connect to 127.0.1.1 would 
+get you to 127.0.0.1.... Are you sure of that? Could you just fix this 
+(which might be a typo, anyway) and just try once more, before we 
+scratch our heads further?
+
+Or just drop the bind parameter and then it will listen on all IP 
+addresses.
+
+-Dragos
+
+Babu George wrote:
+&gt;<i> Dragos,
+</I>&gt;<i>  Both HSS&amp;SCSCF are listening on at the loopbcak address on port 
+</I>&gt;<i> 3868&amp;2870.
+</I>&gt;<i>  Is there anything else I am missing
+</I>&gt;<i>
+</I>&gt;<i> QA-20-13:/opt/OpenIMSCore# netstat -anp|grep 3870
+</I>&gt;<i> tcp        0      0 127.0.0.1:3870          0.0.0.0:*               
+</I>&gt;<i> LISTEN     7689/ser
+</I>&gt;<i> QA-20-13:/opt/OpenIMSCore# netstat -anp|grep 3868
+</I>&gt;<i> tcp6       0      0 ::ffff:127.0.0.1:3868   :::*                    
+</I>&gt;<i> LISTEN     7599/java
+</I>&gt;<i> QA-20-13:/opt/OpenIMSCore#
+</I>&gt;<i>
+</I>&gt;<i> Here is the xml files
+</I>&gt;<i>
+</I>&gt;<i> Scscf.xml
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;DiameterPeer
+</I>&gt;<i>         FQDN=&quot;scscf.open-ims.test&quot;
+</I>&gt;<i>         Realm=&quot;open-ims.test&quot;
+</I>&gt;<i>         Vendor_Id=&quot;10415&quot;
+</I>&gt;<i>         Product_Name=&quot;CDiameterPeer&quot;
+</I>&gt;<i>         AcceptUnknownPeers=&quot;1&quot;
+</I>&gt;<i>         DropUnknownOnDisconnect=&quot;1&quot;
+</I>&gt;<i>         Tc=&quot;30&quot;
+</I>&gt;<i>         Workers=&quot;4&quot;
+</I>&gt;<i>         QueueLength=&quot;8&quot;
+</I>&gt;<i>   
+</I>&gt;<i>         &lt;Peer FQDN=&quot;hss.open-ims.test&quot; Realm=&quot;open-ims.test&quot; 
+</I>&gt;<i> port=&quot;3868&quot;/&gt;
+</I>&gt;<i>
+</I>&gt;<i>         &lt;Acceptor port=&quot;3870&quot; bind=&quot;127.0.0.1&quot;/&gt;
+</I>&gt;<i>
+</I>&gt;<i>         &lt;Auth id=&quot;16777216&quot; vendor=&quot;10415&quot;/&gt;
+</I>&gt;<i>         &lt;Auth id=&quot;16777216&quot; vendor=&quot;0&quot; /&gt;
+</I>&gt;<i>         &lt;Acct id=&quot;16777216&quot; vendor=&quot;0&quot; /&gt;
+</I>&gt;<i>
+</I>&gt;<i> &lt;/DiameterPeer&gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> FHoSS/deploy/DiameterPeerHSS.xml
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;!-- HSS Server config --&gt;
+</I>&gt;<i> &lt;DiameterPeer
+</I>&gt;<i>         FQDN=&quot;hss.open-ims.test&quot;
+</I>&gt;<i>         Realm=&quot;open-ims.test&quot;
+</I>&gt;<i>         Vendor_Id=&quot;10415&quot;
+</I>&gt;<i>         Product_Name=&quot;JavaDiameterPeer&quot;
+</I>&gt;<i>         AcceptUnknownPeers=&quot;1&quot;
+</I>&gt;<i>         DropUnknownOnDisconnect=&quot;1&quot;
+</I>&gt;<i>         Tc=&quot;30&quot;
+</I>&gt;<i>         Workers=&quot;4&quot;
+</I>&gt;<i>         QueueLength=&quot;32&quot;
+</I>&gt;<i>   
+</I>&gt;<i>         &lt;Peer FQDN=&quot;icscf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; 
+</I>&gt;<i> port=&quot;3869&quot; /&gt;
+</I>&gt;<i>         &lt;Peer FQDN=&quot;scscf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; 
+</I>&gt;<i> port=&quot;3870&quot; /&gt;
+</I>&gt;<i>
+</I>&gt;<i>         &lt;Acceptor port=&quot;3868&quot; bind=&quot;127.0.0.1&quot; /&gt;
+</I>&gt;<i>
+</I>&gt;<i>         &lt;Auth id=&quot;16777216&quot; vendor=&quot;10415&quot;/&gt;
+</I>&gt;<i>         &lt;Auth id=&quot;16777217&quot; vendor=&quot;10415&quot;/&gt;
+</I>&gt;<i>         &lt;Auth id=&quot;16777221&quot; vendor=&quot;10415&quot;/&gt;
+</I>&gt;<i>
+</I>&gt;<i> &lt;/DiameterPeer&gt;
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i> Babu
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Thursday, December 07, 2006 2:44 PM
+</I>&gt;<i> To: Babu George
+</I>&gt;<i> Cc: openimscore-hss
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;<i>
+</I>&gt;<i> Hi George,
+</I>&gt;<i>
+</I>&gt;<i> It looks like you are trying to connect to 127.0.1.1:3870 but there is 
+</I>
+&gt;<i> nothing running there. If you still want your /etc/hosts configured on 
+</I>
+&gt;<i> 127.0.1.1, please update the &lt;Accept&gt; tag in the DiameterPeerHSS.xml, 
+</I>&gt;<i> icscf.xml and scscf.xml accordingly (the diameter nodes are listening 
+</I>on 
+&gt;<i>
+</I>&gt;<i> 127.0.0.1:3868,3869,3870 by default).
+</I>&gt;<i>
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i> Babu George wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Dragos,
+</I>&gt;&gt;<i>  Here is the message I got when I start HSS&amp;SCSCF.
+</I>&gt;&gt;<i>  I am sorry didn't get what is meant by network dump.
+</I>&gt;&gt;<i>  I am attaching the ethereal trace fro the packet getting exchanged 
+</I>&gt;&gt;<i> between HSS&amp;SCSCF
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> HSS
+</I>&gt;&gt;<i> QA-20-13:/opt/OpenIMSCore/FHoSS/deploy# ./startup.sh Building 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Classpath 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Classpath is 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>&gt;<i> 
+</I>lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0
+&gt;<i>   
+</I>&gt;<i> 
+</I>.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/s
+&gt;<i>   
+</I>&gt;<i> 
+</I>truts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resour
+&gt;<i>   
+</I>&gt;<i> 
+</I>ces.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:l
+&gt;<i>   
+</I>&gt;<i> 
+</I>ib/mysql-connector-java-3.0.14-production-bin.jar:lib/mx4j-3.0.1.jar:lib
+&gt;<i>   
+</I>&gt;<i> 
+</I>/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib
+&gt;<i>   
+</I>&gt;<i> 
+</I>/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:
+&gt;<i>   
+</I>&gt;<i> 
+</I>lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1
+&gt;<i>   
+</I>&gt;<i> 
+</I>.jar:lib/dom4j-1.6.jar:lib/commons-validator.jar:lib/commons-modeler.jar
+&gt;<i>   
+</I>&gt;<i> 
+</I>:<i>lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.j
+&gt;<i>   
+</I>&gt;<i> 
+</I>ar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2
+&gt;<i>   
+</I>&gt;<i> 
+</I>.1.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/castor-1.0.5.jar:l
+&gt;<i>   
+</I>&gt;<i> 
+</I>ib/c3p0-oracle-thin-extras-0.9.0.2.jar:lib/c3p0-0.9.0.2.jar:lib/base64.j
+&gt;<i>   
+</I>&gt;&gt;<i> ar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.5H3.jar:.
+</I>&gt;&gt;<i> [main] INFO  de.fhg.fokus.hss.main.HssServer  - Starting ...
+</I>&gt;&gt;<i> [main] INFO  org.apache.catalina.startup.Embedded  - Starting tomcat 
+</I>&gt;&gt;<i> server [main] INFO  org.apache.catalina.core.StandardEngine  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Starting 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Servlet Engine: Apache Tomcat/5.5.9 [main] INFO  
+</I>&gt;&gt;<i> org.apache.catalina.core.StandardHost  - XML validation disabled 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.apache.coyote.http11.Http11Protocol  - Initializing Coyote 
+</I>&gt;&gt;<i> HTTP/1.1 on http-localhost%2F127.0.0.1-8080 [main] INFO  
+</I>&gt;&gt;<i> org.apache.coyote.http11.Http11Protocol  - Starting Coyote HTTP/1.1 
+</I>on 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> http-localhost%2F127.0.0.1-8080 log4j:WARN No appenders could be 
+</I>found 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> for logger (org.apache.catalina.loader.WebappClassLoader).
+</I>&gt;&gt;<i> log4j:WARN Please initialize the log4j system properly.
+</I>&gt;&gt;<i> [main] INFO  org.apache.struts.tiles.TilesPlugin  - Tiles definition 
+</I>&gt;&gt;<i> factory loaded for module ''.
+</I>&gt;&gt;<i> [main] INFO  org.apache.struts.validator.ValidatorPlugIn  - Loading 
+</I>&gt;&gt;<i> validation rules file from '/WEB-INF/validator-rules.xml'
+</I>&gt;&gt;<i> [main] INFO  org.apache.struts.validator.ValidatorPlugIn  - Loading 
+</I>&gt;&gt;<i> validation rules file from '/WEB-INF/validation.xml'
+</I>&gt;&gt;<i> [main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - FQDN: 
+</I>
+&gt;&gt;<i> hss.open-ims.test [main] INFO  
+</I>&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Realm: 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> open-ims.test 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - 
+</I>&gt;&gt;<i> Vendor_ID : 10415 [main] INFO  
+</I>&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Product Name: 
+</I>&gt;&gt;<i> JavaDiameterPeer [main] INFO  
+</I>&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - 
+</I>AcceptUnknwonPeers: 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> true [main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - 
+</I>&gt;&gt;<i> DropUnknownOnDisconnect: true [Thread-10] ERROR 
+</I>&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: 
+</I>
+&gt;&gt;<i> Peer icscf.open-ims.test not responding to connection attempt 
+</I>&gt;&gt;<i> [Thread-10] ERROR 
+</I>de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to connection 
+</I>
+&gt;&gt;<i> attempt [main] INFO  org.hibernate.cfg.Environment  - Hibernate 3.0.5 
+</I>
+&gt;&gt;<i> [main] INFO  org.hibernate.cfg.Environment  - loaded properties from 
+</I>&gt;&gt;<i> resource hibernate.properties: {hibernate.c3p0.timeout=300, 
+</I>&gt;&gt;<i> hibernate.connection.driver_class=com.mysql.jdbc.Driver, 
+</I>&gt;&gt;<i> hibernate.connection.isolation=4, 
+</I>&gt;&gt;<i> hibernate.cglib.use_reflection_optimizer=true, 
+</I>&gt;&gt;<i> hibernate.c3p0.max_statements=50, hibernate.c3p0.max_size=20, 
+</I>&gt;&gt;<i> hibernate.dialect=org.hibernate.dialect.MySQLDialect, 
+</I>&gt;&gt;<i> hibernate.c3p0.idle_test_period=3000, hibernate.c3p0.min_size=2, 
+</I>&gt;&gt;<i> hibernate.connection.username=hss, 
+</I>&gt;&gt;<i> hibernate.connection.url=jdbc:<A HREF="mysql://127.0.0.1:3306/hssdb,">mysql://127.0.0.1:3306/hssdb,</A> 
+</I>&gt;&gt;<i> hibernate.connection.password=****}
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.Environment  - using CGLIB reflection 
+</I>&gt;&gt;<i> optimizer [main] INFO  org.hibernate.cfg.Environment  - using JDK 1.4 
+</I>
+&gt;&gt;<i> java.sql.Timestamp handling [main] INFO  
+</I>&gt;&gt;<i>     
+</I>&gt;<i> org.hibernate.cfg.Configuration 
+</I>&gt;<i>   
+</I>&gt;&gt;<i>  - configuring from resource: /hibernate.cfg.xml [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Configuration resource: 
+</I>&gt;&gt;<i> /hibernate.cfg.xml [main] INFO  org.hibernate.cfg.Configuration  - 
+</I>&gt;&gt;<i> Mapping resource: mappings/Network.hbm.xml [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping class: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Network -&gt; networks [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Imsu.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Imsu -&gt; imsu [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Impi.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Impi -&gt; impi [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impi.impus -&gt; impu2impi [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impi.roams -&gt; roam [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Impu.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Impu -&gt; impu [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impu.impis -&gt; impu2impi [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Ifc.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Mapping 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> class: de.fhg.fokus.hss.model.Ifc -&gt; ifc [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Ifc.svp -&gt; ifc2svp [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Ifc2svp.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Ifc2svp -&gt; ifc2svp [main] INFO  
+</I>
+&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Spt.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Mapping 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> class: de.fhg.fokus.hss.model.Spt -&gt; spt [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Trigpt.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Trigpt -&gt; trigpt [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Apsvr.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Apsvr -&gt; apsvr [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Psi.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Mapping 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> class: de.fhg.fokus.hss.model.Psi -&gt; psi [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Psi.impus -&gt; psi2impu [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/PsiTempl.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>
+&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.PsiTempl -&gt; psi_templ [main] 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> INFO  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Chrginfo.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>
+&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.Chrginfo -&gt; chrginfo [main] 
+</I>INFO 
+&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/AsPermList.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  
+</I>
+&gt;&gt;<i>     
+</I>&gt;<i> - 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.AsPermList -&gt; as_perm_list 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/RepData.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.RepData -&gt; rep_data [main] INFO 
+</I> 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/NotifyRepData.hbm.xml [main] INFO  
+</I>&gt;&gt;<i>     
+</I>&gt;<i> org.hibernate.cfg.HbmBinder  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - Mapping class: de.fhg.fokus.hss.model.NotifyRepData -&gt; 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> notify_rep_data 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/NotifyImsUserState.hbm.xml
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.NotifyImsUserState -&gt; notify_ims_user_state 
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/NotifyScscfname.hbm.xml [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping class: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.NotifyScscfname -&gt; notify_scscfname [main] 
+</I>INFO 
+&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/NotifyIfc.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  
+</I>- 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.NotifyIfc -&gt; notify_ifc [main] 
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/DiamServer.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  
+</I>
+&gt;&gt;<i>     
+</I>&gt;<i> - 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Mapping class: de.fhg.fokus.hss.model.DiamServer -&gt; diam_servers 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Uss.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Mapping 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> class: de.fhg.fokus.hss.model.UserSecSettings -&gt; uss [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Mapping resource: 
+</I>&gt;&gt;<i> mappings/Svp.hbm.xml [main] INFO  org.hibernate.cfg.HbmBinder  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Mapping 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> class: de.fhg.fokus.hss.model.Svp -&gt; svp [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - Configured SessionFactory: foo 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.Configuration  - processing extends queue 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.Configuration  - processing collection 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> mappings 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Imsu.impis -&gt; impi [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impu.notifyImsUserStates -&gt; 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> notify_ims_user_state 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impu.notifyScscfnames -&gt; notify_scscfname 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Trigpt.spts -&gt; spt [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.PsiTempl.psis -&gt; psi [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.RepData.notifyRepDatas -&gt; notify_rep_data 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Svp.ifc2svps -&gt; ifc2svp [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Svp.impus -&gt; impu [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration  - processing association property 
+</I>&gt;&gt;<i> references [main] INFO  org.hibernate.cfg.Configuration  - processing 
+</I>
+&gt;&gt;<i> foreign key constraints [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.connection.C3P0ConnectionProvider  - C3P0 using driver: 
+</I>
+&gt;&gt;<i> com.mysql.jdbc.Driver at URL: jdbc:<A HREF="mysql://127.0.0.1:3306/hssdb">mysql://127.0.0.1:3306/hssdb</A> 
+</I>[main] 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.connection.C3P0ConnectionProvider  - Connection 
+</I>&gt;&gt;<i> properties: {user=hss, password=****} [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.connection.C3P0ConnectionProvider  - autocommit mode: 
+</I>&gt;&gt;<i> false [main] INFO  com.mchange.v2.log.MLog  - MLog clients using 
+</I>log4j 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> logging.
+</I>&gt;&gt;<i> [main] INFO  com.mchange.v2.c3p0.C3P0Registry  - Initializing 
+</I>&gt;&gt;<i> c3p0-0.9.0.2 [built 26-September-2005 12:55:26 -0400; debug? true; 
+</I>&gt;&gt;<i> trace: 10] [main] INFO  
+</I>&gt;&gt;<i>     
+</I>&gt;<i> org.hibernate.connection.C3P0ConnectionProvider  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - JDBC isolation level: REPEATABLE_READ [main] INFO  
+</I>&gt;&gt;<i> com.mchange.v2.c3p0.PoolBackedDataSource  - Initializing c3p0 pool... 
+</I>
+&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.mchange.v2.c3p0.PoolBackedDataSource at 2bfdff</A> [ 
+</I>&gt;&gt;<i> connectionPoolDataSource -&gt; 
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.mchange.v2.c3p0.WrapperConnectionPoolDataSource at 1270107</A> [ 
+</I>&gt;&gt;<i> acquireIncrement -&gt; 1, acquireRetryAttempts -&gt; 30, acquireRetryDelay 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> -&gt; 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> 1000, autoCommitOnClose -&gt; false, automaticTestTable -&gt; null, 
+</I>&gt;&gt;<i> breakAfterAcquireFailure -&gt; false, checkoutTimeout -&gt; 0, 
+</I>&gt;&gt;<i> connectionTesterClassName -&gt; 
+</I>&gt;&gt;<i> com.mchange.v2.c3p0.impl.DefaultConnectionTester, 
+</I>factoryClassLocation 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> -&gt; null, forceIgnoreUnresolvedTransactions -&gt; false, identityToken -&gt; 
+</I>
+&gt;&gt;<i> 1270107, idleConnectionTestPeriod -&gt; 3000, initialPoolSize -&gt; 2, 
+</I>&gt;&gt;<i> maxIdleTime -&gt; 300, maxPoolSize -&gt; 20, maxStatements -&gt; 50, 
+</I>&gt;&gt;<i> maxStatementsPerConnection -&gt; 0, minPoolSize -&gt; 2, nestedDataSource 
+</I>-&gt; 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.mchange.v2.c3p0.DriverManagerDataSource at 14a9387</A> [ description -&gt; 
+</I>&gt;&gt;<i> null, driverClass -&gt; null, factoryClassLocation -&gt; null, 
+</I>identityToken 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> -&gt; 14a9387, jdbcUrl -&gt; jdbc:<A HREF="mysql://127.0.0.1:3306/hssdb,">mysql://127.0.0.1:3306/hssdb,</A> properties 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> -&gt; 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> {user=******, password=******} ], preferredTestQuery -&gt; null, 
+</I>&gt;&gt;<i> propertyCycle -&gt; 300, testConnectionOnCheckin -&gt; false, 
+</I>&gt;&gt;<i> testConnectionOnCheckout -&gt; false, usesTraditionalReflectiveProxies 
+</I>-&gt; 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> false ], factoryClassLocation -&gt; null, identityToken -&gt; 2bfdff, 
+</I>&gt;&gt;<i> numHelperThreads -&gt; 3 ] [main] INFO  
+</I>org.hibernate.cfg.SettingsFactory 
+&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - RDBMS: MySQL, version: 5.0.22-Debian_2-log [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - JDBC driver: MySQL-AB JDBC 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Driver, 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> version: mysql-connector-java-3.1.12 ( $Date: 2005-11-17 15:53:48 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> +0100 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> (Thu, 17 Nov 2005) $, $Revision$ ) [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.dialect.Dialect  - Using dialect: 
+</I>&gt;&gt;<i> org.hibernate.dialect.MySQLDialect
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.transaction.TransactionFactoryFactory  - 
+</I>&gt;&gt;<i> Using default transaction strategy (direct JDBC transactions) [main] 
+</I>&gt;&gt;<i> INFO  org.hibernate.transaction.TransactionManagerLookupFactory  - No 
+</I>
+&gt;&gt;<i> TransactionManagerLookup configured (in JTA environment, use of 
+</I>&gt;&gt;<i> read-write or transactional second-level cache is not recommended) 
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.SettingsFactory  - Automatic flush 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> during 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> beforeCompletion(): disabled [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Automatic session close at end 
+</I>of 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> transaction: disabled [main] INFO  org.hibernate.cfg.SettingsFactory  
+</I>
+&gt;&gt;<i>     
+</I>&gt;<i> - 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> JDBC batch size: 15 [main] INFO  org.hibernate.cfg.SettingsFactory  - 
+</I>
+&gt;&gt;<i> JDBC batch updates for versioned data: disabled [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Scrollable result sets: enabled 
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.SettingsFactory  - JDBC3 
+</I>&gt;&gt;<i> getGeneratedKeys(): enabled [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Connection release mode: null 
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.SettingsFactory  - Maximum outer join 
+</I>&gt;&gt;<i> fetch depth: 2 [main] INFO  org.hibernate.cfg.SettingsFactory  - 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> Default 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> batch fetch size: 1 [main] INFO  org.hibernate.cfg.SettingsFactory  - 
+</I>
+&gt;&gt;<i> Generate SQL with comments: disabled [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Order SQL updates by primary 
+</I>key: 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> disabled [main] INFO  org.hibernate.cfg.SettingsFactory  - Query 
+</I>&gt;&gt;<i> translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.hql.ast.ASTQueryTranslatorFactory  - Using 
+</I>
+&gt;&gt;<i> ASTQueryTranslatorFactory [main] INFO  
+</I>&gt;&gt;<i>     
+</I>&gt;<i> org.hibernate.cfg.SettingsFactory 
+</I>&gt;<i>   
+</I>&gt;&gt;<i>  - Query language substitutions: {} [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Second-level cache: enabled 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.SettingsFactory  - Query cache: disabled 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  org.hibernate.cfg.SettingsFactory  - Cache provider: 
+</I>&gt;&gt;<i> org.hibernate.cache.EhCacheProvider
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.SettingsFactory  - Optimize cache for 
+</I>&gt;&gt;<i> minimal puts: disabled [main] INFO  org.hibernate.cfg.SettingsFactory 
+</I> 
+&gt;&gt;<i>     
+</I>&gt;<i> - 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Structured second-level cache entries: disabled [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Statistics: disabled [main] INFO 
+</I> 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory  - Deleted entity synthetic 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> identifier 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> rollback: disabled [main] INFO  org.hibernate.cfg.SettingsFactory  - 
+</I>&gt;&gt;<i> Default entity-mode: pojo [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.impl.SessionFactoryImpl  - building session factory 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> WARN  net.sf.ehcache.config.Configurator  - No configuration found. 
+</I>&gt;&gt;<i> Configuring ehcache from ehcache-failsafe.xml found in the classpath: 
+</I>
+&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>&gt;<i> 
+</I>jar:file:/opt/OpenIMSCore/FHoSS/deploy/lib/ehcache-1.1.jar!/ehcache-fail
+&gt;<i>   
+</I>&gt;&gt;<i> safe.xml
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.impl.SessionFactoryObjectFactory  - 
+</I>Factory 
+&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> name: foo [main] INFO  org.hibernate.util.NamingHelper  - JNDI 
+</I>&gt;&gt;<i> InitialContext properties:{} [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.impl.SessionFactoryObjectFactory  - Bound factory to 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> JNDI 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> name: foo [main] WARN  org.hibernate.impl.SessionFactoryObjectFactory 
+</I> 
+&gt;&gt;<i>     
+</I>&gt;<i> - 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> InitialContext did not implement EventContext [main] INFO  
+</I>&gt;&gt;<i> org.hibernate.impl.SessionFactoryImpl  - Checking 0 named queries 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> [main] 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> INFO  de.fhg.fokus.hss.main.HssServer  - FHoSS was started and is 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> ready 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> to use.
+</I>&gt;&gt;<i> Type 'exit' to exit
+</I>&gt;&gt;<i> [Thread-10] ERROR 
+</I>de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test not responding to connection 
+</I>
+&gt;&gt;<i> attempt [Thread-10] ERROR 
+</I>&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: 
+</I>
+&gt;&gt;<i> Peer scscf.open-ims.test not responding to connection attempt
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> SCSCF
+</I>&gt;&gt;<i> QA-20-13:/opt/OpenIMSCore# ./scscf.sh
+</I>&gt;&gt;<i> ./scscf.sh: line 3: killser: command not found Listening on
+</I>&gt;&gt;<i>              udp: 127.0.0.1 [127.0.0.1]:6060
+</I>&gt;&gt;<i>              tcp: 127.0.0.1 [127.0.0.1]:6060
+</I>&gt;&gt;<i> Aliases:
+</I>&gt;&gt;<i>              tcp: localhost:6060
+</I>&gt;&gt;<i>              tcp: localhost.localdomain:6060
+</I>&gt;&gt;<i>              udp: localhost:6060
+</I>&gt;&gt;<i>              udp: localhost.localdomain:6060
+</I>&gt;&gt;<i>              *: scscf.open-ims.test:*
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(15753) init_tcp: using epoll_lt as the io watch method (auto 
+</I>&gt;&gt;<i> detected)
+</I>&gt;&gt;<i>  0(15753) Maxfwd module- initializing
+</I>&gt;&gt;<i>  0(15753) INFO:S-CSCF:mod_init: Initialization of module
+</I>&gt;&gt;<i>  0(15753) INFO:ISC: - init
+</I>&gt;&gt;<i>  0(15753) INFO:cdp:cdp_init(): CDiameterPeer initializing
+</I>&gt;&gt;<i>  0(15753) Diameter Peer Config:
+</I>&gt;&gt;<i>  0(15753)       FQDN    : scscf.open-ims.test
+</I>&gt;&gt;<i>  0(15753)       Realm   : open-ims.test
+</I>&gt;&gt;<i>  0(15753)       VendorID: 10415
+</I>&gt;&gt;<i>  0(15753)       ProdName: CDiameterPeer
+</I>&gt;&gt;<i>  0(15753)       AcceptUn: [X]
+</I>&gt;&gt;<i>  0(15753)       DropUnkn: [X]
+</I>&gt;&gt;<i>  0(15753)       Tc      : 30
+</I>&gt;&gt;<i>  0(15753)       Workers : 4
+</I>&gt;&gt;<i>  0(15753)       QueueLen: 8
+</I>&gt;&gt;<i>  0(15753)       Peers : 1
+</I>&gt;&gt;<i>  0(15753)               FQDN:  hss.open-ims.test         Realm: 
+</I>&gt;&gt;<i> open-ims.test    Port: 3868
+</I>&gt;&gt;<i>  0(15753)       Acceptors : 1
+</I>&gt;&gt;<i>  0(15753)               Port:  3870      Bind: 127.0.0.1
+</I>&gt;&gt;<i>  0(15753)       Applications : 3
+</I>&gt;&gt;<i>  0(15753)               Auth ID:  16777216       Vendor: 10415
+</I>&gt;&gt;<i>  0(15753)               Auth ID:  16777216       Vendor: 0
+</I>&gt;&gt;<i>  0(15753)               Acct ID:  16777216       Vendor: 0
+</I>&gt;&gt;<i>  0(15753) INFO: udp_init: SO_RCVBUF is initially 105472
+</I>&gt;&gt;<i>  0(15753) INFO: udp_init: SO_RCVBUF is finally 524288
+</I>&gt;&gt;<i>  2(15755) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [2]
+</I>&gt;&gt;<i>  0(15753) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [0]
+</I>&gt;&gt;<i>  0(15753) INFO:ISC: - child init [0]
+</I>&gt;&gt;<i>  0(15753) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+</I>&gt;&gt;<i>  2(15755) INFO:ISC: - child init [2]
+</I>&gt;&gt;<i>  1(15754) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1]
+</I>&gt;&gt;<i>  0(15753) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+</I>&gt;&gt;<i>  3(15756) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [3]
+</I>&gt;&gt;<i>  1(15754) INFO:ISC: - child init [1]
+</I>&gt;&gt;<i>  6(15759) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [-1]
+</I>&gt;&gt;<i>  5(15758) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [-1]
+</I>&gt;&gt;<i>  3(15756) INFO:ISC: - child init [3]
+</I>&gt;&gt;<i>  4(15757) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [4]
+</I>&gt;&gt;<i>  5(15758) INFO:ISC: - child init [-1]
+</I>&gt;&gt;<i> 13(15766) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1001]
+</I>&gt;&gt;<i>  4(15757) INFO:ISC: - child init [4]
+</I>&gt;&gt;<i>  7(15760)  8(15761) INFO:S-CSCF:mod_child_init: Initialization of 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> module 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> in child [6]
+</I>&gt;&gt;<i> 13(15766) INFO:ISC: - child init [1001]
+</I>&gt;&gt;<i> 13(15766) INFO:[0] Worker process started...
+</I>&gt;&gt;<i> 12(15765) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1000]
+</I>&gt;&gt;<i>  8(15761) INFO:ISC: - child init [6]
+</I>&gt;&gt;<i>  9(15762) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [7]
+</I>&gt;&gt;<i> 12(15765) INFO:ISC: - child init [1000]
+</I>&gt;&gt;<i> 12(15765) INFO:Acceptor process starting up...
+</I>&gt;&gt;<i> 12(15765) INFO:create_sockets: IPv4 Listening on 127.0.0.1:3870
+</I>&gt;&gt;<i> 12(15765) INFO:... Acceptor opened sockets. Entering accept loop ...
+</I>&gt;&gt;<i> 11(15764) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [-4]
+</I>&gt;&gt;<i> 11(15764) INFO:ISC: - child init [-4]
+</I>&gt;&gt;<i>  9(15762) INFO:ISC: - child init [7]
+</I>&gt;&gt;<i> 10(15763) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [8]
+</I>&gt;&gt;<i> 17(15770) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1001]
+</I>&gt;&gt;<i> 10(15763) 17(15770) INFO:ISC: - child init [1001]
+</I>&gt;&gt;<i> 17(15770) INFO:Timer process starting up...
+</I>&gt;&gt;<i> INFO:ISC: - child init [8]
+</I>&gt;&gt;<i> 16(15769) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1004]
+</I>&gt;&gt;<i> 15(15768) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1003]
+</I>&gt;&gt;<i> 16(15769) INFO:ISC: - child init [1004]
+</I>&gt;&gt;<i> 16(15769) INFO:[3] Worker process started...
+</I>&gt;&gt;<i> 15(15768) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [5]
+</I>&gt;&gt;<i> INFO:ISC: - child init [1003]
+</I>&gt;&gt;<i> 15(15768) INFO:[2] Worker process started...
+</I>&gt;&gt;<i> 14(15767) INFO:S-CSCF:mod_child_init: Initialization of module in 
+</I>&gt;&gt;<i>     
+</I>&gt;<i> child 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> [1002]
+</I>&gt;&gt;<i>  7(15760) INFO:ISC: - child init [5]
+</I>&gt;&gt;<i> 14(15767) INFO:ISC: - child init [1002]
+</I>&gt;&gt;<i> 14(15767) INFO:[1] Worker process started...
+</I>&gt;&gt;<i>  6(15759) INFO:ISC: - child init [-1]
+</I>&gt;&gt;<i> 17(15770) DBG:peer_timer(): Peer hss.open-ims.test      State 0
+</I>&gt;&gt;<i> 17(15770) DBG:sm_process(): Peer hss.open-ims.test      State Closed  
+</I> 
+&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Event Start
+</I>&gt;&gt;<i> 17(15770) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test
+</I>&gt;&gt;<i> 17(15770) WARNING:peer_connect(): Error opening connection to 
+</I>&gt;&gt;<i> hss.open-ims.test:3868 &gt;Connection refused
+</I>&gt;&gt;<i> 17(15770) DBG:sm_process(): Peer hss.open-ims.test      State 
+</I>&gt;&gt;<i> Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i>  5(15758) INF:S-CSCF:----------  Registrar Contents begin --------
+</I>&gt;&gt;<i>  5(15758) INF:S-CSCF:----------  Registrar Contents end ----------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i>  5(15758) INF:S-CSCF:----------  Registrar Contents begin --------
+</I>&gt;&gt;<i>  5(15758) INF:S-CSCF:----------  Registrar Contents end ----------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i> 17(15770) --- Peer List: ---
+</I>&gt;&gt;<i> 17(15770)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;<i> 17(15770) ------------------
+</I>&gt;&gt;<i>  1(15754) INFO: signal 2 received
+</I>&gt;&gt;<i>  6(15759) INFO: signal 2 received
+</I>&gt;&gt;<i> 17(15770) INFO: signal 2 received
+</I>&gt;&gt;<i> 12(15765) INFO: signal 2 received
+</I>&gt;&gt;<i> 13(15766) INFO: signal 2 received
+</I>&gt;&gt;<i>  0(15753)  2(15755)  3(15756)  4(15757)  7(15760) INFO: signal 2 
+</I>&gt;&gt;<i> received
+</I>&gt;&gt;<i> 14(15767) INFO: signal 2 received
+</I>&gt;&gt;<i>  8(15761) INFO: signal 2 received
+</I>&gt;&gt;<i> 16(15769) INFO: signal 2 received
+</I>&gt;&gt;<i>  5(15758) INFO: signal 2 received
+</I>&gt;&gt;<i>  9(15762) INFO: signal 2 received
+</I>&gt;&gt;<i> 10(15763) INFO: signal 2 received
+</I>&gt;&gt;<i> INFO: signal 2 received
+</I>&gt;&gt;<i> 11(15764) INFO: signal 2 received
+</I>&gt;&gt;<i> INFO: signal 2 received
+</I>&gt;&gt;<i> 15(15768) INFO: signal 2 received
+</I>&gt;&gt;<i> INFO: signal 2 received
+</I>&gt;&gt;<i> child process 15754 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15756 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15755 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15757 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15758 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15759 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15760 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15761 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15762 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15763 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15764 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15765 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15766 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15767 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15768 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15769 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) child process 15770 exited normally, status=0
+</I>&gt;&gt;<i>  0(15753) INFO: terminating due to SIGCHLD
+</I>&gt;&gt;<i>  0(15753) Process Table:
+</I>&gt;&gt;<i>  0(15753)  0. (15753) &gt; attendant
+</I>&gt;&gt;<i>  0(15753)  1. (15754) &gt; udp
+</I>&gt;&gt;<i>  0(15753)  2. (15755) &gt; udp
+</I>&gt;&gt;<i>  0(15753)  3. (15756) &gt; udp
+</I>&gt;&gt;<i>  0(15753)  4. (15757) &gt; udp
+</I>&gt;&gt;<i>  0(15753)  5. (15758) &gt; slow timer
+</I>&gt;&gt;<i>  0(15753)  6. (15759) &gt; timer
+</I>&gt;&gt;<i>  0(15753)  7. (15760) &gt; tcp receiver child=0
+</I>&gt;&gt;<i>  0(15753)  8. (15761) &gt; tcp receiver child=1
+</I>&gt;&gt;<i>  0(15753)  9. (15762) &gt; tcp receiver child=2
+</I>&gt;&gt;<i>  0(15753) 10. (15763) &gt; tcp receiver child=3
+</I>&gt;&gt;<i>  0(15753) 11. (15764) &gt; tcp main process
+</I>&gt;&gt;<i>  0(15753) 12. (15765) &gt; cdp_acceptor
+</I>&gt;&gt;<i>  0(15753) 13. (15766) &gt; cdp worker child=0
+</I>&gt;&gt;<i>  0(15753) 14. (15767) &gt; cdp worker child=1
+</I>&gt;&gt;<i>  0(15753) 15. (15768) &gt; cdp worker child=2
+</I>&gt;&gt;<i>  0(15753) 16. (15769) &gt; cdp worker child=3
+</I>&gt;&gt;<i>  0(15753) 17. (15770) &gt; cdp_timer
+</I>&gt;&gt;<i>  0(15753) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Terminating all childs...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Waiting for child [15770] to 
+</I>&gt;&gt;<i> terminate...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Waiting for child [15769] to 
+</I>&gt;&gt;<i> terminate...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Waiting for child [15768] to 
+</I>&gt;&gt;<i> terminate...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Waiting for child [15767] to 
+</I>&gt;&gt;<i> terminate...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Waiting for child [15766] to 
+</I>&gt;&gt;<i> terminate...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Waiting for child [15765] to 
+</I>&gt;&gt;<i> terminate...
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): All processes terminated. 
+</I>&gt;&gt;<i> Cleaning up.
+</I>&gt;&gt;<i>  0(15753) INFO:destroy_diameter_peer(): Bye Bye from C Diameter Peer 
+</I>&gt;&gt;<i> test
+</I>&gt;&gt;<i>  0(15753) INFO:cdp:cdp_exit(): ... CDiameterPeer stoped
+</I>&gt;&gt;<i>  0(15753) INFO:ISC: - child exit
+</I>&gt;&gt;<i>  0(15753) INFO:S-CSCF:mod_destroy: child exit
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>]
+</I>&gt;&gt;<i> Sent: Wednesday, December 06, 2006 6:24 PM
+</I>&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Sorry, /opt/OpenIMSCore/FHoSS/config/DiameterPeerHSS.xml
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> Dragos,
+</I>&gt;&gt;&gt;<i>  I don't have this file in my machine.Could you please send me if 
+</I>you 
+&gt;&gt;&gt;<i>       
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> have one.
+</I>&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt# locate DiameterPeer.xml Aylus-QA-20-13:/opt# 
+</I>&gt;&gt;&gt;<i> Thanks Babu
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>]
+</I>&gt;&gt;&gt;<i> Sent: Wednesday, December 06, 2006 6:12 PM
+</I>&gt;&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> There is a small typo in there, probably you meant 127.0.0.1 and not 
+</I>
+&gt;&gt;&gt;<i> 127.0.1.1... anyway, this works.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Still, you did not send the network dump (send also the 
+</I>&gt;&gt;&gt;<i> DiameterPeer.xml
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> and scscf.xml configuration files). I can't help you further without 
+</I>
+&gt;&gt;&gt;<i> those.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -Dragos
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> Here is my /etc/hosts file
+</I>&gt;&gt;&gt;&gt;<i> QA-20-13:/opt/OpenIMSCore# netstat -anp|grep 53254 
+</I>&gt;&gt;&gt;&gt;<i> QA-20-13:/opt/OpenIMSCore# cat /etc/hosts
+</I>&gt;&gt;&gt;&gt;<i> 127.0.0.1       localhost.localdomain   localhost
+</I>&gt;&gt;&gt;&gt;<i> 127.0.1.1       debian open-ims.test scscf.open-ims.test 
+</I>&gt;&gt;&gt;&gt;<i> hss.open-ims.test icscf.open-ims.test pcscf.open-ims.test
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> --- debian ping statistics ---
+</I>&gt;&gt;&gt;&gt;<i> 1 packets transmitted, 1 received, 0% packet loss, time 0ms rtt 
+</I>&gt;&gt;&gt;&gt;<i> min/avg/max/mdev = 0.051/0.051/0.051/0.000 ms 
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore# ping hss.open-ims.test PING debian 
+</I>
+&gt;&gt;&gt;&gt;<i> (127.0.1.1) 56(84) bytes of data.
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.044 ms
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.036 ms
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> --- debian ping statistics ---
+</I>&gt;&gt;&gt;&gt;<i> 2 packets transmitted, 2 received, 0% packet loss, time 1000ms rtt 
+</I>&gt;&gt;&gt;&gt;<i> min/avg/max/mdev = 0.036/0.040/0.044/0.004 ms 
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore# ping scscf.open-ims.test PING 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;<i> debian 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> (127.0.1.1) 56(84) bytes of data.
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.042 ms
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.042 ms
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> --- debian ping statistics ---
+</I>&gt;&gt;&gt;&gt;<i> 2 packets transmitted, 2 received, 0% packet loss, time 1000ms rtt 
+</I>&gt;&gt;&gt;&gt;<i> min/avg/max/mdev = 0.042/0.042/0.042/0.000 ms 
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore#
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A> 
+</I>&gt;&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;<i> Sent: Wednesday, December 06, 2006 6:24 PM
+</I>&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Sorry, /opt/OpenIMSCore/FHoSS/config/DiameterPeerHSS.xml
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> Dragos,
+</I>&gt;&gt;&gt;<i>  I don't have this file in my machine.Could you please send me if 
+</I>you 
+&gt;&gt;&gt;<i>       
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> have one.
+</I>&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt# locate DiameterPeer.xml
+</I>&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt#
+</I>&gt;&gt;&gt;<i> Thanks
+</I>&gt;&gt;&gt;<i> Babu
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;&gt;<i> Sent: Wednesday, December 06, 2006 6:12 PM
+</I>&gt;&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> There is a small typo in there, probably you meant 127.0.0.1 and not 
+</I>
+&gt;&gt;&gt;<i> 127.0.1.1... anyway, this works.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Still, you did not send the network dump (send also the 
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i> DiameterPeer.xml 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> and scscf.xml configuration files). I can't help you further without 
+</I>
+&gt;&gt;&gt;<i> those.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -Dragos
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> Here is my /etc/hosts file
+</I>&gt;&gt;&gt;&gt;<i> QA-20-13:/opt/OpenIMSCore# netstat -anp|grep 53254
+</I>&gt;&gt;&gt;&gt;<i> QA-20-13:/opt/OpenIMSCore# cat /etc/hosts
+</I>&gt;&gt;&gt;&gt;<i> 127.0.0.1       localhost.localdomain   localhost
+</I>&gt;&gt;&gt;&gt;<i> 127.0.1.1       debian open-ims.test scscf.open-ims.test 
+</I>&gt;&gt;&gt;&gt;<i> hss.open-ims.test icscf.open-ims.test pcscf.open-ims.test
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> --- debian ping statistics ---
+</I>&gt;&gt;&gt;&gt;<i> 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+</I>&gt;&gt;&gt;&gt;<i> rtt min/avg/max/mdev = 0.051/0.051/0.051/0.000 ms
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore# ping hss.open-ims.test
+</I>&gt;&gt;&gt;&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.044 ms
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.036 ms
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> --- debian ping statistics ---
+</I>&gt;&gt;&gt;&gt;<i> 2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+</I>&gt;&gt;&gt;&gt;<i> rtt min/avg/max/mdev = 0.036/0.040/0.044/0.004 ms
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore# ping scscf.open-ims.test
+</I>&gt;&gt;&gt;&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.042 ms
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.042 ms
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> --- debian ping statistics ---
+</I>&gt;&gt;&gt;&gt;<i> 2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+</I>&gt;&gt;&gt;&gt;<i> rtt min/avg/max/mdev = 0.042/0.042/0.042/0.000 ms
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore#
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Thanks
+</I>&gt;&gt;&gt;&gt;<i> Babu
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;&gt;&gt;<i> Sent: Wednesday, December 06, 2006 5:53 PM
+</I>&gt;&gt;&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> There was a reason a long time ago why we couldn't use /etc/hosts 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;<i> and 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;<i> we 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> used the DNS. Anyway, I don't remember exactly (something with 
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i> reverse 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> DNS I guess).
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Could you send the /etc/hosts and a network trace taken while you 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;<i> get 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> these errors?
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> -Dragos
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i> Dragos,
+</I>&gt;&gt;&gt;&gt;&gt;<i> I started only HSS&amp;SCSCF.I have modified the /etc/hosts file for 
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;<i> name 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> resolution.Here is the error message I get now
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test not responding to 
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;<i> connection 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> attempt
+</I>&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to 
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;<i> connection 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> attempt
+</I>&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test not responding to 
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;<i> connection 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> attempt
+</I>&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to 
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;<i> connection 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> attempt
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Thanks
+</I>&gt;&gt;&gt;&gt;&gt;<i> Babu-----Original Message-----
+</I>&gt;&gt;&gt;&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;&gt;&gt;&gt;<i> Sent: Wednesday, December 06, 2006 5:31 PM
+</I>&gt;&gt;&gt;&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;&gt;&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;&gt;&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> As you error log says:
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> icscf.open-ims.test can not be resolved
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Double check if you have configured the DNS server properly.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> -Dragos
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Dragos,
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>  The error I got was for connecting to PCSCF.I have not started 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;<i> PCSCF.
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>  So it is OK.But no idea why HSS is not getting connected to 
+</I>scscf
+&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test can not be resolved.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;<i> connection 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> attempt
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Thanks
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Babu
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Sent: Wednesday, December 06, 2006 5:18 PM
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Hi George,
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I don't know why you get that &quot;ims.test can not be resolved&quot;. Is 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;<i> this 
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;<i> a 
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> bad paste of a log message?
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I network trace during the start-up would help debug your 
+</I>problem. 
+&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;<i> You 
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> should see the hosts trying to connect to each-other on port 
+</I>3868, 
+&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;<i> 3869 
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> and 3870. If you can't figure it out, please post the network 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;<i> trace.
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> -Dragos
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> All,
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>   I started the HSS server and Scscf on my machine.They are not 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> getting connected through the diameter interface.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Here is the error I get at Scscf     I
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents begin 
+</I>--------
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents end 
+</I>----------
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents begin 
+</I>--------
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents end 
+</I>----------
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Here is the error message I get at HSS
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> ims.test can not be resolved.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - 
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>               
+</I>&gt;&gt;&gt;&gt;<i> StateMachine: 
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>               
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Peer scscf.open-ims.test not responding to connection attempt
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> I can ping the domain
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore/FHoSS/deploy# ping open-ims.test
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.039 
+</I>ms
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.037 
+</I>ms
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Can someone help me in resolving this issue
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> Babu
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>               
+</I>&gt;<i> 
+</I>------------------------------------------------------------------------
+&gt;<i>   
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;&gt;&gt;<i>               
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>             
+</I>&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000057.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+	<LI>Next message: <A HREF="000059.html">[OpenIMSCore-HSS] Unable to start ICSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#58">[ date ]</a>
+              <a href="thread.html#58">[ thread ]</a>
+              <a href="subject.html#58">[ subject ]</a>
+              <a href="author.html#58">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

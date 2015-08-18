@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] ERROR de.fhg.fokus.hss.HssExceptionHandler -	exception occured java.lang.NullPointerException
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20ERROR%20de.fhg.fokus.hss.HssExceptionHandler%20-%0A%09exception%20occured%20java.lang.NullPointerException&In-Reply-To=%3CBANLkTi%3DM-VbC1HehXW6DTGcZ2Ln687T3sA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001025.html">
+   <LINK REL="Next"  HREF="001027.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] ERROR de.fhg.fokus.hss.HssExceptionHandler -	exception occured java.lang.NullPointerException</H1>
+    <B>Keith Christian</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20ERROR%20de.fhg.fokus.hss.HssExceptionHandler%20-%0A%09exception%20occured%20java.lang.NullPointerException&In-Reply-To=%3CBANLkTi%3DM-VbC1HehXW6DTGcZ2Ln687T3sA%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] ERROR de.fhg.fokus.hss.HssExceptionHandler -	exception occured java.lang.NullPointerException">keith1christian at gmail.com
+       </A><BR>
+    <I>Tue Apr 19 23:32:49 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001025.html">[OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme	Unsupported
+</A></li>
+        <LI>Next message: <A HREF="001027.html">[OpenIMSCore-HSS] error in userdata.sql
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1026">[ date ]</a>
+              <a href="thread.html#1026">[ thread ]</a>
+              <a href="subject.html#1026">[ subject ]</a>
+              <a href="author.html#1026">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello List Subscribers,
+
+Am seeing the following NullPointerException in the
+/opt/OpenIMSCore/newhss/deploy/logs/hss.activities.log.2011-04-19-09
+log, which I have traced to an empty &quot;server_name&quot; variable.
+
+How can I identify where the server_name variable is initialized?
+Didn't find any solid indications in any of the .xml files.  Must be
+something in the MySQL database that I am missing.
+
+Thanks in advance.
+
+
+2011-04-19 09:03:59,394 [http-www.xxx.yyy.zzz-8080-Processor4] ERROR
+de.fhg.fokus.hss.HssExceptionHandler  - exception occured
+java.lang.NullPointerException
+        at de.fhg.fokus.hss.web.action.IMPU_Submit.execute(IMPU_Submit.java:266)
+        at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:419)
+        at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:224)
+        at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+        at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+        at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+        at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:744)
+        at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+        at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+        at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+        at java.lang.Thread.run(Thread.java:662)
+
+
+To troubleshoot this, I added some debug statements to UDR.java:
+
+    175                                 //      check if the
+server_name is present in the request (only for DSAI)
+    176                                 //BEGIN DEBUGGING================
+    177                                 System.out.println(&quot;MONDAY
+DEBUG - Line 177 - crt_data_ref is &quot; + crt_data_ref);
+    178                                 System.out.println(&quot;MONDAY
+DEBUG - Line 178 - server_name is &quot; + server_name);
+    179                                 //END DEBUGGING================
+    180                                 if ((crt_data_ref ==
+ShConstants.Data_Ref_DSAI) &amp;&amp; (server_name == null))
+    181                                 {
+    182                                         throw new
+ShFinalResultException(DiameterConstants.ResultCode.DIAMETER_MISSING_AVP);
+    183                                 }
+    184                                 //TODO MSISDN
+
+
+
+    225                                 if (crt_data_ref ==
+ShConstants.Data_Ref_DSAI){
+    226                                         dsai_tag =
+UtilAVP.getDSAITag(request);
+    227                                         DSAI dsai =
+DSAI_DAO.get_by_Dsai_tag(session, dsai_tag);
+    228                                         if (dsai==null){
+    229                                                  new
+ShExperimentalResultException(DiameterConstants.ResultCode.RC_IMS_DIAMETER_ERROR_DSAI
+       _NOT_AVAILABLE);
+    230                                         }
+    231                                 }
+    232
+    233                                 //BEGIN DEBUGGING================
+    234                                 System.out.println(&quot;MONDAY
+DEBUG - Line 234 - shData is &quot; + shData);
+    235                                 System.out.println(&quot;MONDAY
+DEBUG - Line 235 - crt_data_ref is &quot; + crt_data_ref);
+    236                                 System.out.println(&quot;MONDAY
+DEBUG - Line 236 - impu is &quot; + impu);
+    237                                 System.out.println(&quot;MONDAY
+DEBUG - Line 237 - crt_service_indication is &quot; +
+crt_service_indication);
+    238                                 System.out.println(&quot;MONDAY
+DEBUG - Line 238 - server_name is &quot; + server_name);
+    239                                 System.out.println(&quot;MONDAY
+DEBUG - Line 239 - identitySet is &quot; + identitySet);
+    240                                 //END DEBUGGING================
+    241
+    242                                 // add the Sh-Data to the shData object
+    243                                 addShData(shData,
+crt_data_ref, impu, crt_service_indication, server_name, identitySet,
+dsai_tag);
+
+Output to the terminal screen shows that the server_name variable is
+probably the culprit since it is NULL:
+
+MONDAY DEBUG - Line 177 - crt_data_ref is 0
+MONDAY DEBUG - Line 178 - server_name is null
+MONDAY DEBUG - Line 234 - shData is &lt;Sh-Data&gt;&lt;/Sh-Data&gt;
+MONDAY DEBUG - Line 235 - crt_data_ref is 0
+MONDAY DEBUG - Line 236 - impu is <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.db.model.IMPU at ae43b8</A>
+MONDAY DEBUG - Line 237 - crt_service_indication is BW-BaseUserInfo
+MONDAY DEBUG - Line 238 - server_name is null
+MONDAY DEBUG - Line 239 - identitySet is -1
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001025.html">[OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme	Unsupported
+</A></li>
+	<LI>Next message: <A HREF="001027.html">[OpenIMSCore-HSS] error in userdata.sql
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1026">[ date ]</a>
+              <a href="thread.html#1026">[ thread ]</a>
+              <a href="subject.html#1026">[ subject ]</a>
+              <a href="author.html#1026">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

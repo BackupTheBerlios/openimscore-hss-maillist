@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Multiple &quot;Data-Reference&quot; AVPs in a	single	UDR?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Multiple%20%22Data-Reference%22%20AVPs%20in%20a%0A%09single%09UDR%3F&In-Reply-To=%3C1164661642.10556.90.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Multiple &quot;Data-Reference&quot; AVPs in a	single	UDR?</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Multiple%20%22Data-Reference%22%20AVPs%20in%20a%0A%09single%09UDR%3F&In-Reply-To=%3C1164661642.10556.90.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] Multiple &quot;Data-Reference&quot; AVPs in a	single	UDR?">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Nov 27 22:07:22 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000017.html">[OpenIMSCore-HSS] Multiple &quot;Data-Reference&quot; AVPs in a single UDR?
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[OpenIMSCore-HSS] [SVN-FHoSS] r28 -	FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sven,
+
+this feature was only added in Rel.7 of 3GPP TS 29.329 and therefore we
+so far do not support it (at best Sh Rel. 6), I made a feature request
+for this topic
+(<A HREF="http://developer.berlios.de/feature/index.php?func=detailfeature&amp;feature_id=2908&amp;group_id=7589">http://developer.berlios.de/feature/index.php?func=detailfeature&amp;feature_id=2908&amp;group_id=7589</A>)
+
+Regards,
+
+Peter
+
+On Mon, 2006-11-27 at 15:24 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sven.bornemann at Materna.de</A> wrote:
+&gt;<i> Hi!
+</I>&gt;<i> I tried to query multiple user data from the FHoSS by adding 
+</I>&gt;<i> multiple &quot;Data-Reference&quot; AVPs to the UDR (e.g. 'S-CSCFName'
+</I>&gt;<i> and 'IMSUserState').
+</I>&gt;<i> But I'm only getting one in the result. 
+</I>&gt;<i> 
+</I>&gt;<i> &lt; User-Data -Request&gt; ::= &lt; Diameter Header: 306, REQ, PXY, 16777217 &gt;
+</I>&gt;<i> [...]
+</I>&gt;<i> *{ Data-Reference }
+</I>&gt;<i> 
+</I>&gt;<i> in the 3GPP 29.325 assumes possible occurrence of multiple 
+</I>&gt;<i> Data-Reference AVPs in the UDR.
+</I>&gt;<i> 
+</I>&gt;<i> What do you mean?
+</I>&gt;<i> 
+</I>&gt;<i> Bye,
+</I>&gt;<i> Sven
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000017.html">[OpenIMSCore-HSS] Multiple &quot;Data-Reference&quot; AVPs in a single UDR?
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[OpenIMSCore-HSS] [SVN-FHoSS] r28 -	FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

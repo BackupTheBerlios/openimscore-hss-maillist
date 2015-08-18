@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Problem to start openimscore	particularly	FHOSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20to%20start%20openimscore%0A%09particularly%09FHOSS&In-Reply-To=%3C462DD9DF.804%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000349.html">
+   <LINK REL="Next"  HREF="000350.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Problem to start openimscore	particularly	FHOSS</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20to%20start%20openimscore%0A%09particularly%09FHOSS&In-Reply-To=%3C462DD9DF.804%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Problem to start openimscore	particularly	FHOSS">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 24 12:20:15 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000349.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+        <LI>Next message: <A HREF="000350.html">[OpenIMSCore-HSS] Unable to checkout the HSS code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#354">[ date ]</a>
+              <a href="thread.html#354">[ thread ]</a>
+              <a href="subject.html#354">[ subject ]</a>
+              <a href="author.html#354">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The S[Closed], S[Open] indicate the Diameter connection status, as
+defined in RFC3588.
+
+-Dragos
+
+ketzal devims wrote:
+&gt;<i> 12(20171) WARNING:peer_connect(): Error opening connection to
+</I>&gt;<i> hss.enstb-vlan51 :3868 &gt;Operation not permitted
+</I>&gt;<i> 12(20171) DBG:sm_process(): Peer hss.enstb-vlan51       State
+</I>&gt;<i> Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+</I>&gt;<i> 12(20171) --- Peer List: ---
+</I>&gt;<i> 12(20171)  S[Closed] hss.enstb-vlan51:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> this warning is correct... Indeed, while the Diameter peer is not
+</I>&gt;<i> connected, this warning appear...
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> So, the Diameter peer is closed : 12(20171)  S[Closed]
+</I>&gt;<i> hss.enstb-vlan51:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> But, if you see later in the log, maybe it's written :
+</I>&gt;<i> 12(20171)  R[Open] hss.enstb-vlan51:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure, but I think these warnings are normal, because I have it
+</I>&gt;<i> too and the ims platform is runnning:
+</I>&gt;<i> 2007-04-20 16:35:32,131 WARN 
+</I>&gt;<i> org.apache.catalina.connector.MapperListener - registerEngine Unknown
+</I>&gt;<i> default host: localhost
+</I>&gt;<i> 2007-04-20 16:35:37,066 WARN 
+</I>&gt;<i> org.hibernate.impl.SessionFactoryObjectFactory - addInstance
+</I>&gt;<i> InitialContext did not implement EventContext
+</I>&gt;<i>
+</I>&gt;<i> So You don't have so many problems :)
+</I>&gt;<i> Just check Diameter peer log, to see if they are connected (normaly,
+</I>&gt;<i> it take 10 seconds after launch...)
+</I>&gt;<i>
+</I>&gt;<i> Ketzal
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000349.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+	<LI>Next message: <A HREF="000350.html">[OpenIMSCore-HSS] Unable to checkout the HSS code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#354">[ date ]</a>
+              <a href="thread.html#354">[ thread ]</a>
+              <a href="subject.html#354">[ subject ]</a>
+              <a href="author.html#354">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

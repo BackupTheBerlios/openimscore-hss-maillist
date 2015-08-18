@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Start%20FHoSS%20web%20admin%20on%20other%20port%20than%208080%3F&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7BBF%40taxis.buc.materna.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000144.html">
+   <LINK REL="Next"  HREF="000147.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?</H1>
+    <B>Sven.Bornemann at materna.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Start%20FHoSS%20web%20admin%20on%20other%20port%20than%208080%3F&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7BBF%40taxis.buc.materna.com%3E"
+       TITLE="[OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?">Sven.Bornemann at materna.de
+       </A><BR>
+    <I>Wed Jan 17 09:53:17 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000144.html">[OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?
+</A></li>
+        <LI>Next message: <A HREF="000147.html">[OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi!
+Karthik Natarajan sent me a workaround:
+
+&gt;<i>Go to the source directory of FHOSS
+</I>&gt;<i>
+</I>&gt;<i>And edit the following file 
+</I>&gt;<i>		/fhg/fokus/hss/main/TomcatServer.java
+</I>&gt;<i>
+</I>&gt;<i>In the following line set the port number to the number u want and
+</I>&gt;<i>recompile the FHOSS and it must work, I tried it and it worked for me
+</I>&gt;<i>
+</I>&gt;<i>Connector connector =
+</I>&gt;<i>            embedded.createConnector(hostProperty, 8080 ,False);
+</I>
+Wouldn't it be helpful to move this parameter to the hss.properties
+in future versions? ;-)
+
+Bye,
+Sven
+
+&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>]Im Auftrag von
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Sven.Bornemann at materna.de</A>
+</I>&gt;<i> Gesendet: Mittwoch, 17. Januar 2007 08:12
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Betreff: [OpenIMSCore-HSS] Start FHoSS web admin on other port than
+</I>&gt;<i> 8080?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi!
+</I>&gt;<i> Does anybody know how to start the FHoSS embedded Tomcat
+</I>&gt;<i> web server on another port than 8080.
+</I>&gt;<i> I copied a Tomcat default server.xml (with modified port)
+</I>&gt;<i> to the deploy/conf directory. But that did not work.
+</I>&gt;<i> Who can help?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i> Sven
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000144.html">[OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?
+</A></li>
+	<LI>Next message: <A HREF="000147.html">[OpenIMSCore-HSS] Start FHoSS web admin on other port than 8080?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

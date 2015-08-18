@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] PUR updation problems in Sh interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PUR%20updation%20problems%20in%20Sh%20interface&In-Reply-To=%3C496C8403.3080003%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000897.html">
+   <LINK REL="Next"  HREF="000898.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] PUR updation problems in Sh interface</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PUR%20updation%20problems%20in%20Sh%20interface&In-Reply-To=%3C496C8403.3080003%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] PUR updation problems in Sh interface">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Jan 13 13:07:31 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000897.html">[OpenIMSCore-HSS] PUR updation problems in Sh interface
+</A></li>
+        <LI>Next message: <A HREF="000898.html">[OpenIMSCore-HSS] Query on C Diameter Peer (CDP)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#900">[ date ]</a>
+              <a href="thread.html#900">[ thread ]</a>
+              <a href="subject.html#900">[ subject ]</a>
+              <a href="author.html#900">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Naveen,
+
+I will try and answer your questions:
+
+UDR/UDA:
+1. Are you sure that it is 
+DIAMETER_ERROR_IDENTITY_ALREADY_REGISTERED(5005) (inside an Experimental 
+Result-Code?) error? In 29.328 and 29.329 I can't find 5005 anywhere, so 
+I would guess that you got instead a Result Code of 5005, which based on 
+RFC3588 means:
+
+DIAMETER_MISSING_AVP               5005
+      The request did not contain an AVP that is required by the Command
+      Code definition.  If this value is sent in the Result-Code AVP, a
+      Failed-AVP AVP SHOULD be included in the message.  The Failed-AVP
+      AVP MUST contain an example of the missing AVP complete with the
+      Vendor-Id if applicable.  The value field of the missing AVP
+      should be of correct minimum length and contain zeroes.
+
+3. I don't know what the question was... Please send a trace and explain 
+what you think that is wrong.
+
+PUR/PUA
+
+1. Have you given the proper access rights to the AS with that FQDN as 
+Diameter Name in the HSS web interface?
+
+2. These are values that you are also filling in the web interface. I 
+don't think that there is a format enforced in the HSS.
+
+Cheers,
+-Dragos
+
+Naveen Kumar wrote:
+&gt;<i>
+</I>&gt;<i> Hi All,
+</I>&gt;<i>
+</I>&gt;<i> According to the HSS details we can update the following data into HSS
+</I>&gt;<i>
+</I>&gt;<i> 1. Repository-Data
+</I>&gt;<i>
+</I>&gt;<i> 2. PSI Activation
+</I>&gt;<i>
+</I>&gt;<i> 3. DSAI
+</I>&gt;<i>
+</I>&gt;<i> 4. Aliases Rep Data
+</I>&gt;<i>
+</I>&gt;<i> _In the case of UDR/UDA_
+</I>&gt;<i>
+</I>&gt;<i> 1.When we requested UDR for Repository-Data(0) i am able to send it to 
+</I>&gt;<i> HSS but HSS is replying as UDA that 
+</I>&gt;<i> &#8220;DIAMETER_ERROR_IDENTITY_ALREADY_REGISTERED(5005)&#8221;
+</I>&gt;<i>
+</I>&gt;<i> 2.When we requested UDR for PSIActivation(18) we are able to send it 
+</I>&gt;<i> to HSS and as a response from HSS (i.e, UDA) i am getting 
+</I>&gt;<i> DIAMETER_SUCCESS. So there is no issue for PSIActivation(18) reading 
+</I>&gt;<i> data from HSS.
+</I>&gt;<i>
+</I>&gt;<i> 3.While requesting as UDR for Aliases Rep Data (20), UDA is not coming 
+</I>&gt;<i> from HSS. As AVPs to give in UDR are not clear.
+</I>&gt;<i>
+</I>&gt;<i> _In the case of PUR/PUA_
+</I>&gt;<i>
+</I>&gt;<i> 1. when we requested PUR for PSIActivation(18), as a response(i.e, 
+</I>&gt;<i> PUA) from HSS getting diameter error 
+</I>&gt;<i> &#8220;DIAMETER_ERROR_OPERATION_NOT_ALLOWED(5101)&#8221;
+</I>&gt;<i>
+</I>&gt;<i> 2. For requesting for PUR for DSAI we should know the Public User 
+</I>&gt;<i> Identity or Public Service Identity + Data-Reference + DSAI-Tag + 
+</I>&gt;<i> Server-Name + service indication.
+</I>&gt;<i>
+</I>&gt;<i> Here i don&#8217;t know how to form and configure below AVPs for both PSI 
+</I>&gt;<i> activation and DSAI.
+</I>&gt;<i>
+</I>&gt;<i> &#183; DSAI-Tag
+</I>&gt;<i>
+</I>&gt;<i> &#183; Public service Identity
+</I>&gt;<i>
+</I>&gt;<i> &#183; Service-Indication.
+</I>&gt;<i>
+</I>&gt;<i> Your suggestions will be appricitaed
+</I>&gt;<i>
+</I>&gt;<i> Thanks &amp; Regards,
+</I>&gt;<i>
+</I>&gt;<i> naveen.
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)176 - 48 32 16 00
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000897.html">[OpenIMSCore-HSS] PUR updation problems in Sh interface
+</A></li>
+	<LI>Next message: <A HREF="000898.html">[OpenIMSCore-HSS] Query on C Diameter Peer (CDP)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#900">[ date ]</a>
+              <a href="thread.html#900">[ thread ]</a>
+              <a href="subject.html#900">[ subject ]</a>
+              <a href="author.html#900">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

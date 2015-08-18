@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] PB Presence module &amp; mysql
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PB%20Presence%20module%20%26%20mysql&In-Reply-To=%3C36d68e8a0706080603u11defeedyc33e88ca4276f62%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000511.html">
+   <LINK REL="Next"  HREF="000513.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] PB Presence module &amp; mysql</H1>
+    <B>laurent craignou</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PB%20Presence%20module%20%26%20mysql&In-Reply-To=%3C36d68e8a0706080603u11defeedyc33e88ca4276f62%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] PB Presence module &amp; mysql">laurent.craignou at gmail.com
+       </A><BR>
+    <I>Fri Jun  8 15:03:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000511.html">[OpenIMSCore-HSS] [SVN-FHoSS] r311 - Sh Notification Event added	for AliasesRepositoryData
+</A></li>
+        <LI>Next message: <A HREF="000513.html">[OpenIMSCore-HSS] PB Presence module &amp; mysql
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#512">[ date ]</a>
+              <a href="thread.html#512">[ thread ]</a>
+              <a href="subject.html#512">[ subject ]</a>
+              <a href="author.html#512">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi all,
+
+I install OSIMS rev 302 and presence AS (openser 1.2).
+when i use UCT client both alice and bob if modify status of alice UCT see
+in messages window
+
+PUBLISH -&gt; OK
+
+however bob seem not receive  the new status
+
+is it openser or HSS problem ?
+
+in terminal where I run openser I can read :
+
+ 2(1796) PRESENCE:query_db_notify: Could not get subs_dialog from database
+ 2(1796)  PRESENCE:update_presentity: Could not send Notify
+ 5(1799) PRESENCE:get_xcap_tree:The query in table xcap for [username]=alice
+, domain=open-ims.test returned no result
+ 5(1799) PRESENCE:msg_presentity_clean:found expired publish for
+[user]=alice  [domanin]=open-ims.test
+ 5(1799) PRESENCE: get_subs_dialog:The query for subscribtion for [user]=
+alice,[domain]= open-ims.test for [event]= presence returned no result
+ 5(1799) PRESENCE:query_db_notify: Could not get subs_dialog from database
+
+thanks in advance for your guidance
+
+Laurent
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070608/bea6c188/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070608/bea6c188/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000511.html">[OpenIMSCore-HSS] [SVN-FHoSS] r311 - Sh Notification Event added	for AliasesRepositoryData
+</A></li>
+	<LI>Next message: <A HREF="000513.html">[OpenIMSCore-HSS] PB Presence module &amp; mysql
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#512">[ date ]</a>
+              <a href="thread.html#512">[ thread ]</a>
+              <a href="subject.html#512">[ subject ]</a>
+              <a href="author.html#512">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

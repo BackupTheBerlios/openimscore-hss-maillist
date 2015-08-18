@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] (no subject)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%28no%20subject%29&In-Reply-To=%3CCOL118-W51572BDF507EBB9E6F67B9CCE80%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000969.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] (no subject)</H1>
+    <B>Rizwan khan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%28no%20subject%29&In-Reply-To=%3CCOL118-W51572BDF507EBB9E6F67B9CCE80%40phx.gbl%3E"
+       TITLE="[OpenIMSCore-HSS] (no subject)">riz1_khan at hotmail.com
+       </A><BR>
+    <I>Thu Sep 10 23:36:35 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000969.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi,
+
+ 
+
+I am trying to configure the open ims for the first time and use the client with the username bob, which is already configured.
+
+ 
+
+I get the following error on the HSS console:
+
++++++++++++++++++++++++
+
+2009-09-10 10:48:56,061 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Product Name: JavaDiameterPeer
+2009-09-10 10:48:56,061 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure AcceptUnknwonPeers: true
+2009-09-10 10:48:56,062 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure DropUnknownOnDisconnect: true
+2009-09-10 10:48:56,156 INFO  de.fhg.fokus.hss.main.HSSContainer - waitForExit 
+Type &quot;exit&quot; to stop FHoSS!
+2009-09-10 10:48:56,438 DEBUG de.fhg.fokus.hss.main.Task - execute Processing UAR!
+de.fhg.fokus.hss.cx.CxExperimentalResultException: IMS_Diameter_Error_Roaming_Not_Allowed
+        at de.fhg.fokus.hss.cx.op.UAR.processRequest(UAR.java:108)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:169)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+2009-09-10 10:50:22,856 DEBUG de.fhg.fokus.hss.main.Task - execute Processing UAR!
+de.fhg.fokus.hss.cx.CxExperimentalResultException: IMS_Diameter_Error_Roaming_Not_Allowed
+        at de.fhg.fokus.hss.cx.op.UAR.processRequest(UAR.java:108)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:169)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+
++++++++++++++++
+
+ 
+
+ 
+
+I looked at the code 
+
+++++++++++++++++
+
+        public static VisitedNetwork get_by_Identity(Session session, String identity){
+                Query query;
+                query = session.createSQLQuery(&quot;select * from visited_network where identity like ?&quot;);
+                        .addEntity(VisitedNetwork.class);
+                query.setString(0, identity);
+                VisitedNetwork result = null;
+
+                try{
+                        result = (VisitedNetwork) query.uniqueResult();
+                }
+                catch(org.hibernate.NonUniqueResultException e){
+                        logger.error(&quot;Query did not returned an unique result! You have a duplicate in the database!&quot;);
+                        e.printStackTrace();
+                }
+
+                return result;
+
+++++++++++++++
+
+ 
+
+Do not understand why result is null in this case, although when I do the query manually it returns me the a single record.
+
+ 
+
+I have also tried to go around visited_network; but I see the same problem with other tables also.
+
+ 
+
+My mysql version is 4.1.10a and I do not see connectivity issue with the server.
+
+I also printed the identity parameter in the code and it seems to be the correct string that is present in the database.
+
+ 
+
+Thanks in advance for the help.
+
+ 
+
+Rizwan
+
+ 
+
+ 
+
+_________________________________________________________________
+One stop at MSN India to catch up with what&#8217;s hot in the world around you today
+<A HREF="http://in.msn.com">http://in.msn.com</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090910/f967621e/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090910/f967621e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000969.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

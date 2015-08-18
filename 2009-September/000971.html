@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] (no subject)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%28no%20subject%29&In-Reply-To=%3CC9B3EBF72D1047AD89CB36ABC26DAF64%40FRANZNOTEBOOK%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000969.html">
+   <LINK REL="Next"  HREF="000972.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] (no subject)</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%28no%20subject%29&In-Reply-To=%3CC9B3EBF72D1047AD89CB36ABC26DAF64%40FRANZNOTEBOOK%3E"
+       TITLE="[OpenIMSCore-HSS] (no subject)">franz-edler at aon.at
+       </A><BR>
+    <I>Mon Sep 14 04:49:40 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000969.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+        <LI>Next message: <A HREF="000972.html">[OpenIMSCore-HSS] [SVN-FHoSS] r733 - New debian folder for debian	packages See how to build debian packages on website
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#971">[ date ]</a>
+              <a href="thread.html#971">[ thread ]</a>
+              <a href="subject.html#971">[ subject ]</a>
+              <a href="author.html#971">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Rizwan,
+
+ 
+
+sorry, this is beyond my experience.
+
+I hope some expert on the HSS code will help.
+
+ 
+
+Regards
+
+Franz
+
+ 
+
+  _____  
+
+From: Rizwan khan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">riz1_khan at hotmail.com</A>] 
+Sent: Monday, September 14, 2009 1:34 AM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz-edler at aon.at</A>
+Subject: RE: [OpenIMSCore-HSS] (no subject)
+
+ 
+
+Hi Franz,
+ 
+
+Debugging the code, I thought that for some reason in the function &quot;public
+static VisitedNetwork get_by_Identity (Session session, String identity)&quot;
+the following code statement returns null.
+
+result = (VisitedNetwork) query.uniqueResult();
+
+ 
+
+I printed the value of identity passed as a parameter to this function and
+it is the same value that is present in the  visited_network table in hss_db
+database.
+
+ 
+
+For some reason, query.uniqueResult does not properly access the database
+and I do not know how to debug this further.
+
+ 
+
+I beleive that database query has an issue because I also tried to add a
+hack to bypass visited network checking and found that later it fails in
+another function where it tried to again query the database.
+
+ 
+
+Since, I am runnig all the applications on the single box, can I enable more
+tracing?
+
+ 
+
+Thanks,
+
+Rizwan
+
+&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz-edler at aon.at</A>
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">riz1_khan at hotmail.com</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: RE: [OpenIMSCore-HSS] (no subject)
+</I>&gt;<i> Date: Sun, 13 Sep 2009 21:40:18 +0200
+</I>&gt;<i> 
+</I>&gt;<i> Hi Rizwan,
+</I>&gt;<i> 
+</I>&gt;<i> &gt; IMS_Diameter_Error_Roaming_Not_Allowed
+</I>&gt;<i> 
+</I>&gt;<i> From this failure I guess that the roaming data in HSS are not as
+</I>expected.
+&gt;<i> Look at the data provisioned in HSS: Public User Identity -&gt; List of
+</I>Visited
+&gt;<i> Networks.
+</I>&gt;<i> 
+</I>&gt;<i> If it does not help send a core tracefile or check yourself:
+</I>&gt;<i> P-CSCF should insert a P-Visited-Network-ID header field which also should
+</I>&gt;<i> be reflected in Diameter AVP &quot;Visited-Network-Identifier&quot; of UAR message.
+</I>&gt;<i> 
+</I>&gt;<i> Regards
+</I>&gt;<i> Franz
+</I>&gt;<i> 
+</I>
+  _____  
+
+One peek at MSN India brings you up to speed with what's hot in the world
+today Drag n' drop &lt;<A HREF="http://in.msn.com">http://in.msn.com</A>&gt; 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090914/b5a61d85/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090914/b5a61d85/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000969.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+	<LI>Next message: <A HREF="000972.html">[OpenIMSCore-HSS] [SVN-FHoSS] r733 - New debian folder for debian	packages See how to build debian packages on website
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#971">[ date ]</a>
+              <a href="thread.html#971">[ thread ]</a>
+              <a href="subject.html#971">[ subject ]</a>
+              <a href="author.html#971">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

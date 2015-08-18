@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Sh interface testing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20interface%20testing&In-Reply-To=%3C45B780AE.8010508%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000170.html">
+   <LINK REL="Next"  HREF="000172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Sh interface testing</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20interface%20testing&In-Reply-To=%3C45B780AE.8010508%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Sh interface testing">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jan 24 16:52:14 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000170.html">[OpenIMSCore-HSS] Sh interface testing
+</A></li>
+        <LI>Next message: <A HREF="000172.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>So, yes, SNR and PNR are supported as part of the Sh interface.
+
+-Dragos
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+&gt;<i>
+</I>&gt;<i> Dragos, let me put the question in other way. Presence Server will
+</I>&gt;<i> subscribe(Through SNR diameter command) to receive notifications from
+</I>&gt;<i> HSS, when any data in HSS changes. For example, When a user registers
+</I>&gt;<i> or deregisters HSS should inform Presence Server about the new CSCF's
+</I>&gt;<i> location(Through PNR Diameter command)
+</I>&gt;<i> (Ideally if we subscribe for &quot;reg&quot; event, then it's the job of CSCF to
+</I>&gt;<i> NOTIFY about any register or deregister event.)
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Rajaram
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>]
+</I>&gt;<i> Sent: Tue 1/23/2007 8:29 PM
+</I>&gt;<i> To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] Sh interface testing
+</I>&gt;<i>
+</I>&gt;<i> Rajaram, the Presence Server, as an Application Server, does not
+</I>&gt;<i> register with anyone. Not even with an HSS (what do you mean?).
+</I>&gt;<i>
+</I>&gt;<i> The Sh interface was tested with various Application Servers. But there
+</I>&gt;<i> is nothing in the interface specific to a Presence Server... So I do not
+</I>&gt;<i> understand your question then...
+</I>&gt;<i>
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks dragos. We are planning to start testing the Sh interface,
+</I>&gt;<i> &gt; where Presence Server interacts with HSS(SNR,SNA,PNR,PNA). So before
+</I>&gt;<i> &gt; testing starts idea was to know about the current probelm.
+</I>&gt;<i> &gt; So again the question is whether the Presence server registering with
+</I>&gt;<i> &gt; HSS part was tested ?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks,
+</I>&gt;<i> &gt; Rajaram
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; -----Original Message-----
+</I>&gt;<i> &gt; From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>]
+</I>&gt;<i> &gt; Sent: Tue 1/23/2007 6:45 PM
+</I>&gt;<i> &gt; To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+</I>&gt;<i> &gt; Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> &gt; Subject: Re: [OpenIMSCore-HSS] Sh interface testing
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hello Rajram,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Of course we did. However, it is impossible to test all possible
+</I>&gt;<i> &gt; scenarios. If you have discovered an issue, please post it here. For
+</I>&gt;<i> &gt; known issues, look at our bug-tracking pages:
+</I>&gt;<i> &gt; <A HREF="http://developer.berlios.de/bugs/?group_id=7589">http://developer.berlios.de/bugs/?group_id=7589</A> .
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; -Dragos
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+</I>&gt;<i> &gt; &gt; Hi,
+</I>&gt;<i> &gt; &gt;    Has anyone tested the Sh interface in openIMS-HSS ?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Thanks,
+</I>&gt;<i> &gt; &gt; Rajram
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; The information contained in this electronic message and any
+</I>&gt;<i> &gt; &gt; attachments to this message are intended for the exclusive use of the
+</I>&gt;<i> &gt; &gt; addressee(s) and may contain proprietary, confidential or privileged
+</I>&gt;<i> &gt; &gt; information. If you are not the intended recipient, you should not
+</I>&gt;<i> &gt; &gt; disseminate, distribute or copy this e-mail. Please notify the sender
+</I>&gt;<i> &gt; &gt; immediately and destroy all copies of this message and any
+</I>&gt;<i> attachments.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> &gt; &gt; should check this email and any attachments for the presence of
+</I>&gt;<i> &gt; &gt; viruses. The company accepts no liability for any damage caused by any
+</I>&gt;<i> &gt; &gt; virus transmitted by this email.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; www.wipro.com
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt; -----------------------------------------
+</I>&gt;<i> &gt; Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> &gt; FOKUS/NGNI
+</I>&gt;<i> &gt; Kaiserin-Augusta-Allee 31
+</I>&gt;<i> &gt; 10589 Berlin,Germany
+</I>&gt;<i> &gt; Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> &gt; Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> &gt; eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> &gt; Web www.fokus.fraunhofer.de
+</I>&gt;<i> &gt; We could change the world if God would give us the source code...
+</I>&gt;<i> &gt; -----------------------------------------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> -----------------------------------------
+</I>&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> FOKUS/NGNI
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin,Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> Web www.fokus.fraunhofer.de
+</I>&gt;<i> We could change the world if God would give us the source code...
+</I>&gt;<i> -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000170.html">[OpenIMSCore-HSS] Sh interface testing
+</A></li>
+	<LI>Next message: <A HREF="000172.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

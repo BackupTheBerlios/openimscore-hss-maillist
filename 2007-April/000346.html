@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Problem to start openimscore particularly FHOSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20to%20start%20openimscore%20particularly%20FHOSS&In-Reply-To=%3C36d68e8a0704200839y41c32df8x8ff848fccc19d55c%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000345.html">
+   <LINK REL="Next"  HREF="000351.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Problem to start openimscore particularly FHOSS</H1>
+    <B>laurent craignou</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20to%20start%20openimscore%20particularly%20FHOSS&In-Reply-To=%3C36d68e8a0704200839y41c32df8x8ff848fccc19d55c%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Problem to start openimscore particularly FHOSS">laurent.craignou at gmail.com
+       </A><BR>
+    <I>Fri Apr 20 17:39:01 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000345.html">[OpenIMSCore-HSS] [SVN-FHoSS] r241 - Fixes related to capabilities	and sqn
+</A></li>
+        <LI>Next message: <A HREF="000351.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#346">[ date ]</a>
+              <a href="thread.html#346">[ thread ]</a>
+              <a href="subject.html#346">[ subject ]</a>
+              <a href="author.html#346">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I  attempt to install openimscore, so I following *Installation Guide on
+openimscore.org after download source.
+
+When i want to start the components (step 6) i meet some problems.
+***
+*For PCSCF : NO ERROR &amp; WARNING
+***
+*For ICSCF &amp; SCSCF : WARNING appear
+
+I join my terminal messages (when I launch these components : ./icscf.sh &amp;
+./scscf.sh)
+
+Listening on
+             udp: 127.0.0.1 [127.0.0.1]:5060
+             tcp: 127.0.0.1 [127.0.0.1]:5060
+Aliases:
+             tcp: localhost:5060
+             udp: localhost:5060
+             *: open-ims.test:*
+             *: icscf.open-ims.test:*
+
+ 0(20159) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(20159) Maxfwd module- initializing
+ 0(20159) INFO:I-CSCF:mod_init: Initialization of module
+ 0(20159) INF:I-CSCF:icscf_db_get_nds: Loaded 1 trusted domains
+ 0(20159) INF:I-CSCF:icscf_db_get_capabilities: Loaded 2 capabilities for 1
+S-CSCFs (0 invalid entries in db)
+ 0(20159) Twofish encryption ready
+ 0(20159) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(20159) Diameter Peer Config:
+ 0(20159)       FQDN    : icscf.enstb-vlan51
+ 0(20159)       Realm   : enstb-vlan51
+ 0(20159)       VendorID: 10415
+ 0(20159)       ProdName: CDiameterPeer
+ 0(20159)       AcceptUn: [X]
+ 0(20159)       DropUnkn: [X]
+ 0(20159)       Tc      : 30
+ 0(20159)       Workers : 4
+ 0(20159)       QueueLen: 8
+ 0(20159)       Peers : 1
+ 0(20159)               FQDN:  hss.enstb-vlan51          Realm:
+enstb-vlan51     Port: 3868
+ 0(20159)       Acceptors : 1
+ 0(20159)               Port:  3869      Bind: 10.51.0.66
+ 0(20159)       Applications : 1
+ 0(20159)               Auth ID:  16777216       Vendor: 10415
+ 0(20159) INFO: udp_init: SO_RCVBUF is initially 107520
+ 0(20159) INFO: udp_init: SO_RCVBUF is finally 262142
+ 1(20160) INFO:I-CSCF:mod_init: Initialization of module in child [1]
+ 2(20161) INFO:I-CSCF:mod_init: Initialization of module in child [2]
+ 3(20162) INFO:I-CSCF:mod_init: Initialization of module in child [3]
+ 4(20163) INFO:I-CSCF:mod_init: Initialization of module in child [4]
+ 6(20165) INFO:I-CSCF:mod_init: Initialization of module in child [-1]
+ 0(20159) INFO:I-CSCF:mod_init: Initialization of module in child [0] main
+ 0(20159) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 7(20166)  5(20164) INFO:I-CSCF:mod_init: Initialization of module in child
+[-1] slow timer
+ 8(20167) INFO:I-CSCF:mod_init: Initialization of module in child [1001]
+ 8(20167) INFO:[0] Worker process started...
+ 9(20168) INFO:I-CSCF:mod_init: Initialization of module in child [1002]
+ 9(20168) INFO:[1] Worker process started...
+INFO:I-CSCF:mod_init: Initialization of module in child [1000] cdp_acceptor
+ 7(20166) INFO:Acceptor process starting up...
+ 7(20166) INFO:create_sockets: IPv4 Listening on 10.51.0.66:3869
+ 7(20166) INFO:... Acceptor opened sockets. Entering accept loop ...
+10(20169) INFO:I-CSCF:mod_init: Initialization of module in child [1003]
+10(20169) INFO:[2] Worker process started...
+11(20170) INFO:I-CSCF:mod_init: Initialization of module in child [1004]
+11(20170) INFO:[3] Worker process started...
+12(20171) INFO:I-CSCF:mod_init: Initialization of module in child [1001]
+12(20171) INFO:Timer process starting up...
+ 0(20159) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+13(20172) INFO:I-CSCF:mod_init: Initialization of module in child [5]
+14(20173) INFO:I-CSCF:mod_init: Initialization of module in child [6]
+15(20174) INFO:I-CSCF:mod_init: Initialization of module in child [7]
+16(20175) INFO:I-CSCF:mod_init: Initialization of module in child [8]
+17(20176) INFO:I-CSCF:mod_init: Initialization of module in child [-4]
+12(20171) DBG:peer_timer(): Peer hss.enstb-vlan51       State 0
+12(20171) DBG:sm_process(): Peer hss.enstb-vlan51       State Closed
+Event Start
+12(20171) DBG:I_Snd_Conn_Req(): Peer hss.enstb-vlan51
+12(20171) WARNING:peer_connect(): Error opening connection to
+hss.enstb-vlan51:3868 &gt;Operation not permitted
+12(20171) DBG:sm_process(): Peer hss.enstb-vlan51       State
+Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+12(20171) --- Peer List: ---
+12(20171)  S[Closed] hss.enstb-vlan51:3868 D[ ]
+
+zoom on the problem :
+
+**12(19584) WARNING:peer_connect(): Error opening connection to
+hss.enstb-vlan51:3868 &gt;Operation not permitted
+12(19584) DBG:sm_process(): Peer hss.enstb-vlan51       State
+Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+12(19584) --- Peer List: ---
+12(19584)  S[Closed] hss.enstb-vlan51:3868 D[ ]
+**
+For FHOSS I meet WARN &amp; ERROR
+**
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at IMS-2</A>:/opt/OpenIMSCore/FHoSS/deploy# ./startup.sh
+Building Classpath
+Classpath is lib/xml-
+apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mysql-connector-java-3.0.14-production-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/castor-1.0.5.jar:lib/c3p0-0.9.1.jar:lib/base64.jar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.5H3.jar::log4j.properties:.
+.
+2007-04-20 16:35:30,590 DEBUG de.fhg.fokus.hss.main.HssServer - main
+Starting FHoSS...
+2007-04-20 16:35:30,658 INFO  de.fhg.fokus.hss.main.HssServer - startTomcat
+Tomcat-Server is started.
+2007-04-20 16:35:32,131 WARN  org.apache.catalina.connector.MapperListener -
+registerEngine Unknown default host: localhost
+2007-04-20 16:35:33,294 INFO  de.fhg.fokus.hss.servlet.ResponseFilter - init
+Response Filter Initialisation!
+2007-04-20 16:35:34,063 INFO  de.fhg.fokus.hss.main.HssServer - startTomcat
+WebConsole of FHoSS was started !
+2007-04-20 16:35:34,088 DEBUG de.fhg.fokus.hss.diam.HssDiameterStack -
+startup entering
+2007-04-20 16:35:34,108 INFO
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; FQDN:
+hss.open-ims.test
+2007-04-20 16:35:34,109 INFO
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; Realm:
+open-ims.test
+2007-04-20 16:35:34,109 INFO
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; Vendor_ID : 10415
+2007-04-20 16:35:34,109 INFO
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; Product Name:
+JavaDiameterPeer
+2007-04-20 16:35:34,109 INFO
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; AcceptUnknwonPeers:
+true
+2007-04-20 16:35:34,110 INFO
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt;
+DropUnknownOnDisconnect: true
+2007-04-20 16:35:34,128 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - configurePeer
+PeerManager: Peer icscf.open-ims.test:3869 added.
+2007-04-20 16:35:34,129 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - configurePeer
+PeerManager: Peer scscf.open-ims.test:3870 added.
+2007-04-20 16:35:34,140 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to peer
+icscf.open-ims.test dynamic false dropping true
+2007-04-20 16:35:34,160 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,160 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,162 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,163 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,164 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,164 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,166 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,167 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,176 DEBUG de.fhg.fokus.hss.diam.cx.RTRCommandAction -
+&lt;init&gt; entering
+2007-04-20 16:35:34,178 DEBUG de.fhg.fokus.hss.diam.cx.RTRCommandAction -
+&lt;init&gt; exiting
+2007-04-20 16:35:34,186 DEBUG de.fhg.fokus.hss.diam.cx.PPRCommandAction -
+&lt;init&gt; entering
+2007-04-20 16:35:34,187 DEBUG de.fhg.fokus.hss.diam.cx.PPRCommandAction -
+&lt;init&gt; exiting
+2007-04-20 16:35:34,192 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,193 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,196 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,196 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,198 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,198 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,201 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+entering
+2007-04-20 16:35:34,203 DEBUG de.fhg.fokus.hss.diam.CommandListener - &lt;init&gt;
+exiting
+2007-04-20 16:35:34,320 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer icscf.open-ims.test not responding to connection attempt
+2007-04-20 16:35:34,321 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to peer
+scscf.open-ims.test dynamic false dropping true
+2007-04-20 16:35:34,322 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer scscf.open-ims.test not responding to connection attempt
+2007-04-20 16:35:37,066 WARN
+org.hibernate.impl.SessionFactoryObjectFactory- addInstance
+InitialContext did not implement EventContext
+2007-04-20 16:35:37,161 DEBUG de.fhg.fokus.hss.diam.OriginHostResolver -
+init 0 server/hosts added
+2007-04-20 16:35:37,173 DEBUG de.fhg.fokus.hss.diam.OriginHostResolver -
+init 0 server/hosts added
+2007-04-20 16:35:37,174 DEBUG de.fhg.fokus.hss.diam.HssDiameterStack -
+startup exiting
+2007-04-20 16:35:37,174 INFO  de.fhg.fokus.hss.main.HssServer - main FHoSS
+was started and is ready for use!
+2007-04-20 16:35:37,174 INFO  de.fhg.fokus.hss.main.HssServer - waitForExit
+Type 'exit' if you want to exit.
+
+I'm novice in ims. So if someone can I help me.
+
+-----------------------------------------------------------------------------
+other informations
+
+My  PC  is  an  ubuntu  6.10
+Bind and mysql is running on this machine (10.51.0.66)
+For ser i use the default configuration file
+
+RESOLV.CONF :
+
+search open-ims.test
+domain open-ims.test
+nameserver 10.51.0.66
+nameserver 127.0.0.1
+
+*******************************************************
+***
+*NAMED.CONF :
+
+zone &quot;open-ims.test.&quot; {
+        type master;
+        file &quot;/etc/bind/db.openims&quot;;
+        notify no;
+};
+
+// reverse dns
+zone &quot;0.51.10.in-addr.arpa&quot; {
+        type master;
+        file &quot;/etc/bind/open-ims.dnszone.rev&quot;;
+};
+
+*******************************************************
+I am able to ping *.open-ims.test names
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at IMS-2</A>:/etc/bind# dig @127.0.0.1 pcscf.open-ims.test
+
+; &lt;&lt;&gt;&gt; DiG 9.3.2 &lt;&lt;&gt;&gt; @127.0.0.1 pcscf.open-ims.test
+; (1 server found)
+;; global options:  printcmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 60065
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+
+;; QUESTION SECTION:
+;pcscf.open-ims.test.           IN      A
+
+;; ANSWER SECTION:
+pcscf.open-ims.test.    86400   IN      A       127.0.0.1
+
+;; AUTHORITY SECTION:
+open-ims.test.          86400   IN      NS      ns.open-ims.test.
+
+;; ADDITIONAL SECTION:
+ns.open-ims.test.       86400   IN      A       127.0.0.1
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Fri Apr 20 17:21:44 2007
+;; MSG SIZE  rcvd: 86
+**
+*******************************************************
+MYSQL
+
+<A HREF="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</A>
+
+DATABASE  hssdb, icscf, ser exist
+
+PS : Sorry for my poor english
+
+**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: named.conf.options
+Type: application/octet-stream
+Size: 961 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: named.conf
+Type: application/octet-stream
+Size: 1379 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment-0001.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment-0001.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: resolv.conf
+Type: application/octet-stream
+Size: 51 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment-0002.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment-0002.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ser.cfg
+Type: application/octet-stream
+Size: 13972 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment-0003.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070420/ea3a551d/attachment-0003.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000345.html">[OpenIMSCore-HSS] [SVN-FHoSS] r241 - Fixes related to capabilities	and sqn
+</A></li>
+	<LI>Next message: <A HREF="000351.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#346">[ date ]</a>
+              <a href="thread.html#346">[ thread ]</a>
+              <a href="subject.html#346">[ subject ]</a>
+              <a href="author.html#346">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] ServiceData truncated in a PUR operation
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20ServiceData%20truncated%20in%20a%20PUR%20operation&In-Reply-To=%3C4987893E.5070608%40technikum-wien.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000906.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] ServiceData truncated in a PUR operation</H1>
+    <B>Auguste Bamogo</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20ServiceData%20truncated%20in%20a%20PUR%20operation&In-Reply-To=%3C4987893E.5070608%40technikum-wien.at%3E"
+       TITLE="[OpenIMSCore-HSS] ServiceData truncated in a PUR operation">ti06m114 at technikum-wien.at
+       </A><BR>
+    <I>Tue Feb  3 01:01:02 CET 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000906.html">[OpenIMSCore-HSS] HSS Startup - Web server - authentication error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#905">[ date ]</a>
+              <a href="thread.html#905">[ thread ]</a>
+              <a href="subject.html#905">[ subject ]</a>
+              <a href="author.html#905">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>ReHi,
+
+Maybe this will be of use to someone else.
+I found out the truncating of the service data is due to the behaviour 
+of SAX while parsing XML files.
+In occurence, at the end of the element &quot;ServiceData&quot;, the content of 
+&quot;ServiceData&quot; is reduced to the content of the last started element (in 
+my case &quot;notify-served-user&quot;)
+To get the full data saved, it is necessary to escape the data, such 
+that it will not be parsed at the FHoSS.
+I used this function in my code and the data is saved fine in the 
+&quot;rep-data&quot; field of the HSS_DB.
+
+     public String escapeText(String sdata) {
+        if ((sdata.indexOf('&lt;') != -1) || (sdata.indexOf('&gt;') != -1) ||
+            (sdata.indexOf('&quot;') != -1) || (sdata.indexOf('\'') != -1)){
+            StringBuffer result = new StringBuffer(sdata.length());
+            for (int i = 0; i &lt; sdata.length(); i++) {
+                char c = sdata.charAt(i);
+                if (c == '&amp;')
+                    result.append(&quot;&amp;&quot;);
+                else if (c == '&lt;')
+                    result.append(&quot;&lt;&quot;);
+                else if (c == '&quot;')
+                    result.append(&quot;&quot;&quot;);
+                else if (c == '\'')
+                    result.append(&quot;&apos;&quot;);
+                else if (c == '&gt;')
+                    result.append(&quot;&gt;&quot;);
+                else
+                    result.append(c);
+            }
+            sdata = result.toString();
+        }
+        return sdata;
+    }
+
+Best regards,
+Auguste
+
+Auguste Bamogo schrieb:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I am ttrying to save transparent Data to the HSS for a Call diversion 
+</I>&gt;<i> service.
+</I>&gt;<i> the data in the UserData AVP is as follow:
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;Sh-Data&gt;
+</I>&gt;<i>     &lt;RepositoryData&gt;
+</I>&gt;<i>         &lt;ServiceIndication&gt;CD&lt;/ServiceIndication&gt;
+</I>&gt;<i>         &lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+</I>&gt;<i>             &lt;ServiceData&gt;
+</I>&gt;<i>             &lt;simservs 
+</I>&gt;<i> xmlns=&quot;<A HREF="http://uri.etsi.org/ngn/params/xml/simservs/xcap">http://uri.etsi.org/ngn/params/xml/simservs/xcap</A>&quot; 
+</I>&gt;<i> xmlns:cp=&quot;urn:ietf:params:xml:ns:common-policy&quot; 
+</I>&gt;<i> xmlns:ocp=&quot;urn:oma:xml:xdm:common-policy&quot;&gt;
+</I>&gt;<i>                 &lt;communication-diversion active=&quot;false&quot;&gt;
+</I>&gt;<i>                     &lt;cp:ruleset&gt;
+</I>&gt;<i>                         &lt;cp:rule id=&quot;CD001&quot;&gt;
+</I>&gt;<i>                             &lt;cp:conditions&gt;
+</I>&gt;<i>                                 &lt;cp:identity&gt;&lt;many/&gt;&lt;/cp:identity&gt;
+</I>&gt;<i>                             &lt;/cp:conditions&gt;
+</I>&gt;<i>                             &lt;cp:actions&gt;
+</I>&gt;<i>                                 &lt;forward-to&gt;
+</I>&gt;<i>                                     
+</I>&gt;<i> &lt;target&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">announcement at oimsnet.net</A>&lt;/target&gt;
+</I>&gt;<i>                                     &lt;notify-caller&gt;true&lt;/notify-caller&gt;
+</I>&gt;<i>                                     
+</I>&gt;<i> &lt;notify-served-user&gt;true&lt;/notify-served-user&gt;
+</I>&gt;<i>                                 &lt;/forward-to&gt;
+</I>&gt;<i>                             &lt;/cp:actions&gt;
+</I>&gt;<i>                         &lt;/cp:rule&gt;
+</I>&gt;<i>                     &lt;/cp:ruleset&gt;
+</I>&gt;<i>                 &lt;/communication-diversion&gt;
+</I>&gt;<i>             &lt;/simservs&gt;
+</I>&gt;<i>         &lt;/ServiceData&gt;
+</I>&gt;<i>     &lt;/RepositoryData&gt;
+</I>&gt;<i> &lt;/Sh-Data&gt;
+</I>&gt;<i>
+</I>&gt;<i> The PUR operation is successfull but the contant of the &quot;rep_data&quot; for 
+</I>&gt;<i> the table hss_db.repository_data is just &quot;true&quot;(the value of the last 
+</I>&gt;<i> leave notify-served-user).
+</I>&gt;<i> I found in a previous request of the list (OpenIMSCore-HSS] PUR Update 
+</I>&gt;<i> issue) that enclosing the data in the &quot;[CDATA[...]] container may help 
+</I>&gt;<i> out but it didn?t work for me(XML below).
+</I>&gt;<i> Changing anything in the structure of the xml file resultes in an SAX 
+</I>&gt;<i> parse error while validating before the exacution of the PUR and when 
+</I>&gt;<i> i disble the validation of the file, only the value &quot;true]]&quot; is stored 
+</I>&gt;<i> as the repository
+</I>&gt;<i>
+</I>&gt;<i> Can you please help me out?
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Auguste
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;Sh-Data&gt;
+</I>&gt;<i>     &lt;RepositoryData&gt;
+</I>&gt;<i>         &lt;ServiceIndication&gt;CD&lt;/ServiceIndication&gt;
+</I>&gt;<i>         &lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+</I>&gt;<i>         &lt;ServiceData&gt;
+</I>&gt;<i>             [CDATA[
+</I>&gt;<i>                 &lt;simservs 
+</I>&gt;<i> xmlns=&quot;<A HREF="http://uri.etsi.org/ngn/params/xml/simservs/xcap">http://uri.etsi.org/ngn/params/xml/simservs/xcap</A>&quot; 
+</I>&gt;<i> xmlns:cp=&quot;urn:ietf:params:xml:ns:common-policy&quot; 
+</I>&gt;<i> xmlns:ocp=&quot;urn:oma:xml:xdm:common-policy&quot;&gt;
+</I>&gt;<i>                     &lt;communication-diversion active=&quot;false&quot;&gt;
+</I>&gt;<i>                         &lt;cp:ruleset&gt;
+</I>&gt;<i>                             &lt;cp:rule id=&quot;CD001&quot;&gt;
+</I>&gt;<i>                                 &lt;cp:conditions&gt;
+</I>&gt;<i>                                     &lt;cp:identity&gt;&lt;many/&gt;&lt;/cp:identity&gt;
+</I>&gt;<i>                                 &lt;/cp:conditions&gt;
+</I>&gt;<i>                                 &lt;cp:actions&gt;
+</I>&gt;<i>                                     &lt;forward-to&gt;
+</I>&gt;<i>                                         
+</I>&gt;<i> &lt;target&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">announcement at oimsnet.net</A>&lt;/target&gt;
+</I>&gt;<i>                                         
+</I>&gt;<i> &lt;notify-caller&gt;true&lt;/notify-caller&gt;
+</I>&gt;<i>                                         
+</I>&gt;<i> &lt;notify-served-user&gt;true&lt;/notify-served-user&gt;
+</I>&gt;<i>                                     &lt;/forward-to&gt;
+</I>&gt;<i>                                 &lt;/cp:actions&gt;
+</I>&gt;<i>                             &lt;/cp:rule&gt;
+</I>&gt;<i>                         &lt;/cp:ruleset&gt;
+</I>&gt;<i>                     &lt;/communication-diversion&gt;
+</I>&gt;<i>                 &lt;/simservs&gt;] ]
+</I>&gt;<i>         &lt;/ServiceData&gt;
+</I>&gt;<i>     &lt;/RepositoryData&gt;
+</I>&gt;<i> &lt;/Sh-Data&gt;
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090203/8e6b20a9/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090203/8e6b20a9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000906.html">[OpenIMSCore-HSS] HSS Startup - Web server - authentication error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#905">[ date ]</a>
+              <a href="thread.html#905">[ thread ]</a>
+              <a href="subject.html#905">[ subject ]</a>
+              <a href="author.html#905">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

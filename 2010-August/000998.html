@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] How to change web-password
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2010-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20How%20to%20change%20web-password&In-Reply-To=%3CA581819A9C09476180AF5B003810B44B%40FranzEdlerPC%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000997.html">
+   <LINK REL="Next"  HREF="000999.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] How to change web-password</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20How%20to%20change%20web-password&In-Reply-To=%3CA581819A9C09476180AF5B003810B44B%40FranzEdlerPC%3E"
+       TITLE="[OpenIMSCore-HSS] How to change web-password">franz.edler at technikum-wien.at
+       </A><BR>
+    <I>Tue Aug 10 21:23:18 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000997.html">[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+</A></li>
+        <LI>Next message: <A HREF="000999.html">[OpenIMSCore-HSS] 403 User Unknown for REGISTER in IMS Communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#998">[ date ]</a>
+              <a href="thread.html#998">[ thread ]</a>
+              <a href="subject.html#998">[ subject ]</a>
+              <a href="author.html#998">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Tomcat-experts!
+
+I have tried to change the password for user &quot;hssAdmin&quot; by modifying
+/opt/OpenIMSCore/FHoSS/tomcat/conf/tomcat-users.xml as follows
+
+Original:
+	&lt;tomcat-users&gt;
+		&lt;role rolename=&quot;hss_user&quot;/&gt;
+		&lt;role rolename=&quot;hss_admin&quot;/&gt;
+  			&lt;user name=&quot;hss&quot; password=&quot;hss&quot; roles=&quot;hss_user&quot;/&gt;
+  			&lt;user name=&quot;hssAdmin&quot; password=&quot;hss&quot;
+roles=&quot;hss_user,admin&quot;/&gt;
+	&lt;/tomcat-users&gt;
+
+New:
+	&lt;tomcat-users&gt;
+		&lt;role rolename=&quot;hss_user&quot;/&gt;
+		&lt;role rolename=&quot;hss_admin&quot;/&gt;
+  			&lt;user name=&quot;hss&quot; password=&quot;hss&quot; roles=&quot;hss_user&quot;/&gt;
+  			&lt;user name=&quot;hssAdmin&quot; password=&quot;newPW&quot;
+roles=&quot;hss_user,hss_admin&quot;/&gt;
+	&lt;/tomcat-users&gt;
+
+But after reboot the password for hssAdmin is still &quot;hss&quot; instead of
+&quot;newPW&quot;.
+BTW, I think there is a typo in the one-but-last line at assigning the
+roles.
+
+And I also wonder how the realm for the credentials can be changed. Actually
+I get
+A username and password are being requested by
+<A HREF="http://hss.technikum-wien.at:8080.">http://hss.technikum-wien.at:8080.</A> The site says: &quot;open-ims.org&quot;
+
+Any help appreciated.
+
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000997.html">[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+</A></li>
+	<LI>Next message: <A HREF="000999.html">[OpenIMSCore-HSS] 403 User Unknown for REGISTER in IMS Communicator
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#998">[ date ]</a>
+              <a href="thread.html#998">[ thread ]</a>
+              <a href="subject.html#998">[ subject ]</a>
+              <a href="author.html#998">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

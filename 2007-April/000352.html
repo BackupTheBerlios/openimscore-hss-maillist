@@ -1,0 +1,597 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Missing AVP: error code: 5005	-WhilesendingSNR from diameter client to HSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Missing%20AVP%3A%20error%20code%3A%0A%205005%09-WhilesendingSNR%20from%20diameter%20client%20to%20HSS&In-Reply-To=%3C462C9F58.6090605%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000347.html">
+   <LINK REL="Next"  HREF="000339.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Missing AVP: error code: 5005	-WhilesendingSNR from diameter client to HSS</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Missing%20AVP%3A%20error%20code%3A%0A%205005%09-WhilesendingSNR%20from%20diameter%20client%20to%20HSS&In-Reply-To=%3C462C9F58.6090605%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Missing AVP: error code: 5005	-WhilesendingSNR from diameter client to HSS">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Apr 23 13:58:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000347.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005	-WhilesendingSNR from diameter client to HSS
+</A></li>
+        <LI>Next message: <A HREF="000339.html">[OpenIMSCore-HSS] OpenIMSCore-HSS Digest, Vol 6, Issue 23
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#352">[ date ]</a>
+              <a href="thread.html#352">[ thread ]</a>
+              <a href="subject.html#352">[ subject ]</a>
+              <a href="author.html#352">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+hi Sheik,
+
+It seems that your wireshark trace does not contains the SNR, SNA
+messages in it :( Please make another capture. Please use the following
+filter when you are capturing:
+&quot;
+tcp.port == 3868 || tcp.port == 3869 || tcp.port == 3870 || diameter
+&quot;
+Enter it into the filter tab and then activate it through an enter command.
+
+&gt;<i> Pls tell me how to analyse into these encrypted data using wireshark.
+</I>
+If you had used the filter, then you should see only the relevant
+messages. Be aware that not all the diameter messages are automatically
+decoded by wireshark. You have to go on them manually and use the decode
+tool : decode as Diameter. (right click on a message, decode,
+transport-&gt;diameter)
+
+Hope it helps.
+
+- -Adrian
+
+
+
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote:
+&gt;<i> Hi Peter,
+</I>&gt;<i> 
+</I>&gt;<i>    I have attached the TCP traffic log file captured b/n diameterclient
+</I>&gt;<i> and Hss. In case of the userIdentity, even if I send an empty
+</I>&gt;<i> userIdentity from diameter client, at the hss side its received as
+</I>&gt;<i> &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">....Y at ...</A>&quot; values.  I am wondering why this is happening. Pls suggest
+</I>&gt;<i> me if anything is missing in the packet which is sent from Diameter client.
+</I>&gt;<i> 
+</I>&gt;<i> Pls tell me how to analyse into these encrypted data using wireshark.
+</I>&gt;<i> 
+</I>&gt;<i> ---Sheik Farid
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>]
+</I>&gt;<i> Sent: Thu 4/19/2007 9:20 PM
+</I>&gt;<i> To: Sheik Farid (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: RE: [OpenIMSCore-HSS] Missing AVP: error code: 5005
+</I>&gt;<i> -WhilesendingSNR from diameter client to HSS
+</I>&gt;<i> 
+</I>&gt;<i> Hi Sheik,
+</I>&gt;<i> 
+</I>&gt;<i> it is less corrupted than more a proof that the logging of the
+</I>&gt;<i> JavaDiameterPeer is not as exhaustive as Wireshark. Please capture the
+</I>&gt;<i> TCP traffic for your SNR/SNA scenario and post this to resolve your
+</I>&gt;<i> problem.
+</I>&gt;<i> 
+</I>&gt;<i> - Peter
+</I>&gt;<i> 
+</I>&gt;<i> On Thu, 2007-04-19 at 16:43 +0200, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote:
+</I>&gt;&gt;<i> Hi Peter,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have just made a print of messages received at hss and the
+</I>&gt;&gt;<i> publicIdentity which I sent got corrupted with extra junk values
+</I>&gt;&gt;<i> added. I am sending all the values as u mentioned.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am looking into that.  Pls find the message received at hss:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Valid message at avpLookupDiameter: Code=308 R AppID=16777217
+</I>&gt;&gt;<i> HbHID=123481 E2EID=132481
+</I>&gt;&gt;<i>         AVP: Code=263 M Len=54
+</I>&gt;&gt;<i>
+</I>&gt;<i> Data=0x70726573656e63652e6f70656e2d696d732e746573742e6f70656e2d696d732e746573743b313137363937373938353b363935313836
+</I>&gt;<i> INT_Data=
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 1886545267
+</I>&gt;&gt;<i> Char_Data=&quot;presence.open-ims.test.open-ims.test;1176977985;695186&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         AVP: Code=700 M Len=32
+</I>&gt;&gt;<i>
+</I>&gt;<i> Data=0x000002594000001d7369703a626f62406f70656e2d696d732e74657374000000
+</I>&gt;<i> INT_Data=601
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Char_Data=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">...Y at ...sip</A>:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>     &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HERE IT
+</I>&gt;&gt;<i> IS CORRUPTED... :(
+</I>&gt;&gt;<i> ...&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         AVP: Code=264 M Len=22
+</I>&gt;&gt;<i> Data=0x70726573656e63652e6f70656e2d696d732e74657374
+</I>&gt;&gt;<i> INT_Data=1886545267 Char_Data=&quot;presence.open-ims.test&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         AVP: Code=296 M Len=13 Data=0x6f70656e2d696d732e74657374
+</I>&gt;&gt;<i> INT_Data=1869636974 Char_Data=&quot;open-ims.test&quot;
+</I>&gt;&gt;<i>         AVP: Code=293 M Len=17
+</I>&gt;&gt;<i> Data=0x6873732e6f70656e2d696d732e74657374 INT_Data=1752396590
+</I>&gt;&gt;<i> Char_Data=&quot;hss.open-ims.test&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         AVP: Code=283 M Len=13 Data=0x6f70656e2d696d732e74657374
+</I>&gt;&gt;<i> INT_Data=1869636974 Char_Data=&quot;open-ims.test&quot;
+</I>&gt;&gt;<i>         AVP: Code=705 M Len=4 Data=0x00000001 INT_Data=1
+</I>&gt;&gt;<i> Char_Data=&quot;....&quot;
+</I>&gt;&gt;<i>         AVP: Code=703 M Len=4 Data=0x0000000c INT_Data=12
+</I>&gt;&gt;<i> Char_Data=&quot;....&quot;
+</I>&gt;&gt;<i>         AVP: Code=277 M Len=4 Data=0x00000000 INT_Data=0
+</I>&gt;&gt;<i> Char_Data=&quot;....&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ---Sheik Farid
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>]
+</I>&gt;&gt;<i> Sent: Thu 4/19/2007 3:09 PM
+</I>&gt;&gt;<i> To: Sheik Farid (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+</I>&gt;&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: RE: [OpenIMSCore-HSS] Missing AVP: error code: 5005 -
+</I>&gt;&gt;<i> WhilesendingSNR from diameter client to HSS
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> Hi Sheik,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> just by reading from these logs, I'd say that only these
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt; (1279|1147169120) Request message## 308 
+</I>&gt;&gt;<i> &gt;  message contents from pointer call:-
+</I>&gt;&gt;<i> &gt;  Origin Host: presence.open-ims.test
+</I>&gt;&gt;<i> &gt;  Origin Realm: open-ims.test
+</I>&gt;&gt;<i> &gt;  Dest Realm: open-ims.test
+</I>&gt;&gt;<i> &gt;  Dest Host: hss.open-ims.test
+</I>&gt;&gt;<i> &gt;  PUBLIC-Identity: 
+</I>&gt;&gt;<i> &gt;  Public-Identity: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  AVPs won't help you for a SNR. You need at least Subs-Req-Type and
+</I>&gt;&gt;<i> Data-Reference AVPs. The Public Identity should also have sip URL
+</I>&gt;&gt;<i> format.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Peter
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Thu, 2007-04-19 at 09:33 +0200, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote:
+</I>&gt;&gt;<i> &gt; Hi, 
+</I>&gt;&gt;<i> &gt;     
+</I>&gt;&gt;<i> &gt;    I am attaching message flow logs between Diameter Client and
+</I>&gt;&gt;<i> HSS.
+</I>&gt;&gt;<i> &gt; In which when I send an SNR message to HSS, I could find all the
+</I>&gt;&gt;<i> &gt; mandatory params like, 
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt;   User identity, Origin Host, Origin Realm, Data reference, Subs
+</I>&gt;&gt;<i> Req
+</I>&gt;&gt;<i> &gt; type are all passed. But when i get a response the user identity is
+</I>&gt;&gt;<i> &gt; getting null and the result code set to 5005 along with origin host
+</I>&gt;&gt;<i> &gt; and realm set to correct values(HSS info).   
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt;    I am unable to capture the diameter traffic using wireshark since
+</I>&gt;&gt;<i> I
+</I>&gt;&gt;<i> &gt; am using an xml file as an input to the diameter client and its
+</I>&gt;&gt;<i> &gt; throwing error as unable to read the XML file. But I have attached
+</I>&gt;&gt;<i> the
+</I>&gt;&gt;<i> &gt; logs of both elements. Pls suggest for going forward.
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; Sheik Farid
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; -----Original Message----- 
+</I>&gt;&gt;<i> &gt; From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;<i> &gt; Sent: Wed 4/18/2007 9:32 PM 
+</I>&gt;&gt;<i> &gt; To: Sheik Farid (WT01 - IP-Multimedia Carrier &amp; Ent Networks) 
+</I>&gt;&gt;<i> &gt; Subject: RE: [OpenIMSCore-HSS] Missing AVP: error code: 5005 -
+</I>&gt;&gt;<i> &gt; WhilesendingSNR from diameter client to HSS 
+</I>&gt;&gt;<i> &gt;   
+</I>&gt;&gt;<i> &gt; Please filter the messages down to the two relevant ones and post
+</I>&gt;&gt;<i> to
+</I>&gt;&gt;<i> &gt; the 
+</I>&gt;&gt;<i> &gt; mailinglist as well.
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; Peter
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; -----Original Message----- 
+</I>&gt;&gt;<i> &gt; From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;<i> &gt; Sent: Wed 4/18/2007 8:02 PM 
+</I>&gt;&gt;<i> &gt; To: Sheik Farid (WT01 - IP-Multimedia Carrier &amp; Ent Networks) 
+</I>&gt;&gt;<i> &gt; Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> 
+</I>&gt;&gt;<i> &gt; Subject: Re: [OpenIMSCore-HSS] Missing AVP: error code: 5005 -
+</I>&gt;&gt;<i> &gt; Whilesending SNR from diameter client to HSS 
+</I>&gt;&gt;<i> &gt;   
+</I>&gt;&gt;<i> &gt; Hello Sheik,
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; a Wireshark trace should help us to resolve the problem. Could you 
+</I>&gt;&gt;<i> &gt; please attach one for the Diameter traffic ?
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; Regards,
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; Peter
+</I>&gt;&gt;<i> &gt; 
+</I>&gt;&gt;<i> &gt; On Wed, 2007-04-18 at 19:45 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote: 
+</I>&gt;&gt;<i> &gt; &gt; Hi, 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;    I am getting Missing AVP:Error code:5005 when I send an SNR 
+</I>&gt;&gt;<i> &gt; &gt; (Subscribe Notification Request) message to HSS from a diameter 
+</I>&gt;&gt;<i> &gt; &gt; client(OpenDiameter). 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;    The error message as below: 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;    [Thread-6] WARN  de.fhg.fokus.hss.diam.sh.SNRCommandListener
+</I>&gt;&gt;<i> - 
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.SNRCommandListener at 538974</A> 
+</I>&gt;&gt;<i> &gt; &gt; de.fhg.fokus.sh.MissingAVP: errorcode: 5005 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.avpLookUp(ShCommandListener.java:156) 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.loadPublicIdentity(ShCommandListener.java:105) 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.SNRCommandListener.recvMessage(SNRCommandListener.java:111) 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100) 
+</I>&gt;&gt;<i> &gt; &gt; [Thread-7] WARN  de.fhg.fokus.hss.diam.sh.SNRCommandListener  - 
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.SNRCommandListener at 538974</A> 
+</I>&gt;&gt;<i> &gt; &gt; de.fhg.fokus.sh.MissingAVP: errorcode: 5005 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.avpLookUp(ShCommandListener.java:156) 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.loadPublicIdentity(ShCommandListener.java:105) 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.SNRCommandListener.recvMessage(SNRCommandListener.java:111) 
+</I>&gt;&gt;<i> &gt; &gt;         at 
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100) 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;   I could not makeout why the public identity is failig because
+</I>&gt;&gt;<i> we
+</I>&gt;&gt;<i> &gt; are 
+</I>&gt;&gt;<i> &gt; &gt; sending the userIdentity as <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> to the HSS which
+</I>&gt;&gt;<i> is 
+</I>&gt;&gt;<i> &gt; &gt; configured in the hssdb-&gt;impi table as well as the local table we
+</I>&gt;&gt;<i> &gt; have 
+</I>&gt;&gt;<i> &gt; &gt; in our product. But it is failing  at the avplookup itself. And
+</I>&gt;&gt;<i> &gt; Vendor 
+</I>&gt;&gt;<i> &gt; &gt; Id is set to 10415 in the diameter header. 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt; Please suggest if I have missed any mandatory values. 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt; Regards, 
+</I>&gt;&gt;<i> &gt; &gt; Sheik Farid 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt; The information contained in this electronic message and any 
+</I>&gt;&gt;<i> &gt; &gt; attachments to this message are intended for the exclusive use of
+</I>&gt;&gt;<i> &gt; the 
+</I>&gt;&gt;<i> &gt; &gt; addressee(s) and may contain proprietary, confidential or
+</I>&gt;&gt;<i> &gt; privileged 
+</I>&gt;&gt;<i> &gt; &gt; information. If you are not the intended recipient, you should
+</I>&gt;&gt;<i> not 
+</I>&gt;&gt;<i> &gt; &gt; disseminate, distribute or copy this e-mail. Please notify the
+</I>&gt;&gt;<i> &gt; sender 
+</I>&gt;&gt;<i> &gt; &gt; immediately and destroy all copies of this message and any 
+</I>&gt;&gt;<i> &gt; &gt; attachments.  
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt; WARNING: Computer viruses can be transmitted via email. The
+</I>&gt;&gt;<i> &gt; recipient 
+</I>&gt;&gt;<i> &gt; &gt; should check this email and any attachments for the presence of 
+</I>&gt;&gt;<i> &gt; &gt; viruses. The company accepts no liability for any damage caused
+</I>&gt;&gt;<i> by
+</I>&gt;&gt;<i> &gt; any 
+</I>&gt;&gt;<i> &gt; &gt; virus transmitted by this email. 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt; www.wipro.com 
+</I>&gt;&gt;<i> &gt; &gt;  
+</I>&gt;&gt;<i> &gt; &gt; _______________________________________________ 
+</I>&gt;&gt;<i> &gt; &gt; OpenIMSCore-HSS mailing list 
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> 
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> ------------------------------------------------------------------------------------
+</I>&gt;<i> Peter Weik
+</I>&gt;<i>    
+</I>&gt;<i> Fraunhofer Institut FOKUS       phone:  + 49-30 3463-7196
+</I>&gt;<i> Kaiserin-Augusta-Allee 31      
+</I>&gt;<i> D-10589 Berlin                  web: www.fokus.fraunhofer.de/ims
+</I>&gt;<i> ------------------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> The information contained in this electronic message and any attachments
+</I>&gt;<i> to this message are intended for the exclusive use of the addressee(s)
+</I>&gt;<i> and may contain proprietary, confidential or privileged information. If
+</I>&gt;<i> you are not the intended recipient, you should not disseminate,
+</I>&gt;<i> distribute or copy this e-mail. Please notify the sender immediately and
+</I>&gt;<i> destroy all copies of this message and any attachments.
+</I>&gt;<i> 
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> should check this email and any attachments for the presence of viruses.
+</I>&gt;<i> The company accepts no liability for any damage caused by any virus
+</I>&gt;<i> transmitted by this email.
+</I>&gt;<i> 
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> &#212;&#195;&#178;&#161;u&#224;uu&#224;uu?
+</I>&gt;<i> u&#198;&#225;8
+</I>&#224;R&#248;h&#255;[u&#198;
+&gt;<i> u?
+</I>&#225;8&#221;&#203;&#229;)&#224;R&#248;i  C
+&gt;<i> u?
+</I>&gt;<i> u&#198;&#225;8
+</I>&#224;R&#248;i&#221;&#203;&#229;*?&#255;[u?
+&gt;<i> u&#198;&#225;8
+</I>&#224;R&#248;i&#221;&#203;&#229;*?t&#255;?u?u?u?@@@@@@@u&#198;
+&gt;<i> u?
+</I>&#225;8&#221;&#203;&#229;*&#224;R&#250;	? mbu&#198;
+&gt;<i> u?
+</I>&#225;8&#221;&#203;&#229;*&#224;R&#250;	? &#187;&#213;u&#198;@@@@u&#198;
+&gt;<i> u?
+</I>&#225;8&#221;&#203;&#230;&#224;R&#250;	? lyuuu?
+&gt;<i> u&#198;&#225;8
+</I>&#224;R&#250;	&#221;&#203;&#230;?&#255;&#185;u?
+&gt;<i> u&#198;&#225;8
+</I>&#224;R&#250;	&#221;&#203;&#230;?&#255;&#185;u?
+&gt;<i> u&#198;&#225;8
+</I>&#224;R&#250;	&#221;&#203;&#230;?&#255;&#232;u&#198;
+&gt;<i> u?
+</I>&#225;8&#221;&#203;&#230;&#224;R&#250;
+&gt;<i> ? lu4uXuuw2c
+</I>&gt;<i> u&amp;?&#243;KdJc
+</I>&gt;<i> u
+</I>&#230;+
+&gt;<i> u&#224;uu
+</I>&gt;<i> u&#255;u&#224;uu
+</I>&gt;<i> u&#255;u
+</I>&gt;<i> u&#255;uuuIOS (tm) C3550 Software (C3550-I5Q3L2-M), Version 12.1(22)EA4, RELEASE SOFTWARE (fc1)
+</I>&gt;<i> Copyright (c) 1986-2005 by cisco Systems, Inc.
+</I>&gt;<i> Compiled Wed 23-Mar-05 17:16 by yenanhK1-IMGu&#207;&#220;(F8,uuu&#224;uu&#224;uuu(&#186;&#163;T(&#186;&#163;T
+</I>&gt;<i> u&#211;u&#211;uuu&#224;uu&#224;uuuu&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#181;Qu?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;p&#176;&#223;2&#181;R  &#225;?&#255;!,u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#181;R&#225;&#251;p&#177;?&#208;#u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#181;R&#225;&#251;p&#177;?&#208;m&#169;u&#198;@@@@u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;p&#177;&#223;2&#182;.?&#255;!-u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;p&#177;&#223;2&#182;.?&#255;!.u?u?u?@@@@@@@u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#182;.&#225;&#251;r?? (&#186; &#234;(&#186; &#234;
+</I>&gt;<i> u&#180;u&#180;u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;r?&#223;2&#182;.?&#255;$
+</I>u&#198;
+&gt;<i> u??&#215;F&#190;&#223;2&#182;.&#225;&#251;r&#237;? ?u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#182;.&#225;&#251;r&#237;? ?&#249;u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;r&#237;&#223;2&#182;??&#255;$2uuu&#224;uu?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;r&#237;&#223;2&#182;??&#255;'
+</I>&gt;<i> u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#182;?&#225;&#251;sE? &#190;u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;sE&#223;2&#182;&#214;?&#255;'
+</I>&gt;<i> u&#224;uu?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;sE&#223;2&#182;&#214;?&#255;)&#249;u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#182;&#214;&#225;&#251;s?? ?&#254;u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;s?&#223;2&#183;*?&#255;*uuu?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;s?&#223;2&#183;*?&#255;*&#253;u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#183;*&#225;&#251;t&#181;?
+</I>Pu?
+&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;t&#181;&#223;2&#183;&#190;?&#255;*&#253;u&#198;
+</I>&gt;<i> u?&#200;&#220;&#235;q?&#252;i&#215;?bT?HU&#202;P&#217;&#172;GEw?s9&#173;zX=&#245;Cy&#202;&#236;n5?&#254;&#237;7c&#202;H?&#200;7&#162;&#215;&#202;'&#222;&#217;&#178;BC&#166;D?J8
+</I>R.&#181;&#166;P?~&#199;&#173;&#172;?b?B?]&#235;&#223;k&#206;&#179;&#215;yt\u&#189;&lt;&#180;
+&gt;<i> c&#227;aA&#231;M&#245;&#239;0l?X? 5?`?&#215;&#218;.N&#230;X&#219;&#175;?
+</I>&gt;<i> &#228;&#207;y&#241;&#206;&#216;?&#201;??&#191;&#186;?&#191;&#171;&#241;?&#191;'?G)&#251;&#175;?&#254;?XgX1&#223;s?[?Q&#246;&#230;&#217;?QSx5J1?1w
+</I>&gt;<i> &#172; }&#165;&#240;?&#205;b&#164;#]=&#192;?E_&#194;&#201;&#173;&#203;&#253;?&#192;&#234;&#233;p 7f???K&#240;?&#221;?3&#176;&#177;UE?s&#236;?&#188;&#187;^&#255;&#188;0A&#235;#&#220;?&#189;&#211;&#216;?&#205;8^oS7&#164;0&#202;&#211;&#210;&#196;9&#240;of??GsD%??&#242;J&#215;&#171;&#187;4&#189;c&#183;&#161;&#184;&#209;a&#183;?:&#247;y%?&#231;&#218;?&#236;8,?&#178;a/O&#207;&#175;Y&#195;&#179;G&#188;&#181;&#241;&#223;?9v&#227;&#191;?=&#161;&#168;l&#167;&#193;Yk,wR#E&#246;&#167;	4&#198;&#196;6&#211;So&#201;X#???*&#223;&#190;&#169;
+</I>}&#194;?+1ZN&#194;&#232;&#238;&#178;&#237;wj&#195;&#162;F?
+&gt;<i> ?o9 Mf&#162;&#216;&#236;&#220;(F&#197;
+</I>&gt;<i> u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;*&#254;u&#198;
+</I>&gt;<i> u??Y h~&#219;v&#223;&#235;&#162;&#163;&#214;m?|&#175;s?&#245; &#217;&#209;?&#250;&#222;?iY&#235;&#175;&#244;s&#172;?&#224;&#237;&#177;&#163;t|0`&#176;k&amp;?M&#226;/?&#170;Q&#167;%?&#223;(&#235;I&#165;L&#169;l&#255;&#212;H&#182;&#255;9&#175;&#219;&#250;&#222;&#249;&#185;a&#207;&#218;TRLq:&#220;&#247;?l.&#218;&#230;I6&#189;,?&#166;&#200;@-&lt;U
+</I>&gt;<i> &#239;&#196;T+$&#242;&#225;&#166;&#240;7?&#195;?m&#195;&#200;K?&#209;=?&#217;5[&#192;&#194;R?%&#165;&#241;&#179;_&#197;OxR&#191;?n&#228;
+</I>zj?&#213;o&#208;&#196;k&#211;??
+&gt;<i> b&#239;&#202;?&#251;m&#180;2u\'&#227;&#235;v&#164;r
+</I>&#236;&#220;(F*&#197;
+&gt;<i> u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;*&#254;u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;t&#181;&#223;2&#183;&#190;?&#255;+u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#183;&#190;&#225;&#251;u&#205;?!?&#250;u&#198;
+</I>&gt;<i> u?V?&#164; e&#216;BT.&amp;?ZU&#244;9&#187;&#161;&#190;&#191;&#255;&#217;+&#225;H&#179;&#247;kt&#171;&#161;a?`&#236;&#170;&#231;&#236;aJ&#181;&#196;.?&#174;*??(n?&#206;&amp;Q&#181;&#193;J??&#185;}p0[&#187;F&#248;&#204;z&#164;&#175;&#241;&lt;{&#224;\&#240;&#249;&#229;&#250;&#193;n??*&#210;&#163;@t(Y
+</I>?iqT&#209;-&#214;??S&#227;&#238;.&#226;&#168;B&#244;
+&#254;]
+&#231;&#251;?Qs?&#250;'&#161;&#226;?&#219;&#241;&#183;)?&#234;H&#244;&quot;&#241;Pq&#195;&#209;&#208;&#189;q?&#214;?&#231;}&#252;?&gt;&#184;&gt;&#168;&#207; &#190;?L
+&#219;`?&#174;UN&#162;&#164;?&#189;U&#184;??&#220;?z+?&#243;?&#217;&#241;&#205;$&#196;1&#173;s[x,&#164;&#210;)&#242;&#254;-?n&#165;i&#254;&gt;`W?&#180;{&#254;&#170;??&#223;{&#237;&#250;&#238;&#175;x&#245;&#224;:[&quot;p&#236;&#229;:mu?&#188;?&#172;&#254;?&#183;2&#206;.&#193;?&#164;&#214;&#189;?&#225;&#218;&#176;&#189;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">-B at h</A>&#246;p?
+&gt;<i> *x8?8&#204;&#182;&#238;&#182;&#247;?&#174;?&#161;&amp;&#233;??&#241;UI9&#233;t?16&#242;?
+</I>?E &#203;&#254;??&#242;g&#177;&#192;;&#213;?=:&#216;N?3&#191;a&#220;;C&#232;?44?&#180;&#204;&#242;&#167;_.&#196;&#197;9&#234;S&#168;?#????|&#228;&#246;?&#215;&#169;&lt;&#207;&#249;^{&#219;?&#206;&#246;&#226;&#238;a4&#240;?U??&#246;&#201;&#255;9\??
+?D?&#252;&#208;?&#222;&#202;&#227;&#222;&gt;&#235;Y&#221;&#237;k?&#243;}&#161;?&#218;K&#177;?&#211;?s&#234;4m?1`&#186;!UE&#189;1|=L&#202;(?&#218;&#226;&#174;?&#252;?
+&gt;<i> O??T:?v&#223;0u7&#180;l&gt;C&#185;R	?&#208;&#240;&#166;?&#213;!L&#231;9?D&#227;A~?|?~&#220;?
+</I>&gt;<i> C?&lt;%???X-[&#205;?&#201;&#237;/??&#219;?&lt;&#233;j&#175;&#237;M&#167;?&#173;YS&#200;4?&#186;M&#187;	??Z&#237;0EE&#240;&#203;	[C%&#231;?&#199;[(&#168;?&quot;$j?d&#231;C26?&#170;&#168;?]?a?D&#186;&#250;&#246;&#203;&#228;L&#252;W&#251;&#226;:?&#221;3&#208;b&#251;&#216;&#222;h&#237;z
+</I>&gt;<i> &#222;Px&#238;Y&#202;u&#217;&#167;&#225;9A
+</I>?`&#163;&#174;=&#203;?&#166;c\E?&#232;&#196;|E&#251;?B&#235;=1&#232;?&#162;1&#184;&#218;0K&#192;M?h:+_&#210;%Y?O'V&#171;&#197;6f&#233;&#220;&#203;&#186;&#195;$`jx?f?~ch?&#193;/&#217;?tU&#255;?&#186;&#167;&#168;&#179;y&#237;&#181;?U&#210;i&#167;KQ&#207;?5i?
+?(&#247;&#166;6?N?&#167;&#228;??JTG&#235;&#190;&#167;:&#177;Ko?&#216;&#229;&#216;&#175;&#161;LB&#233;V9&#193;&#220;&#169;D?y)?}&lt;?9&#186;914&#255;&#179;N&#204;?%Q&#226;/F&#220;R{F7{&#193;f&#218;??mAE&#249;P;&#254;L&#246;&#188;?_&#203;&#211;9:*
+&#197;&#208;?&#235;&#161;&#193;&#207;?O&#200;&#178;Tx?&#255;&lt;[
+&gt;<i> .Q&#187;?&#249;B&#233;&#161;	!T;?A&#209;(?&#169;&#182;?&#255;4,&#201;&#226;BU&#242;&#188;&#205;&#229;&#185;&#206;o&#206;&#188;U?&#180;tH9&#174;*&#167;3=&#181;g&#228;&#180;&#165;?J&#188;A?o&#231;j&#191;r&#248;&#161;eK&#164;R#&#238;z&#201;FU/W&#250;?7m&#247;YL&#219;|m&#168;&#236;&#166;&#216;?lu?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;+u&#198;
+</I>&gt;<i> u?&#190;?_&#163;7?&#224;&#255;&#252;?F&#186;&#209;&#169;d2&#190;&#227;&#255;&#165;BR&#214;?&#210;&#209;@i??nk&#207;?Xw-&#209;G&#228;&#209;&#229;]?up&#242;)5,&#207;qX&#209;&#179;&#250;`&#167;&#210;|P&#183;r&#181;zg?&#220;&#238;???!/1K ?&#219;e?&#231;u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;+u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;u&#205;&#223;2&#184;R?&#255;+u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;u&#205;&#223;2&#184;R?&#255;+u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#184;R&#225;&#251;v&#233;?%&#176;&#244;,u&#198;
+</I>&gt;<i> u?T??&#180;&gt;:?&#238;&#199;&#235;0?&#209;&#225;9&#214;5&#224;&#204;~&#251;*&#184;&#247;N&#164;'0&#199;
+</I>&gt;<i> w&#189;t?&#248;L&#248;)JGY?(
+</I>?&#224;&#210;&#244;&#176;&#207;&#203;&#163;&#225;&#174;&#183;m&#199;;&#201;??&#173;AG&#239;b}&#201;c&#182;e&#168;^&#226;&#234;&#185;&#193;R{QYX?9&#181;?V^&#236;&#238;?&#167;fQ&#242;?&#207;&#247;&#255;&#169;&#208;R&#187;&#253;o?&#202;?m[&#187;&#247;?&#194;pp
+&gt;<i> ??0&#164;?&#250;&#191;&#199;a ??&#190;?U&#184;&#221;&#162;&#236;&#230;
+</I>_&#175;?&#224;&#164;?N&amp;&#197;&#196;&#210;Yj&#254;Z.??&#204;&#220;&#167;&#200;&#217;?&#250;?
+O$ &#162;&#187;&gt;&#218;g&#162;&#198;Un?b$,&#235;&#239;iX&#182;g&#248;?`&#250;&gt;&#166;&#225;T&#204;zLd?&#181;&#161;?kY?FxN$&#191;V~&#170;B
+&gt;<i> k?t&#206;&#219;9&#175;?%tmK_&#224;8&#246;L?&#245;R?X1&#243;h&#232;&#183;&#175;?&#217;&#218;8&#166;&#228;&#253;&#194;)&#214;&#200;&#231;??r? O&#195;&#168;z&#230;&#248;O&#235;&#202;
+</I>{&#234;1&amp;x?ZA&#183;&#239;&#251;9L$&#235;@e&#206;.]&#242;
+&#171;Z]&#200;&#218;sRL?&#227;&#163;?&#206;
+&gt;<i> :c`7?I&#186;tk&#209;&#199;9*&#239;&#244;
+</I>&#196;l&#191;?&#174;&#255;r&#240;&#240;&#170;!?&quot;&#224;w&#225;/
+&#202;A? ?&#251;?XF&#197;o?&#172;:.\~&#242;L?RKN?&#219;?&#162;&#205;&#169;[&gt;&#167;&#174;&#180;&#226;]D?&#179;??&#205;&#249;&#165;u??	???&#172;Zj&#186;&#202;&#180;&#213;&#178;&#194;K-&#206;&#213;&#247;&#213;~&#171;?-d&#195;?&#235;B&#219;&#180;&#181;&#209;{&#174;
+vI&#165;&#226;&#198;&#251;??&#172;&#183;?!&#231;3?]&#222;?&#173;Q&#161;5&#220;L&#165;&#226;&lt;|E
+&#186;&#237;Pq&#161;&#249;8@&#187;&#192;&#215;5&#198;&#218;Q\-&#243;&#234;&#205;&#175;&#181;?&#226;{g&#211;1&#176;I&#166;3&#194;&#197;&#254;u&#178;&#242;P&#204;(g&#230;G?&#161;R??&#170;~??&#251;&#252;`?&#217;&#212;&#236;&#180;X&#211;&#237;&#181;?Dl&#253;&#211;^)/@&#217;?,&#174;&#164;?N&#162;&#216;&#219;&#221;]y(&#239;&#187;&#255;&#232;&#245;&amp;ivE&lt;*&#254;&#224;M&#247;d&#193;&#211;&#175;%&lt;[&#253;&#218;?5&#241;&#184;&#237;&#227;&#166;&#223;^4&#184;&#194;&#201;?&#225;X&#188;&#177;1&#237;0&#227;&#163;&#196;&#167;3&#210;f?&#224;#&#181;-fFft&#184;&#170;???&#210;&#201;GT&#254;=&#243;&#249;&#180;&#230;?%??L+?&#165;&#244;?&#215;&#181;r&#254;&#184;&#177;u&#205;B&#170;&#224;&#224;&#175;W&#203;?&#199;&#206;&#238;h&#206;!&#222;&#222;&#172;0L&#229;&#169;&#227;&#174;&#205;
+&gt;<i> ?S&#179;&#211;??&#247;?k$&#180;&#194;&#173;zq&#180; n&#246;(&#187;&#169;?
+</I>&gt;<i> 
+</I>&gt;<i> ?&#213;?&#210;&#174;?4?f
+</I>
+&gt;<i> &#169; h?&#166;Z&#253;V??V&#218;F&#253;;?&#180;-??&#204;?&#253;?&lt;
+</I>&gt;<i> &#249;-&#255;&#233;&#240;!?5E&#171;#^t &#238;&gt;?&#255;7gO&#165;&#179;&#252;A&#194;m?&#253;;Gf&#170;&#172;(?E&#172;W
+</I>?&#164;5&#246;q&#251;\&#230;??&#234;&#164;+z ?&#180;&#239;&#200;&#230; 7-
+0&#229;&#235;&#186;&#193;
+&gt;<i> ?QM?o
+</I>&gt;<i> ?rM&#245;&#217;|&#181;!eh3e?yy&#189;&#180;&#169;&#166;s&#208;&#162;i?&#247;&#171;T
+</I>u&#223;h2R&#177;&#191;&#239;F&#184;wr&#201;4?&#251;&#178;&#254;$R&#180;&#206;&#213;	&#246;&#236;&quot;J4 &#187;G
+H&#242;
+&#251;&#202;??&#203;)SJ&#226;&#163;&#237;&#177;??&gt;?&#191;H&#233;?`u|?&#203;&#191;&#251;&#216;&#214;&#188;&#252;?-&#244;1&#254;V&#217;&#242;tY&#197;&#222;?&#211;&#217;?&#224;vV?
+&#177;&#166;DA7 ?&#168;B?}?y%
+&gt;<i> BRe&#222;E?&#178;&#213;&#247;&#198;&#201;&#183;r?&#213;?&#201;&#207;z&#218;s&#180;?6&#171;&#226;y={C&#246;-&#226;&#163;G1&#252;@r?&#249;&#254;E&#225;&#204;?p&#189;T?&#189;
+</I>?&quot;&#231;0L&#215;?)&amp;&#222;?O[&#183;&#221;&#210;i_&#176;+y?.{&#184;??W&#255;&#198;.&#164;X&#247;?!&#222;&#251;a[&#177;wNc$j? Ma&#230;|&#234;'&#252;&#167;
+&gt;<i> &#206;A[9T&#240;NI`h^???&#234;y&#246;)&#230;&#203;&#252;a+e&#239;&#202;&#221;sU?&#225;CC&#252;&#253;?7&#243;1&#235;?y&#189;?\&#204;?&#237;?&#174;jJ&#237;&#201;o&#198;?`&#197;&#188;V@&#203;&#205;M&#196;&#168;??&#203;&#166;&#255;!&quot;K+k\&#232;}1&#180;e&#182;5u&#194;&#222;5&#252;5?&#227;p&#245;&#172;G&#188;Xs&#213;&#196;&#219;&#197; &#169;Z&#172;&#185;&#196;?&#194;&#181;v&#165;(C&#161;&#184;&#221;d&#192;E&#228;$?&#194;&#181;}a???d?&#168;&#229;?&#161;&#186;&#186;&#224;&#224;o5&#221;S&#254;&#177;&#202;&#200;&#253;?&#237;5&#211;&#220;&#234;pZ&#206;hw&#255;&#253;~&#249;=&#216;&#211;&#183;&#182;&#202;%&#216;
+</I>OU&#200;&#248;6?
+&gt;<i> &#238;~[BY?&amp; &#212;)5&amp;?&quot;&#221;*&#225;V:&#199;X(&#244;N)?&#180;&#195;&#242;(vs@&#204;&#236;&#220;(F|&gt;u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;+u&#198;
+</I>&gt;<i> u?&#228;&#244;p'e&#180;&#222;?0&#225;&#237;&#252;h&#183;i?zE&#162;&#227;BR?QS&#205;&#163;
+</I>j;[6&#192;??X&#172;&#164;-j&#171;&#203;&#241;&#163;?&#223;
+&gt;<i> &#218;?&#212;n:(&#190;&#184;:&#176;?mTv&#179;7&#207;&#239;u&#174;&#164;S??&#170;?&#173;LDA?&#242;&#239;?A&#239;R-&#182;-&#232;&#177;Y'&#208;&#164;5&#209;&#191;&#176;?}&#203;U4&#245;]?t
+</I>&gt;<i> &#169;&#210;&#224;&#234;&#243;&#177;EEBKTe?&#187;&#209;&#199;&#228;&#226;(&#185;#Vf&#208;??&#179;j&#249;|&#242;&#192;&#200;S&#206;&#230;[&#196;[-&#190;?Z?g&#185;#??b&#193;?&#236;?^&#161;&#167; &#177;'&#208;&#201;&#240;?h
+</I>&gt;<i> ?&#228;&#244;&#196;?&#255;&#236;&#191;&#168;?&#190;&#233;&#217;?&#184;&#235;&#189;&#181;XuU?&#238;?WuZ	?6?,h&#168; P?&#182;&#162; ???_?&#236;&#220;(F?&gt;u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;+u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;v&#233;&#223;2&#184;&#230;?&#255;+ u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;v&#233;&#223;2&#184;&#230;?&#255;+*u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#184;&#230;&#225;&#251;w&#233;?)&#224;&#238;Hu?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;w&#233;&#223;2&#185;z?&#255;++u&#198;
+</I>&gt;<i> u?&#186;.&#208;&#174;T&#180;?&#178;?J0
+</I>&gt;<i> &#249;_S3&#254;&#205;??{k&#215;pX&#248;V?c?0&#183;@&#240;??&#198;&#220;)&#210;(&#166;#&quot;&#230;&#185;7?&#206;5&#193;I&#194;R_&#206;&#205;1&#179;?`$&#209;&#169;&amp;:?&#228;&#163;&#208;y?&#177;,&#185;IaXq3?&#215;&#178;&#183;`&#181;,&#218;&#235;+#J&#208;H'?&#241;&#210;1+?d&#174;&#247;&#219;&#211;&#242;u&#231;&#245;?&#185;Z&#206;&#190;
+</I>&gt;<i> L&#206; s&#180;&#200;?IJ??&#187;M&#167;4&#168;&#191;zXy%nv?&#246;&#172;i&#206;&#212;&#212;A/-$&#184;.&#168;&#240;^C&#252;'B&#167;8gQ?./TKYC&#246;Vty$^&#241;&#165;&#187;&#196;&#242;&#237;&#238;&#234;?&#192;&#240;#	&#251;o?&#238;?'?&#221;hK&#251;SyT&#254;p^t&#168;&#191;?xHe??y?&#171;&#200;?&#201;?&#202;d&lt;&#195;`)u&#186;w
+</I>&gt;<i> ?p?&#227;&#246;&#217;n&amp;a&#172;&#232;}MdQtJ&#194;11?sK2&#236;&#207;&#197;[A?*?&#189;=z5&#199;??&#246;?&#253;&#239;&#196;&#251;&#186;C&#211;m?@&#199;-oi[\&#199;&#161;&#207;&#212;&#188;&#217;&#224;?P&#243;7&#226;??&#220;???
+</I>&gt;<i> ?t&#239;+:??&#181;'&#215;&#243;x&#165;!&#243;
+</I>&#250;&#193;?&#237;&#166;&#211;&#181;&#189;??&lt;&#181;?z&#198;?&#249;&#203;&#240;&#239;?&#184;&#241;??&#180;^(&#177;&#201;[R?&#232;&#189;1&#161;t?~?
+&gt;<i> &#243;?&#224;q&#168;&#173;&#162;&#181;&#165;ub$&#238;6&#233;?`m&#182;i??5&#168;?5&#185;c?&#198;Q&#249;&#247;r/&#214;o&#190;&#186;V&#222;?&#244;&#172;xF&#207;tY&#235;2&#230;&#201;?&#180; R8&#173;f&#207;GR&#213;wl;Y?QR&#167;&#168;&#239;&#253;&#242; 2&#184;D?M/'&#254;&#179;&#185;&#239;&#242;Tt9D&gt;(&#188;&#170;&#243;|]&#246;?4&#202;!&#255;&#217;^?&#236;&#220;(F??
+</I>&gt;<i> u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;++u&#198;
+</I>&gt;<i> u?&#196;Z?&#193;|
+</I>&gt;<i> ?&#235;'&lt;
+</I>A&#251;&#234;&#233;?o&#216;??$?&#245;^&#250;x
+&#194;ty0&#230;&#200;8?&#186;&#197;&#183;$?&#217;&#227;S/?u&#223;??&#251;?&#170;??&#238;Q&#179;&#170;G&#166;?&#210;4&#163;3_&#200;
+%&#248;&#194;&#164;&#232;&#225;&#165;&#224;7A&#251;&#176;0gR&#206;&#228;d5&#181; &#175;&#245;t&#203;	a
+?&#238;&#204;&#214;?&#164;&#197;&#203;Q?1~&#216;&#235;?&#254;
+&gt;<i> y&gt;&#238;&gt;g~&#164;&#233;p&#185;c?Hw^&#214;
+</I>&gt;<i> &#241;&#206;tvP?? &#250;&#172;&#218;&#236;&#220;(F&#169;?
+</I>&gt;<i> u?
+</I>&gt;<i> u&#198;&#210;&#189;&#255;++u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;w&#233;&#223;2&#185;z?&#255;,&#230;u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#185;z&#225;&#251;xA?)&#224;?&#218;u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;xA&#223;2&#185;&#206;?&#255;,&#230;uuu?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;xA&#223;2&#185;&#206;?&#255;/&#213;u&#198;
+</I>&gt;<i> u??&#215;F&#190;&#223;2&#185;&#206;&#225;&#251;x??)&#224;&#248;:u?
+</I>&gt;<i> u&#198;F&#190;?&#215;&#225;&#251;x?&#223;2&#186;&quot;?&#255;/&#213;u&#224;uu&#224;u
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGLJ9Y6Yml36HNIwcRAgBFAJ4rqRAR1o05Bd4Te1MdH8mq65rllwCfclKj
+HdqcNT3GDWPjFBVhF6L+12k=
+=nAyJ
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000347.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005	-WhilesendingSNR from diameter client to HSS
+</A></li>
+	<LI>Next message: <A HREF="000339.html">[OpenIMSCore-HSS] OpenIMSCore-HSS Digest, Vol 6, Issue 23
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#352">[ date ]</a>
+              <a href="thread.html#352">[ thread ]</a>
+              <a href="subject.html#352">[ subject ]</a>
+              <a href="author.html#352">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

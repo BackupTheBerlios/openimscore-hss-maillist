@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] RedpsitoryData problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%3D%3Futf-8%3Fq%3FRedpsitoryData_problem%3F%3D&In-Reply-To=%3C5c25640c.5f32233a.470b4a32.8c698%40o2.pl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000636.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] RedpsitoryData problem</H1>
+    <B>Minik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%3D%3Futf-8%3Fq%3FRedpsitoryData_problem%3F%3D&In-Reply-To=%3C5c25640c.5f32233a.470b4a32.8c698%40o2.pl%3E"
+       TITLE="[OpenIMSCore-HSS] RedpsitoryData problem">brunol at tlen.pl
+       </A><BR>
+    <I>Tue Oct  9 11:30:26 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000636.html">[OpenIMSCore-HSS] Suggestion for running HSS in daemon mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#635">[ date ]</a>
+              <a href="thread.html#635">[ thread ]</a>
+              <a href="subject.html#635">[ subject ]</a>
+              <a href="author.html#635">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.
+
+I&#8217;m trying  to create repository data entry for a user.
+I&#8217;m preparing xml document and putting it using function;
+
+rpd Document:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Sh-Data&gt;
+&lt;RepositoryData&gt;
+&lt;ServiceIndication&gt;HOME-Service111&lt;/ServiceIndication&gt;
+&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+&lt;ServiceData&gt;
+&lt;Element&gt;element testowy&lt;/Element&gt;
+&lt;/ServiceData&gt;
+&lt;/RepositoryData&gt;
+&lt;/Sh-Data&gt;
+
+psvc = (ProfileService) sc.getAttribute(ProfileService.PROFILE_SERVICE);
+psvc.putDocument(&quot;<A HREF="sh://sip:alice@open-ims.test/RepositoryData/HOME-Service111">sh://sip:alice@open-ims.test/RepositoryData/HOME-Service111</A>&quot;, rpd.getDocument());
+
+Everything looks good. No errors , no exceptions.  
+Then I&#8217;m trying to receive stored repository data for this user. 
+I&#8217;m using :
+psvc.getDocument(&quot;<A HREF="sh://sip:alice@open-ims.test/RepositoryData/HOME-Service111">sh://sip:alice@open-ims.test/RepositoryData/HOME-Service111</A>&quot;);
+and I get:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Sh-Data&gt;
+&lt;RepositoryData&gt;
+&lt;ServiceIndication&gt;HOME-Service111&lt;/ServiceIndication&gt;
+&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+&lt;ServiceData&gt;element testowy&lt;/ServiceData&gt;
+&lt;/RepositoryData&gt;
+&lt;/Sh-Data&gt;
+
+1. Why stored and received document are different??
+2. How to store something like :
+            &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Sh-Data&gt;
+&lt;RepositoryData&gt;
+&lt;ServiceIndication&gt;HOME-Service112&lt;/ServiceIndication&gt;
+&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+&lt;ServiceData&gt;
+&lt;Element1&gt;element testowy 1&lt;/Element1&gt;
+&lt;Element2&gt;element testowy 2&lt;/Element2&gt;
+&lt;Element3&gt;element testowy 3&lt;/Element3&gt;
+&lt;/ServiceData&gt;
+&lt;/RepositoryData&gt;
+&lt;/Sh-Data&gt;
+
+or:
+
+&lt;Sh-Data&gt;
+&lt;RepositoryData&gt;
+&lt;ServiceIndication&gt;HOME-Service113&lt;/ServiceIndication&gt;
+&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+&lt;ServiceData&gt;
+&lt;container&gt;
+&lt;Element1&gt;element testowy 1&lt;/Element1&gt;
+&lt;Element2&gt;element testowy 2&lt;/Element2&gt;
+&lt;Element3&gt;element testowy 3&lt;/Element3&gt;
+&lt;/container&gt;
+&lt;/ServiceData&gt;
+&lt;/RepositoryData&gt;
+&lt;/Sh-Data&gt;
+
+            
+I&#8217;m trying do it, but without result. In this case,  when I&#8217;m trying to get stored information I&#8217;m getting text from last node.:
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Sh-Data&gt;
+&lt;RepositoryData&gt;
+&lt;ServiceIndication&gt;HOME-Service111&lt;/ServiceIndication&gt;
+&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+&lt;ServiceData&gt; element testowy 3&lt;/ServiceData&gt;
+&lt;/RepositoryData&gt;
+&lt;/Sh-Data&gt;
+
+3.And the last problem.
+I have null pointer exception on hss when I&#8217;m trying to get repository data form mistake  ServiceIndication.
+On application server I&#8217;m  getting connection timeout.
+Is this correct behavior of hss? I think that I should get some error response.
+
+Regards,
+
+Dominik
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: rdproblem.pcap
+Type: application/octet-stream
+Size: 1756 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071009/a5e97332/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071009/a5e97332/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000636.html">[OpenIMSCore-HSS] Suggestion for running HSS in daemon mode
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#635">[ date ]</a>
+              <a href="thread.html#635">[ thread ]</a>
+              <a href="subject.html#635">[ subject ]</a>
+              <a href="author.html#635">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

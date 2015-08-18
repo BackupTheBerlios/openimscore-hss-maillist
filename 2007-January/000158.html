@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] problem with PUR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20problem%20with%20PUR&In-Reply-To=%3C04e801c73ba3%242bbe2c60%247dc864c1%40millennium.com.lb%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000149.html">
+   <LINK REL="Next"  HREF="000159.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] problem with PUR</H1>
+    <B>Mona Hanna</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20problem%20with%20PUR&In-Reply-To=%3C04e801c73ba3%242bbe2c60%247dc864c1%40millennium.com.lb%3E"
+       TITLE="[OpenIMSCore-HSS] problem with PUR">mona.hanna at jinny.ie
+       </A><BR>
+    <I>Fri Jan 19 09:23:54 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000149.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+        <LI>Next message: <A HREF="000159.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Sven,
+
+it worked finally, I had to update the xsd/ShDataType.xsd to define the 
+sequence tag (TelephoneNumber in my example).
+Just added:
+&lt;xs:complexType name=&quot;TelephoneNumber&quot;&gt;
+                &lt;xs:sequence&gt;
+                        &lt;xs:element name=&quot;msisdn&quot; type=&quot;xs:string&quot; 
+maxOccurs=&quot;unbounded&quot;/&gt;
+                &lt;/xs:sequence&gt;
+&lt;/xs:complesType&gt;
+
+(Maybe another simple solution would have to modify the tServiceData into 
+tString)
+
+then:
+ant gen
+ant compile
+ant deploy
+
+ant the problem was solved.
+
+I don't know how it worked for you, but modifying the xsd was inevitable.
+
+What about the missing mandatory AVPs: Vendor-Specific-Application-Id and 
+Auth-Session-State, any plan on adding them the responses?
+
+Best Regards,
+
+Mona
+
+PS: I should have replied to the previous thread :-)
+
+
+----- Original Message ----- 
+From: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Sven.Bornemann at materna.de</A>&gt;
+To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">mona.hanna at jinny.ie</A>&gt;
+Cc: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>&gt;
+Sent: Wednesday, January 17, 2007 2:37 PM
+Subject: AW: [OpenIMSCore-HSS] problem with PUR
+
+
+&gt;<i> Hi Mona!
+</I>&gt;<i> I'm not sure, but you use XML (Telephonenumer tag) within XML (Sh-Data).
+</I>&gt;<i> So I think you have to &quot;escape&quot; your data with a &quot;CDATA&quot; section.
+</I>&gt;<i>
+</I>&gt;<i> Try &quot;&lt;![CDATA[&lt;TelephoneNumber&gt;123456789&lt;/TelephoneNumber&gt;]]&gt;&quot;
+</I>&gt;<i> instead of &quot;&lt;TelephoneNumber&gt;123456789&lt;/TelephoneNumber&gt;&quot;.
+</I>&gt;<i>
+</I>&gt;<i> Bye,
+</I>&gt;<i> Sven
+</I>&gt;<i>
+</I>&gt;<i> P.S.: It seems that you've replied to another thread instead
+</I>&gt;<i> of beginning a new one ;-)
+</I>&gt;<i>
+</I>&gt;&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;&gt;<i> Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+</I>&gt;&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>]Im Auftrag von Mona
+</I>&gt;&gt;<i> Hanna
+</I>&gt;&gt;<i> Gesendet: Mittwoch, 17. Januar 2007 12:52
+</I>&gt;&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;&gt;<i> Betreff: [OpenIMSCore-HSS] problem with PUR
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am using the opensourceims to test the diameter Sh
+</I>&gt;&gt;<i> interface with the HSS.
+</I>&gt;&gt;<i> I am having some problems with the PUR request when trying to store a
+</I>&gt;&gt;<i> RepositoryData (currently not set).
+</I>&gt;&gt;<i> I checked the mailing list archive, and it seems that other
+</I>&gt;&gt;<i> persons where
+</I>&gt;&gt;<i> able to update/Delete the RepositoryData, so I am probably
+</I>&gt;&gt;<i> doing something
+</I>&gt;&gt;<i> wrong, any help is appreciated.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Below is the part of the output with the user data.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> DATA:
+</I>&gt;&gt;<i> &lt;?xml version =&quot;1.0&quot;
+</I>&gt;&gt;<i> encoding=&quot;UTF-8&quot;?&gt;&lt;Sh-Data&gt;&lt;RepositoryData&gt;&lt;ServiceIndication&gt;
+</I>&gt;&gt;<i> XXXX&lt;/ServiceIndication&gt;&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;&lt;Ser
+</I>&gt;&gt;<i> viceData&gt;&lt;TelephoneNumber&gt;123456789&lt;/TelephoneNumber&gt;&lt;/Service
+</I>&gt;&gt;<i> Data&gt;&lt;/RepositoryData&gt;&lt;/Sh-Data&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> [Thread-6] ERROR de.fhg.fokus.hss.diam.sh.PURCommandListener  -
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.PURCommandListener at 4693f9</A>
+</I>&gt;&gt;<i> java.lang.NullPointerException
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.util.SAX2ANY.createNodeElement(SAX2ANY.java:433)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.util.SAX2ANY.startElement(SAX2ANY.java:248)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.UnmarshalHandler.startElement(UnmarshalH
+</I>&gt;&gt;<i> andler.java:1788)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.UnmarshalHandler.startElement(UnmarshalH
+</I>&gt;&gt;<i> andler.java:1149)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+</I>&gt;&gt;<i> Source)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartEleme
+</I>&gt;&gt;<i> nt(Unknown
+</I>&gt;&gt;<i> Source)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$Fragment
+</I>&gt;&gt;<i> ContentDispatcher.dispatch(Unknown
+</I>&gt;&gt;<i> Source)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocu
+</I>&gt;&gt;<i> ment(Unknown
+</I>&gt;&gt;<i> Source)
+</I>&gt;&gt;<i>         at org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+</I>&gt;&gt;<i> Source)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.apache.xerces.parsers.DTDConfiguration.parse(Unknown Source)
+</I>&gt;&gt;<i>         at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:583)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:491)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:669)
+</I>&gt;&gt;<i>         at de.fhg.fokus.sh.data.ShData.unmarshal(ShData.java:108)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.sh.PURCommandListener.recvMessage(PURCom
+</I>&gt;&gt;<i> mandListener.java:118)
+</I>&gt;&gt;<i>         at
+</I>&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(Diameter
+</I>&gt;&gt;<i> Worker.java:100)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> One of the possible reasons that I thought of, is the format of the
+</I>&gt;&gt;<i> ServiceData. Is the
+</I>&gt;&gt;<i> /opt/OpenIMSCore/openimscore/FHoSS/trunk/xsd/ShDataType.xsd
+</I>&gt;&gt;<i> used for XML
+</I>&gt;&gt;<i> validation?
+</I>&gt;&gt;<i> If yes, should I need to define the ANY type for the
+</I>&gt;&gt;<i> ServiceData in the
+</I>&gt;&gt;<i> ShDataType.xsd?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (I did a svn update to make sure that I am using the latest release)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Another thing, I noticed that in all responses the mandatory AVPs:
+</I>&gt;&gt;<i> Vendor-Specific-Application-Id and Auth-Session-State are
+</I>&gt;&gt;<i> missing. Any
+</I>&gt;&gt;<i> reason?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks in advance,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Mona
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000149.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+	<LI>Next message: <A HREF="000159.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

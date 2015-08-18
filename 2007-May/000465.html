@@ -1,0 +1,632 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Rtr Erro!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Erro%21&In-Reply-To=%3CDreamMail__103425_18923834336%40mail.astrocom.cn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000457.html">
+   <LINK REL="Next"  HREF="000447.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Rtr Erro!</H1>
+    <B>fancy_xiao</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Erro%21&In-Reply-To=%3CDreamMail__103425_18923834336%40mail.astrocom.cn%3E"
+       TITLE="[OpenIMSCore-HSS] Rtr Erro!">fancy_xiao at astrocom.cn
+       </A><BR>
+    <I>Thu May 31 04:34:25 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000457.html">[OpenIMSCore-HSS] Rtr Erro!
+</A></li>
+        <LI>Next message: <A HREF="000447.html">[OpenIMSCore-HSS] [SVN-FHoSS] r293 - Web interface fixes,	profile part indicator fix on 'any' state
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Adrian-Daniel Popescu&#65292;&#20320;&#22909;
+
+yes,the PPR and RTR is ok,but the RTR mesage and PPR mesage miss must avp (Session-Id),so some Cx can't reslove that message!
+the PPR and RTR message is attached!
+
+fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+2007-05-31 
+----- Original Message ----- 
+From: Adrian-Daniel Popescu 
+To: fancy_xiao 
+Sent: 2007-05-30, 17:51:46
+Subject: Re: [OpenIMSCore-HSS] Rtr Erro!
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hi Fency,
+
+The RTR_PPR table structure was changed a little bit. Please drop it and
+recreate it through the script provided in hss_db.sql. Your error is:
+&quot;Reason:could not insert: [de.fhg.fokus.hss.db.model.RTR_PPR]
+&gt;<i> org.hibernate.exception.SQLGrammarException: could not insert:
+</I>&gt;<i> [de.fhg.fokus.hss.db.model.RTR_PPR]&quot;
+</I>
+Please tell me if it works after your table update. It should ;)
+
+- -Adrian
+
+
+fancy_xiao wrote:
+&gt;<i> Adrian-Daniel Popescu,openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i> 
+</I>&gt;<i> I update all sources to last revision! my test scenario below:
+</I>&gt;<i> 
+</I>&gt;<i> When i select all private identity to RTR (De-Register Reason is set:
+</I>&gt;<i> Permanent-Termination),and click the RTR-ALL, the website Erro:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> HTTP Status 500 -
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> *type* Exception report
+</I>&gt;<i> 
+</I>&gt;<i> *message* __
+</I>&gt;<i> 
+</I>&gt;<i> *description* _The server encountered an internal error () that
+</I>&gt;<i> prevented it from fulfilling this request._
+</I>&gt;<i> 
+</I>&gt;<i> *exception*
+</I>&gt;<i> 
+</I>&gt;<i> javax.servlet.ServletException: bean associated_IMPUs not found within scope
+</I>&gt;<i> org.apache.jasper.runtime.PageContextImpl.doHandlePageException(PageContextImpl.java:848)
+</I>&gt;<i> org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:781)
+</I>&gt;<i> org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:858)
+</I>&gt;<i> org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322)
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063)
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386)
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229)
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> *root cause*
+</I>&gt;<i> 
+</I>&gt;<i> java.lang.InstantiationException: bean associated_IMPUs not found within scope
+</I>&gt;<i> org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:136)
+</I>&gt;<i> org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322)
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063)
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386)
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229)
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ---------------------------------------------------------------------------------------------------------------------------------------------------------
+</I>&gt;<i> The Fhoss Debug Erro info:
+</I>&gt;<i> 
+</I>&gt;<i> 2007-05-30 09:49:51,773 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - Snd_DWA Diameter:
+</I>&gt;<i> Code=280 AppID=0 HbHID=20752 E2EID=-35651567
+</I>&gt;<i> AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+</I>&gt;<i> AVP: Code=264 M Len=15 Data=0x7465737432342e617374726f2e677a
+</I>&gt;<i> INT_Data=1952805748 Char_Data=&quot;test24.astro.gz&quot;
+</I>&gt;<i> AVP: Code=296 M Len=8 Data=0x617374726f2e677a
+</I>&gt;<i> INT_Data=1634956402 Char_Data=&quot;astro.gz&quot;
+</I>&gt;<i> 2007-05-30 09:49:53,009 INFO de.fhg.fokus.hss.web.action.IMPI_Submit -
+</I>&gt;<i> execute RTR All
+</I>&gt;<i> 2007-05-30 09:49:53,021 WARN org.hibernate.util.JDBCExceptionReporter -
+</I>&gt;<i> logExceptions SQL Error: 1054, SQLState: 42S22
+</I>&gt;<i> 2007-05-30 09:49:53,022 ERROR org.hibernate.util.JDBCExceptionReporter -
+</I>&gt;<i> logExceptions Unknown column 'id_implicit_set' in 'field list'
+</I>&gt;<i> 2007-05-30 09:49:53,023 ERROR de.fhg.fokus.hss.web.action.IMPI_Submit -
+</I>&gt;<i> execute Hibernate Exception occured!
+</I>&gt;<i> Reason:could not insert: [de.fhg.fokus.hss.db.model.RTR_PPR]
+</I>&gt;<i> org.hibernate.exception.SQLGrammarException: could not insert:
+</I>&gt;<i> [de.fhg.fokus.hss.db.model.RTR_PPR]
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:67)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2108)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2588)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:48)
+</I>&gt;<i> at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:248)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:290)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:180)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:108)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:186)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:175)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)
+</I>&gt;<i> at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)
+</I>&gt;<i> at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)
+</I>&gt;<i> at org.hibernate.impl.SessionImpl.save(SessionImpl.java:519)
+</I>&gt;<i> at de.fhg.fokus.hss.db.op.RTR_PPR_DAO.insert(RTR_PPR_DAO.java:61)
+</I>&gt;<i> at
+</I>&gt;<i> de.fhg.fokus.hss.web.action.IMPI_Submit.execute(IMPI_Submit.java:285)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:419)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:224)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:744)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+</I>&gt;<i> at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i> Caused by: java.sql.SQLException: Unknown column 'id_implicit_set' in
+</I>&gt;<i> 'field list'
+</I>&gt;<i> at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2928)
+</I>&gt;<i> at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1571)
+</I>&gt;<i> at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1666)
+</I>&gt;<i> at com.mysql.jdbc.Connection.execSQL(Connection.java:2994)
+</I>&gt;<i> at
+</I>&gt;<i> com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:936)
+</I>&gt;<i> at
+</I>&gt;<i> com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1166)
+</I>&gt;<i> at
+</I>&gt;<i> com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1082)
+</I>&gt;<i> at
+</I>&gt;<i> com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1067)
+</I>&gt;<i> at
+</I>&gt;<i> com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeUpdate(NewProxyPreparedStatement.java:105)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.id.IdentityGenerator$GetGeneratedKeysDelegate.executeAndExtract(IdentityGenerator.java:73)
+</I>&gt;<i> at
+</I>&gt;<i> org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:33)
+</I>&gt;<i> ... 38 more
+</I>&gt;<i> 2007-05-30 09:49:53,032 ERROR
+</I>&gt;<i> org.apache.catalina.core.ContainerBase.[null].[192.168.1.24].[/hss.web.console].[jsp]
+</I>&gt;<i> - invoke Servlet.service() for servlet jsp threw exception
+</I>&gt;<i> java.lang.InstantiationException: bean associated_IMPUs not found within
+</I>&gt;<i> scope
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:136)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+</I>&gt;<i> at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:672)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:398)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:744)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+</I>&gt;<i> at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i> 2007-05-30 09:49:53,034 ERROR
+</I>&gt;<i> org.apache.catalina.core.ContainerBase.[null].[192.168.1.24].[/hss.web.console].[action]
+</I>&gt;<i> - invoke Servlet.service() for servlet action threw exception
+</I>&gt;<i> java.lang.InstantiationException: bean associated_IMPUs not found within
+</I>&gt;<i> scope
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:136)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+</I>&gt;<i> at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:672)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:398)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i> at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:744)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+</I>&gt;<i> at
+</I>&gt;<i> org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+</I>&gt;<i> at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i> 2007-05-30 09:49:55,777 DEBUG
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - Snd_DWA Diameter:
+</I>&gt;<i> Code=280 AppID=0 HbHID=20753 E2EID=-35642682
+</I>&gt;<i> AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+</I>&gt;<i> AVP: Code=264 M Len=15 Data=0x7465737432342e617374726f2e677a
+</I>&gt;<i> INT_Data=1952805748 Char_Data=&quot;test24.astro.gz&quot;
+</I>&gt;<i> AVP: Code=296 M Len=8 Data=0x617374726f2e677a
+</I>&gt;<i> INT_Data=1634956402 Char_Data=&quot;astro.gz&quot;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &lt;mailto:&lt;!--AID_FROMADDRESS_BEGIN--&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&lt;!--AID_FROMADDRESS_END--&gt;&gt;
+</I>&gt;<i> 2007-05-30
+</I>&gt;<i> 
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> *From: *Adrian-Daniel Popescu &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adp at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i> *To: *fancy_xiao,openimscore-hss
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A><A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">,openimscore-hss at lists.berlios.de</A>&gt;
+</I>&gt;<i> *Sent: *2007-05-29, 20:23:15
+</I>&gt;<i> *Subject: *Re: [OpenIMSCore-HSS] Rtr Erro!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> Can you please send me a fully scenario with your test, as for me works
+</I>&gt;<i> fine; I cannot get your error :( Are you sure you have updated all the
+</I>&gt;<i> sources to the last revision? Please make a clean and then a new deploy
+</I>&gt;<i> to be sure that your deployment is up to date.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Adrian
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Subject:
+</I>&gt;&gt;<i> [OpenIMSCore-HSS] Rtr Erro!
+</I>&gt;&gt;<i> From:
+</I>&gt;&gt;<i> &quot;fancy_xiao&quot;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> &lt;mailto: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&gt;&gt;
+</I>&gt;&gt;<i> Date:
+</I>&gt;&gt;<i> Mon, 28 May 2007 10:35:57 +0800
+</I>&gt;&gt;<i> To:
+</I>&gt;&gt;<i> &quot;openimscore-hss&quot;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> &lt;mailto:
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>&gt;&gt;
+</I>&gt;<i> 
+</I>&gt;&gt;<i> To:
+</I>&gt;&gt;<i> &quot;openimscore-hss&quot;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> &lt;mailto:
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>&gt;&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> openimscore-hss???
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I Register one PublicIdentity to a PrivateIdentity,and then use
+</I>&gt;<i> RTR to Deregister PublicIdenetity from the PrivateIdeneity,but it is
+</I>&gt;<i> not sucessfull!
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Erro Code:
+</I>&gt;&gt;<i> type Exception report
+</I>&gt;<i> 
+</I>&gt;&gt;<i> message
+</I>&gt;<i> 
+</I>&gt;&gt;<i> description The server encountered an internal error () that
+</I>&gt;<i> prevented it from fulfilling this request.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> exception
+</I>&gt;<i> 
+</I>&gt;&gt;<i> javax.servlet.ServletException: bean associated_IMPUs not found
+</I>&gt;<i> within scope
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.runtime.PageContextImpl.doHandlePageException(PageContextImpl.java:848)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:781)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:858)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> root cause
+</I>&gt;<i> 
+</I>&gt;&gt;<i> java.lang.InstantiationException: bean associated_IMPUs not found
+</I>&gt;<i> within scope
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:136)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;&gt;<i> javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> fancy_xiao?<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> &lt;mailto:
+</I>&gt;<i> fancy_xiao?<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;&gt;<i> 2007-05-28
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> &lt;mailto:
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> --
+</I>&gt;<i> --------------------------------------------
+</I>&gt;<i> Diploma Engineer Adrian Popescu
+</I>&gt;<i> FOKUS Fraunhofer Institute
+</I>&gt;<i> Next Generation Network Infrastructures
+</I>&gt;<i> Kaiserin-Augusta-Allee 31, 10589, Berlin
+</I>&gt;<i> Work Phone: +49 303 463 7364
+</I>&gt;<i> Mobile: +49 178 153 7466
+</I>&gt;<i> E-Mail: adp at fokus.fraunhofer.de
+</I>&gt;<i> Web: www.fokus.fraunhofer.de
+</I>&gt;<i> --------------------------------------------
+</I>
+&gt;<i> ------------------------------------------------------------------------
+</I>
+&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGXUkx6Yml36HNIwcRAkYiAJ9XQLvyF6K7lrvht05u0Ixw6qqMnACfU8pA
+ONnyFBwu+/mGMoRTpLQQAwM=
+=/V67
+-----END PGP SIGNATURE-----
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070531/00e576eb/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070531/00e576eb/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PPR1.cap
+Type: application/octet-stream
+Size: 778 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070531/00e576eb/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070531/00e576eb/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: RTR.cap
+Type: application/octet-stream
+Size: 310 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070531/00e576eb/attachment-0001.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070531/00e576eb/attachment-0001.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000457.html">[OpenIMSCore-HSS] Rtr Erro!
+</A></li>
+	<LI>Next message: <A HREF="000447.html">[OpenIMSCore-HSS] [SVN-FHoSS] r293 - Web interface fixes,	profile part indicator fix on 'any' state
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

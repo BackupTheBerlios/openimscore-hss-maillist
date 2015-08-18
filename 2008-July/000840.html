@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C63acfd6c0807311143j5f9bbd4ewd00577723fe3884a%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000839.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)</H1>
+    <B>vr.sundar</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C63acfd6c0807311143j5f9bbd4ewd00577723fe3884a%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)">vr.sundar at gmail.com
+       </A><BR>
+    <I>Thu Jul 31 20:43:03 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000839.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#840">[ date ]</a>
+              <a href="thread.html#840">[ thread ]</a>
+              <a href="subject.html#840">[ subject ]</a>
+              <a href="author.html#840">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+Thanks for the response. My comments are below.
+
+On Tue, Jul 29, 2008 at 8:51 PM, Franz Edler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>&gt; wrote:
+&gt;<i> The &quot;Auth-Pending&quot; state is the intermediate state between the two
+</I>&gt;<i> registration transactions. The state flag is changed automatically when you
+</I>&gt;<i> later succeed with a register transaction (-&gt; &quot;Registered&quot;) and when you
+</I>&gt;<i> than de-register (-&gt; &quot;Not-Registered&quot;) or after timeout (re-registration
+</I>&gt;<i> missing). But in TS 29.228 there is no timeout procedure for the
+</I>&gt;<i> &quot;Auth-Pending&quot; state defined.
+</I>
+Seems like Server-Assignment-Request with type ==
+Authentication-Timeout is the timeout procedure. Per 29.228,
+(Section 6.1.2 page 18) this is what the S-CSCF uses to inform the HSS
+that the auth-pending flag should be cleared. I think this is hte key
+question. Shouldn't the SAR timeout be clearing the auth-pending flag?
+The spec says it should. The current code actually clears it from the
+IMPI_IMPU which is as it should be. But the problem is we also set the
+flag in the IMPU which I believe is the wrong thing to do.
+
+Put another way, we set the flag in two places but we clear it in only one.
+
+&gt;<i>
+</I>&gt;<i> If you have no chance to clear it via re-registration and a following
+</I>&gt;<i> de-registration and you don't like the &quot;Auth-Pending&quot; state in the database
+</I>&gt;<i> you can clear it &quot;by force&quot; in the hss_db database.
+</I>
+Problem is this would have to be done manually whereas I think
+handling the SAR timeout is the right way to do it.
+
+
+&gt;<i> Yes I think so. At the registration there is always an IMPI and an IMPU
+</I>&gt;<i> involved (maybe also more IMPUs in case of implicit registration). In TS
+</I>&gt;<i> 29.228 you can always read &quot;Public User Identity's authentication pending
+</I>&gt;<i> flag&quot; therfore the flag is always associated with the IMPU.
+</I>
+Where exactly in the spec is this? From what I see, they also follow
+that up with &quot;specific to the Private User Identity&quot;. For example, I
+see this in the following 3 places:
+
+(*** below added by me)
+In the definitions section (Section 3, page 8), the Authentication
+Pending flag is defined as follows:
+ &quot;A flag that indicates that the authentication of a ***Public User
+Identity - Private User Identity pair*** is pending and waiting for
+confirmation.&quot;
+
+While processing the MAR and we set the auth-pending flag (Section
+6.3.1 page 27)
+ &quot; The HSS shall set the Public User Identity's authentication pending
+flag ***which is specific to the Private User Identity received in the
+request***&quot;
+
+While processing the SAR with Authentication-Timeout and we clear the
+auth-pending flag (Section 6.1.2.1, page 18)
+&quot;If the Public User Identity's authentication flag ***which is
+specific for the Private User Identity*** is set, the HSS shall clear
+it&quot;
+
+In the first, they talk of the public -private identity pair. In the
+next two, they say &quot;which is specific to the Private User Identity&quot;.
+So it seems like they are talking about the IMPI_IMPU
+
+If possible, could you please take a look at these places in the spec
+and let me know what you think.
+
+Thanks again for the response.
+
+Sundar
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000839.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#840">[ date ]</a>
+              <a href="thread.html#840">[ thread ]</a>
+              <a href="subject.html#840">[ subject ]</a>
+              <a href="author.html#840">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

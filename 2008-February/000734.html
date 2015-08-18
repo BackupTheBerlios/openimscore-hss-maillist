@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] 403 Forbidden - HSS User Unknown
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20-%20HSS%20User%20Unknown&In-Reply-To=%3CUqwVNbDK.1202133535.9295660.piekkola%40cs.helsinki.fi%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000733.html">
+   <LINK REL="Next"  HREF="000736.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] 403 Forbidden - HSS User Unknown</H1>
+    <B>piekkola at cs.helsinki.fi</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20-%20HSS%20User%20Unknown&In-Reply-To=%3CUqwVNbDK.1202133535.9295660.piekkola%40cs.helsinki.fi%3E"
+       TITLE="[OpenIMSCore-HSS] 403 Forbidden - HSS User Unknown">piekkola at cs.helsinki.fi
+       </A><BR>
+    <I>Mon Feb  4 14:58:55 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000733.html">[OpenIMSCore-HSS] [SVN-FHoSS] r517 - Small Fix in the Wildcard PSI
+</A></li>
+        <LI>Next message: <A HREF="000736.html">[OpenIMSCore-HSS] 403 Forbidden - HSS User Unknown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#734">[ date ]</a>
+              <a href="thread.html#734">[ thread ]</a>
+              <a href="subject.html#734">[ subject ]</a>
+              <a href="author.html#734">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I'm trying to run IMS Bench SIPp tests on OpenIMSCore. I think
+they're both up and running ok, but I nevertheless can't successfully
+pass even the first test scenario (Pre-Registration phase - scenario
+name=&quot;ims_reg&quot;). Could you please help me with this matter?
+
+Both IMS Bench SIPp and OpenIMSCore are configured with the default
+settings (just IP adrressess are changed). Below there's some debug
+information from all the individual components, and I also attached a
+wireshark trace from one of the REGISTER attempts.
+
+
+
+Regards,
+Kare
+
+
+[pcscf]
+1(2401) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.110.104:16248&gt;
+4(2405) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.110.104:8772&gt;
+1(2401) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.110.104:21093&gt;
+3(2404) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.110.104:20520&gt;
+2(2403) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.110.104:12909&gt;
+
+[icscf]
+18(3008) DBG:sm_process(): Peer hss.open-ims.test State R_Open
+Event R_Rcv_Message
+18(3008) DBG:sm_process(): Peer hss.open-ims.test State R_Open
+Event R_Rcv_Message
+1(2416) INFO:I-CSCF:Cx_get_result_code: Failed finding avp
+4(2419) INFO:I-CSCF:Cx_get_result_code: Failed finding avp
+18(3008) DBG:sm_process(): Peer hss.open-ims.test State R_Open
+Event R_Rcv_Message
+1(2416) INFO:I-CSCF:Cx_get_result_code: Failed finding avp
+2(2417) INFO:I-CSCF:Cx_get_result_code: Failed finding avp
+18(3008) DBG:sm_process(): Peer hss.open-ims.test State R_Open
+Event R_Rcv_Message
+3(2418) INFO:I-CSCF:Cx_get_result_code: Failed finding avp
+
+[scscf] (nothing out of the ordinary seemed to happen at here)
+12(2897) --- Peer List: ---
+12(2897) S[R_Open] hss.open-ims.test:3868 D[ ]
+12(2897) [16777216,10415]
+12(2897) [16777216,4491]
+12(2897) [16777216,13019]
+12(2897) [16777217,10415]
+12(2897) [16777221,10415]
+12(2897) ------------------
+5(2890) INF:S-CSCF:---------- Registrar Contents begin --------
+5(2890) INF:S-CSCF:---------- Registrar Contents end ----------
+
+[FHoSS]
+2008-02-04 13:11:12,838 DEBUG de.fhg.fokus.hss.main.Task - execute
+Processing UAR!
+de.fhg.fokus.hss.cx.CxExperimentalResultException:
+IMS_Diameter_Error_User_Unknown
+        at de.fhg.fokus.hss.cx.op.UAR.processRequest(UAR.java:113)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:169)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: wireshark_imscore
+Type: application/octet-stream
+Size: 1181 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080204/97e7c352/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080204/97e7c352/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000733.html">[OpenIMSCore-HSS] [SVN-FHoSS] r517 - Small Fix in the Wildcard PSI
+</A></li>
+	<LI>Next message: <A HREF="000736.html">[OpenIMSCore-HSS] 403 Forbidden - HSS User Unknown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#734">[ date ]</a>
+              <a href="thread.html#734">[ thread ]</a>
+              <a href="subject.html#734">[ subject ]</a>
+              <a href="author.html#734">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

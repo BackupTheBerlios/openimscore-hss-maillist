@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Missing AVP: error code: 5005 -	Whilesending	SNR from diameter client to HSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Missing%20AVP%3A%20error%20code%3A%205005%20-%0A%09Whilesending%09SNR%20from%20diameter%20client%20to%20HSS&In-Reply-To=%3C1176975544.1295.28.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000340.html">
+   <LINK REL="Next"  HREF="000343.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Missing AVP: error code: 5005 -	Whilesending	SNR from diameter client to HSS</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Missing%20AVP%3A%20error%20code%3A%205005%20-%0A%09Whilesending%09SNR%20from%20diameter%20client%20to%20HSS&In-Reply-To=%3C1176975544.1295.28.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] Missing AVP: error code: 5005 -	Whilesending	SNR from diameter client to HSS">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Apr 19 11:39:04 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000340.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005 - Whilesending	SNR from diameter client to HSS
+</A></li>
+        <LI>Next message: <A HREF="000343.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005 -	WhilesendingSNR from diameter client to HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#342">[ date ]</a>
+              <a href="thread.html#342">[ thread ]</a>
+              <a href="subject.html#342">[ subject ]</a>
+              <a href="author.html#342">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sheik,
+
+just by reading from these logs, I'd say that only these
+
+&gt;<i> (1279|1147169120) Request message## 308 
+</I>&gt;<i>  message contents from pointer call:-
+</I>&gt;<i>  Origin Host: presence.open-ims.test
+</I>&gt;<i>  Origin Realm: open-ims.test
+</I>&gt;<i>  Dest Realm: open-ims.test
+</I>&gt;<i>  Dest Host: hss.open-ims.test
+</I>&gt;<i>  PUBLIC-Identity: 
+</I>&gt;<i>  Public-Identity: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>
+</I>
+ AVPs won't help you for a SNR. You need at least Subs-Req-Type and
+Data-Reference AVPs. The Public Identity should also have sip URL
+format.
+
+Regards,
+
+Peter
+
+On Thu, 2007-04-19 at 09:33 +0200, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote:
+&gt;<i> Hi, 
+</I>&gt;<i>     
+</I>&gt;<i>    I am attaching message flow logs between Diameter Client and HSS.
+</I>&gt;<i> In which when I send an SNR message to HSS, I could find all the
+</I>&gt;<i> mandatory params like, 
+</I>&gt;<i> 
+</I>&gt;<i>   User identity, Origin Host, Origin Realm, Data reference, Subs Req
+</I>&gt;<i> type are all passed. But when i get a response the user identity is
+</I>&gt;<i> getting null and the result code set to 5005 along with origin host
+</I>&gt;<i> and realm set to correct values(HSS info).   
+</I>&gt;<i> 
+</I>&gt;<i>    I am unable to capture the diameter traffic using wireshark since I
+</I>&gt;<i> am using an xml file as an input to the diameter client and its
+</I>&gt;<i> throwing error as unable to read the XML file. But I have attached the
+</I>&gt;<i> logs of both elements. Pls suggest for going forward.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Sheik Farid
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -----Original Message----- 
+</I>&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Wed 4/18/2007 9:32 PM 
+</I>&gt;<i> To: Sheik Farid (WT01 - IP-Multimedia Carrier &amp; Ent Networks) 
+</I>&gt;<i> Subject: RE: [OpenIMSCore-HSS] Missing AVP: error code: 5005 -
+</I>&gt;<i> WhilesendingSNR from diameter client to HSS 
+</I>&gt;<i>   
+</I>&gt;<i> Please filter the messages down to the two relevant ones and post to
+</I>&gt;<i> the 
+</I>&gt;<i> mailinglist as well.
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -----Original Message----- 
+</I>&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Wed 4/18/2007 8:02 PM 
+</I>&gt;<i> To: Sheik Farid (WT01 - IP-Multimedia Carrier &amp; Ent Networks) 
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> 
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] Missing AVP: error code: 5005 -
+</I>&gt;<i> Whilesending SNR from diameter client to HSS 
+</I>&gt;<i>   
+</I>&gt;<i> Hello Sheik,
+</I>&gt;<i> 
+</I>&gt;<i> a Wireshark trace should help us to resolve the problem. Could you 
+</I>&gt;<i> please attach one for the Diameter traffic ?
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i> On Wed, 2007-04-18 at 19:45 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote: 
+</I>&gt;<i> &gt; Hi, 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;    I am getting Missing AVP:Error code:5005 when I send an SNR 
+</I>&gt;<i> &gt; (Subscribe Notification Request) message to HSS from a diameter 
+</I>&gt;<i> &gt; client(OpenDiameter). 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;    The error message as below: 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;    [Thread-6] WARN  de.fhg.fokus.hss.diam.sh.SNRCommandListener  - 
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.SNRCommandListener at 538974</A> 
+</I>&gt;<i> &gt; de.fhg.fokus.sh.MissingAVP: errorcode: 5005 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.avpLookUp(ShCommandListener.java:156) 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.loadPublicIdentity(ShCommandListener.java:105) 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.SNRCommandListener.recvMessage(SNRCommandListener.java:111) 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100) 
+</I>&gt;<i> &gt; [Thread-7] WARN  de.fhg.fokus.hss.diam.sh.SNRCommandListener  - 
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.SNRCommandListener at 538974</A> 
+</I>&gt;<i> &gt; de.fhg.fokus.sh.MissingAVP: errorcode: 5005 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.avpLookUp(ShCommandListener.java:156) 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.ShCommandListener.loadPublicIdentity(ShCommandListener.java:105) 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.SNRCommandListener.recvMessage(SNRCommandListener.java:111) 
+</I>&gt;<i> &gt;         at 
+</I>&gt;<i> &gt;
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100) 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;   I could not makeout why the public identity is failig because we
+</I>&gt;<i> are 
+</I>&gt;<i> &gt; sending the userIdentity as <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> to the HSS which is 
+</I>&gt;<i> &gt; configured in the hssdb-&gt;impi table as well as the local table we
+</I>&gt;<i> have 
+</I>&gt;<i> &gt; in our product. But it is failing  at the avplookup itself. And
+</I>&gt;<i> Vendor 
+</I>&gt;<i> &gt; Id is set to 10415 in the diameter header. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; Please suggest if I have missed any mandatory values. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; Regards, 
+</I>&gt;<i> &gt; Sheik Farid 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; The information contained in this electronic message and any 
+</I>&gt;<i> &gt; attachments to this message are intended for the exclusive use of
+</I>&gt;<i> the 
+</I>&gt;<i> &gt; addressee(s) and may contain proprietary, confidential or
+</I>&gt;<i> privileged 
+</I>&gt;<i> &gt; information. If you are not the intended recipient, you should not 
+</I>&gt;<i> &gt; disseminate, distribute or copy this e-mail. Please notify the
+</I>&gt;<i> sender 
+</I>&gt;<i> &gt; immediately and destroy all copies of this message and any 
+</I>&gt;<i> &gt; attachments.  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; WARNING: Computer viruses can be transmitted via email. The
+</I>&gt;<i> recipient 
+</I>&gt;<i> &gt; should check this email and any attachments for the presence of 
+</I>&gt;<i> &gt; viruses. The company accepts no liability for any damage caused by
+</I>&gt;<i> any 
+</I>&gt;<i> &gt; virus transmitted by this email. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; www.wipro.com 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; _______________________________________________ 
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list 
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> 
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000340.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005 - Whilesending	SNR from diameter client to HSS
+</A></li>
+	<LI>Next message: <A HREF="000343.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005 -	WhilesendingSNR from diameter client to HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#342">[ date ]</a>
+              <a href="thread.html#342">[ thread ]</a>
+              <a href="subject.html#342">[ subject ]</a>
+              <a href="author.html#342">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

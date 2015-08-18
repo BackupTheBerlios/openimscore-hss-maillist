@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C318CC7C9D8FA410A85FABFA6F93689FD%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000845.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C318CC7C9D8FA410A85FABFA6F93689FD%40notebook%3E"
+       TITLE="[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)">franz.edler at inode.at
+       </A><BR>
+    <I>Mon Aug  4 07:31:22 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000845.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#841">[ date ]</a>
+              <a href="thread.html#841">[ thread ]</a>
+              <a href="subject.html#841">[ subject ]</a>
+              <a href="author.html#841">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sundar,
+
+&gt;<i> Seems like Server-Assignment-Request with type ==
+</I>&gt;<i> Authentication-Timeout is the timeout procedure. Per 29.228,
+</I>&gt;<i> (Section 6.1.2 page 18) this is what the S-CSCF uses to inform the HSS
+</I>&gt;<i> that the auth-pending flag should be cleared. 
+</I>
+No. The procedure you mention (Section 6.1.2, S-CSCF
+registration/deregistration notification) is called after successful
+registration, not during the registration.
+
+The procedure which is applied when authentication data are downloaded from
+HSS and sent to the user equipment is 6.3.1. In particular step 5 says: &quot;The
+HSS shall set the Public User Identity's authentication pending flag which
+is specific to the Private User Identity which was received in the request.
+The Result-Code shall be set to DIAMETER_SUCCESS.&quot; 
+So we are still in the MAR/MAA procedure.
+
+There is no timeout set in S-CSCF and if the user equipment cannot register
+successfully the authentication pending flag will remain set. There will not
+be a SAR/SAA procedure as long as there is no successful registration.
+
+The authentication pending flag is assigned to the Public User Identity
+specific to the Private User Identity. So we have the user flag set in IMPI
+and in IMPI_IMPU table. This seems obvious to me.
+
+Regards
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000845.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#841">[ date ]</a>
+              <a href="thread.html#841">[ thread ]</a>
+              <a href="subject.html#841">[ subject ]</a>
+              <a href="author.html#841">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

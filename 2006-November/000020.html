@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Wireshark plugin for HSS's Sh and	Cxinterface	PDUs?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Wireshark%20plugin%20for%20HSS%27s%20Sh%20and%09Cxinterface%0A%09PDUs%3F&In-Reply-To=%3C1164645123.10556.85.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000027.html">
+   <LINK REL="Next"  HREF="000023.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Wireshark plugin for HSS's Sh and	Cxinterface	PDUs?</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Wireshark%20plugin%20for%20HSS%27s%20Sh%20and%09Cxinterface%0A%09PDUs%3F&In-Reply-To=%3C1164645123.10556.85.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] Wireshark plugin for HSS's Sh and	Cxinterface	PDUs?">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Nov 27 17:32:03 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000027.html">[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+</A></li>
+        <LI>Next message: <A HREF="000023.html">[OpenIMSCore-HSS] Wireshark plugin for HSS's Sh andCxinterface	PDUs?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sven,
+
+seems like the entries in dictionary.xml seem still to lack the Sh
+entries. Is there the setting to point to the Diameter application
+specific files in dictionary.xml ? Which version of Wireshark are you
+using ?
+
+Regards,
+
+Peter
+
+
+On Mon, 2006-11-27 at 13:38 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sven.bornemann at Materna.de</A> wrote:
+&gt;<i> Hi!
+</I>&gt;<i> Since I'm using Wireshark with Win32 I need the libxml2.dll.
+</I>&gt;<i> I copied it to the program directory. Now the PDU names are
+</I>&gt;<i> displayed correctly (e.g. &quot;User-Data-Request&quot;) but the Sh 
+</I>&gt;<i> interface specific AVPs itself are still unrecognized 
+</I>&gt;<i> (e.g. &quot;Unknown AVP:000002c0 (704)...&quot;)
+</I>&gt;<i> imscxdx.xml and TGPPSh.xml are properly located in the diameter
+</I>&gt;<i> subdirectory.
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Sven
+</I>&gt;<i> 
+</I>&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> Von: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>]
+</I>&gt;<i> Gesendet: Montag, 27. November 2006 11:04
+</I>&gt;<i> An: Bornemann, Sven
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Betreff: Re: [OpenIMSCore-HSS] Wireshark plugin for HSS's Sh and
+</I>&gt;<i> Cxinterface PDUs?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> there is no plugin needed, just make sure that you have the proper 3GPP
+</I>&gt;<i> files referenced in the /usr/share/wireshark/wireshark/diameter/ folder
+</I>&gt;<i> (imscxdx.xml and TGPPSh.xml) and the needed libxml2-dev package (that's
+</I>&gt;<i> at least for Debian) installed.
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i> On Mon, 2006-11-27 at 10:53 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sven.bornemann at Materna.de</A> wrote:
+</I>&gt;<i> &gt; Hi!
+</I>&gt;<i> &gt; Does anybody know if there exist a wireshark plugin which
+</I>&gt;<i> &gt; supports a proper display of the Sh and Cx AVPs instead
+</I>&gt;<i> &gt; of &quot;Unknown AVP&quot;?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Best regards,
+</I>&gt;<i> &gt; Sven
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000027.html">[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+</A></li>
+	<LI>Next message: <A HREF="000023.html">[OpenIMSCore-HSS] Wireshark plugin for HSS's Sh andCxinterface	PDUs?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

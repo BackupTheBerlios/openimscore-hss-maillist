@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] PUR updation problems in Sh interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PUR%20updation%20problems%20in%20Sh%20interface&In-Reply-To=%3C008201c96ffc%2418ec7080%24ad0212ac%40LIONKING.COM%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000896.html">
+   <LINK REL="Next"  HREF="000900.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] PUR updation problems in Sh interface</H1>
+    <B>Naveen Kumar</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PUR%20updation%20problems%20in%20Sh%20interface&In-Reply-To=%3C008201c96ffc%2418ec7080%24ad0212ac%40LIONKING.COM%3E"
+       TITLE="[OpenIMSCore-HSS] PUR updation problems in Sh interface">naveen.kumar at info-spectrum.com
+       </A><BR>
+    <I>Tue Jan  6 13:41:25 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000896.html">[OpenIMSCore-HSS] Regarding DSAI Tag
+</A></li>
+        <LI>Next message: <A HREF="000900.html">[OpenIMSCore-HSS] PUR updation problems in Sh interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#897">[ date ]</a>
+              <a href="thread.html#897">[ thread ]</a>
+              <a href="subject.html#897">[ subject ]</a>
+              <a href="author.html#897">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+ 
+
+According to the HSS details we can update the following data into HSS
+
+1.                  Repository-Data
+
+2.                  PSI Activation
+
+3.                  DSAI
+
+4.                  Aliases Rep Data
+
+ 
+
+In the case of UDR/UDA
+
+ 
+
+1.When we requested UDR for Repository-Data(0) i am able to send it to HSS but HSS is replying as UDA that &quot;DIAMETER_ERROR_IDENTITY_ALREADY_REGISTERED(5005)&quot;           
+
+2.When we requested UDR for PSIActivation(18) we are able to send it to HSS and as a response from HSS (i.e, UDA) i am getting DIAMETER_SUCCESS. So there is no issue for PSIActivation(18) reading data from HSS.
+
+3.While requesting as UDR for Aliases Rep Data (20), UDA is not coming from HSS. As AVPs to give in UDR are not clear.
+
+ 
+
+In the case of PUR/PUA
+
+ 
+
+1.      when we requested PUR for PSIActivation(18), as a response(i.e, PUA) from HSS getting diameter error &quot;DIAMETER_ERROR_OPERATION_NOT_ALLOWED(5101)&quot; 
+
+ 
+
+2.       For requesting for PUR for DSAI we should know the Public User Identity or Public Service Identity + Data-Reference + DSAI-Tag + Server-Name + service indication.
+
+ 
+
+Here i don't know how to form and configure below AVPs for both PSI activation and DSAI.
+
+&#183;        DSAI-Tag 
+
+&#183;        Public service Identity 
+
+&#183;        Service-Indication.
+
+
+
+
+
+Your suggestions will be appricitaed
+
+Thanks &amp; Regards,
+
+naveen.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090106/1aee02ef/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090106/1aee02ef/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000896.html">[OpenIMSCore-HSS] Regarding DSAI Tag
+</A></li>
+	<LI>Next message: <A HREF="000900.html">[OpenIMSCore-HSS] PUR updation problems in Sh interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#897">[ date ]</a>
+              <a href="thread.html#897">[ thread ]</a>
+              <a href="subject.html#897">[ subject ]</a>
+              <a href="author.html#897">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

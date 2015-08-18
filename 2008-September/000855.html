@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS]  HSS Sh interface - ALL_IDENTITIES
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%20HSS%20Sh%20interface%20-%20ALL_IDENTITIES&In-Reply-To=%3C48C0EABC.7030301%40amphinicy.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000856.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS]  HSS Sh interface - ALL_IDENTITIES</H1>
+    <B>Marko Djuric</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%20HSS%20Sh%20interface%20-%20ALL_IDENTITIES&In-Reply-To=%3C48C0EABC.7030301%40amphinicy.com%3E"
+       TITLE="[OpenIMSCore-HSS]  HSS Sh interface - ALL_IDENTITIES">Marko.Djuric at amphinicy.com
+       </A><BR>
+    <I>Fri Sep  5 10:15:56 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000856.html">[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#855">[ date ]</a>
+              <a href="thread.html#855">[ thread ]</a>
+              <a href="subject.html#855">[ subject ]</a>
+              <a href="author.html#855">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have noticed that when ALL_IDENTITIES Identity-Set is used to retrieve 
+all public addresses (in User-Data request) for specific user over Sh 
+interface, only public identities within user's private identity are 
+retrieved.
+
+Referring to 3GPP TS 29.328 document (Table 6.1.1.1 Sh-Pull), all 
+non-barred public identities for all private identities should probably 
+be returned.
+
+
+I'm suggesting following modifications:
+FHoSS/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+250a251,281
+ &gt;       // added for ALL_IDENTITIES
+ &gt;       public static List get_all_within_same_IMSU(Session session, 
+int id_impu){
+ &gt;               List resultList = new ArrayList();
+ &gt;
+ &gt;               List impiList = 
+IMPI_DAO.get_all_IMPI_for_IMPU_ID(session, id_impu);
+ &gt;               if (impiList.size() == 0) {
+ &gt;                       return resultList;
+ &gt;               }
+ &gt;
+ &gt;
+ &gt;               IMPU impu = null;
+ &gt;               Integer impu_id = null;
+ &gt;               List allImpuList = null;
+ &gt;               for (int i = 0; i &lt; impiList.size(); i++) {
+ &gt;                       IMPI impi = (IMPI) impiList.get(i);
+ &gt;
+ &gt;                       allImpuList = 
+IMPU_DAO.get_all_IMPU_ID_for_IMSU(session, impi.getId_imsu());
+ &gt;                       if (allImpuList != null &amp;&amp; allImpuList.size() &gt; 
+0) {
+ &gt;                               for (int j = 0; j &lt; allImpuList.size(); 
+j++) {
+ &gt;                                       impu_id = (Integer) 
+allImpuList.get(j);
+ &gt;                                       impu = 
+IMPU_DAO.get_by_ID(session,impu_id);
+ &gt;                                       if (impu != null) {
+ &gt;                                               resultList.add(impu);
+ &gt;                                       }
+ &gt;                               }
+ &gt;                       }
+ &gt;               }
+ &gt;
+ &gt;               return resultList;
+ &gt;       }
+ &gt;
+FHoSS/src/src/de/fhg/fokus/hss/sh/op/UDR.java
+284c296
+&lt;                                                               impuList 
+= IMPU_DAO.get_all_within_same_IMPI_Associations(session, impu.getId());
+---
+ &gt;                                                               
+impuList = IMPU_DAO.get_all_within_same_IMSU(session, impu.getId());
+
+
+
+Best regards,
+Marko
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000856.html">[OpenIMSCore-HSS] HSS Sh interface - ALL_IDENTITIES
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#855">[ date ]</a>
+              <a href="thread.html#855">[ thread ]</a>
+              <a href="subject.html#855">[ subject ]</a>
+              <a href="author.html#855">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

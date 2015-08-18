@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Sh interface problems (rev 280) and	compilation problem (rev 287)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20interface%20problems%20%28rev%20280%29%20and%0A%09compilation%20problem%20%28rev%20287%29&In-Reply-To=%3C14513D9CD9650446BF2F0A76846EE312010EA299%40inosplex01.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000447.html">
+   <LINK REL="Next"  HREF="000456.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Sh interface problems (rev 280) and	compilation problem (rev 287)</H1>
+    <B>Jo&#227;o Vitor Torres</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20interface%20problems%20%28rev%20280%29%20and%0A%09compilation%20problem%20%28rev%20287%29&In-Reply-To=%3C14513D9CD9650446BF2F0A76846EE312010EA299%40inosplex01.ptin.corpPT.com%3E"
+       TITLE="[OpenIMSCore-HSS] Sh interface problems (rev 280) and	compilation problem (rev 287)">joao-v-torres at ptinovacao.pt
+       </A><BR>
+    <I>Wed May 30 00:51:03 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000447.html">[OpenIMSCore-HSS] [SVN-FHoSS] r293 - Web interface fixes,	profile part indicator fix on 'any' state
+</A></li>
+        <LI>Next message: <A HREF="000456.html">[OpenIMSCore-HSS] Sh interface problems (rev 280) and	compilation problem (rev 287)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#450">[ date ]</a>
+              <a href="thread.html#450">[ thread ]</a>
+              <a href="subject.html#450">[ subject ]</a>
+              <a href="author.html#450">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Adrian,
+
+Ok.
+
+Now I can send an UDR and receive UDA with a result code equal to DIAMETER_SUCCESS. However, messages UDA over Sh Interface are returning User-Data AVP with avp code 606. This avp code is valid in Cx interface. In Sh interface it should be 702. (r293 in use)
+
+Diameter messages are attached.
+
+Thanks,
+
+Jo&#227;o Vitor 
+-----Original Message-----
+From: Adrian-Daniel Popescu [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adp at fokus.fraunhofer.de</A>] 
+Sent: ter&#231;a-feira, 29 de maio de 2007 14:23
+To: Jo&#227;o Vitor Torres
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: Re: [OpenIMSCore-HSS] Sh interface problems (rev 280) and compilation problem (rev 287)
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+hi,
+
+&quot;Diameter FQDN&quot; is the new filed in the Web Console, used to specify the
+Application Server's peer address. This should follow the same rules as
+the Origin-Host Scheme rules and these two will be compared in the
+permission-authorization process.
+
+The Server Name, is the &quot;sip:&quot; scheme address to which the request will
+be forwarded in the case of the ifcs.
+
+- -Adrian
+
+Dragos Vingarzan wrote:
+&gt;<i> Jo&#227;o Vitor Torres wrote:
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The error noticed by placido:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Added task to queue!
+</I>&gt;&gt;<i> de.fhg.fokus.hss.sh.ShExperimentalResultException:
+</I>&gt;&gt;<i> IMS_Diameter_Error_User_Data_Cannot_Be_Read
+</I>&gt;&gt;<i>         at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:133)
+</I>&gt;&gt;<i>         at de.fhg.fokus.hss.main.Task.execute(Task.java:125)
+</I>&gt;&gt;<i>         at de.fhg.fokus.hss.main.Worker.run(Worker.java:63)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> is caused by a matching failure between AS name in the HSS and AVP
+</I>&gt;&gt;<i> Origin-Host in UDR message. In HSS the AS name is something like this
+</I>&gt;&gt;<i> &quot;sip:ip:port&quot;, then it is necessary to put the same name in AVP
+</I>&gt;&gt;<i> Origin-Host in UDR message including the port part. This seems
+</I>&gt;&gt;<i> strange; port part shouldn't be necessary, right?
+</I>&gt;&gt;<i>
+</I>&gt;<i> the AVP Origin-Host should not have anything to do with SIP URIs. The
+</I>&gt;<i> Origin-Host is the Diameter FQDN and not a SIP URI.
+</I>&gt;<i> 
+</I>&gt;<i> -Dragos
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGXGGB6Yml36HNIwcRAsmKAJ0bpdjq0iOk9kwwEGJph1pILGaufwCfXEZz
+REQiAdcZHDkaQaQmWSmYX+U=
+=Z7j/
+-----END PGP SIGNATURE-----
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: diameter-udr.cap
+Type: application/octet-stream
+Size: 692 bytes
+Desc: diameter-udr.cap
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/bb257fb6/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/bb257fb6/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000447.html">[OpenIMSCore-HSS] [SVN-FHoSS] r293 - Web interface fixes,	profile part indicator fix on 'any' state
+</A></li>
+	<LI>Next message: <A HREF="000456.html">[OpenIMSCore-HSS] Sh interface problems (rev 280) and	compilation problem (rev 287)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#450">[ date ]</a>
+              <a href="thread.html#450">[ thread ]</a>
+              <a href="subject.html#450">[ subject ]</a>
+              <a href="author.html#450">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

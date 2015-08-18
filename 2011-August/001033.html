@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Query regarding xml transparent data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Query%20regarding%20xml%20transparent%20data&In-Reply-To=%3CCA%2B1COcnugmVV%2BVnqcySuT4_GiFvVNELR5h-CKqJZ%2BY3hD%2BZDBg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001034.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Query regarding xml transparent data</H1>
+    <B>Kapila Arora</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Query%20regarding%20xml%20transparent%20data&In-Reply-To=%3CCA%2B1COcnugmVV%2BVnqcySuT4_GiFvVNELR5h-CKqJZ%2BY3hD%2BZDBg%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Query regarding xml transparent data">arora.kapila at gmail.com
+       </A><BR>
+    <I>Thu Aug  4 10:14:21 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001034.html">[OpenIMSCore-HSS] Query regarding xml transparent data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1033">[ date ]</a>
+              <a href="thread.html#1033">[ thread ]</a>
+              <a href="subject.html#1033">[ subject ]</a>
+              <a href="author.html#1033">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+While saving the transparent Data to the HSS for a Call diversion
+service, whether i should insert the service data as shown below or
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;Sh-Data&gt;
+    &lt;RepositoryData&gt;
+         &lt;ServiceIndication&gt;CD&lt;/ServiceIndication&gt;
+         &lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+             &lt;ServiceData&gt;
+
+             &lt;simservs
+ xmlns=&quot;<A HREF="http://uri.etsi.org/ngn/params/xml/simservs/xcap">http://uri.etsi.org/ngn/params/xml/simservs/xcap</A>&quot;
+ xmlns:cp=&quot;urn:ietf:params:xml:ns:common-policy&quot;
+
+ xmlns:ocp=&quot;urn:oma:xml:xdm:common-policy&quot;&gt;
+                 &lt;communication-diversion active=&quot;false&quot;&gt;
+                     &lt;cp:ruleset&gt;
+                         &lt;cp:rule id=&quot;CD001&quot;&gt;
+
+                             &lt;cp:conditions&gt;
+                                 &lt;cp:identity&gt;&lt;many/&gt;&lt;/cp:identity&gt;
+                             &lt;/cp:conditions&gt;
+                             &lt;cp:actions&gt;
+
+                                 &lt;forward-to&gt;
+
+ &lt;target&gt;sip:announcement at oimsnet.net
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>&gt;&lt;/target&gt;
+
+                                     &lt;notify-caller&gt;true&lt;/notify-caller&gt;
+
+ &lt;notify-served-user&gt;true&lt;/notify-served-user&gt;
+                                 &lt;/forward-to&gt;
+
+                             &lt;/cp:actions&gt;
+                         &lt;/cp:rule&gt;
+                     &lt;/cp:ruleset&gt;
+                 &lt;/communication-diversion&gt;
+             &lt;/simservs&gt;
+
+         &lt;/ServiceData&gt;
+     &lt;/RepositoryData&gt;
+ &lt;/Sh-Data&gt;
+
+or &lt; replaced with &amp;lt and &gt; replaced with &amp;gt. The 3gpp specs does
+not specify anything for this.
+
+Can u please let me know what should be the correct format and the
+correspong standard or specification which specifies this format
+
+Regards
+Kapila
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110804/8024f0e3/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110804/8024f0e3/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001034.html">[OpenIMSCore-HSS] Query regarding xml transparent data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1033">[ date ]</a>
+              <a href="thread.html#1033">[ thread ]</a>
+              <a href="subject.html#1033">[ subject ]</a>
+              <a href="author.html#1033">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

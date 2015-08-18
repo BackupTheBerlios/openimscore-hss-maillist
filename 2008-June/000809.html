@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Sh Notify Process Question.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20Notify%20Process%20Question.&In-Reply-To=%3C48455012.10704%40unicauca.edu.co%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000808.html">
+   <LINK REL="Next"  HREF="000810.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Sh Notify Process Question.</H1>
+    <B>Eivar Armero</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20Notify%20Process%20Question.&In-Reply-To=%3C48455012.10704%40unicauca.edu.co%3E"
+       TITLE="[OpenIMSCore-HSS] Sh Notify Process Question.">earmero at unicauca.edu.co
+       </A><BR>
+    <I>Tue Jun  3 16:07:14 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000808.html">[OpenIMSCore-HSS] Free Radius
+</A></li>
+        <LI>Next message: <A HREF="000810.html">[OpenIMSCore-HSS] [SVN-FHoSS] r563 - Added Sebastian Felis patches	for building the debian package.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#809">[ date ]</a>
+              <a href="thread.html#809">[ thread ]</a>
+              <a href="subject.html#809">[ subject ]</a>
+              <a href="author.html#809">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi all, we are testing the Sh interface with a topology that consists in
+two AS, one of these sends  a PUR to the HSS, and the other one is
+subscribed to notifications, so the HSS shall to send  a PNR message
+when any update in the data occurs, but this is happening with a delay
+between 9 to 10 Seconds.
+
+we had read the Sh TS, and this delay is not contemplated in the
+notification process, so we think that it is because an specific
+implementation in the FHoSS, somebody knows if is it correct??  or why
+do occur this issue??
+
+we attach a trace of the DIAMETER messages taken with wireshark,
+where you can see the issue above described.
+
+Thanks for your help.
+
+__________________
+Eivar Armero Luna
+Diego Rodriguez Ch.
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: diameter2
+Type: application/octet-stream
+Size: 231668 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080603/26f1473f/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080603/26f1473f/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000808.html">[OpenIMSCore-HSS] Free Radius
+</A></li>
+	<LI>Next message: <A HREF="000810.html">[OpenIMSCore-HSS] [SVN-FHoSS] r563 - Added Sebastian Felis patches	for building the debian package.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#809">[ date ]</a>
+              <a href="thread.html#809">[ thread ]</a>
+              <a href="subject.html#809">[ subject ]</a>
+              <a href="author.html#809">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

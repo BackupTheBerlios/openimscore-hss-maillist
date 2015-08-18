@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS error during PUR PDU...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20error%20during%20PUR%20PDU...&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2773C3A%40taxis.buc.materna.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000030.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS error during PUR PDU...</H1>
+    <B>sven.bornemann at Materna.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20error%20during%20PUR%20PDU...&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2773C3A%40taxis.buc.materna.com%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS error during PUR PDU...">sven.bornemann at Materna.de
+       </A><BR>
+    <I>Thu Nov 30 17:32:36 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000030.html">[OpenIMSCore-HSS] [SVN-FHoSS] r41 - FHoSS/trunk/lib
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Experts!
+I'm trying to update a user profile by sending a PUR PDU with *same* User-Data 
+as previous returned by successfully answered a UDR PDU. 
+FHoSS logs the following error:
+
+2006-11-30 16:30:46,387 ERROR de.fhg.fokus.hss.diam.sh.PURCommandListener - recvMessage <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.PURCommandListener at 1d61ee4</A>
+java.lang.IllegalArgumentException: The prefix 'xml' is reserved (XML 1.0 Specification) and cannot be declared.
+        at org.exolab.castor.xml.Namespaces.addNamespace(Namespaces.java:130)
+        at org.exolab.castor.xml.UnmarshalHandler.startPrefixMapping(UnmarshalHandler.java:1953)
+        at org.apache.xerces.parsers.AbstractSAXParser.startNamespaceMapping(Unknown Source)
+        at org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown Source)
+        at org.apache.xerces.impl.dtd.XMLDTDValidator.startElement(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentScannerImpl$ContentDispatcher.scanRootElementHook(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+        at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+        at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+        at org.apache.xerces.parsers.DTDConfiguration.parse(Unknown Source)
+        at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+        at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+        at org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:583)
+        at org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:491)
+        at org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:669)
+        at de.fhg.fokus.sh.data.ShData.unmarshal(ShData.java:104)
+        at de.fhg.fokus.hss.diam.sh.PURCommandListener.recvMessage(PURCommandListener.java:116)
+        at de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+2006-11-30 16:30:46,409 DEBUG de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - Snd_DPA Diameter: Code=282 AppID=0 HbHID=751956902 E2EID=-1849115583
+        AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+        AVP: Code=264 M Len=7 Data=0x696d73636f7265 INT_Data=1768780643 Char_Data=&quot;imscore&quot;
+        AVP: Code=296 M Len=13 Data=0x6f70656e2d696d732e74657374 INT_Data=1869636974 Char_Data=&quot;open-ims.test&quot;
+
+I debugged into FHoSS a found this source code location:
+
+PURCommandListener.java:116
+ShData shData = (ShData) ShData.unmarshal(new StringReader(shDataString));
+
+&quot;shDataString&quot; contains &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;Sh-Data&gt;&lt;Sh-IMS-Data&gt;&lt;IMSUserState&gt;0&lt;/IMSUserState&gt;&lt;/Sh-IMS-Data&gt;&lt;/Sh-Data&gt;&quot; in this case (same as returned in previous UDA).
+
+The strange thing is that manual unmarshaling the user-data in my Sh-client, 
+base on the *same* generated Castor sources as FHoSS (copied from FHoSS's src-gen), 
+works properly?!
+
+Who has an idea about what's going wrong?
+
+Thanks in advance,
+Sven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000030.html">[OpenIMSCore-HSS] [SVN-FHoSS] r41 - FHoSS/trunk/lib
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

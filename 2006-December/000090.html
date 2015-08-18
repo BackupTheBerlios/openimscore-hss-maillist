@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Compilation Failed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Compilation%20Failed&In-Reply-To=%3COF1B911D75.A024BCB4-ON65257245.002FFD27-65257245.002FFD37%40tcs.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000096.html">
+   <LINK REL="Next"  HREF="000092.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Compilation Failed</H1>
+    <B>a.chaturvedi at tcs.com</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Compilation%20Failed&In-Reply-To=%3COF1B911D75.A024BCB4-ON65257245.002FFD27-65257245.002FFD37%40tcs.com%3E"
+       TITLE="[OpenIMSCore-HSS] Compilation Failed">a.chaturvedi at tcs.com
+       </A><BR>
+    <I>Fri Dec 15 09:44:10 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000096.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+        <LI>Next message: <A HREF="000092.html">[OpenIMSCore-HSS] Compilation Failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#90">[ date ]</a>
+              <a href="thread.html#90">[ thread ]</a>
+              <a href="subject.html#90">[ subject ]</a>
+              <a href="author.html#90">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi, I read the mail on link:
+<A HREF="http://lists.berlios.de/pipermail/openimscore-users/2006-November/000054.html">http://lists.berlios.de/pipermail/openimscore-users/2006-November/000054.html</A>
+
+as I was having the same problem. I did the same as was described and found
+that most of the errors were resolved(Missing files). But still I m facing
+many errors. Like:
+Buildfile: build.xml
+
+init:
+
+compile:
+    [javac] Compiling 54 source files to /root/IMS/FHoSS/trunk/bin
+    [javac] ----------
+    [javac] 1. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/AsDeleteAction.java
+    [javac]  (at line 85)
+    [javac]       .setInteger(0, primaryKey).uniqueResult()).intValue();
+    [javac]        ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+    [javac] 2. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/AsDeleteAction.java
+    [javac]  (at line 90)
+    [javac]       .setInteger(0, primaryKey).uniqueResult()).intValue();
+    [javac]        ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+    [javac] ----------
+    [javac] 3. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/GussShowAction.java
+    [javac]  (at line 87)
+    [javac]       query.setInteger(0, form.getPrimaryKey());
+    [javac]             ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+    [javac] 4. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/GussShowAction.java
+    [javac]  (at line 121)
+    [javac]       form.setKeyLifeTime(impi.getKeyLifeTime());
+    [javac]            ^^^^^^^^^^^^^^
+    [javac] The method setKeyLifeTime(int) in the type GussForm is not
+applicable for the arguments (Integer)
+    [javac] ----------
+    [javac] ----------
+    [javac] 5. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/GussSubmitAction.java
+    [javac]  (at line 121)
+    [javac]       userSecSettings.setFlag(ussForm.getFlag());
+    [javac]                       ^^^^^^^
+    [javac] The method setFlag(Integer) in the type UserSecSettings is not
+applicable for the arguments (int)
+    [javac] ----------
+    [javac] 6. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/GussSubmitAction.java
+    [javac]  (at line 124)
+    [javac]       .setUssType(new Integer(ussForm.getUssType()));
+    [javac]        ^^^^^^^^^^
+    [javac] The method setUssType(int) in the type UserSecSettings is not
+applicable for the arguments (Integer)
+    [javac] ----------
+    [javac] ----------
+    [javac] 7. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpiSubmitAction.java
+    [javac]  (at line 108)
+    [javac]       Integer assignedSubscriptionId = new Integer(form
+    [javac]                                                 .getImsuId());
+    [javac]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    [javac] The constructor Integer(Integer) is undefined
+    [javac] ----------
+    [javac] ----------
+    [javac] 8. WARNING in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+    [javac]  (at line 50)
+    [javac]       import de.fhg.fokus.hss.util.HibernateUtil;
+    [javac]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    [javac] The import de.fhg.fokus.hss.util.HibernateUtil is never used
+    [javac] ----------
+    [javac] ----------
+    [javac] 9. WARNING in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+    [javac]  (at line 58)
+    [javac]       import org.hibernate.HibernateException;
+    [javac]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    [javac] The import org.hibernate.HibernateException is never used
+    [javac] ----------
+    [javac] ----------
+    [javac] 10. WARNING in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+    [javac]  (at line 59)
+    [javac]       import org.hibernate.Session;
+    [javac]              ^^^^^^^^^^^^^^^^^^^^^
+    [javac] The import org.hibernate.Session is never used
+    [javac] ----------
+    [javac] ----------
+    [javac] 11. WARNING in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+    [javac]  (at line 60)
+    [javac]       import org.hibernate.Transaction;
+    [javac]              ^^^^^^^^^^^^^^^^^^^^^^^^^
+    [javac] The import org.hibernate.Transaction is never used
+    [javac] ----------
+    [javac] ----------
+    [javac] 12. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+    [javac]  (at line 91)
+    [javac]       .setInteger(0, impu.getImpuId()).list().iterator();
+    [javac]        ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+    [javac] 13. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+    [javac]  (at line 102)
+    [javac]       .setInteger(0, impu.getImpuId()).list().iterator();
+    [javac]        ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+    [javac] ----------
+    [javac] 14. WARNING in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java
+    [javac]  (at line 95)
+    [javac]       impu = impuBO.create();
+    [javac]              ^^^^^^^^^^^^^^^
+    [javac] The static method create() from the type ImpuBO should be
+accessed in a static way
+    [javac] ----------
+    [javac] ----------
+    [javac] 15. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java
+    [javac]  (at line 104)
+    [javac]       impu.setBarringIndication(form.isBarred());
+    [javac]            ^^^^^^^^^^^^^^^^^^^^
+    [javac] The method setBarringIndication(Boolean) in the type Impu is
+not applicable for the arguments (boolean)
+    [javac] ----------
+    [javac] ----------
+    [javac] 16. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/PsiSubmitAction.java
+    [javac]  (at line 107)
+    [javac]       assginedImpu.setBarringIndication(false);
+    [javac]                    ^^^^^^^^^^^^^^^^^^^^
+    [javac] The method setBarringIndication(Boolean) in the type Impu is
+not applicable for the arguments (boolean)
+    [javac] ----------
+    [javac] ----------
+    [javac] 17. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/SvpShowAction.java
+    [javac]  (at line 112)
+    [javac]
+..setIfcId(convString(ifc2svp.getIfc().getIfcId().intValue()));
+    [javac]                 ^^^^^^^^^^
+    [javac] The method convString(Integer) in the type HssAction is not
+applicable for the arguments (int)
+    [javac] ----------
+    [javac] 18. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/SvpShowAction.java
+    [javac]  (at line 114)
+    [javac]       ifcForm.setPriority(convString(ifc2svp.getPriority()));
+    [javac]                           ^^^^^^^^^^
+    [javac] The method convString(Integer) in the type HssAction is not
+applicable for the arguments (int)
+    [javac] ----------
+    [javac] ----------
+    [javac] 19. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/action/TriggerPointDeleteAction.java
+    [javac]  (at line 93)
+    [javac]       .setInteger(0, primaryKey).uniqueResult()).intValue();
+    [javac]        ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+    [javac] ----------
+    [javac] 20. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/MARCommandListener.java
+    [javac]  (at line 255)
+    [javac]       Long.valueOf(
+    [javac]            ^^^^^^^
+    [javac] The method valueOf(String, int) in the type Long is not
+applicable for the arguments (int)
+    [javac] ----------
+    [javac] ----------
+    [javac] 21. ERROR in
+/root/IMS/FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpuSubSelectForm.java
+    [javac]  (at line 175)
+    [javac]       query.setInteger(1, form.getImsuId());
+    [javac]             ^^^^^^^^^^
+    [javac] The method setInteger(int, int) in the type Query is not
+applicable for the arguments (int, Integer)
+    [javac] ----------
+
+This occured when I ran
+ant compile
+Plz help..
+
+Ashish Chaturvedi
+mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">a.chaturvedi at tcs.com</A>
+=====-----=====-----=====
+Notice: The information contained in this e-mail
+message and/or attachments to it may contain 
+confidential or privileged information. If you are 
+not the intended recipient, any dissemination, use, 
+review, distribution, printing or copying of the 
+information contained in this e-mail message 
+and/or attachments to it are strictly prohibited. If 
+you have received this communication in error, 
+please notify us by reply e-mail or telephone and 
+immediately and permanently delete the message 
+and any attachments. Thank you
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000096.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+	<LI>Next message: <A HREF="000092.html">[OpenIMSCore-HSS] Compilation Failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#90">[ date ]</a>
+              <a href="thread.html#90">[ thread ]</a>
+              <a href="subject.html#90">[ subject ]</a>
+              <a href="author.html#90">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

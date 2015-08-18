@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] 4 WARN messages during start of FHoSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%204%20WARN%20messages%20during%20start%20of%20FHoSS&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA112D420%40EXCHSRV.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000180.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] 4 WARN messages during start of FHoSS</H1>
+    <B>Popescu, Adrian-Daniel</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%204%20WARN%20messages%20during%20start%20of%20FHoSS&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA112D420%40EXCHSRV.fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] 4 WARN messages during start of FHoSS">Adrian-Daniel.Popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jan 31 02:21:20 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000180.html">[OpenIMSCore-HSS] 4 WARN messages during start of FHoSS
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello Franz,
+
+-----Original Message-----
+&gt;<i>From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> on behalf of Franz Edler
+</I>&gt;<i>Sent: Tue 1/30/2007 5:21 AM
+</I>&gt;<i>To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i>Subject: [OpenIMSCore-HSS] 4 WARN messages during start of FHoSS
+</I> 
+&gt;<i>Hi,
+</I>
+&gt;<i>during start of FHoSS I still get the following 4 WARNING messages in
+</I>&gt;<i>&quot;hss.server.log&quot; which I did not care to much until now:
+</I>
+&gt;<i>2007-01-30 04:57:45,505 [main] WARN
+</I>&gt;<i>org.apache.catalina.connector.MapperListener  - Unknown default host:
+</I>&gt;<i>localhost
+</I>&gt;<i>2007-01-30 04:57:52,821 [main] WARN  net.sf.ehcache.config.Configurator  -
+</I>&gt;<i>No configuration found. Configuring ehcache from ehcache-failsafe.xml found
+</I>&gt;<i>in the classpath:
+</I>&gt;<i>jar:file:/opt/OpenIMSCore/FHoSS/deploy/lib/ehcache-1.1.jar!/ehcache-failsafe.xml
+</I>&gt;<i>2007-01-30 04:57:54,519 [main] WARN
+</I>&gt;<i>org.hibernate.impl.SessionFactoryObjectFactory  - InitialContext did not
+</I>&gt;<i>implement EventContext
+</I>&gt;<i>2007-01-30 04:57:54,772 [main] WARN  de.fhg.fokus.hss.main.HssServer  -
+</I>&gt;<i>Testing
+</I>
+&gt;<i>Should I still not worry about the warnings or are there some issues in my configuration?
+</I>
+Don't worry about them, just ignore them for the moment. These are not relevant to the FHoSS usage and are not depdendent to your configuration files. The most relevant warning from these is the &quot;ehcache-failsafe.xml&quot; configuration file; this is related to the configuration of the second level cache for hibernate. As this file is not present in the classpath, the system informs you that a default configuration will be used for this feature.
+
+&gt;<i>Maybe a Java-expert can comment on these 4 WARN messages.
+</I>
+&gt;<i>Cheers
+</I>&gt;<i>Franz
+</I>
+Bye,
+Adrian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070131/80b8d8be/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070131/80b8d8be/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000180.html">[OpenIMSCore-HSS] 4 WARN messages during start of FHoSS
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

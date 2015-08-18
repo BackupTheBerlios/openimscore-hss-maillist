@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-CSCS%20Interconnecting%20problem&In-Reply-To=%3C52f02b790703130421i39d1585bl738ccc8b178ea93b%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000240.html">
+   <LINK REL="Next"  HREF="000242.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem</H1>
+    <B>SRINI VASAN.R.J</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-CSCS%20Interconnecting%20problem&In-Reply-To=%3C52f02b790703130421i39d1585bl738ccc8b178ea93b%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem">rjsrinivasan at gmail.com
+       </A><BR>
+    <I>Tue Mar 13 12:21:38 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000240.html">[OpenIMSCore-HSS] [SVN-FHoSS] r193 - Fixed SNR and PNR on Sh	interface
+</A></li>
+        <LI>Next message: <A HREF="000242.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#241">[ date ]</a>
+              <a href="thread.html#241">[ thread ]</a>
+              <a href="subject.html#241">[ subject ]</a>
+              <a href="author.html#241">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+   I have downloaded ser_ims and FHoSS from openimscore.org, I followed the
+all the installation steps. P-CSCF,S-CSCF,I-CSCF are running successfuly but
+the problem is I_CSCF, S-CSCF is not interacting with HSS.
+
+  When i try ping open-ims.test its giving correct result when i try to ping
+scscf.open-ims.test or icscf.open-ims.test or hss.open-ims.test, its
+throwing unknown host error.
+
+ In my system i am using Red hat linux Enterprise edition.
+ java  &quot;java version &quot;1.5.0_11&quot;
+ bind is installed and running.
+
+ If any of u come across this problem,kindly let me know the solution.
+
+When i start SCSCF and HSS i am getting the following warnings
+
+
+SCSCF LOG
+
+
+12(4907) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test
+12(4907) WARNING:peer_connect(): Error opening connection to
+hss.open-ims.test:3868 &gt;No such file or directory
+12(4907) DBG:sm_process(): Peer hss.open-ims.test       State
+Wait_Conn_Ack    Event I_Rcv_Conn_NAck
+12(4907) --- Peer List: ---
+12(4907)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(4907) ------------------
+12(4907) --- Peer List: ---
+12(4907)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(4907) ------------------
+
+
+HSS Log
+
+2007-03-13 16:18:09,193 DEBUG de.fhg.fokus.hss.diam.HssDiameterStack -
+startup exiting
+2007-03-13 16:18:09,203 INFO  de.fhg.fokus.hss.main.HssServer - main FHoSS
+was started and is ready for use!
+2007-03-13 16:18:09,204 INFO  de.fhg.fokus.hss.main.HssServer - waitForExit
+Type 'exit' if you want to exit.
+2007-03-13 16:18:35,734 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to peer
+icscf.open-ims.test dynamic false dropping true
+2007-03-13 16:18:35,735 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer icscf.open-ims.test can not be resolved.
+2007-03-13 16:18:35,746 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to peer
+scscf.open-ims.test dynamic false dropping true
+2007-03-13 16:18:35,747 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer scscf.open-ims.test can not be resolved.
+2007-03-13 16:19:05,820 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to peer
+icscf.open-ims.test dynamic false dropping true
+2007-03-13 16:19:05,821 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer icscf.open-ims.test can not be resolved.
+2007-03-13 16:19:05,823 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to peer
+scscf.open-ims.test dynamic false dropping true
+2007-03-13 16:19:05,824 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer scscf.open-ims.test can not be resolved.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070313/dbef4dee/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070313/dbef4dee/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000240.html">[OpenIMSCore-HSS] [SVN-FHoSS] r193 - Fixed SNR and PNR on Sh	interface
+</A></li>
+	<LI>Next message: <A HREF="000242.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#241">[ date ]</a>
+              <a href="thread.html#241">[ thread ]</a>
+              <a href="subject.html#241">[ subject ]</a>
+              <a href="author.html#241">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

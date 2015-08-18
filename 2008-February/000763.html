@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r535 - Changed type of the k field in	the impi table to tinyblob to allow of binary AKA passwords.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r535%20-%20Changed%20type%20of%20the%20k%20field%20in%0A%09the%20impi%20table%20to%20tinyblob%20to%20allow%20of%20binary%20AKA%20passwords.&In-Reply-To=%3C200802281933.m1SJXQP6011498%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000762.html">
+   <LINK REL="Next"  HREF="000765.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r535 - Changed type of the k field in	the impi table to tinyblob to allow of binary AKA passwords.</H1>
+    <B>vingarzan at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r535%20-%20Changed%20type%20of%20the%20k%20field%20in%0A%09the%20impi%20table%20to%20tinyblob%20to%20allow%20of%20binary%20AKA%20passwords.&In-Reply-To=%3C200802281933.m1SJXQP6011498%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r535 - Changed type of the k field in	the impi table to tinyblob to allow of binary AKA passwords.">vingarzan at users.berlios.de
+       </A><BR>
+    <I>Thu Feb 28 20:33:26 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000762.html">[OpenIMSCore-HSS] [SVN-FHoSS] r534 - Updated the dbdump script with	the correct database (hssdb-&gt;hss_db).
+</A></li>
+        <LI>Next message: <A HREF="000765.html">[OpenIMSCore-HSS] FHoSS - patches for MD5 authentication over Cx
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#763">[ date ]</a>
+              <a href="thread.html#763">[ thread ]</a>
+              <a href="subject.html#763">[ subject ]</a>
+              <a href="author.html#763">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: vingarzan
+Date: 2008-02-28 20:33:19 +0100 (Thu, 28 Feb 2008)
+New Revision: 535 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=535">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=535</A> 
+
+Log:
+Changed type of the k field in the impi table to tinyblob to allow of binary AKA passwords.
+
+
+Modified:
+   U	FHoSS/trunk/scripts/hss_db.sql
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/scripts/hss_db.sql?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/scripts/hss_db.sql?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src-web/pages/user/impi.jsp
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/user/impi.jsp?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/user/impi.jsp?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/auth/HexCodec.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/auth/HexCodec.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/auth/HexCodec.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPI.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPI.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPI.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPI_Load.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPI_Load.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPI_Load.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPI_Submit.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPI_Submit.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPI_Submit.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/zh/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/zh/op/MAR.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/zh/op/MAR.java?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+   U	FHoSS/trunk/src/mappings/IMPI.hbm.xml
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/mappings/IMPI.hbm.xml?rev=535&amp;view=diff&amp;r1=535&amp;r2=534">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/mappings/IMPI.hbm.xml?rev=535&amp;view=diff&amp;r1=535&amp;r2=534</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000762.html">[OpenIMSCore-HSS] [SVN-FHoSS] r534 - Updated the dbdump script with	the correct database (hssdb-&gt;hss_db).
+</A></li>
+	<LI>Next message: <A HREF="000765.html">[OpenIMSCore-HSS] FHoSS - patches for MD5 authentication over Cx
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#763">[ date ]</a>
+              <a href="thread.html#763">[ thread ]</a>
+              <a href="subject.html#763">[ subject ]</a>
+              <a href="author.html#763">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

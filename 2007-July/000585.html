@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Which 3GPP Sh Release does FHoSS support?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Which%203GPP%20Sh%20Release%20does%20FHoSS%20support%3F&In-Reply-To=%3Cd68cf13d0707090333g6575e667k864427fb6ea78c68%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000580.html">
+   <LINK REL="Next"  HREF="000586.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Which 3GPP Sh Release does FHoSS support?</H1>
+    <B>harish kulkarni</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Which%203GPP%20Sh%20Release%20does%20FHoSS%20support%3F&In-Reply-To=%3Cd68cf13d0707090333g6575e667k864427fb6ea78c68%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Which 3GPP Sh Release does FHoSS support?">wasinapple at gmail.com
+       </A><BR>
+    <I>Mon Jul  9 12:33:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000580.html">[OpenIMSCore-HSS] [SVN-FHoSS] r387 - Small fix for tomcat	configuration
+</A></li>
+        <LI>Next message: <A HREF="000586.html">[OpenIMSCore-HSS] [SVN-FHoSS] r389 - 1 - Changed rtr_ppr name into	cx_events; 2 - Added Joao Vitor Tores contribution for UDR (MSISDN)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#585">[ date ]</a>
+              <a href="thread.html#585">[ thread ]</a>
+              <a href="subject.html#585">[ subject ]</a>
+              <a href="author.html#585">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello All,
+
+Can some body help me to know which release of &quot;Sh&quot; is supported currently
+on HSS implementation?.
+
+I didn't see the ServiceInfo string associated with ApplicationServer which
+is in release 7.3.0... which is the latest 3GPP Sh Interface Spec. ( TS
+29.328 7.6.0 ).
+
+ *-*&lt;<A HREF="file:///C:/Documents%20and%20Settings/hkulkarni/My%20Documents/3GPP/Sh-Interface/ShDataType_Rel7.xsd#">file:///C:/Documents%20and%20Settings/hkulkarni/My%20Documents/3GPP/Sh-Interface/ShDataType_Rel7.xsd#</A>&gt;
+&lt;xs:complexType name=&quot;*tApplicationServer*&quot;&gt;
+ *-*&lt;<A HREF="file:///C:/Documents%20and%20Settings/hkulkarni/My%20Documents/3GPP/Sh-Interface/ShDataType_Rel7.xsd#">file:///C:/Documents%20and%20Settings/hkulkarni/My%20Documents/3GPP/Sh-Interface/ShDataType_Rel7.xsd#</A>&gt;
+&lt;xs:sequence&gt;
+ * * &lt;xs:element name=&quot;*ServerName*&quot; type=&quot;*tSIP_URL*&quot; /&gt;
+ * * &lt;xs:element name=&quot;*DefaultHandling*&quot; type=&quot;*tDefaultHandling*&quot;minOccurs
+=&quot;*0*&quot; /&gt;
+ * * &lt;xs:element name=&quot;*ServiceInfo*&quot; type=&quot;*tServiceInfo*&quot; minOccurs=&quot;*0*&quot;/&gt;
+ * * &lt;xs:element name=&quot;*Extension*&quot; type=&quot;*tExtension*&quot; minOccurs=&quot;*0*&quot; /&gt;
+ * * &lt;xs:any namespace=&quot;*##other*&quot; processContents=&quot;*lax*&quot;
+minOccurs=&quot;*0*&quot;maxOccurs
+=&quot;*unbounded*&quot; /&gt;
+
+Thanks in advance.
+
+-Thanks
+harish
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070709/1c68d01c/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070709/1c68d01c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000580.html">[OpenIMSCore-HSS] [SVN-FHoSS] r387 - Small fix for tomcat	configuration
+</A></li>
+	<LI>Next message: <A HREF="000586.html">[OpenIMSCore-HSS] [SVN-FHoSS] r389 - 1 - Changed rtr_ppr name into	cx_events; 2 - Added Joao Vitor Tores contribution for UDR (MSISDN)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#585">[ date ]</a>
+              <a href="thread.html#585">[ thread ]</a>
+              <a href="subject.html#585">[ subject ]</a>
+              <a href="author.html#585">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r12 - FHoSS/trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r12%20-%20FHoSS/trunk&In-Reply-To=%3C200611231835.kANIZ43i025907%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r12 - FHoSS/trunk</H1>
+    <B>pweik at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r12%20-%20FHoSS/trunk&In-Reply-To=%3C200611231835.kANIZ43i025907%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r12 - FHoSS/trunk">pweik at users.berlios.de
+       </A><BR>
+    <I>Thu Nov 23 19:35:04 CET 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] HSS User unknown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: pweik
+Date: 2006-11-23 19:33:52 +0100 (Thu, 23 Nov 2006)
+New Revision: 12
+
+Modified:
+   FHoSS/trunk/build.xml
+   FHoSS/trunk/install.txt
+Log:
+added automatic executable rights for the startup.sh script
+
+Modified: FHoSS/trunk/build.xml
+===================================================================
+--- FHoSS/trunk/build.xml	2006-11-23 18:16:09 UTC (rev 11)
++++ FHoSS/trunk/build.xml	2006-11-23 18:33:52 UTC (rev 12)
+@@ -150,9 +150,10 @@
+ 			&lt;/fileset&gt;
+ 			&lt;fileset dir=&quot;config&quot;&gt;
+ 				&lt;include name=&quot;*&quot;/&gt;
+-			&lt;/fileset&gt;
+-			
++			&lt;/fileset&gt;			
+ 		&lt;/copy&gt;
++		
++		&lt;chmod file=&quot;${install.dest}/startup.sh&quot; perm=&quot;+x&quot;/&gt;
+ 	&lt;/target&gt;
+ 
+ 	&lt;target name=&quot;jdoc&quot; depends=&quot;compile&quot;&gt;
+
+Modified: FHoSS/trunk/install.txt
+===================================================================
+--- FHoSS/trunk/install.txt	2006-11-23 18:16:09 UTC (rev 11)
++++ FHoSS/trunk/install.txt	2006-11-23 18:33:52 UTC (rev 12)
+@@ -90,7 +90,7 @@
+ 
+ 7.2 execute the start script
+ on Linux machines launch
+-sh startup.sh (maybe do chmod +x startup.sh to set executable rights)
++sh startup.sh 
+ 
+ on Windows machines launch
+ startup.cmd
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] HSS User unknown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

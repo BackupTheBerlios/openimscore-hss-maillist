@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Fwd:  cannot start HSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20%20cannot%20start%20HSS&In-Reply-To=%3C468BCD7F.4040709%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000555.html">
+   <LINK REL="Next"  HREF="000567.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Fwd:  cannot start HSS</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20%20cannot%20start%20HSS&In-Reply-To=%3C468BCD7F.4040709%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Fwd:  cannot start HSS">adp at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jul  4 18:40:31 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000555.html">[OpenIMSCore-HSS] Fwd:  cannot start HSS
+</A></li>
+        <LI>Next message: <A HREF="000567.html">[OpenIMSCore-HSS] Fwd: cannot start HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#561">[ date ]</a>
+              <a href="thread.html#561">[ thread ]</a>
+              <a href="subject.html#561">[ subject ]</a>
+              <a href="author.html#561">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Then your address is not good... are you sure that the host from the
+&quot;hss.properties&quot; is the correct one?
+
+- -Adrian
+
+
+
+Asma Elmangosh wrote:
+&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> thanks for your help,
+</I>&gt;<i> 
+</I>&gt;<i> however the port 8080 is not used by any other application as you can
+</I>&gt;<i> see from the attached screen shot!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> any other idea??
+</I>&gt;<i> 
+</I>&gt;<i> Asma
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> On 7/3/07, *Adrian-Daniel Popescu* &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adp at fokus.fraunhofer.de</A>
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adp at fokus.fraunhofer.de</A>&gt;&gt; wrote:
+</I>&gt;<i> 
+</I>&gt;<i> Hi Asma,
+</I>&gt;<i> 
+</I>&gt;<i> It seems that you have a different application assigned for your
+</I>&gt;<i> specified IP and port and these cannot be used anymore for FHoSS. As you
+</I>&gt;<i> can see yourself in the logs your error is:
+</I>&gt;<i> &quot;
+</I>&gt;<i> java.net.BindException: Cannot assign requested address:8080
+</I>&gt;<i> &quot;
+</I>&gt;<i> Please change the combination of IP &amp; port value with a free one, and
+</I>&gt;<i> try again.
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Adrian
+</I>&gt;<i> 
+</I>&gt;<i> Asma Elmangosh wrote:
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;&gt;<i> after installing the OSIMS on Ubuntu, I am able to run pcscf,
+</I>&gt;<i> icscf, and
+</I>&gt;&gt;<i> scscf
+</I>&gt;&gt;<i> But when i try to run FHoSS/deploy/startup.sh shows the following error
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">qwerty at qwerty-desktop</A>:/opt/OpenIMSCore/FHoSS/deploy$ sudo ./startup.sh
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Building Classpath
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Classpath is
+</I>&gt;&gt;<i> lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mysql-connector-java-3.0.14-production-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/castor-1.0.5.jar:lib/c3p0-0.9.1.jar:lib/base64.jar:lib/asm.jar:lib/as
+</I>m
+&gt;<i> 
+</I>&gt;<i> -attrs.jar:lib/antlr-2.7.5H3.jar::log4j.properties:
+</I>&gt;&gt;<i> . .
+</I>&gt;<i> 
+</I>&gt;&gt;<i> 2007-07-01 10:23:59,758 DEBUG de.fhg.fokus.hss.main.HssServer - main
+</I>&gt;&gt;<i> Starting FHoSS...
+</I>&gt;<i> 
+</I>&gt;&gt;<i> 2007-07-01 10:23:59,768 INFO de.fhg.fokus.hss.main.HssServer -
+</I>&gt;&gt;<i> startTomcat Tomcat-Server is started.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> 2007-07-01 10:24:00,728 ERROR org.apache.coyote.http11.Http11Protocol -
+</I>&gt;&gt;<i> init Error initializing endpoint
+</I>&gt;<i> 
+</I>&gt;&gt;<i> java.net.BindException: Cannot assign requested address:8080
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at
+</I>&gt;&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.initEndpoint(PoolTcpEndpoint.java:297)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at org.apache.coyote.http11.Http11Protocol.init
+</I>&gt;<i> (Http11Protocol.java:142)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at
+</I>&gt;<i> org.apache.catalina.connector.Connector.initialize(Connector.java:928)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at org.apache.catalina.startup.Embedded.start(Embedded.java:794)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at de.fhg.fokus.hss.main.TomcatServer.startTomcat
+</I>&gt;<i> (TomcatServer.java:126)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at de.fhg.fokus.hss.main.HssServer.main(HssServer.java:94)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> 2007-07-01 10:24:00,731 ERROR de.fhg.fokus.hss.main.HssServer - main
+</I>&gt;&gt;<i> LifecycleException: Protocol handler initialization failed:
+</I>&gt;&gt;<i> java.net.BindException: Cannot assign requested address:8080
+</I>&gt;<i> 
+</I>&gt;&gt;<i> LifecycleException: Protocol handler initialization failed:
+</I>&gt;&gt;<i> java.net.BindException: Cannot assign requested address:8080
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at
+</I>&gt;<i> org.apache.catalina.connector.Connector.initialize(Connector.java:930)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at org.apache.catalina.startup.Embedded.start(Embedded.java:794)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at de.fhg.fokus.hss.main.TomcatServer.startTomcat
+</I>&gt;<i> (TomcatServer.java:126)
+</I>&gt;<i> 
+</I>&gt;&gt;<i> at de.fhg.fokus.hss.main.HssServer.main(HssServer.java:94)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Any help is highly appreciated.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> best regards;
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Asma
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> --
+</I>&gt;<i> --------------------------------------------
+</I>&gt;<i> Diploma Engineer Adrian Popescu
+</I>&gt;<i> FOKUS Fraunhofer Institute
+</I>&gt;<i> Next Generation Network Infrastructures
+</I>&gt;<i> Kaiserin-Augusta-Allee 31, 10589, Berlin
+</I>&gt;<i> Work Phone: +49 303 463 7364
+</I>&gt;<i> Mobile: +49 178 153 7466
+</I>&gt;<i> E-Mail: adp at fokus.fraunhofer.de &lt;<A HREF="http://fokus.fraunhofer.de">http://fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i> Web: www.fokus.fraunhofer.de &lt;<A HREF="http://www.fokus.fraunhofer.de">http://www.fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i> --------------------------------------------
+</I>
+&gt;<i> ------------------------------------------------------------------------
+</I>
+
+&gt;<i> ------------------------------------------------------------------------
+</I>
+&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGi81/6Yml36HNIwcRAmycAJ9lnSqXCtU3WUAm+BxRRnNij6/uNQCfVsWM
+JI3YlqNJCaCHOFC4Bn2P3AU=
+=89T9
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000555.html">[OpenIMSCore-HSS] Fwd:  cannot start HSS
+</A></li>
+	<LI>Next message: <A HREF="000567.html">[OpenIMSCore-HSS] Fwd: cannot start HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#561">[ date ]</a>
+              <a href="thread.html#561">[ thread ]</a>
+              <a href="subject.html#561">[ subject ]</a>
+              <a href="author.html#561">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20not%20getting%20connected%20to%20SCSCF&In-Reply-To=%3C4576ADD3.3040103%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000045.html">
+   <LINK REL="Next"  HREF="000047.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS not getting connected to SCSCF</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20not%20getting%20connected%20to%20SCSCF&In-Reply-To=%3C4576ADD3.3040103%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSS not getting connected to SCSCF">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Dec  6 12:47:31 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000045.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+        <LI>Next message: <A HREF="000047.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi George,
+
+I don't know why you get that &quot;ims.test can not be resolved&quot;. Is this a 
+bad paste of a log message?
+
+I network trace during the start-up would help debug your problem. You 
+should see the hosts trying to connect to each-other on port 3868, 3869 
+and 3870. If you can't figure it out, please post the network trace.
+
+-Dragos
+
+Babu George wrote:
+&gt;<i>
+</I>&gt;<i> All,
+</I>&gt;<i>
+</I>&gt;<i>   I started the HSS server and Scscf on my machine.They are not 
+</I>&gt;<i> getting connected through the diameter interface.
+</I>&gt;<i>
+</I>&gt;<i> Here is the error I get at Scscf     I
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) ------------------
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;<i>
+</I>&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) ------------------
+</I>&gt;<i>
+</I>&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents begin --------
+</I>&gt;<i>
+</I>&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents end ----------
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;<i>
+</I>&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) ------------------
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;<i>
+</I>&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) ------------------
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;<i>
+</I>&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) ------------------
+</I>&gt;<i>
+</I>&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents begin --------
+</I>&gt;<i>
+</I>&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents end ----------
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;<i>
+</I>&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i>
+</I>&gt;<i> 17(6746) ------------------
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Here is the error message I get at HSS
+</I>&gt;<i>
+</I>&gt;<i> ims.test can not be resolved.
+</I>&gt;<i>
+</I>&gt;<i> [Thread-10] ERROR 
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: 
+</I>&gt;<i> Peer scscf.open-ims.test not responding to connection attempt
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> I can ping the domain
+</I>&gt;<i>
+</I>&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore/FHoSS/deploy# ping open-ims.test
+</I>&gt;<i>
+</I>&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;<i>
+</I>&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.039 ms
+</I>&gt;<i>
+</I>&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.037 ms
+</I>&gt;<i>
+</I>&gt;<i> Can someone help me in resolving this issue
+</I>&gt;<i>
+</I>&gt;<i> Babu
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000045.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+	<LI>Next message: <A HREF="000047.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

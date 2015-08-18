@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] use FHoss branches website to add an	ImsSubscription Acess Database erro!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20use%20FHoss%20branches%20website%20to%20add%0A%20an%09ImsSubscription%20Acess%20Database%20erro%21&In-Reply-To=%3C46249F93.2010604%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000330.html">
+   <LINK REL="Next"  HREF="000332.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] use FHoss branches website to add an	ImsSubscription Acess Database erro!</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20use%20FHoss%20branches%20website%20to%20add%0A%20an%09ImsSubscription%20Acess%20Database%20erro%21&In-Reply-To=%3C46249F93.2010604%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] use FHoss branches website to add an	ImsSubscription Acess Database erro!">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 17 12:21:07 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000330.html">[OpenIMSCore-HSS] use FHoss branches website to add an	ImsSubscription Acess Database erro!
+</A></li>
+        <LI>Next message: <A HREF="000332.html">[OpenIMSCore-HSS] [SVN-FHoSS] r229 - name for preferred_scscf_set	table was outdated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hi Fancy Xiao,
+
+The &quot;preferred_set&quot; was the old name for the table and was changed with
+&quot;preferred_scscf_set&quot;. However, I forgot to change the names  in the DB
+layer. Thanks for your comment; this issue was already solved :)
+
+- -Adrian
+
+
+fancy_xiao wrote:
+&gt;<i> openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i>  
+</I>&gt;<i> must change table  preferred_scscf_set name to preferred_set;
+</I>&gt;<i>  
+</I>&gt;<i> erro INFO:
+</I>&gt;<i>  
+</I>&gt;<i> 2007-04-17 17:00:44,534 ERROR de.fhg.fokus.hss.HssExceptionHandler -
+</I>&gt;<i> execute exception occured
+</I>&gt;<i> org.hibernate.exception.SQLGrammarException: could not execute query
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:67)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)
+</I>&gt;<i>         at org.hibernate.loader.Loader.doList(Loader.java:2214)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2095)
+</I>&gt;<i>         at org.hibernate.loader.Loader.list(Loader.java:2090)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.loader.custom.CustomLoader.list(CustomLoader.java:289)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.impl.SessionImpl.listCustomQuery(SessionImpl.java:1695)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.impl.AbstractSessionImpl.list(AbstractSessionImpl.java:142)
+</I>&gt;<i>         at org.hibernate.impl.SQLQueryImpl.list(SQLQueryImpl.java:150)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.db.op.Preferred_SCSCF_Set_DAO.get_all_sets(Preferred_SCSCF_Set_DAO.java:69)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.web.action.IMSU_Load.prepareForward(IMSU_Load.java:140)
+</I>&gt;<i>         at de.fhg.fokus.hss.web.action.IMSU_Load.execute(IMSU_Load.java:98)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:419)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:224)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+</I>&gt;<i>         at javax.servlet.http.HttpServlet.service(HttpServlet.java:689)
+</I>&gt;<i>         at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:744)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+</I>&gt;<i>         at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i> Caused by: java.sql.SQLException: Table 'hss_db.preferred_set' doesn't exist
+</I>&gt;<i>         at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2928)
+</I>&gt;<i>         at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1571)
+</I>&gt;<i>         at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1666)
+</I>&gt;<i>         at com.mysql.jdbc.Connection.execSQL(Connection.java:2994)
+</I>&gt;<i>         at
+</I>&gt;<i> com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:936)
+</I>&gt;<i>         at
+</I>&gt;<i> com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1030)
+</I>&gt;<i>         at
+</I>&gt;<i> com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:186)
+</I>&gt;<i>         at org.hibernate.loader.Loader.getResultSet(Loader.java:1778)
+</I>&gt;<i>         at org.hibernate.loader.Loader.doQuery(Loader.java:662)
+</I>&gt;<i>         at
+</I>&gt;<i> org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:224)
+</I>&gt;<i>         at org.hibernate.loader.Loader.doList(Loader.java:2211)
+</I>&gt;<i>  
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &lt;mailto:&lt;!--AID_FROMADDRESS_BEGIN--&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&lt;!--AID_FROMADDRESS_END--&gt;&gt;
+</I>&gt;<i> 2007-04-17
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGJJ+T6Yml36HNIwcRAtMPAJ0aYTcLkxewe5In9WdcRpIQzaMwFACfSE2b
+HpWUK89G288YBFQz0KkhbsI=
+=QV+b
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000330.html">[OpenIMSCore-HSS] use FHoss branches website to add an	ImsSubscription Acess Database erro!
+</A></li>
+	<LI>Next message: <A HREF="000332.html">[OpenIMSCore-HSS] [SVN-FHoSS] r229 - name for preferred_scscf_set	table was outdated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

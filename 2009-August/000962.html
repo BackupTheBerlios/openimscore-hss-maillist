@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20401%20Unauthorized%20-%20Challenging%20the%20UE&In-Reply-To=%3C94ea6c5d0908151031y30ded11dn7a8ad6779a01fa77%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000961.html">
+   <LINK REL="Next"  HREF="000963.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE</H1>
+    <B>Brian Sexton</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20401%20Unauthorized%20-%20Challenging%20the%20UE&In-Reply-To=%3C94ea6c5d0908151031y30ded11dn7a8ad6779a01fa77%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE">brian.w.sexton at gmail.com
+       </A><BR>
+    <I>Sat Aug 15 19:31:08 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000961.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r708 - Extended the	JavaDiameterPeers routing realms capabilities to include	checking of the application ids.
+</A></li>
+        <LI>Next message: <A HREF="000963.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#962">[ date ]</a>
+              <a href="thread.html#962">[ thread ]</a>
+              <a href="subject.html#962">[ subject ]</a>
+              <a href="author.html#962">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Guys Im trying to get the an application running across the
+OpenIMScore network. Ive the network running and tested with other ims
+clients and I need to get the my application running across it. The
+application works fine with the IMS emulators in Ericssons SDS IDE but
+when I change the Realm and IP address to those of the OpenIMS network
+I get failures when I try and register Alice. I can see the register
+message getting as far as the HSS and the HSS then returns the 401
+Unregistered challenge but the client cant seem to respond correctly
+to the challenge. Is there any way to turn off authentication in the
+HSS?  The Pcscf has the following output
+
+ 7(6523) DBG:P-CSCF:P_emergency_flag: Check if the user made an
+Emergency Registration
+ 7(6523) DBG:P-CSCF:P_verify_security: Looking for &lt;2://192.168.1.111:2367&gt;
+ 7(6523) ERR:P-CSCF:cscf_get_authorization: Message does not contain
+Authorization header.
+ 7(6523) INF:P-CSCF:P_add_integrity_protected: No authorization header found.
+ 4(6520) DBG:P-CSCF:cscf_get_pref_security_header: No known Security
+header found.
+ 4(6520) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.75.1:2367;transport=TCP&gt;
+ 7(6523) DBG:P-CSCF:P_emergency_flag: Check if the user made an
+Emergency Registration
+ 7(6523) DBG:P-CSCF:P_verify_security: Looking for &lt;2://192.168.1.111:2367&gt;
+ 2(6518) DBG:P-CSCF:cscf_get_pref_security_header: No known Security
+header found.
+ 2(6518) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.75.1:2367;transport=TCP&gt;
+ 7(6523) DBG:P-CSCF:P_emergency_flag: Check if the user made an
+Emergency Registration
+ 7(6523) DBG:P-CSCF:P_verify_security: Looking for &lt;2://192.168.1.111:2367&gt;
+ 7(6523) ERR:P-CSCF:cscf_get_authorization: Message does not contain
+Authorization header.
+ 7(6523) INF:P-CSCF:P_add_integrity_protected: No authorization header found.
+ 4(6520) DBG:P-CSCF:cscf_get_pref_security_header: No known Security
+header found.
+ 4(6520) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.75.1:2367;transport=TCP&gt;
+ 7(6523) DBG:P-CSCF:P_emergency_flag: Check if the user made an
+Emergency Registration
+ 7(6523) DBG:P-CSCF:P_verify_security: Looking for &lt;2://192.168.1.111:2367&gt;
+ 7(6523) ERR:P-CSCF:cscf_get_authorization: Message does not contain
+Authorization header.
+ 7(6523) INF:P-CSCF:P_add_integrity_protected: No authorization header found.
+ 2(6518) DBG:P-CSCF:cscf_get_pref_security_header: No known Security
+header found.
+ 2(6518) INFO:P-CSCF:P_NAT_relay: &lt;sip:192.168.75.1:2367;transport=TCP&gt;
+ 7(6523) ERROR: tcp_read: error reading: Connection reset by peer
+ 7(6523) ERROR: tcp_read_req: error reading
+ 5(6521) INF:P-CSCF:----------  Registrar Contents begin --------
+ 5(6521) INF:P-CSCF:----------  Registrar Contents end ----------
+ 5(6521) INF:P-CSCF:----------  Subscription list begin ---------
+ 5(6521) INF:P-CSCF:----------  Subscription list end -----------
+ 5(6521) INF:P-CSCF:----------  Registrar Contents begin --------
+ 5(6521) INF:P-CSCF:----------  Registrar Contents end ----------
+ 5(6521) INF:P-CSCF:----------  Subscription list begin ---------
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000961.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r708 - Extended the	JavaDiameterPeers routing realms capabilities to include	checking of the application ids.
+</A></li>
+	<LI>Next message: <A HREF="000963.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#962">[ date ]</a>
+              <a href="thread.html#962">[ thread ]</a>
+              <a href="subject.html#962">[ subject ]</a>
+              <a href="author.html#962">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

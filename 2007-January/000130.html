@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS respond with error to successful profile	update request (PUR)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20respond%20with%20error%20to%20successful%20profile%0A%09update%20request%20%28PUR%29&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7B8D%40taxis.buc.materna.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000131.html">
+   <LINK REL="Next"  HREF="000136.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS respond with error to successful profile	update request (PUR)</H1>
+    <B>Sven.Bornemann at materna.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20respond%20with%20error%20to%20successful%20profile%0A%09update%20request%20%28PUR%29&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7B8D%40taxis.buc.materna.com%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS respond with error to successful profile	update request (PUR)">Sven.Bornemann at materna.de
+       </A><BR>
+    <I>Tue Jan  9 12:49:49 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000131.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+        <LI>Next message: <A HREF="000136.html">[OpenIMSCore-HSS] FHoSS respond with error to successful profile update request (PUR)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#130">[ date ]</a>
+              <a href="thread.html#130">[ thread ]</a>
+              <a href="subject.html#130">[ subject ]</a>
+              <a href="author.html#130">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all!
+I try to delete a user's 'RepositoryData' from the HSS.
+But the answer contains the Result-Code 5012 even if the 
+deletion was successful.
+
+Initially the RepositoryData with the ServiceIndication 'foo'
+for user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>' is not exisiting.
+
+The corrensponding wireshark trace is attached.
+
+I'm sending the following PDUs sequentially:
+
+1. User-Data-Request with data reference REPOSITORY_DATA and
+   service indication 'foo' and service data 'bar' for
+   user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>'.
+
+   Received User-Data-Answer shows that repository data *is not *
+   existing -&gt; Result-Code: DIAMETER_UNABLE_TO_COMPLY. O.k.
+
+2. Profile-Update-Request with data reference REPOSITORY_DATA and
+   service indication 'foo' and service data 'bar' for
+   user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>'.
+
+   Received Profile-Update-Answer shows that repository data was 
+   successfully created -&gt; Result-Code: DIAMETER_SUCCESS. O.k.
+   A manual DB select on hssql shows that repository data was 
+   successfully created.  
+
+3. User-Data-Request with data reference REPOSITORY_DATA and
+   service indication 'foo' and service data 'bar' for
+   user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>'.
+
+   Received User-Data-Answer shows that repository data *is*
+   existing -&gt; Result-Code: DIAMETER_SUCCESS. O.k.
+
+4. Profile-Update-Request with data reference REPOSITORY_DATA and
+   service indication 'foo' and *no* service data for user 
+   'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>' in order to delete the data.
+
+   &lt;ERROR&gt;
+   Received Profile-Update-Answer indicates that repository data
+   failed to be deleted -&gt; Result-Code: DIAMETER_UNABLE_TO_COMPLY. 
+   But the data was successfully deleted! A manual DB select on
+   hssql shows that repository data was successfully deleted.
+   Additionally subsequently executing step 1.) again returns an
+   error (DIAMETER_UNABLE_TO_COMPLY).
+   &lt;/ERROR&gt;
+
+The FHoSS trace for this situation is that:
+
+[Thread-7] ERROR de.fhg.fokus.hss.diam.sh.PURCommandListener  - <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.PURCommandListener at 8c5a4f</A>
+java.lang.NullPointerException
+        at org.hibernate.event.def.DefaultInitializeCollectionEventListener.initializeCollectionFromCache(DefaultInitializeCollectionEventListener.java:87)
+        at org.hibernate.event.def.DefaultInitializeCollectionEventListener.onInitializeCollection(DefaultInitializeCollectionEventListener.java:48)
+        at org.hibernate.impl.SessionImpl.initializeCollection(SessionImpl.java:1430)
+        at org.hibernate.collection.AbstractPersistentCollection.initialize(AbstractPersistentCollection.java:176)
+        at org.hibernate.collection.AbstractPersistentCollection.read(AbstractPersistentCollection.java:48)
+        at org.hibernate.collection.PersistentSet.isEmpty(PersistentSet.java:118)
+        at de.fhg.fokus.hss.model.RepDataBO.commitShChanges(RepDataBO.java:206)
+        at de.fhg.fokus.hss.model.RepDataBO.updateRepData(RepDataBO.java:183)
+        at de.fhg.fokus.hss.server.sh.op.UpdateShOperation.updateRepData(UpdateShOperation.java:146)
+        at de.fhg.fokus.hss.server.sh.op.UpdateShOperation.execute(UpdateShOperation.java:119)
+        at de.fhg.fokus.hss.server.sh.HSSshOperationsImpl.shUpdate(HSSshOperationsImpl.java:147)
+        at de.fhg.fokus.hss.diam.sh.PURCommandListener.recvMessage(PURCommandListener.java:120)
+        at de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+
+I think the last Profile-Update-Answer Result-Code is wrong and should 
+indicate success. What do you mean? FHoSS-Bug?
+
+Best Regards,
+Sven
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: sh-interface.pcap
+Type: application/octet-stream
+Size: 5164 bytes
+Desc: sh-interface.pcap
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070109/a3adbfe7/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070109/a3adbfe7/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000131.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+	<LI>Next message: <A HREF="000136.html">[OpenIMSCore-HSS] FHoSS respond with error to successful profile update request (PUR)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#130">[ date ]</a>
+              <a href="thread.html#130">[ thread ]</a>
+              <a href="subject.html#130">[ subject ]</a>
+              <a href="author.html#130">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

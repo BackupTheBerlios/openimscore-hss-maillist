@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.4.1331735623.7427.openimscore-hss%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000653.html">
+   <LINK REL="Next"  HREF="000772.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.4.1331735623.7427.openimscore-hss%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 15:33:29 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000653.html">No subject
+</A></li>
+        <LI>Next message: <A HREF="000772.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#679">[ date ]</a>
+              <a href="thread.html#679">[ thread ]</a>
+              <a href="subject.html#679">[ subject ]</a>
+              <a href="author.html#679">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>more complicated... but I don't see any other easier solution.
+
+-Dragos
+
+Beatriz Calvo P&#233;rez wrote:
+&gt;<i>
+</I>&gt;<i> Hi again,
+</I>&gt;<i>
+</I>&gt;<i> After a deeper thought, I have come to a possible solution for the
+</I>&gt;<i> problem exposed in my previous post. Going on with the same example
+</I>&gt;<i> and the same situation, the updated User Data XML that could be sent
+</I>&gt;<i> to the S-CSCF would be:
+</I>&gt;<i>
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;IMSSubscription xmlns:xsi=&quot;<A HREF="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</A>&quot;
+</I>&gt;<i> xsi:noNamespaceSchemaLocation=&quot;D:\ \CxDataType.xsd&quot;&gt;
+</I>&gt;<i>
+</I>&gt;<i>         &lt;PrivateID&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">IMPI1 at inycom.es</A>&lt;/PrivateID&gt;
+</I>&gt;<i>         &lt;ServiceProfile&gt;
+</I>&gt;<i>                 &lt;PublicIdentity&gt;
+</I>&gt;<i>                         &lt;Identity&gt; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">IMPU1 at inycom.es</A> &lt;/Identity&gt;
+</I>&gt;<i>                 &lt;/PublicIdentity&gt;
+</I>&gt;<i>                 &lt;InitialFilterCriteria&gt;
+</I>&gt;<i>                         iFC2 information
+</I>&gt;<i>                 &lt;/InitialFilterCriteria&gt;
+</I>&gt;<i>         &lt;/ServiceProfile&gt;
+</I>&gt;<i>         &lt;ServiceProfile&gt;
+</I>&gt;<i>                 &lt;PublicIdentity&gt;
+</I>&gt;<i>                         &lt;Identity&gt; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">IMPU2 at inycom.es</A> &lt;/Identity&gt;
+</I>&gt;<i>                 &lt;/PublicIdentity&gt;
+</I>&gt;<i>                 &lt;InitialFilterCriteria&gt;
+</I>&gt;<i>                         iFC1 information
+</I>&gt;<i>                         iFC2 information
+</I>&gt;<i>                 &lt;/InitialFilterCriteria&gt;
+</I>&gt;<i>         &lt;/ServiceProfile&gt;
+</I>&gt;<i>         &lt;ServiceProfile&gt;
+</I>&gt;<i>                 &lt;PublicIdentity&gt;
+</I>&gt;<i>                         &lt;Identity&gt; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">IMPU3 at inycom.es</A> &lt;/Identity&gt;
+</I>&gt;<i>                 &lt;/PublicIdentity&gt;
+</I>&gt;<i>                 &lt;InitialFilterCriteria&gt;
+</I>&gt;<i>                         iFC3 information
+</I>&gt;<i>                 &lt;/InitialFilterCriteria&gt;
+</I>&gt;<i>         &lt;/ServiceProfile&gt;
+</I>&gt;<i> &lt;/IMSSubscription&gt;
+</I>&gt;<i>
+</I>&gt;<i> In this User Data xml we have considered that a new &quot;virtual&quot; SP has
+</I>&gt;<i> appeared (JUST FOR THE S-CSCF) as a consecuence of a DSAI intervention.
+</I>&gt;<i>
+</I>&gt;<i> Do you think this would be a feasable solution? Would it be correct
+</I>&gt;<i> from a S-CSCF perspective receiving this information?
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Beatriz Calvo
+</I>&gt;<i> Instrumentacion y Componentes S.A. (Inycom)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _____________________________________________
+</I>&gt;<i> *De:    * Beatriz Calvo P&#233;rez 
+</I>&gt;<i> *Enviado el:    * lunes, 19 de noviembre de 2007 13:21
+</I>&gt;<i> *Para:  * '<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>'
+</I>&gt;<i> *CC:    * Beatriz Calvo P&#233;rez; Jorge Sopena Torres
+</I>&gt;<i> *Asunto:* DSAIs attached to IMPUs or attached to implicitly registered
+</I>&gt;<i> Public User Identity sets?
+</I>&gt;<i>
+</I>&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I have one question dealing with the DSAI concept and the implicitly
+</I>&gt;<i> registered Public User Identity sets...
+</I>&gt;<i> From my understanding, a DSAI is configured for individual IMPUs, not
+</I>&gt;<i> for implicitly registered Public User Identity sets. In such a
+</I>&gt;<i> situation, when a DSAI Value is updated for an IMPU, the updated User
+</I>&gt;<i> Profile Data has to be sent to the S-CSCF. According to the xml schema
+</I>&gt;<i> for the User Data sent through the Cx interface, the SPs for the IMPUs
+</I>&gt;<i> that belong to the same set as the IMPU for whom the DSAI Value has
+</I>&gt;<i> been changed must be sent.
+</I>&gt;<i>
+</I>&gt;<i> Please consider the situation:
+</I>&gt;<i>
+</I>&gt;<i> IMPU1 belongs to an implicitly registered Public User Identity set,
+</I>&gt;<i> which is also compound of other IMPUs with the following configuration:
+</I>&gt;<i>
+</I>&gt;<i> IMPU1: SP1
+</I>&gt;<i> IMPU2: SP1
+</I>&gt;<i> IMPU3: SP2
+</I>&gt;<i>
+</I>&gt;<i> These Service Profiles have the next iFCs:
+</I>&gt;<i> SP1: iFC1, iFC2
+</I>&gt;<i> SP2: iFC3
+</I>&gt;<i>
+</I>&gt;<i> We have also a DSAI with the following configuration:
+</I>&gt;<i> DSAI1
+</I>&gt;<i> iFCs associated: iFC1
+</I>&gt;<i> IMPUs attached: IMPU1, IMPU2
+</I>&gt;<i> DSAI_Value=ACTIVE for both IMPUs, IMPU1 and IMPU2
+</I>&gt;<i>
+</I>&gt;<i> In this situation, the DSAI_Value is set to INACTIVE for IMPU1, and
+</I>&gt;<i> for IMPU2 it keeps being ACTIVE. Then the updated User Data XML has to
+</I>&gt;<i> be sent to the S-CSCF through the Cx, and here it comes the problem:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  &lt;Objeto OLE: Imagen (Mapa de bits independiente del dispositivo ) &gt;&gt;
+</I>&gt;<i>
+</I>&gt;<i> What shall be done in such a situation? This could be prevented if we
+</I>&gt;<i> attached implicit sets instead of IMPUs to the DSAIs. However the
+</I>&gt;<i> specifications talk about IMPUs... Please advice on how to proceed.
+</I>&gt;<i> Thanks in advance.
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Bea
+</I>&gt;<i>
+</I>&gt;<i> Beatriz Calvo
+</I>&gt;<i> Instrumentacion y Componentes S.A. (Inycom)
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> AVISO LEGAL
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Este mensaje y los archivos que en su caso lleve adjuntos son privados
+</I>&gt;<i> y confidenciales y se dirigen exclusivamente a su destinatario. Por
+</I>&gt;<i> ello, se informa a quien lo reciba por error que la informaci&#243;n
+</I>&gt;<i> contenida en el mismo es reservada y su utilizaci&#243;n, copia o
+</I>&gt;<i> distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos
+</I>&gt;<i> lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y
+</I>&gt;<i> proceda a borrarlo de inmediato.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> En cumplimiento del Art. 5 de la Ley Org&#225;nica 15/1999, de 13 de
+</I>&gt;<i> diciembre, de Protecci&#243;n de Datos de Car&#225;cter Personal, se le informa
+</I>&gt;<i> que sus datos personales forman parte de un fichero propiedad de
+</I>&gt;<i> INSTRUMENTACI&#211;N Y COMPONENTES, S.A.  En cualquier momento podr&#225;
+</I>&gt;<i> ejercitar sus derechos de acceso, cancelaci&#243;n, rectificaci&#243;n y
+</I>&gt;<i> oposici&#243;n RESPONDIENDO a este correo.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000653.html">No subject
+</A></li>
+	<LI>Next message: <A HREF="000772.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#679">[ date ]</a>
+              <a href="thread.html#679">[ thread ]</a>
+              <a href="subject.html#679">[ subject ]</a>
+              <a href="author.html#679">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

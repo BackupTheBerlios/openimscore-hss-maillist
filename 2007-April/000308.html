@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] using openDiameter client(Cx) connected	toFHoss
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20using%20openDiameter%20client%28Cx%29%20connected%0A%09toFHoss&In-Reply-To=%3CDreamMail__175208_12327538814%40mail.astrocom.cn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000307.html">
+   <LINK REL="Next"  HREF="000309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] using openDiameter client(Cx) connected	toFHoss</H1>
+    <B>fancy_xiao</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20using%20openDiameter%20client%28Cx%29%20connected%0A%09toFHoss&In-Reply-To=%3CDreamMail__175208_12327538814%40mail.astrocom.cn%3E"
+       TITLE="[OpenIMSCore-HSS] using openDiameter client(Cx) connected	toFHoss">fancy_xiao at astrocom.cn
+       </A><BR>
+    <I>Thu Apr 12 11:52:08 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000307.html">[OpenIMSCore-HSS] using openDiameter client(Cx) connected	to	FHoss
+</A></li>
+        <LI>Next message: <A HREF="000309.html">[OpenIMSCore-HSS] using openDiameter client(Cx) connected	toFHoss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Peter Weik&#65292;&#20320;&#22909;
+
+In RFC3588,
+
+ fixed            = [qual] &quot;&lt;&quot; avp-spec &quot;&gt;&quot;
+                      ; Defines the fixed position of an AVP
+   required         = [qual] &quot;{&quot; avp-spec &quot;}&quot;
+                      ; The AVP MUST be present and can appear
+                      ; anywhere in the message.
+
+
+
+Calhoun, et al.             Standards Track                    [Page 36]
+
+RFC 3588                Diameter Based Protocol           September 2003
+
+   optional         = [qual] &quot;[&quot; avp-name &quot;]&quot;
+                      ; The avp-name in the 'optional' rule cannot
+                      ; evaluate to any AVP Name which is included
+                      ; in a fixed or required rule.  The AVP can
+                      ; appear anywhere in the message.
+
+zhe { Vendor-Specific-Application-Id } is a must avp!
+
+fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+2007-04-12 
+----- Original Message ----- 
+From: Peter Weik 
+To: fancy_xiao 
+Sent: 2007-04-12, 17:48:32
+Subject: Re: [OpenIMSCore-HSS] using openDiameter client(Cx) connected toFHoss
+
+
+Please post a Wireshark trace to resolve the issue.
+
+- Peter
+
+On Thu, 2007-04-12 at 17:36 +0800, fancy_xiao wrote:
+&gt;<i> openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i> 
+</I>&gt;<i> when send MAR to FHoss, in our MAR request contained
+</I>&gt;<i> Vendor-Specific-Application-Id avp. but FHoss return MAA result-code
+</I>&gt;<i> 5005(miss avp) miss Vendor-Specific-Application-Id avp.
+</I>&gt;<i> 
+</I>&gt;<i> IN 3GPP TS29229-710 indicated MAA format:
+</I>&gt;<i> 
+</I>&gt;<i> &lt; Multimedia-Auth-Answer &gt; ::= &lt; Diameter Header: 303, PXY, 16777216
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>&gt;<i> &lt; Session-Id &gt;
+</I>&gt;<i> 
+</I>&gt;<i> { Vendor-Specific-Application-Id }
+</I>&gt;<i> 
+</I>&gt;<i> [ Result-Code ]
+</I>&gt;<i> 
+</I>&gt;<i> [ Experimental-Result ]
+</I>&gt;<i> 
+</I>&gt;<i> { Auth-Session-State }
+</I>&gt;<i> 
+</I>&gt;<i> { Origin-Host }
+</I>&gt;<i> 
+</I>&gt;<i> { Origin-Realm }
+</I>&gt;<i> 
+</I>&gt;<i> [ User-Name ]
+</I>&gt;<i> 
+</I>&gt;<i> *[ Supported-Features ]
+</I>&gt;<i> 
+</I>&gt;<i> [ Public-Identity ]
+</I>&gt;<i> 
+</I>&gt;<i> [ SIP-Number-Auth-Items ]
+</I>&gt;<i> 
+</I>&gt;<i> *[SIP-Auth-Data-Item ]
+</I>&gt;<i> 
+</I>&gt;<i> *[ AVP ]
+</I>&gt;<i> 
+</I>&gt;<i> *[ Failed-AVP ]
+</I>&gt;<i> 
+</I>&gt;<i> *[ Proxy-Info ]
+</I>&gt;<i> 
+</I>&gt;<i> *[ Route-Record ]
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> 2007-04-12 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070412/68f80d31/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070412/68f80d31/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000307.html">[OpenIMSCore-HSS] using openDiameter client(Cx) connected	to	FHoss
+</A></li>
+	<LI>Next message: <A HREF="000309.html">[OpenIMSCore-HSS] using openDiameter client(Cx) connected	toFHoss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

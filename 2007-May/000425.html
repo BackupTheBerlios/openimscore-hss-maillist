@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Billing for SIP calls
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Billing%20for%20SIP%20calls&In-Reply-To=%3C1179858742.6213.11.camel%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000419.html">
+   <LINK REL="Next"  HREF="000418.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Billing for SIP calls</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Billing%20for%20SIP%20calls&In-Reply-To=%3C1179858742.6213.11.camel%40localhost%3E"
+       TITLE="[OpenIMSCore-HSS] Billing for SIP calls">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue May 22 20:32:22 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000419.html">[OpenIMSCore-HSS] Billing for SIP calls
+</A></li>
+        <LI>Next message: <A HREF="000418.html">[OpenIMSCore-HSS] Unable to create repository data entry for user	using PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#425">[ date ]</a>
+              <a href="thread.html#425">[ thread ]</a>
+              <a href="subject.html#425">[ subject ]</a>
+              <a href="author.html#425">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Abishek,
+
+the &quot;database&quot; you are writing of maps to the Online Charging Server
+(OCS) of 3GPP and is already described in TS 32.260. It allows
+monitoring of credit for users and initiates the dropping of calls if
+applicable. Via a IMS Gateway Function the SIP messages trigger Diameter
+requests to the OCS, but it is not said that this function is part of a
+S-CSCF. 
+
+While the work for offline charging support is currently done in the
+05_cdp_sessions branch, I currently see that IMS GW Function rather on
+application layer than with the S-CSCF. The relation to the HSS is only
+the possibility to configure charging endpoints for users in the HSS to
+download them during registration. 
+
+Regards,
+
+Peter
+
+On Die, 2007-05-22 at 15:46 +0530, abhishek wrote:
+&gt;<i> hi Dragos,
+</I>&gt;<i>                 I have got a requirement that once 
+</I>&gt;<i>                     client 1  INVITEs client 2 and the client 2
+</I>&gt;<i> acknowledges it, A billing table in the Database should get updated
+</I>&gt;<i> every 1 minute until a CANCEL is sent from any of the clients.
+</I>&gt;<i>  
+</I>&gt;<i> The purpose of the set up is that,say a client has 300 credits ..These
+</I>&gt;<i> credits get reduced as long as the client is in the call. Once this
+</I>&gt;<i> credit becomes ,the client should no longer be allowed to make further
+</I>&gt;<i> calls ,also the current call must get disconnected by server (It sends
+</I>&gt;<i> CANCEL).
+</I>&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i>     Is the above feature available in the DB?
+</I>&gt;<i> If yes ,can anyone let me know as to how that works from S-CSCF via
+</I>&gt;<i> HSS?
+</I>&gt;<i>  
+</I>&gt;<i> Regards,
+</I>&gt;<i> Abhishek.R.S
+</I>&gt;<i>  
+</I>&gt;<i>        
+</I>&gt;<i> SASKEN BUSINESS DISCLAIMER
+</I>&gt;<i> -------------------------
+</I>&gt;<i> This message may contain confidential, proprietary or legally privileged information. In 
+</I>&gt;<i> case you are not the original intended Recipient of the message, you must not, directly or 
+</I>&gt;<i> indirectly, use, Disclose, distribute, print, or copy any part of this message and you are 
+</I>&gt;<i> requested to delete it and inform the sender. Any views expressed in this message are 
+</I>&gt;<i> those of the individual sender unless otherwise stated. Nothing contained in this message 
+</I>&gt;<i> shall be construed as an offer or acceptance of any offer by Sasken Communication 
+</I>&gt;<i> Technologies Limited (&quot;Sasken&quot;) unless sent with that express intent and with due 
+</I>&gt;<i> authority of Sasken. Sasken has taken enough precautions to prevent the spread of 
+</I>&gt;<i> viruses. However the company accepts no liability for any damage caused by any virus 
+</I>&gt;<i> transmitted by this email
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000419.html">[OpenIMSCore-HSS] Billing for SIP calls
+</A></li>
+	<LI>Next message: <A HREF="000418.html">[OpenIMSCore-HSS] Unable to create repository data entry for user	using PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#425">[ date ]</a>
+              <a href="thread.html#425">[ thread ]</a>
+              <a href="subject.html#425">[ subject ]</a>
+              <a href="author.html#425">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

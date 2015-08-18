@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Interaction between Open Diameter Client and OpenImsCore HSS - PNR Message failures
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Interaction%20between%20Open%20Diameter%20Client%20and%0A%20OpenImsCore%20HSS%20-%20PNR%20Message%20failures&In-Reply-To=%3C46399780.5090105%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000372.html">
+   <LINK REL="Next"  HREF="000374.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Interaction between Open Diameter Client and OpenImsCore HSS - PNR Message failures</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Interaction%20between%20Open%20Diameter%20Client%20and%0A%20OpenImsCore%20HSS%20-%20PNR%20Message%20failures&In-Reply-To=%3C46399780.5090105%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Interaction between Open Diameter Client and OpenImsCore HSS - PNR Message failures">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu May  3 10:04:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000372.html">[OpenIMSCore-HSS] Application Server connection to HSS
+</A></li>
+        <LI>Next message: <A HREF="000374.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Which are the AKA values I should set in the HSS interface?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#373">[ date ]</a>
+              <a href="thread.html#373">[ thread ]</a>
+              <a href="subject.html#373">[ subject ]</a>
+              <a href="author.html#373">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Sheik,
+
+Could you please send a trace? Are the Session-Id AVPs present?
+
+-Dragos
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sheik.farid at wipro.com</A> wrote:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hi All,
+</I>&gt;<i>
+</I>&gt;<i>    Has anyone used open diameter as a client with OpenImsCore Hss for
+</I>&gt;<i> implementing Sh interface?
+</I>&gt;<i>  
+</I>&gt;<i>    There are mismatch in message formats between these two open sources.
+</I>&gt;<i>
+</I>&gt;<i>    I am facing an issue when I try to get a PNR from HSS:
+</I>&gt;<i>
+</I>&gt;<i>   1)I sent an SNR(From Diameter Cleint) request to HSS for change in
+</I>&gt;<i> userState notification.
+</I>&gt;<i>
+</I>&gt;<i>   2)I have deregisted the user.
+</I>&gt;<i>
+</I>&gt;<i>   3)The PNR sent to Diameter Cleint says &quot;missing session-id avp&quot; and
+</I>&gt;<i> &quot;Parse Errors&quot; etc.
+</I>&gt;<i>
+</I>&gt;<i>   What could be the problem?  The &quot;r&quot; flag is also found to be &quot;0&quot; in
+</I>&gt;<i> the PNR message. Pls suggest.
+</I>&gt;<i>
+</I>&gt;<i>   These are the error messages:
+</I>&gt;<i>
+</I>&gt;<i> missing Session-Id avp.
+</I>&gt;<i> Parse error(24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i> invalid message length
+</I>&gt;<i> Parse error(24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i> command (7566126,r-flag=0) not found
+</I>&gt;<i> (24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i> command (7566126,r-flag=0) not found
+</I>&gt;<i> (24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i> command (21,r-flag=0) not found
+</I>&gt;<i> (24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i> command (7566126,r-flag=0) not found
+</I>&gt;<i> (24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i> command (7628147,r-flag=0) not found
+</I>&gt;<i> (24292|3033656208) IO [] reported: Parsing error
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --Sheik Farid
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The information contained in this electronic message and any
+</I>&gt;<i> attachments to this message are intended for the exclusive use of the
+</I>&gt;<i> addressee(s) and may contain proprietary, confidential or privileged
+</I>&gt;<i> information. If you are not the intended recipient, you should not
+</I>&gt;<i> disseminate, distribute or copy this e-mail. Please notify the sender
+</I>&gt;<i> immediately and destroy all copies of this message and any attachments.
+</I>&gt;<i>
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> should check this email and any attachments for the presence of
+</I>&gt;<i> viruses. The company accepts no liability for any damage caused by any
+</I>&gt;<i> virus transmitted by this email.
+</I>&gt;<i>
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000372.html">[OpenIMSCore-HSS] Application Server connection to HSS
+</A></li>
+	<LI>Next message: <A HREF="000374.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Which are the AKA values I should set in the HSS interface?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#373">[ date ]</a>
+              <a href="thread.html#373">[ thread ]</a>
+              <a href="subject.html#373">[ subject ]</a>
+              <a href="author.html#373">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

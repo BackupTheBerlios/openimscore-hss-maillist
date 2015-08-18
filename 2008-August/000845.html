@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C63acfd6c0808041744w12de32d1y82c8278e5a325613%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000841.html">
+   <LINK REL="Next"  HREF="000846.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)</H1>
+    <B>vr.sundar</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C63acfd6c0808041744w12de32d1y82c8278e5a325613%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)">vr.sundar at gmail.com
+       </A><BR>
+    <I>Tue Aug  5 02:44:21 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000841.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+        <LI>Next message: <A HREF="000846.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#845">[ date ]</a>
+              <a href="thread.html#845">[ thread ]</a>
+              <a href="subject.html#845">[ subject ]</a>
+              <a href="author.html#845">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+On Sun, Aug 3, 2008 at 10:31 PM, Franz Edler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>&gt; wrote:
+&gt;&gt;<i> Seems like Server-Assignment-Request with type ==
+</I>&gt;&gt;<i> Authentication-Timeout is the timeout procedure. Per 29.228,
+</I>&gt;&gt;<i> (Section 6.1.2 page 18) this is what the S-CSCF uses to inform the HSS
+</I>&gt;&gt;<i> that the auth-pending flag should be cleared.
+</I>&gt;<i>
+</I>&gt;<i> No. The procedure you mention (Section 6.1.2, S-CSCF
+</I>&gt;<i> registration/deregistration notification) is called after successful
+</I>&gt;<i> registration, not during the registration.
+</I>
+Okay. This is the first difference. To me, it looks like the SAR/SAA
+is intended to be sent  after successful registration or after a
+failed registration. This is why the SAR's ServerAssignmentType can be
+10 different values including Authentication-Failed,
+Authentication-Timeout, Timeout-Deregistration etc. (These are listed
+in page 20 of 29.229)
+
+If you think the SAR can only be sent on successful registration, what
+do you think the SAR types Authentication-Failed,
+Authentication-Timeout aer for? These are defined values in 29.229 and
+their behaviour is defined in 29.228
+
+&gt;<i>
+</I>&gt;<i> The procedure which is applied when authentication data are downloaded from
+</I>&gt;<i> HSS and sent to the user equipment is 6.3.1. In particular step 5 says: &quot;The
+</I>&gt;<i> HSS shall set the Public User Identity's authentication pending flag which
+</I>&gt;<i> is specific to the Private User Identity which was received in the request.
+</I>&gt;<i> The Result-Code shall be set to DIAMETER_SUCCESS.&quot;
+</I>&gt;<i> So we are still in the MAR/MAA procedure.
+</I>
+I agree that the process that is used to download auth data is 6.3.1.
+I'm not sure what you mean by we are still in MAR/MAA.  The SAR/SAA
+exchange if it happens should happen after the MAR/MAA exchange
+
+&gt;<i> There is no timeout set in S-CSCF and if the user equipment cannot register
+</I>&gt;<i> successfully the authentication pending flag will remain set. There will not
+</I>&gt;<i> be a SAR/SAA procedure as long as there is no successful registration.
+</I>
+The spec does define that the S-CSCF can send a SAR with a type of
+Authentication-Failure or Authentication-Timeout. If these are sent,
+these would be after the MAR/MAA exchange.
+
+&gt;<i> The authentication pending flag is assigned to the Public User Identity
+</I>&gt;<i> specific to the Private User Identity.
+</I>
+Yes, I agree. I quoted this too. I read this to mean that the
+IMPI_IMPU  should have the flag set.
+
+&gt;<i>  So we have the user flag set in IMPI
+</I>&gt;<i> and in IMPI_IMPU table. This seems obvious to me.
+</I>
+Did you mean IMPU instead of IMPI. The code currently sets it on the
+IMPI_IMPU and the IMPU objects.
+
+This is where the second difference is. The spec only mentions that
+the Public User Identity specific to the PrivateUserIdentity should
+have the flag set. This I believe translates to the IMPI_IMPU object
+meaning that the flag should be set in the IMPI_IMPU object. But the
+current code also sets it in the IMPU object. The question is why do
+we also set it in the IMPU object? Once we understand the first
+difference, then this can be handled as it is mostly implementation
+detail.
+
+The spec defines a way to set the AuthPending flag. And it defines a
+way to clear it.They both are defined exactly the same as far as where
+- on which object - this pending flag is being cleared from. The only
+diff is one sets it and the other clears it. So clearing after setting
+it should leave the user back where he was as far as the Auth Pending
+state goes.  Problem is the current code does not behave this way. It
+sets it in  two object (the MAR code sets it in IMPI_IMPU and the IMPU
+objects) but clears it from only one object (the SAR
+Auth-Timeout/Auth-Failure code clears it only from the IMPI_IMPU).
+This by itself indicates to me that the code is not doing something
+right. It should be clearing it from the same objects that it is
+setting it in.
+
+Hope I explained myself more clearly here.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000841.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+	<LI>Next message: <A HREF="000846.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#845">[ date ]</a>
+              <a href="thread.html#845">[ thread ]</a>
+              <a href="subject.html#845">[ subject ]</a>
+              <a href="author.html#845">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

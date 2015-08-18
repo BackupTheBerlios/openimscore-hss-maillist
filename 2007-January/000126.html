@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Not able to start hss
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Not%20able%20to%20start%20hss&In-Reply-To=%3C03bf01c7332c%24500f3520%24ca0710ac%40globaledgesoft.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000124.html">
+   <LINK REL="Next"  HREF="000128.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Not able to start hss</H1>
+    <B>Manjunath Kadaba</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Not%20able%20to%20start%20hss&In-Reply-To=%3C03bf01c7332c%24500f3520%24ca0710ac%40globaledgesoft.com%3E"
+       TITLE="[OpenIMSCore-HSS] Not able to start hss">manjunatha.kadaba at globaledgesoft.com
+       </A><BR>
+    <I>Mon Jan  8 14:53:01 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000124.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+        <LI>Next message: <A HREF="000128.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kedar,
+
+Below is my hss.properties file
+
+################################################################################
+# host: specifies where the tomcat listen, e.g. localhost, 
+absinthe.open-ims.org
+################################################################################
+
+host=localhost
+
+################################################################################
+# appPath: specifies the relative app path of the console web ap
+################################################################################
+# Productiv
+appPath=/hss.web.console
+
+################################################################################
+# operator_id, as hex bytes, required length 32 byte,
+# e.g. 00000000000000000000000000000000
+################################################################################
+operatorId=00000000000000000000000000000000
+
+################################################################################
+# amf_id: Default amf id as hex bytes, required length 4 byte, e.g. 0000
+################################################################################
+amfId=0000
+
+################################################################################
+# defaultPsiImpi: All PSI are assigned by this impi
+################################################################################
+psi.defaultImpi=<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">psi at globaledgesoft.com</A>
+psi.defaultPriChrgCollFN=psi.globaledgesoft.com
+
+
+Regards
+Manjunath
+
+Message: 3
+Date: Mon, 8 Jan 2007 05:24:50 -0800 (PST)
+From: Kedar P Bhise &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">kbhise_if at yahoo.com</A>&gt;
+Subject: Re: [OpenIMSCore-HSS] Not able to start hss
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20070108132450.26641.qmail at web39807.mail.mud.yahoo.com</A>&gt;
+Content-Type: text/plain; charset=&quot;us-ascii&quot;
+
+Hello,
+
+Are your HSS properties configured correctly? Perhaps if you attach your HSS 
+configuration, we could provide a proper answer.
+
+A quicker way would be to read through the mailing list archives. This issue 
+has been discussed in the past as well.
+
+Kedar P Bhise
+Architect
+T-Systems India
+
+
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I am able to run pcscf, icscf, scscf and sip2ims
+</I>&gt;<i> But when i try to run FHoSS/deploy/startup.sh shows the following error
+</I>&gt;<i>
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.Impu.notifyImsUserStates -&gt; notify_ims_user_state
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.Impu.notifyScscfnames -&gt; notify_scscfname
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.Trigpt.spts -&gt; spt
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.PsiTempl.psis -&gt; psi
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.RepData.notifyRepDatas -&gt; notify_rep_data
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.Svp.ifc2svps -&gt; ifc2svp
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection: 
+</I>&gt;<i> de.fhg.fokus.hss.model.Svp.impus -&gt; impu
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.Configuration  - processing association 
+</I>&gt;<i> property references
+</I>&gt;<i> [main] INFO  org.hibernate.cfg.Configuration  - processing foreign key 
+</I>&gt;<i> constraints
+</I>&gt;<i> [main] WARN  org.hibernate.connection.UserSuppliedConnectionProvider  - No 
+</I>&gt;<i> connection properties specified - the user must supply JDBC connections
+</I>&gt;<i> [main] ERROR de.fhg.fokus.hss.util.HibernateUtil  - Initial SessionFactory 
+</I>&gt;<i> creation failed.
+</I>&gt;<i> org.hibernate.HibernateException: database product name cannot be null
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.dialect.DialectFactory.determineDialect(DialectFactory.java:57)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.dialect.DialectFactory.buildDialect(DialectFactory.java:39)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.SettingsFactory.determineDialect(SettingsFactory.java:374)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.SettingsFactory.buildSettings(SettingsFactory.java:110)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.Configuration.buildSettings(Configuration.java:1463)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1004)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.util.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:75)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.init(OriginHostResolver.java:87)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.&lt;clinit&gt;(OriginHostResolver.java:76)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.HssDiameterStack.startup(HssDiameterStack.java:117)
+</I>&gt;<i>        at de.fhg.fokus.hss.main.HssServer.main(HssServer.java:93)
+</I>&gt;<i> Exception in thread &quot;main&quot; java.lang.ExceptionInInitializerError
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.util.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:82)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.init(OriginHostResolver.java:87)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.&lt;clinit&gt;(OriginHostResolver.java:76)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.HssDiameterStack.startup(HssDiameterStack.java:117)
+</I>&gt;<i>        at de.fhg.fokus.hss.main.HssServer.main(HssServer.java:93)
+</I>&gt;<i> Caused by: org.hibernate.HibernateException: database product name cannot 
+</I>&gt;<i> be null
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.dialect.DialectFactory.determineDialect(DialectFactory.java:57)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.dialect.DialectFactory.buildDialect(DialectFactory.java:39)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.SettingsFactory.determineDialect(SettingsFactory.java:374)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.SettingsFactory.buildSettings(SettingsFactory.java:110)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.Configuration.buildSettings(Configuration.java:1463)
+</I>&gt;<i>        at 
+</I>&gt;<i> org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1004)
+</I>&gt;<i>        at 
+</I>&gt;<i> de.fhg.fokus.hss.util.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:75)
+</I>&gt;<i>        ... 4 more
+</I>&gt;<i>
+</I>&gt;<i> An y help is highly appreciated.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i> Manjunath 
+</I>
+-------------- next part --------------
+This e-mail contains PRIVILEGED AND CONFIDENTIAL INFORMATION intended solely for the use of the addressee(s). If you are not the intended recipient, please notify the sender by e-mail and delete the original message.Global Edge Software Ltd has taken every reasonable precaution to minimize this risk, but is not liable for any damage you may sustain as a result of any virus in this e-mail. You should carry out your own virus checks before opening the e-mail or attachment. Global Edge Software Ltd reserves the right to monitor and review the content of all messages sent to or from this e-mail address
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000124.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+	<LI>Next message: <A HREF="000128.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#126">[ date ]</a>
+              <a href="thread.html#126">[ thread ]</a>
+              <a href="subject.html#126">[ subject ]</a>
+              <a href="author.html#126">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

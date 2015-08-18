@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] when i use HSS  branch to test ,	MAR send to Hss but not received MAA!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20when%20i%20use%20HSS%20%20branch%20to%20test%20%2C%0A%09MAR%20send%20to%20Hss%20but%20not%20received%20MAA%21&In-Reply-To=%3CDreamMail__170803_64523173344%40mail.astrocom.cn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000355.html">
+   <LINK REL="Next"  HREF="000356.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] when i use HSS  branch to test ,	MAR send to Hss but not received MAA!</H1>
+    <B>fancy_xiao</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20when%20i%20use%20HSS%20%20branch%20to%20test%20%2C%0A%09MAR%20send%20to%20Hss%20but%20not%20received%20MAA%21&In-Reply-To=%3CDreamMail__170803_64523173344%40mail.astrocom.cn%3E"
+       TITLE="[OpenIMSCore-HSS] when i use HSS  branch to test ,	MAR send to Hss but not received MAA!">fancy_xiao at astrocom.cn
+       </A><BR>
+    <I>Tue Apr 24 11:08:03 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000355.html">[OpenIMSCore-HSS] Unable to checkout the HSS code
+</A></li>
+        <LI>Next message: <A HREF="000356.html">[OpenIMSCore-HSS] when i use HSS  branch to test , MAR send to Hss but not received MAA!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#353">[ date ]</a>
+              <a href="thread.html#353">[ thread ]</a>
+              <a href="subject.html#353">[ subject ]</a>
+              <a href="author.html#353">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>openimscore-hss&#65292;&#20320;&#22909;
+
+the MAR package is attached!
+
+And HSS DEBUG INFO :
+
+Added task to queue!
+Processing MAR!
+Exception in thread &quot;Thread-18&quot; java.lang.NumberFormatException: For input string: &quot;&quot;
+        at java.lang.NumberFormatException.forInputString(NumberFormatException.java:48)
+        at java.lang.Integer.parseInt(Integer.java:447)
+        at de.fhg.fokus.hss.auth.HexCodec.decode(HexCodec.java:76)
+        at de.fhg.fokus.hss.cx.op.MAR.generateAuthVector(MAR.java:438)
+        at de.fhg.fokus.hss.cx.op.MAR.generateAuthVectors(MAR.java:509)
+        at de.fhg.fokus.hss.cx.op.MAR.processRequest(MAR.java:283)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:91)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:65)
+2007-04-24 16:58:07,629 DEBUG de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - Snd_DWA Diameter: Code=280 AppID=0 HbHID=10793 E2EID=-1574936729
+        AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+        AVP: Code=264 M Len=15 Data=0x7465737432342e617374726f2e677a INT_Data=1952805748 Char_Data=&quot;test24.astro.gz&quot;
+        AVP: Code=296 M Len=8 Data=0x617374726f2e677a INT_Data=1634956402 Char_Data=&quot;astro.gz&quot;
+
+
+&#26412;&#37038;&#20214;&#38468;&#20214;&#28165;&#21333;&#22914;&#19979;&#65306;
+  (1) MAR.cap (0.5 K)
+
+
+fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+2007-04-24 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070424/0b5c28b4/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070424/0b5c28b4/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: MAR.cap
+Type: application/octet-stream
+Size: 482 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070424/0b5c28b4/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070424/0b5c28b4/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000355.html">[OpenIMSCore-HSS] Unable to checkout the HSS code
+</A></li>
+	<LI>Next message: <A HREF="000356.html">[OpenIMSCore-HSS] when i use HSS  branch to test , MAR send to Hss but not received MAA!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#353">[ date ]</a>
+              <a href="thread.html#353">[ thread ]</a>
+              <a href="subject.html#353">[ subject ]</a>
+              <a href="author.html#353">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

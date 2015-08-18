@@ -1,0 +1,654 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS question
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20question&In-Reply-To=%3C258374.67390.qm%40web37915.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000699.html">
+   <LINK REL="Next"  HREF="000697.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS question</H1>
+    <B>Vijaya Venkatachalam</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20question&In-Reply-To=%3C258374.67390.qm%40web37915.mail.mud.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS question">vlakshmi at rocketmail.com
+       </A><BR>
+    <I>Fri Dec 21 07:33:27 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000699.html">[OpenIMSCore-HSS] HSS question
+</A></li>
+        <LI>Next message: <A HREF="000697.html">[OpenIMSCore-HSS] HSS question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#700">[ date ]</a>
+              <a href="thread.html#700">[ thread ]</a>
+              <a href="subject.html#700">[ subject ]</a>
+              <a href="author.html#700">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Peter,
+
+When I send the MAR, the MAA that I receive from HSS says User Unknown. And I am sending the user-name in MAR as <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test.</A> 
+Do you not get this error? And I am using the default database (hss_db.sql and userdata.sql).
+
+BTW, if you are on christmas break, then happy holidays.
+
+Thanks,
+Vijaya
+
+&quot;Weik, Peter&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Peter.Weik at fokus.fraunhofer.de</A>&gt; wrote:     RE: [OpenIMSCore-HSS] HSS question     Hi Vijaya,
+ 
+ I reproduced your request and found one typo in the command code definition that lingered unnoticed for months now.
+ Please retry with revision 510 - it works for me now.
+ 
+ Good that finally somebody tests Zh ;)
+ 
+ - Peter
+ 
+ -----Original Message-----
+ From: Vijaya Venkatachalam [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vlakshmi at rocketmail.com</A>]
+ Sent: Wed 19-Dec-07 12:33
+ To: Vijaya Venkatachalam; Weik, Peter
+ Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+ Subject: Re: [OpenIMSCore-HSS] HSS question
+ 
+ Hi Peter,
+ 
+ I think this wireshark trace is read-able. I checked it from another version of wireshark (on windows) and I can read it.
+ 
+ Sorry for the earlier logs, I don't know why the older version of wireshark on linux wasn't generating standard pcap output.
+ 
+ If you need any other info, pls let me know.
+ 
+ Thanks for your analysis,
+ Vijaya
+ 
+ Vijaya Venkatachalam &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vlakshmi at rocketmail.com</A>&gt; wrote: Peter,
+ 
+ I am attaching both the wireshark/tcpdump../pcap format and the text formats for the message capture.
+ 
+ I am using the standard version of wireshark and save it in wireshark/tcpdump.../libpcap format.
+ [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vijaya at pc-vv</A> ~]$ wireshark --version
+ wireshark 0.99.3a
+ 
+ Copyright 1998-2006 Gerald Combs &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">gerald at wireshark.org</A>&gt; and contributors.
+ This is free software; see the source for copying conditions. There is NO
+ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ 
+ Compiled with GTK+ 2.10.2, with GLib 2.12.2, with libpcap 0.9.4,
+ with libz 1.2.3, with libpcre 6.6, with Net-SNMP 5.3.1, without ADNS,
+ without Lua.
+ 
+ Running with libpcap version 0.9.4 on Linux 2.6.18-1.2798.fc6.
+ 
+ Thanks,
+ Vijaya
+ 
+ Peter Weik &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">peter.weik at fokus.fraunhofer.de</A>&gt; wrote: Hi  Vijaya,
+ 
+ you don't have to be registered in the IMS to make of the Zh interface
+ and as there are also log messages, you should as well see some debug
+ info on the console.
+ 
+ A Wireshark trace would help to debug your problem.
+ 
+ Regards,
+ 
+ Peter
+ 
+ On Mon, 2007-12-17 at 07:55 -0800, Vijaya Venkatachalam wrote:
+ &gt; Hi,
+ &gt;
+ &gt; I configured a new IMPI (<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vijaya at blog.com</A>) in the HSS using tomcat
+ &gt; (hssAdmin account). But when I send a MAR request using Diameter Zh
+ &gt; interface, it doesn't send me back a MAA. I am also not seeing any
+ &gt; errors being printed on the HSS.
+ &gt;
+ &gt; Can you some one tell me how to debug this and also why this is
+ &gt; happening.
+ &gt;
+ &gt; Does the IMPI subscriber have to be registered first? I am not using
+ &gt; the CSCFs. I am just using the Diameter Zh interface in the HSS.
+ &gt;
+ &gt; Thanks
+ &gt; Vijaya
+ &gt;
+ &gt;
+ &gt;
+ &gt;  ______________________________________________________________________
+ &gt; Be a better friend, newshound, and know-it-all with Yahoo! Mobile. Try
+ &gt; it now.
+ &gt; _______________________________________________
+ &gt; OpenIMSCore-HSS mailing list
+ &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+ &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+ 
+        
+ 
+ ---------------------------------
+ Be a better friend, newshound, and  know-it-all with Yahoo! Mobile.  Try it now.&#239;&#191;&#189;&#195;&#178;&#239;&#191;&#189;No.     Time        Source                Destination           Protocol Info
+       1 0.000000    ::1                   ::1                   TCP      42037 &gt; 45336 [SYN] Seq=0 Len=0 MSS=16376 TSV=2003422 TSER=0 WS=7
+ 
+ Frame 1 (96 bytes on wire, 96 bytes captured)
+ Linux cooked capture
+ Internet Protocol Version 6
+ Transmission Control Protocol, Src Port: 42037 (42037), Dst Port: 45336 (45336), Seq: 0, Len: 0
+     Source port: 42037 (42037)
+     Destination port: 45336 (45336)
+     Sequence number: 0    (relative sequence number)
+     Header length: 40 bytes
+     Flags: 0x0002 (SYN)
+     Window size: 4192256 (scaled)
+     Checksum: 0xbc5c [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16376 bytes
+         SACK permitted
+         Time stamp: tsval 2003422, tsecr 0
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+       2 0.000001    ::1                   ::1                   TCP      45336 &gt; 42037 [SYN, ACK] Seq=0 Ack=1 Win=4189184 Len=0 MSS=16376 TSV=2003422 TSER=2003422 WS=7
+ 
+ Frame 2 (96 bytes on wire, 96 bytes captured)
+ Linux cooked capture
+ Internet Protocol Version 6
+ Transmission Control Protocol, Src Port: 45336 (45336), Dst Port: 42037 (42037), Seq: 0, Ack: 1, Len: 0
+     Source port: 45336 (45336)
+     Destination port: 42037 (42037)
+     Sequence number: 0    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 40 bytes
+     Flags: 0x0012 (SYN, ACK)
+     Window size: 4189184 (scaled)
+     Checksum: 0xf9c4 [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16376 bytes
+         SACK permitted
+         Time stamp: tsval 2003422, tsecr 2003422
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+       3 0.000011    ::1                   ::1                   TCP      42037 &gt; 45336 [ACK] Seq=1 Ack=1 Win=32768 Len=0 TSV=2003422 TSER=2003422
+ 
+ Frame 3 (88 bytes on wire, 88 bytes captured)
+ Linux cooked capture
+ Internet Protocol Version 6
+ Transmission Control Protocol, Src Port: 42037 (42037), Dst Port: 45336 (45336), Seq: 1, Ack: 1, Len: 0
+     Source port: 42037 (42037)
+     Destination port: 45336 (45336)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xe1ad [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2003422, tsecr 2003422
+ 
+ No.     Time        Source                Destination           Protocol Info
+       4 0.000040    ::1                   ::1                   TCP      42037 &gt; 45336 [FIN, ACK] Seq=1 Ack=1 Win=32768 Len=0 TSV=2003422 TSER=2003422
+ 
+ Frame 4 (88 bytes on wire, 88 bytes captured)
+ Linux cooked capture
+ Internet Protocol Version 6
+ Transmission Control Protocol, Src Port: 42037 (42037), Dst Port: 45336 (45336), Seq: 1, Ack: 1, Len: 0
+     Source port: 42037 (42037)
+     Destination port: 45336 (45336)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0011 (FIN, ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xe1ac [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2003422, tsecr 2003422
+ 
+ No.     Time        Source                Destination           Protocol Info
+       5 0.000053    ::1                   ::1                   TCP      45336 &gt; 42037 [FIN, ACK] Seq=1 Ack=2 Win=32768 Len=0 TSV=2003422 TSER=2003422
+ 
+ Frame 5 (88 bytes on wire, 88 bytes captured)
+ Linux cooked capture
+ Internet Protocol Version 6
+ Transmission Control Protocol, Src Port: 45336 (45336), Dst Port: 42037 (42037), Seq: 1, Ack: 2, Len: 0
+     Source port: 45336 (45336)
+     Destination port: 42037 (42037)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 2    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0011 (FIN, ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xe1ab [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2003422, tsecr 2003422
+ 
+ No.     Time        Source                Destination           Protocol Info
+       6 0.000060    ::1                   ::1                   TCP      42037 &gt; 45336 [ACK] Seq=2 Ack=2 Win=32768 Len=0 TSV=2003422 TSER=2003422
+ 
+ Frame 6 (88 bytes on wire, 88 bytes captured)
+ Linux cooked capture
+ Internet Protocol Version 6
+ Transmission Control Protocol, Src Port: 42037 (42037), Dst Port: 45336 (45336), Seq: 2, Ack: 2, Len: 0
+     Source port: 42037 (42037)
+     Destination port: 45336 (45336)
+     Sequence number: 2    (relative sequence number)
+     Acknowledgement number: 2    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xe1ab [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2003422, tsecr 2003422
+ 
+ No.     Time        Source                Destination           Protocol Info
+       7 1.365297    127.0.0.1             127.0.0.1             TCP      38251 &gt; diameter [SYN] Seq=0 Len=0 MSS=16396 TSV=2003764 TSER=0 WS=7
+ 
+ Frame 7 (76 bytes on wire, 76 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 38251 (38251), Dst Port: diameter (3868), Seq: 0, Len: 0
+     Source port: 38251 (38251)
+     Destination port: diameter (3868)
+     Sequence number: 0    (relative sequence number)
+     Header length: 40 bytes
+     Flags: 0x0002 (SYN)
+     Window size: 4197376 (scaled)
+     Checksum: 0x33bb [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16396 bytes
+         SACK permitted
+         Time stamp: tsval 2003764, tsecr 0
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+       8 1.365310    127.0.0.1             127.0.0.1             TCP      diameter &gt; 38251 [RST, ACK] Seq=0 Ack=1 Win=0 Len=0
+ 
+ Frame 8 (56 bytes on wire, 56 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: diameter (3868), Dst Port: 38251 (38251), Seq: 0, Ack: 1, Len: 0
+     Source port: diameter (3868)
+     Destination port: 38251 (38251)
+     Sequence number: 0    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 20 bytes
+     Flags: 0x0014 (RST, ACK)
+     Window size: 0
+     Checksum: 0xe94d [correct]
+ 
+ No.     Time        Source                Destination           Protocol Info
+       9 2.338024    127.0.0.1             127.0.0.1             TCP      43807 &gt; mysql [SYN] Seq=0 Len=0 MSS=16396 TSV=2004007 TSER=0 WS=7
+ 
+ Frame 9 (76 bytes on wire, 76 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 43807 (43807), Dst Port: mysql (3306), Seq: 0, Len: 0
+     Source port: 43807 (43807)
+     Destination port: mysql (3306)
+     Sequence number: 0    (relative sequence number)
+     Header length: 40 bytes
+     Flags: 0x0002 (SYN)
+     Window size: 4197376 (scaled)
+     Checksum: 0x8c35 [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16396 bytes
+         SACK permitted
+         Time stamp: tsval 2004007, tsecr 0
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+      10 2.338023    127.0.0.1             127.0.0.1             TCP      50034 &gt; mysql [SYN] Seq=0 Len=0 MSS=16396 TSV=2004007 TSER=0 WS=7
+ 
+ Frame 10 (76 bytes on wire, 76 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 50034 (50034), Dst Port: mysql (3306), Seq: 0, Len: 0
+     Source port: 50034 (50034)
+     Destination port: mysql (3306)
+     Sequence number: 0    (relative sequence number)
+     Header length: 40 bytes
+     Flags: 0x0002 (SYN)
+     Window size: 4197376 (scaled)
+     Checksum: 0x2786 [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16396 bytes
+         SACK permitted
+         Time stamp: tsval 2004007, tsecr 0
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+      11 2.338043    127.0.0.1             127.0.0.1             TCP      mysql &gt; 43807 [SYN, ACK] Seq=0 Ack=1 Win=4194304 Len=0 MSS=16396 TSV=2004007 TSER=2004007 WS=7
+ 
+ Frame 11 (76 bytes on wire, 76 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 43807 (43807), Seq: 0, Ack: 1, Len: 0
+     Source port: mysql (3306)
+     Destination port: 43807 (43807)
+     Sequence number: 0    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 40 bytes
+     Flags: 0x0012 (SYN, ACK)
+     Window size: 4194304 (scaled)
+     Checksum: 0x7dfe [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16396 bytes
+         SACK permitted
+         Time stamp: tsval 2004007, tsecr 2004007
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+      12 2.338050    127.0.0.1             127.0.0.1             TCP      mysql &gt; 50034 [SYN, ACK] Seq=0 Ack=1 Win=4194304 Len=0 MSS=16396 TSV=2004007 TSER=2004007 WS=7
+ 
+ Frame 12 (76 bytes on wire, 76 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 50034 (50034), Seq: 0, Ack: 1, Len: 0
+     Source port: mysql (3306)
+     Destination port: 50034 (50034)
+     Sequence number: 0    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 40 bytes
+     Flags: 0x0012 (SYN, ACK)
+     Window size: 4194304 (scaled)
+     Checksum: 0x63c2 [correct]
+     Options: (20 bytes)
+         Maximum segment size: 16396 bytes
+         SACK permitted
+         Time stamp: tsval 2004007, tsecr 2004007
+         NOP
+         Window scale: 7 (multiply by 128)
+ 
+ No.     Time        Source                Destination           Protocol Info
+      13 2.338055    127.0.0.1             127.0.0.1             TCP      43807 &gt; mysql [ACK] Seq=1 Ack=1 Win=32896 Len=0 TSV=2004007 TSER=2004007
+ 
+ Frame 13 (68 bytes on wire, 68 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 43807 (43807), Dst Port: mysql (3306), Seq: 1, Ack: 1, Len: 0
+     Source port: 43807 (43807)
+     Destination port: mysql (3306)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32896 (scaled)
+     Checksum: 0x6622 [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004007, tsecr 2004007
+ 
+ No.     Time        Source                Destination           Protocol Info
+      14 2.338059    127.0.0.1             127.0.0.1             TCP      50034 &gt; mysql [ACK] Seq=1 Ack=1 Win=32896 Len=0 TSV=2004007 TSER=2004007
+ 
+ Frame 14 (68 bytes on wire, 68 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 50034 (50034), Dst Port: mysql (3306), Seq: 1, Ack: 1, Len: 0
+     Source port: 50034 (50034)
+     Destination port: mysql (3306)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32896 (scaled)
+     Checksum: 0x4be6 [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004007, tsecr 2004007
+ 
+ No.     Time        Source                Destination           Protocol Info
+      15 2.338286    127.0.0.1             127.0.0.1             MySQL    Server Greeting proto=10 version=5.0.22
+ 
+ Frame 15 (124 bytes on wire, 124 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 43807 (43807), Seq: 1, Ack: 1, Len: 56
+     Source port: mysql (3306)
+     Destination port: 43807 (43807)
+     Sequence number: 1    (relative sequence number)
+     [Next sequence number: 57    (relative sequence number)]
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0018 (PSH, ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xfe60 [incorrect, should be 0x82db (maybe caused by checksum offloading?)]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004007, tsecr 2004007
+ MySQL Protocol
+ 
+ No.     Time        Source                Destination           Protocol Info
+      16 2.338293    127.0.0.1             127.0.0.1             TCP      43807 &gt; mysql [ACK] Seq=1 Ack=57 Win=32896 Len=0 TSV=2004007 TSER=2004007
+ 
+ Frame 16 (68 bytes on wire, 68 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 43807 (43807), Dst Port: mysql (3306), Seq: 1, Ack: 57, Len: 0
+     Source port: 43807 (43807)
+     Destination port: mysql (3306)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 57    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32896 (scaled)
+     Checksum: 0x65ea [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004007, tsecr 2004007
+ 
+ No.     Time        Source                Destination           Protocol Info
+      17 2.338340    127.0.0.1             127.0.0.1             MySQL    Server Greeting proto=10 version=5.0.22
+ 
+ Frame 17 (124 bytes on wire, 124 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 50034 (50034), Seq: 1, Ack: 1, Len: 56
+     Source port: mysql (3306)
+     Destination port: 50034 (50034)
+     Sequence number: 1    (relative sequence number)
+     [Next sequence number: 57    (relative sequence number)]
+     Acknowledgement number: 1    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0018 (PSH, ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xfe60 [incorrect, should be 0x2b44 (maybe caused by checksum offloading?)]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004007, tsecr 2004007
+ MySQL Protocol
+ 
+ No.     Time        Source                Destination           Protocol Info
+      18 2.338345    127.0.0.1             127.0.0.1             TCP      50034 &gt; mysql [ACK] Seq=1 Ack=57 Win=32896 Len=0 TSV=2004007 TSER=2004007
+ 
+ Frame 18 (68 bytes on wire, 68 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 50034 (50034), Dst Port: mysql (3306), Seq: 1, Ack: 57, Len: 0
+     Source port: 50034 (50034)
+     Destination port: mysql (3306)
+     Sequence number: 1    (relative sequence number)
+     Acknowledgement number: 57    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32896 (scaled)
+     Checksum: 0x4bae [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004007, tsecr 2004007
+ 
+ No.     Time        Source                Destination           Protocol Info
+      19 2.345243    127.0.0.1             127.0.0.1             MySQL    Login Request user=hss db=hss_db
+ 
+ Frame 19 (136 bytes on wire, 136 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 50034 (50034), Dst Port: mysql (3306), Seq: 1, Ack: 57, Len: 68
+     Source port: 50034 (50034)
+     Destination port: mysql (3306)
+     Sequence number: 1    (relative sequence number)
+     [Next sequence number: 69    (relative sequence number)]
+     Acknowledgement number: 57    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0018 (PSH, ACK)
+     Window size: 32896 (scaled)
+     Checksum: 0xfe6c [incorrect, should be 0x8504 (maybe caused by checksum offloading?)]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004009, tsecr 2004007
+ MySQL Protocol
+ 
+ No.     Time        Source                Destination           Protocol Info
+      20 2.345245    127.0.0.1             127.0.0.1             MySQL    Login Request user=hss db=hss_db
+ 
+ Frame 20 (136 bytes on wire, 136 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: 43807 (43807), Dst Port: mysql (3306), Seq: 1, Ack: 57, Len: 68
+     Source port: 43807 (43807)
+     Destination port: mysql (3306)
+     Sequence number: 1    (relative sequence number)
+     [Next sequence number: 69    (relative sequence number)]
+     Acknowledgement number: 57    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0018 (PSH, ACK)
+     Window size: 32896 (scaled)
+     Checksum: 0xfe6c [incorrect, should be 0x6ab3 (maybe caused by checksum offloading?)]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004009, tsecr 2004007
+ MySQL Protocol
+ 
+ No.     Time        Source                Destination           Protocol Info
+      21 2.345281    127.0.0.1             127.0.0.1             TCP      mysql &gt; 50034 [ACK] Seq=57 Ack=69 Win=32768 Len=0 TSV=2004009 TSER=2004009
+ 
+ Frame 21 (68 bytes on wire, 68 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 50034 (50034), Seq: 57, Ack: 69, Len: 0
+     Source port: mysql (3306)
+     Destination port: 50034 (50034)
+     Sequence number: 57    (relative sequence number)
+     Acknowledgement number: 69    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0x4b67 [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004009, tsecr 2004009
+ 
+ No.     Time        Source                Destination           Protocol Info
+      22 2.345319    127.0.0.1             127.0.0.1             MySQL    Response
+ 
+ Frame 22 (73 bytes on wire, 73 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 50034 (50034), Seq: 57, Ack: 69, Len: 5
+     Source port: mysql (3306)
+     Destination port: 50034 (50034)
+     Sequence number: 57    (relative sequence number)
+     [Next sequence number: 62    (relative sequence number)]
+     Acknowledgement number: 69    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0018 (PSH, ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0xfe2d [incorrect, should be 0x4c57 (maybe caused by checksum offloading?)]
+     Options: (12 bytes)
+         NOP
+         NOP
+         Time stamp: tsval 2004009, tsecr 2004009
+ MySQL Protocol
+ 
+ No.     Time        Source                Destination           Protocol Info
+      23 2.345341    127.0.0.1             127.0.0.1             TCP      mysql &gt; 43807 [ACK] Seq=57 Ack=69 Win=32768 Len=0 TSV=2004009 TSER=2004009
+ 
+ Frame 23 (68 bytes on wire, 68 bytes captured)
+ Linux cooked capture
+ Internet Protocol, Src: 127.0.0.1 (127.0.0.1), Dst: 127.0.0.1 (127.0.0.1)
+ Transmission Control Protocol, Src Port: mysql (3306), Dst Port: 43807 (43807), Seq: 57, Ack: 69, Len: 0
+     Source port: mysql (3306)
+     Destination port: 43807 (43807)
+     Sequence number: 57    (relative sequence number)
+     Acknowledgement number: 69    (relative ack number)
+     Header length: 32 bytes
+     Flags: 0x0010 (ACK)
+     Window size: 32768 (scaled)
+     Checksum: 0x65a3 [correct]
+     Options: (12 bytes)
+         NOP
+         NOP
+ 
+ === message truncated ===_______________________________________________
+ OpenIMSCore-HSS mailing list
+ <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+ <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+ 
+ 
+       
+ ---------------------------------
+ Looking for last minute shopping deals?  Find them fast with Yahoo! Search.
+ 
+  
+  
+
+       
+---------------------------------
+Never miss a thing.   Make Yahoo your homepage.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071220/2834ca90/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071220/2834ca90/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000699.html">[OpenIMSCore-HSS] HSS question
+</A></li>
+	<LI>Next message: <A HREF="000697.html">[OpenIMSCore-HSS] HSS question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#700">[ date ]</a>
+              <a href="thread.html#700">[ thread ]</a>
+              <a href="subject.html#700">[ subject ]</a>
+              <a href="author.html#700">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

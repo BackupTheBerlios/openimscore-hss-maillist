@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS compilation error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%20error&In-Reply-To=%3C354111.10675.qm%40web50911.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000192.html">
+   <LINK REL="Next"  HREF="000194.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS compilation error</H1>
+    <B>Katty Xiong</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%20error&In-Reply-To=%3C354111.10675.qm%40web50911.mail.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS compilation error">cyyxiong at yahoo.com
+       </A><BR>
+    <I>Mon Feb  5 23:16:06 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000192.html">[OpenIMSCore-HSS] HSS compilation error
+</A></li>
+        <LI>Next message: <A HREF="000194.html">[OpenIMSCore-HSS] HSS compilation error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello Adrian,
+
+It seems to me line 9 in ZhDataType.xsd, xs:import
+namespace=..., causes some confusion. After I comment
+out this line, FHoSS can be compiled successfully. Do
+you think if this will cause some side effects during
+test run?
+
+thanks,
+Joy
+
+
+--- Katty Xiong &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">cyyxiong at yahoo.com</A>&gt; wrote:
+
+&gt;<i> Hello adrian,
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your reply.
+</I>&gt;<i> 
+</I>&gt;<i> Yes, I modify ZhDataType.xsd as described in the
+</I>&gt;<i> website. For xml.xsd, the only thing I change was
+</I>&gt;<i> line
+</I>&gt;<i> 62 and 70 since the compiler complains that schema
+</I>&gt;<i> has
+</I>&gt;<i> to be followed by /&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 62 &lt;schema .../&gt; --&gt; &lt;schema/&gt;
+</I>&gt;<i> 70 &lt;type.../&gt; --&gt; &lt;type/&gt;
+</I>&gt;<i> 
+</I>&gt;<i> I looked over and over but I didn't see the mistakes
+</I>&gt;<i> with these two files. Could you take a look at them?
+</I>&gt;<i> The two files are as attached.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your help,
+</I>&gt;<i> Joy
+</I>&gt;<i> 
+</I>&gt;<i> --- &quot;Popescu, Adrian-Daniel&quot;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Adrian-Daniel.Popescu at fokus.fraunhofer.de</A>&gt; wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  Hello Katty,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  Are you sure that you didn't modified by mistake
+</I>&gt;<i> &gt; &quot;xml.xsd&quot;? Your error is saying that the &quot;xs&quot;
+</I>&gt;<i> prefix
+</I>&gt;<i> &gt; from your xml is not recognized and that has not a
+</I>&gt;<i> &gt; namespace associated to it. I suppose that you
+</I>&gt;<i> &gt; modified xml.xsd by mistake... if you do not have
+</I>&gt;<i> an
+</I>&gt;<i> &gt; internet connection, when you make &quot;ant gen&quot;, you
+</I>&gt;<i> &gt; should modify the other xml file:
+</I>&gt;<i> &gt; &quot;xsd/ZhDataType.xsd&quot; as described here:
+</I>&gt;<i> &gt; <A HREF="http://www.openimscore.org/docs/faq.html#HSS">http://www.openimscore.org/docs/faq.html#HSS</A>
+</I>&gt;<i> &gt; Tell me if this was your problem.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; bye,
+</I>&gt;<i> &gt; adrian
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; --------------------------------------------------
+</I>&gt;<i> &gt; Dipl. Eng. Adrian Popescu
+</I>&gt;<i> &gt; FOKUS / Next Generation Network Infrastructures
+</I>&gt;<i> &gt; Kaiserin-Augusta-Allee 31
+</I>&gt;<i> &gt; 10589 Berlin, Germany
+</I>&gt;<i> &gt; Phone +49 (0)30 - 3463 - 7364
+</I>&gt;<i> &gt; Mobile +49 (0)178 - 153 - 7466
+</I>&gt;<i> &gt; e-mail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>
+</I>&gt;<i> &gt; Web www.fokus.fraunhofer.de
+</I>&gt;<i> &gt; --------------------------------------------------
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; -----Original Message-----
+</I>&gt;<i> &gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> on
+</I>&gt;<i> &gt; behalf of Katty Xiong
+</I>&gt;<i> &gt; Sent: Fri 2/2/2007 9:00 PM
+</I>&gt;<i> &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> &gt; Subject: [OpenIMSCore-HSS] HSS compilation error
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I ran into problems with &quot;ant gen&quot;. I have xml.xsd
+</I>&gt;<i> &gt; local on the machine. The java installed is JDK
+</I>&gt;<i> &gt; (1.5.0_11). Also I have set
+</I>&gt;<i> &gt; JAVA_HOME=/joy/jdk1.5.0_11. I still get the errors
+</I>&gt;<i> &gt; (no
+</I>&gt;<i> &gt; namespace has been found for schema). Could
+</I>&gt;<i> somebody
+</I>&gt;<i> &gt; helps me on this?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Thanks a lot,
+</I>&gt;<i> &gt; Joy
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at primo</A> FHoSS]# ant gen
+</I>&gt;<i> &gt; Buildfile: build.xml
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; init:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; clean-gen:
+</I>&gt;<i> &gt;    [delete] Deleting directory
+</I>&gt;<i> &gt; /joy/OpenIMSCore/FHoSS/src-gen
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; gen:
+</I>&gt;<i> &gt;      [java] No namespace declaration has been
+</I>&gt;<i> found
+</I>&gt;<i> &gt; for schema
+</I>&gt;<i> &gt;      [java]    * assuming default namespace of
+</I>&gt;<i> &gt; <A HREF="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</A>
+</I>&gt;<i> &gt;      [java] An error occured at line: 110:
+</I>&gt;<i> &gt; getSimpleType: Namespace prefix not recognised
+</I>&gt;<i> &gt; 'xs'for
+</I>&gt;<i> &gt; simpleType:language
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.xml.schema.reader.ImportUnmarshaller.&lt;init&gt;(ImportUnmarshaller.java:200)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.xml.schema.reader.SchemaUnmarshaller.startElement(SchemaUnmarshaller.java:519)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:255)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.AbstractXMLDocumentParser.emptyElement(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt; org.apache.xerces.parsers.XMLParser.parse(Unknown
+</I>&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:564)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:497)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.builder.SourceGeneratorMain.main(SourceGeneratorMain.java:245)
+&gt;<i> &gt;      [java] Caused by: getSimpleType: Namespace
+</I>&gt;<i> &gt; prefix
+</I>&gt;<i> &gt; not recognised 'xs'for simpleType:language
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:258)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt; org.apache.xerces.parsers.XMLParser.parse(Unknown
+</I>&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.xml.schema.reader.ImportUnmarshaller.&lt;init&gt;(ImportUnmarshaller.java:194)
+&gt;<i> &gt;      [java]     ... 14 more
+</I>&gt;<i> &gt;      [java] Caused by: getSimpleType: Namespace
+</I>&gt;<i> &gt; prefix
+</I>&gt;<i> &gt; not recognised 'xs'for simpleType:language
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:258)
+&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+&gt;<i> &gt; Source)
+</I>&gt;<i> &gt;      [java]     at
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>=== message truncated ===&gt;
+_______________________________________________
+&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+&gt;<i> 
+</I>
+
+
+ 
+____________________________________________________________________________________
+Get your own web address.  
+Have a HUGE year through Yahoo! Small Business.
+<A HREF="http://smallbusiness.yahoo.com/domains/?p=BESTDEAL">http://smallbusiness.yahoo.com/domains/?p=BESTDEAL</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000192.html">[OpenIMSCore-HSS] HSS compilation error
+</A></li>
+	<LI>Next message: <A HREF="000194.html">[OpenIMSCore-HSS] HSS compilation error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

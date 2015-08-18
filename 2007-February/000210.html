@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] compile error for FHoSS r130
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20compile%20error%20for%20FHoSS%20r130&In-Reply-To=%3C6f497e130702151330y6a17f7ddoe87ac45a4d3f16a4%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000209.html">
+   <LINK REL="Next"  HREF="000211.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] compile error for FHoSS r130</H1>
+    <B>Ovidiu Sas</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20compile%20error%20for%20FHoSS%20r130&In-Reply-To=%3C6f497e130702151330y6a17f7ddoe87ac45a4d3f16a4%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] compile error for FHoSS r130">sip.nslu at gmail.com
+       </A><BR>
+    <I>Thu Feb 15 22:30:03 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000209.html">[OpenIMSCore-HSS] [SVN-FHoSS] r144 - FHoSS/branches
+</A></li>
+        <LI>Next message: <A HREF="000211.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#210">[ date ]</a>
+              <a href="thread.html#210">[ thread ]</a>
+              <a href="subject.html#210">[ subject ]</a>
+              <a href="author.html#210">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+
+I followed the instructions from the wiki:
+<A HREF="http://www.openimscore.org/docs/install.html#installscript">http://www.openimscore.org/docs/install.html#installscript</A>
+
+and I have the following error:
+/opt/OpenIMSCore/FHoSS$ ant gen compile
+Buildfile: build.xml
+
+init:
+    [mkdir] Created dir: /opt/OpenIMSCore/FHoSS/bin
+    [mkdir] Created dir: /opt/OpenIMSCore/FHoSS/src-gen
+
+clean-gen:
+   [delete] Deleting directory /opt/OpenIMSCore/FHoSS/src-gen
+
+gen:
+     [java] 2007-02-15 16:25:25,026 WARN
+org.exolab.castor.builder.SourceGenerator - processImportedSchemas
+Warning: Do not forget to generate source code for the following
+imported schema: <A HREF="http://www.w3.org/2001/xml.xsd">http://www.w3.org/2001/xml.xsd</A>
+
+init:
+
+compile:
+    [javac] Compiling 156 source files to /opt/OpenIMSCore/FHoSS/bin
+    [javac] Compiling 282 source files to /opt/OpenIMSCore/FHoSS/bin
+    [javac] /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/diam/CommandAction.java:47:
+cannot access de.fhg.fokus.diameter.DiameterPeer.EventListener
+    [javac] bad class file:
+/opt/OpenIMSCore/FHoSS/lib/jdp.jar(de/fhg/fokus/diameter/DiameterPeer/EventListener.class)
+    [javac] class file has wrong version 49.0, should be 48.0
+    [javac] Please remove or make sure it appears in the correct
+subdirectory of the classpath.
+    [javac] import de.fhg.fokus.diameter.DiameterPeer.EventListener;
+    [javac]                                           ^
+    [javac] 1 error
+
+BUILD FAILED
+/opt/OpenIMSCore/FHoSS/build.xml:91: Compile failed; see the compiler
+error output for details.
+
+Total time: 8 seconds
+
+
+
+/opt/OpenIMSCore/FHoSS$ svn info
+Path: .
+URL: <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk">http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk</A>
+Repository Root: <A HREF="http://svn.berlios.de/svnroot/repos/openimscore">http://svn.berlios.de/svnroot/repos/openimscore</A>
+Repository UUID: a36f3ba7-d720-0410-92d7-d12b36172079
+Revision: 144
+Node Kind: directory
+Schedule: normal
+Last Changed Author: adp
+Last Changed Rev: 130
+Last Changed Date: 2007-02-08 13:11:21 -0500 (Thu, 08 Feb 2007)
+
+
+
+Regards,
+Ovidiu Sas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000209.html">[OpenIMSCore-HSS] [SVN-FHoSS] r144 - FHoSS/branches
+</A></li>
+	<LI>Next message: <A HREF="000211.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#210">[ date ]</a>
+              <a href="thread.html#210">[ thread ]</a>
+              <a href="subject.html#210">[ subject ]</a>
+              <a href="author.html#210">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

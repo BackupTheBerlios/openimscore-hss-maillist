@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Initial%20Filter%20Criteria%20bug%20in%20FHoSS%21&In-Reply-To=%3C465C1428.5050705%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000441.html">
+   <LINK REL="Next"  HREF="000449.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Initial%20Filter%20Criteria%20bug%20in%20FHoSS%21&In-Reply-To=%3C465C1428.5050705%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue May 29 13:53:12 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000441.html">[OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!
+</A></li>
+        <LI>Next message: <A HREF="000449.html">[OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#444">[ date ]</a>
+              <a href="thread.html#444">[ thread ]</a>
+              <a href="subject.html#444">[ subject ]</a>
+              <a href="author.html#444">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hold on :)... &quot;any&quot; means both so we don't need to add something like
+&quot;not-specified&quot;. The S-CSCF should not care about it. Actually I think
+that the issue was regarding the download of the service profiles with
+&quot;any&quot;, from the HSS. Or? So where is the bug?
+a) in the HSS because it only looks for profile part indicator not
+registered and not also for any (in LIR for example).
+b) in the S-CSCF because even though the profile was downloaded, the
+filter for any is not applied for the not registered case?
+
+I would rule out b because the code is:
+
+                if (fc-&gt;profile_part_indicator){               
+                    if (( (registered==IMS_USER_REGISTERED) &amp;&amp;
+(*fc-&gt;profile_part_indicator))||
+                        ( (registered==IMS_USER_UNREGISTERED) &amp;&amp;
+!(*fc-&gt;profile_part_indicator))) {
+                        DBG(&quot;DEBUG:&quot;M_NAME&quot;:isc_checker_find: this one
+is not good... ppindicator wrong \n&quot;);                               
+           
+                        cnt++;
+                        continue;
+                    }
+                }
+
+So the ppindicator, if absent (any), is not checked.
+
+-Dragos
+
+Adrian-Daniel Popescu wrote:
+&gt;<i> Hi JF,
+</I>&gt;<i>
+</I>&gt;<i> 1.
+</I>&gt;<i> &gt; We did some tests with branch 01_RevampDB rev 280.
+</I>&gt;<i> &gt; Omitting ProfilePartIndicator in the IFC (selecting 'any') the
+</I>&gt;<i> &gt; behaviour is the same as in the REGISTERED case, the AS is not
+</I>&gt;<i> &gt; triggered if the user is not registered.
+</I>&gt;<i> &gt; When the ProfilePartIndicator is UNREGISTERED, the AS is triggered for
+</I>&gt;<i> &gt; the unregistered user.
+</I>&gt;<i>
+</I>&gt;<i> Right, it seems the name &quot;any&quot; wasn't the best approach for that field.
+</I>&gt;<i> The specs are providing only 2 values for that field: registered or
+</I>&gt;<i> unregistered. However, this field can miss and in this case the
+</I>&gt;<i> implicitly value considered on S-CSCF is registered. So, I will change
+</I>&gt;<i> that name in &quot;not-specified&quot; or smth like that. I hope that this will
+</I>&gt;<i> stop the misunderstanding.
+</I>&gt;<i>
+</I>&gt;<i> 2.
+</I>&gt;<i> &gt; Added task to queue!
+</I>&gt;<i> &gt; de.fhg.fokus.hss.sh.ShExperimentalResultException:
+</I>&gt;<i> &gt; IMS_Diameter_Error_User_Data_Cannot_Be_Read
+</I>&gt;<i> &gt;        at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:133)
+</I>&gt;<i> &gt;        at de.fhg.fokus.hss.main.Task.execute(Task.java:125)
+</I>&gt;<i> &gt;        at de.fhg.fokus.hss.main.Worker.run(Worker.java:63)
+</I>&gt;<i>
+</I>&gt;<i> Was your AS been added into the HSS? and moreover, has the rights to
+</I>&gt;<i> invoke UDR? Your error is thrown exactly when the AS is searched through
+</I>&gt;<i> the database and is not found.
+</I>&gt;<i>
+</I>&gt;<i> -Adrian
+</I>&gt;<i>
+</I>&gt;<i> JF wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i>
+</I>&gt;<i> &gt; We did some tests with branch 01_RevampDB rev 280.
+</I>&gt;<i> &gt; Omitting ProfilePartIndicator in the IFC (selecting 'any') the
+</I>&gt;<i> &gt; behaviour is the same as in the REGISTERED case, the AS is not
+</I>&gt;<i> &gt; triggered if the user is not registered.
+</I>&gt;<i> &gt; When the ProfilePartIndicator is UNREGISTERED, the AS is triggered for
+</I>&gt;<i> &gt; the unregistered user. However, an error occurs in the UDR/UDA
+</I>&gt;<i> &gt; exchange between AS and HSS:
+</I>&gt;<i>
+</I>&gt;<i> &gt; Added task to queue!
+</I>&gt;<i> &gt; de.fhg.fokus.hss.sh.ShExperimentalResultException:
+</I>&gt;<i> &gt; IMS_Diameter_Error_User_Data_Cannot_Be_Read
+</I>&gt;<i> &gt;        at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:133)
+</I>&gt;<i> &gt;        at de.fhg.fokus.hss.main.Task.execute(Task.java:125)
+</I>&gt;<i> &gt;        at de.fhg.fokus.hss.main.Worker.run(Worker.java:63)
+</I>&gt;<i>
+</I>&gt;<i> &gt; Did anyone else detect this behaviour?
+</I>&gt;<i>
+</I>&gt;<i> &gt; JF
+</I>&gt;<i>
+</I>&gt;<i> &gt; On 5/22/07, Adrian-Daniel Popescu
+</I>&gt;<i> &gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>&gt; wrote:
+</I>&gt;<i> &gt; Yes, you have right, I forgot this possibility. It was solved too.
+</I>&gt;<i>
+</I>&gt;<i> &gt; -Adrian
+</I>&gt;<i>
+</I>&gt;<i> &gt; fancy_xiao wrote:
+</I>&gt;<i> &gt;&gt; openimscore-hss`}
+</I>&gt;<i> &gt;&gt; when use the FHoSS websit to create an Initial Filter Criteria,the
+</I>&gt;<i> &gt; ProfilePartIndicator
+</I>&gt;<i> &gt;&gt; attribute is only selected REGISTERED or UNREGISTERED ?but this
+</I>&gt;<i> &gt; attribute could be missed as
+</I>&gt;<i> &gt;&gt; the describe on TS29228!
+</I>&gt;<i> &gt;&gt; The TS29228 described that the ProfilePartIndicator attribute is an
+</I>&gt;<i> &gt; enumerated type,
+</I>&gt;<i> &gt;&gt; with possible values &quot;REGISTERED and UNREGISTERED, indicating if the
+</I>&gt;<i> &gt; iFC is a part of the
+</I>&gt;<i> &gt;&gt; registered or unregistered user profile. If ProfilePartIndicator is
+</I>&gt;<i> &gt; missing from the iFC,
+</I>&gt;<i> &gt;&gt; the iFC is considered to be relevant to both the registered and
+</I>&gt;<i> &gt; unregistered parts of the
+</I>&gt;<i> &gt;&gt; user profile, i.e. belongs to the common part of the user profile.
+</I>&gt;<i> &gt;&gt; fancy_xiao<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &gt;&gt; 2007-05-22
+</I>&gt;<i> &gt;&gt; _______________________________________________
+</I>&gt;<i> &gt;&gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt; --------------------------------------------
+</I>&gt;<i> &gt; Diploma Engineer Adrian Popescu
+</I>&gt;<i> &gt; FOKUS Fraunhofer Institute
+</I>&gt;<i> &gt; Next Generation Network Infrastructures
+</I>&gt;<i> &gt; Kaiserin-Augusta-Allee 31, 10589, Berlin
+</I>&gt;<i> &gt; Work Phone: +49 303 463 7364
+</I>&gt;<i> &gt; Mobile: +49 178 153 7466
+</I>&gt;<i> &gt; E-Mail: adp at fokus.fraunhofer.de
+</I>&gt;<i> &gt; Web: www.fokus.fraunhofer.de
+</I>&gt;<i> &gt; --------------------------------------------
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>_______________________________________________
+OpenIMSCore-HSS mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000441.html">[OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!
+</A></li>
+	<LI>Next message: <A HREF="000449.html">[OpenIMSCore-HSS] Initial Filter Criteria bug in FHoSS!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#444">[ date ]</a>
+              <a href="thread.html#444">[ thread ]</a>
+              <a href="subject.html#444">[ subject ]</a>
+              <a href="author.html#444">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

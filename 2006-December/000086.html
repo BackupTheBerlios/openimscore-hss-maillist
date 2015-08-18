@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Log File for Compilation Errors
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Log%20File%20for%20Compilation%20Errors&In-Reply-To=%3C008c01c71d96%2424db9a20%240b40000a%40blr.velankani.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000085.html">
+   <LINK REL="Next"  HREF="000087.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Log File for Compilation Errors</H1>
+    <B>Gaurav Kansal</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Log%20File%20for%20Compilation%20Errors&In-Reply-To=%3C008c01c71d96%2424db9a20%240b40000a%40blr.velankani.com%3E"
+       TITLE="[OpenIMSCore-HSS] Log File for Compilation Errors">gkansal at velankani.com
+       </A><BR>
+    <I>Tue Dec 12 03:35:05 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000085.html">[OpenIMSCore-HSS] Log File for Compilation Errors
+</A></li>
+        <LI>Next message: <A HREF="000087.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#86">[ date ]</a>
+              <a href="thread.html#86">[ thread ]</a>
+              <a href="subject.html#86">[ subject ]</a>
+              <a href="author.html#86">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Adrian
+
+ 
+
+Thanks for the help. The code is compiled now. Problem was that JAVA_HOME
+was not set to anything, so it might be picking up java things from 1.4
+version which also is installed on my machine along with 1.5
+
+ 
+
+Regards,
+
+Gaurav Kansal
+
+ 
+
+Velankani Software Private Limited,
+
+43, Electronics City,
+
+Phase - 2, Hosur Road,
+
+Bangalore - 560100
+
+Phone : +91 80 4037 5300/01 Extn. # 5401
+Direct  : +91 80 4037 5401
+
+Fax     : +91 80 4037 5303
+Mobile : +91 98454 22400
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">gkansal at velankani.com</A>
+
+www.velankani.com &lt;<A HREF="http://www.velankani.com/">http://www.velankani.com/</A>&gt; 
+
+ 
+
+&quot;Every Customer is a Reference Customer&quot;
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] On Behalf Of Java Addict
+Sent: Tuesday, December 12, 2006 7:47 AM
+To: Java Addict; Adrian-Daniel Popescu
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: Re: [OpenIMSCore-HSS] Log File for Compilation Errors
+
+ 
+
+Hello Adrian,
+
+All fixed, thanks for your help.
+
+On the first machine code was outdated and on the next windows one java
+version was not correct.
+
+New code and correct java enabled a smooth compile.
+
+Thanks again.
+
+Cheers,
+
+Ahmed
+
+Java Addict &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">java.addict at yahoo.com</A>&gt; wrote:
+
+Hi Adrian,
+
+I am 100% sure and positive that I am using java 1.5+.
+
+However, Yes I agree with not up-to-date source code as I just downloaded a
+fresh copy from repository and went again with the ant compile and this time
+I only got 1 error.
+
+compile:
+    [javac] Compiling 156 source files to I:\OpenIMSCore\FHoSS\bin
+    [javac] Compiling 329 source files to I:\OpenIMSCore\FHoSS\bin
+    [javac] I:\OpenIMSCore\FHoSS\src\de\fhg\fokus\hss\diam\AVPCodes.java:47:
+can not access de.fhg.fokus.diameter.DiameterPeer.data.AVP
+    [javac] bad class file:
+I:\OpenIMSCore\FHoSS\lib\jdp.jar(de/fhg/fokus/diamet
+er/DiameterPeer/data/AVP.class)
+    [javac] class file has wrong version 49.0, should be 48.0
+    [javac] Please remove or make sure it appears in the correct
+subdirectory of the classpath.
+    [javac] import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+    [javac]                                                ^
+    [javac] 1 error
+
+Which surely is a version problem and is in &quot;jdp.jar&quot;. I will confirm if it
+is the problem at my end or the compilation version of the jar file and
+update to you guys.
+
+Thanks a lot for your prompt replies.
+
+Regards,
+
+Ahmed
+
+Adrian-Daniel Popescu &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>&gt; wrote:
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello Ahmed,
+
+Your problem is also related to the javac version that you use in
+compiling the sources. Is not 1.5, as it should be! Please use Java 1.5
+as it was said already on the list. Even if you have somewhere on your
+machine java 1.5 installed, be sure that ant is using it in the
+compilation process. Take into consideration the thread:
+<A HREF="000078.html">http://lists.berlios.de/pipermail/openimscore-hss/2006-December/000078.html</A>
+related to this topic.
+
+Cheers,
+Adrian
+
+Java Addict wrote:
+&gt;<i> Hi All,
+</I>&gt;<i> 
+</I>&gt;<i> Attached with this email is the log file for my previous post.
+</I>&gt;<i> 
+</I>&gt;<i> I go smoothly till &quot;ant gen&quot; step but then &quot;ant compile&quot; gives me 173
+</I>&gt;<i> errors and warnings. At a single glance I haven't been able to identofy
+</I>&gt;<i> the problem.
+</I>&gt;<i> 
+</I>&gt;<i> Can somebody please comment on it?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks
+</I>&gt;<i> 
+</I>&gt;<i> Ahmed
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> Everyone is raving about the all-new Yahoo! Mail beta.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFfaf+6Yml36HNIwcRAqEUAJ96xZFj2UwKSShIyVMrrFqXk4ZnQwCggZaH
+GO4idYmwYJfmhz+YSh04iRE=
+=Xvnb
+-----END PGP SIGNATURE-----
+
+ 
+
+  _____  
+
+Have a burning question? Go to Yahoo!
+&lt;<A HREF="http://answers.yahoo.com/;_ylc=X3oDMTFvbGNhMGE3BF9TAzM5NjU0NTEwOARfcwMzOTY1">http://answers.yahoo.com/;_ylc=X3oDMTFvbGNhMGE3BF9TAzM5NjU0NTEwOARfcwMzOTY1</A>
+NDUxMDMEc2VjA21haWxfdGFnbGluZQRzbGsDbWFpbF90YWcx&gt;  Answers and get answers
+from real people who know._______________________________________________
+OpenIMSCore-HSS mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+
+ 
+
+  
+
+  _____  
+
+Cheap Talk? Check
+&lt;<A HREF="http://us.rd.yahoo.com/mail_us/taglines/postman8/*http:/us.rd.yahoo.com/evt">http://us.rd.yahoo.com/mail_us/taglines/postman8/*http:/us.rd.yahoo.com/evt</A>
+=39663/*http:/voice.yahoo.com&gt;  out Yahoo! Messenger's low PC-to-Phone call
+rates.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061212/2e01f607/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061212/2e01f607/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000085.html">[OpenIMSCore-HSS] Log File for Compilation Errors
+</A></li>
+	<LI>Next message: <A HREF="000087.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#86">[ date ]</a>
+              <a href="thread.html#86">[ thread ]</a>
+              <a href="subject.html#86">[ subject ]</a>
+              <a href="author.html#86">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

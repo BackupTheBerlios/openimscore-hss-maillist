@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C63acfd6c0808061148yaf42ed4x91c040f26f702af6%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000846.html">
+   <LINK REL="Next"  HREF="000842.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)</H1>
+    <B>vr.sundar</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication%20pending%20flag%20not%20cleared%20%28for%0A%09Cxinterface%29&In-Reply-To=%3C63acfd6c0808061148yaf42ed4x91c040f26f702af6%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)">vr.sundar at gmail.com
+       </A><BR>
+    <I>Wed Aug  6 20:48:28 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000846.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+        <LI>Next message: <A HREF="000842.html">[OpenIMSCore-HSS] AS and HSS communication/Java Diameter Peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#848">[ date ]</a>
+              <a href="thread.html#848">[ thread ]</a>
+              <a href="subject.html#848">[ subject ]</a>
+              <a href="author.html#848">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+On Mon, Aug 4, 2008 at 10:54 PM, Franz Edler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>&gt; wrote:
+&gt;<i> I never detected that the AuthPending flag is reset. I always have the
+</I>&gt;<i> situation that after offering wrong credentials during authentication the
+</I>&gt;<i> S-CSCF requests an additional authentication vector and HSS denies this
+</I>&gt;<i> request (DIAMETER_UNABLE_TO_COMPLY). In this case the AuthPending flag is
+</I>&gt;<i> never reset. This behaviour also seems worth to dig deeper. I will do that
+</I>&gt;<i> later.
+</I>
+Ok. I have a simple patch for this but I don't believe this is the
+complete/right solution. I probably need to do something further. I'll
+try to clean that up and maybe post it. Thanks for your input so far.
+
+sundar
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000846.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for	Cxinterface)
+</A></li>
+	<LI>Next message: <A HREF="000842.html">[OpenIMSCore-HSS] AS and HSS communication/Java Diameter Peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#848">[ date ]</a>
+              <a href="thread.html#848">[ thread ]</a>
+              <a href="subject.html#848">[ subject ]</a>
+              <a href="author.html#848">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] problem with UDR repository data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20problem%20with%20UDR%20repository%20data&In-Reply-To=%3C464183FD.6010706%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000385.html">
+   <LINK REL="Next"  HREF="000388.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] problem with UDR repository data</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20problem%20with%20UDR%20repository%20data&In-Reply-To=%3C464183FD.6010706%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] problem with UDR repository data">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed May  9 10:19:09 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000385.html">[OpenIMSCore-HSS] problem with UDR repository data
+</A></li>
+        <LI>Next message: <A HREF="000388.html">[OpenIMSCore-HSS] [SVN-FHoSS] r265 - Added PUR &amp; modifications to	ShData parser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#386">[ date ]</a>
+              <a href="thread.html#386">[ thread ]</a>
+              <a href="subject.html#386">[ subject ]</a>
+              <a href="author.html#386">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Nagaraj,
+
+isn't that repository supposed to be a transparent one for the use of
+the AS? We never thought that someone would be interested in manually
+editing that data. In any case, if you think that it would be useful, we
+would appreciate your contributions.
+
+-Dragos
+
+
+Nagaraj K wrote:
+&gt;<i>
+</I>&gt;<i> Adrin,
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Thanks. The latest version solves the problem.
+</I>&gt;<i>
+</I>&gt;<i> I have some basic doubts&#8230;
+</I>&gt;<i>
+</I>&gt;<i> How to provision repository data fields in HSS?
+</I>&gt;<i>
+</I>&gt;<i> The provisioning GUI has no option to do it&#8230;
+</I>&gt;<i>
+</I>&gt;<i> If UDR sent for repository data then UDA comes as Diameter unable to
+</I>&gt;<i> comply message.
+</I>&gt;<i>
+</I>&gt;<i> I have attached trace.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Anything has not implemented? Or anything has gone wrong in my
+</I>&gt;<i> installation?
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> *Nagaraj** **Komarasamy**|** BT**|** **Tech Mahindra*
+</I>&gt;<i>
+</I>&gt;<i> KRM Centre, 2 Harrington Road, 5th Floor, Chetpet, Chennai 600 031
+</I>&gt;<i>
+</I>&gt;<i> ( Office:  044-66212000    *|*  Extn:2061         *|* Cell: 9894732672 
+</I>&gt;<i>
+</I>&gt;<i> Email:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">knraj at techmahindra.com</A>
+</I>&gt;<i>
+</I>&gt;<i> *www.techmahindra.com &lt;<A HREF="http://www.techmahindra.com/">http://www.techmahindra.com/</A>&gt;***
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> *From:* Popescu, Adrian-Daniel
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Adrian-Daniel.Popescu at fokus.fraunhofer.de</A>]
+</I>&gt;<i> *Sent:* Monday, May 07, 2007 6:14 PM
+</I>&gt;<i> *To:* Weik, Peter; Nagaraj K
+</I>&gt;<i> *Cc:* <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> *Subject:* RE: [OpenIMSCore-HSS] FW: problem while connecting
+</I>&gt;<i> weblogicwith openIMS
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>   Hello Nagaraj,
+</I>&gt;<i>
+</I>&gt;<i> I can confirm that this issue was already solved. Please update your
+</I>&gt;<i> FHoSS revision to the last one. The Proxiable flag was set for all the
+</I>&gt;<i> Sh commands (UDR, PUR, SNR, PNR).
+</I>&gt;<i>
+</I>&gt;<i> -Adrian
+</I>&gt;<i>
+</I>&gt;<i> --------------------------------------------------
+</I>&gt;<i> Dipl. Eng. Adrian Popescu
+</I>&gt;<i> FOKUS / Next Generation Network Infrastructures
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin, Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 9488
+</I>&gt;<i> Mobile +49 (0)178 - 153 - 7466
+</I>&gt;<i> e-mail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>
+</I>&gt;<i> Web www.fokus.fraunhofer.de
+</I>&gt;<i> --------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> on behalf of Peter Weik
+</I>&gt;<i> Sent: Mon 5/7/2007 1:03 PM
+</I>&gt;<i> To: Nagaraj K
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] FW: problem while connecting
+</I>&gt;<i> weblogicwith        openIMS
+</I>&gt;<i>
+</I>&gt;<i> Hello Nagaraj,
+</I>&gt;<i>
+</I>&gt;<i> what revision of FHoSS are you using ?
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Peter
+</I>&gt;<i>
+</I>&gt;<i> On Mon, 2007-05-07 at 14:38 +0530, Nagaraj K wrote:
+</I>&gt;<i> &gt; Hello all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I have tested open IMS sh interface with web logic sip server.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; It was successful upto hss sending 2001 success to application server.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; But in application server Invalid message received: Invalid PXY bit
+</I>&gt;<i> &gt; for command
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Error comes.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The details from application server
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &lt;May 7, 2007 10:05:14 AM IST&gt; &lt;Warning&gt; &lt;Diameter.Core&gt; &lt;BEA-340028&gt;
+</I>&gt;<i> &gt; &lt;Invalid message received: Invalid PXY bit for command:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &lt;User-Data-Answer Flags=&quot;&quot; AppId=&quot;16777217&quot; HopByHopId=&quot;1809671931&quot;
+</I>&gt;<i> &gt; EndToEndId=&quot;199103366&quot;&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-263&gt;N/A&lt;/Unknown-263&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-264&gt;N/A&lt;/Unknown-264&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-296&gt;N/A&lt;/Unknown-296&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-260&gt;N/A&lt;/Unknown-260&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-277&gt;N/A&lt;/Unknown-277&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-702&gt;N/A&lt;/Unknown-702&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   &lt;Unknown-268&gt;N/A&lt;/Unknown-268&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &lt;/User-Data-Answer&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I thing the bit combination was not correct in diameter header. I just
+</I>&gt;<i> &gt; want to know where the error was in hss or application server. Is it
+</I>&gt;<i> &gt; possible to change the PXY bit in hss responses?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Nagaraj Komarasamy| BT| Tech Mahindra
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; KRM Centre, 2 Harrington Road, 5th Floor, Chetpet, Chennai 600 031
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ( Office:  044-66212000    | Extn:2061         | Cell: 9894732672
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Email:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">knraj at techmahindra.com</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; www.techmahindra.com
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ============================================================================================================================
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Disclaimer:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; This message and the information contained herein is proprietary and
+</I>&gt;<i> &gt; confidential and subject to the Tech Mahindra policy statement, you
+</I>&gt;<i> &gt; may review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A> externally
+</I>&gt;<i> &gt; and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A> internally within Tech
+</I>&gt;<i> &gt; Mahindra.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ============================================================================================================================
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> --
+</I>&gt;<i> ------------------------------------------------------------------------------------
+</I>&gt;<i> Peter Weik
+</I>&gt;<i>    
+</I>&gt;<i> Fraunhofer Institut FOKUS       phone:  + 49-30 3463-7196
+</I>&gt;<i> Kaiserin-Augusta-Allee 31      
+</I>&gt;<i> D-10589 Berlin                  web: www.fokus.fraunhofer.de/ims
+</I>&gt;<i> ------------------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> Disclaimer:
+</I>&gt;<i>
+</I>&gt;<i> This message and the information contained herein is proprietary and
+</I>&gt;<i> confidential and subject to the Tech Mahindra policy statement, you
+</I>&gt;<i> may review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A> externally
+</I>&gt;<i> and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A> internally within Tech
+</I>&gt;<i> Mahindra.
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000385.html">[OpenIMSCore-HSS] problem with UDR repository data
+</A></li>
+	<LI>Next message: <A HREF="000388.html">[OpenIMSCore-HSS] [SVN-FHoSS] r265 - Added PUR &amp; modifications to	ShData parser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#386">[ date ]</a>
+              <a href="thread.html#386">[ thread ]</a>
+              <a href="subject.html#386">[ subject ]</a>
+              <a href="author.html#386">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

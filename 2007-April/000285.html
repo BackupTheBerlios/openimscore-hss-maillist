@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] how to add s-cscf name?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20how%20to%20add%20s-cscf%20name%3F&In-Reply-To=%3C461B5EF7.1090607%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000284.html">
+   <LINK REL="Next"  HREF="000295.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] how to add s-cscf name?</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20how%20to%20add%20s-cscf%20name%3F&In-Reply-To=%3C461B5EF7.1090607%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] how to add s-cscf name?">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 10 11:55:03 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000284.html">[OpenIMSCore-HSS] how to add s-cscf name?
+</A></li>
+        <LI>Next message: <A HREF="000295.html">[OpenIMSCore-HSS] how to add s-cscf name?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#285">[ date ]</a>
+              <a href="thread.html#285">[ thread ]</a>
+              <a href="subject.html#285">[ subject ]</a>
+              <a href="author.html#285">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>You are right, but only if there is already a S-CSCF name assigned. For
+the first discovery, the HSS does not know anything about any S-CSCF.
+
+-Dragos
+
+fancy_xiao wrote:
+&gt;<i> Dragos Vingarzan,openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i> I-CSCF send UAR for user registration status query? And Hss reutn UAA
+</I>&gt;<i> to I-cscf ,I-CSCF foward the register to S-CSCF which is apprived by
+</I>&gt;<i> zhe UAA's Server-Name AVP? HSS don't have assigned s-cscf function????
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &lt;mailto:%3C%21--AID_FROMADDRESS_BEGIN--%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">3Efancy_xiao at astrocom.cn</A>%3C%21--AID_FROMADDRESS_END--%3E&gt;
+</I>&gt;<i> 2007-04-10
+</I>&gt;<i>
+</I>&gt;<i>     ----- Original Message -----
+</I>&gt;<i>     *From: *Dragos Vingarzan &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i>     *To: *fancy_xiao,openimscore-hss
+</I>&gt;<i>     &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A><A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">,openimscore-hss at lists.berlios.de</A>&gt;
+</I>&gt;<i>     *Sent: *2007-04-10, 17:35:35
+</I>&gt;<i>     *Subject: *Re: [OpenIMSCore-HSS] how to add s-cscf name?
+</I>&gt;<i>
+</I>&gt;<i>     The S-CSCFs are configured in the icscf database for which we have
+</I>&gt;<i>     provided an SQL dump (icscf.sql). The selection is performed
+</I>&gt;<i>     automatically by the I-CSCF. The HSS can only indicate a set of
+</I>&gt;<i>     mandatory and optional capabilities for the user to be registered
+</I>&gt;<i>     to the
+</I>&gt;<i>     I-CSCF and the I-CSCF will make the decision to which S-CSCF to
+</I>&gt;<i>     forwards
+</I>&gt;<i>     the REGISTER request. The first S-CSCF to answer and register the user
+</I>&gt;<i>     will send MAR/SAR messages to the HSS through the Cx Diameter
+</I>&gt;<i>     interface
+</I>&gt;<i>     and the HSS will save the name of the S-CSCF in those requests in the
+</I>&gt;<i>     S-CSCF field that you were talking about.
+</I>&gt;<i>
+</I>&gt;<i>     -Dragos
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     fancy_xiao wrote:
+</I>&gt;<i>     &gt; Dragos Vingarzan&#65292;&#20320;&#22909;
+</I>&gt;<i>     &gt; if i add more than one s-cscf ,zhe hss how to select a s-cscf
+</I>&gt;<i>     for one
+</I>&gt;<i>     &gt; ims subscription?
+</I>&gt;<i>     &gt; fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;<i>     &gt; &lt;mailto:%3C%21--AID_FROMADDRESS_BEGIN--%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">3Efancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">203Efancy_xiao at astrocom.cn</A>&gt;%3C%21--AID_FROMADDRESS_END--%3E&gt;
+</I>&gt;<i>     &gt; 2007-04-10
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; ----- Original Message -----
+</I>&gt;<i>     &gt; *From: *Dragos Vingarzan &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20vingarzan at fokus.fraunhofer.de</A>&gt;&gt;
+</I>&gt;<i>     &gt; *To: *fancy_xiao &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20fancy_xiao at astrocom.cn</A>&gt;&gt;
+</I>&gt;<i>     &gt; *Sent: *2007-04-10, 16:57:19
+</I>&gt;<i>     &gt; *Subject: *Re: [OpenIMSCore-HSS] how to add s-cscf name?
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Hello fancy_xiao,
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; The S-CSCF name is set by the HSS itself during normal registration.
+</I>&gt;<i>     &gt; That field is there only as read-only, for informative purposes
+</I>&gt;<i>     only.
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; -Dragos
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; fancy_xiao wrote:
+</I>&gt;<i>     &gt; &gt; openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i>     &gt; &gt; how to use web to add s-cscf name for a privateid? when i use
+</I>&gt;<i>     &gt; hssAmin
+</I>&gt;<i>     &gt; &gt; to add a private Id,but can't add s-cscf name!
+</I>&gt;<i>     &gt; &gt; fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;<i>     &gt; &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20fancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">2020fancy_xiao at astrocom.cn</A>&gt;&gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &lt;mailto:%3C%21--AID_FROMADDRESS_BEGIN--%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">3Efancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">203Efancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;<i>     &gt; &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">203Efancy_xiao at astrocom.cn</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20203Efancy_xiao at astrocom.cn</A>&gt;&gt;%3C%21--AID_FROMADDRESS_END--%3E&gt;
+</I>&gt;<i>     &gt; &gt; 2007-04-10
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; _______________________________________________
+</I>&gt;<i>     &gt; &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i>     &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20OpenIMSCore-HSS at lists.berlios.de</A>&gt;
+</I>&gt;<i>     &gt; &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">2020OpenIMSCore-HSS at lists.berlios.de</A>&gt;&gt;
+</I>&gt;<i>     &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; --
+</I>&gt;<i>     &gt; -----------------------------------------
+</I>&gt;<i>     &gt; Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i>     &gt; FOKUS/NGNI
+</I>&gt;<i>     &gt; Kaiserin-Augusta-Allee 31
+</I>&gt;<i>     &gt; 10589 Berlin,Germany
+</I>&gt;<i>     &gt; Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i>     &gt; Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i>     &gt; eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20vingarzan at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i>     &gt; &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">2020vingarzan at fokus.fraunhofer.de</A>&gt;&gt;
+</I>&gt;<i>     &gt; Web www.fokus.fraunhofer.de
+</I>&gt;<i>     &gt; We could change the world if God would give us the source code...
+</I>&gt;<i>     &gt; -----------------------------------------------------------------
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     -- 
+</I>&gt;<i>     -----------------------------------------
+</I>&gt;<i>     Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i>     FOKUS/NGNI
+</I>&gt;<i>     Kaiserin-Augusta-Allee 31
+</I>&gt;<i>     10589 Berlin,Germany
+</I>&gt;<i>     Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i>     Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i>     eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i>     &lt;mailto:%<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20vingarzan at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i>     Web www.fokus.fraunhofer.de
+</I>&gt;<i>     We could change the world if God would give us the source code...
+</I>&gt;<i>     -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000284.html">[OpenIMSCore-HSS] how to add s-cscf name?
+</A></li>
+	<LI>Next message: <A HREF="000295.html">[OpenIMSCore-HSS] how to add s-cscf name?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#285">[ date ]</a>
+              <a href="thread.html#285">[ thread ]</a>
+              <a href="subject.html#285">[ subject ]</a>
+              <a href="author.html#285">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

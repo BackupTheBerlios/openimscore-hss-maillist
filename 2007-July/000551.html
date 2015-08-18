@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS Branch release is now available for use!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20Branch%20release%20is%20now%20available%20for%20use%21&In-Reply-To=%3C46891B49.9080007%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000550.html">
+   <LINK REL="Next"  HREF="000555.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS Branch release is now available for use!</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20Branch%20release%20is%20now%20available%20for%20use%21&In-Reply-To=%3C46891B49.9080007%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS Branch release is now available for use!">adp at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jul  2 17:35:37 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000550.html">[OpenIMSCore-HSS] [SVN-FHoSS] r367 - small change in install.txt
+</A></li>
+        <LI>Next message: <A HREF="000555.html">[OpenIMSCore-HSS] Fwd:  cannot start HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#551">[ date ]</a>
+              <a href="thread.html#551">[ thread ]</a>
+              <a href="subject.html#551">[ subject ]</a>
+              <a href="author.html#551">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello all,
+
+The new FHoSS, which is updating the HSS functionality to the Release 7
+requirements of 3GPP is now available for use. For the moment
+it can be downloaded only from the branches, but very soon will be
+placed it in the trunk.
+The address for the download is:
+	<A HREF="svn://svn.berlios.de/openimscore/FHoSS/branches/01_RevampDB">svn://svn.berlios.de/openimscore/FHoSS/branches/01_RevampDB</A>
+
+I am inviting all the interested persons to take it and test it in your
+testbeds and contact me with bug reports if you notice
+any problems.
+
+Although not 100% of the features specified in the specs were
+implemented, the main features in which we were directly interested were
+covered. Some of the new features of FHoSS include:
+
+ - implicit registration sets and shared public identities;
+ - synchronization support for ISIMs clients (on Cx and Zh interfaces);
+ - IFC support for registered and unregistered users &amp; Shared IFC Sets
+support;
+ - Capabilities &amp; Capability Sets support;
+ - improved Cx-events support: PPR and RTR
+  (PPR and RTR messages are triggered manually at certain moments of
+time to improve efficiency.)
+ - improved Sh-notification system for Sh interface; (Please notice that
+the sh-notification mechanism for IFCs has to be enabled from
+ configuration file as it is disabled by default. Read the installation
+guide carefully!)
+ - improved web-interface for provisioning user-data;
+ - new authentication methods: AKAv2, MD5, Digest, HTTP-Digest, NASS
+Bundled, Early IMS;
+
+
+The communication interfaces supported currently by the HSS are the same
+three: Cx, Sh and Zh.	
+
+The installation guide was updated and should contain enough information
+in order to configure and start the new FHoSS. However, if you
+encounter any problems please contact me.
+
+Important Notice!
+Please notice that the HSS database was changed a little bit, so the old
+scripts for user provisioning are not working any more. Please
+use the &quot;userdata.sql&quot; as a model. Moreover, a simple default
+configuration with 2 users is already provided in the same file.
+
+Thank you for your help and I am looking forward for your comments.
+
+Regards,
+Adrian
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGiRtJ6Yml36HNIwcRAg8+AJ9FdIPiDpGyvZRInDKQb40GRy1mrwCgmkTB
+O1KxDT39GMY0yItDzKWv0q4=
+=r5IF
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000550.html">[OpenIMSCore-HSS] [SVN-FHoSS] r367 - small change in install.txt
+</A></li>
+	<LI>Next message: <A HREF="000555.html">[OpenIMSCore-HSS] Fwd:  cannot start HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#551">[ date ]</a>
+              <a href="thread.html#551">[ thread ]</a>
+              <a href="subject.html#551">[ subject ]</a>
+              <a href="author.html#551">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

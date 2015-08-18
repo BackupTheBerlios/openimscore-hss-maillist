@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] NullPointerException in HSS if repository data is	empty and youask for it with and UDR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20NullPointerException%20in%20HSS%20if%20repository%20data%20is%0A%09empty%20and%20youask%20for%20it%20with%20and%20UDR&In-Reply-To=%3C1210076491.5904.44.camel%40peer1%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000801.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] NullPointerException in HSS if repository data is	empty and youask for it with and UDR</H1>
+    <B>Enrique de Meer</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20NullPointerException%20in%20HSS%20if%20repository%20data%20is%0A%09empty%20and%20youask%20for%20it%20with%20and%20UDR&In-Reply-To=%3C1210076491.5904.44.camel%40peer1%3E"
+       TITLE="[OpenIMSCore-HSS] NullPointerException in HSS if repository data is	empty and youask for it with and UDR">enrique.demeer at inycom.es
+       </A><BR>
+    <I>Tue May  6 14:21:31 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000801.html">[OpenIMSCore-HSS] Call conference
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#800">[ date ]</a>
+              <a href="thread.html#800">[ thread ]</a>
+              <a href="subject.html#800">[ subject ]</a>
+              <a href="author.html#800">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+This is my scenario:
+
+I use HSS repository data to store some transparent information about a
+client, so I start up a diameter peer and use commands PUR and UDR. 
+
+When I want to use PUR I need to know the sequence number already stored
+in the HSS to set a new repository data with a sequence number increased
+in 1 (new_sqn = old_sqn + 1), so i send an UDR to get the old data
+stored in the repository data and take the sequence number.
+
+The point is in the first time or when i don't know if there was any
+data or not in the repository data before. When i send an UDR to the HSS
+and there is not any data for that user in the repository data i do not
+recieve any answer, not even an error, and I can see this exception in
+the HSS log:
+
+2008-05-06 12:38:30,882 DEBUG de.fhg.fokus.hss.main.Task:180 - execute
+Processing Sh-UDR!
+Exception in thread &quot;Thread-10&quot; java.lang.NullPointerException
+	at de.fhg.fokus.hss.sh.op.UDR.addShData(UDR.java:289)
+	at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:229)
+	at de.fhg.fokus.hss.main.Task.execute(Task.java:181)
+	at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+
+The line 289 in the UDR.java is
+
+repDataElement.setServiceData(new String(repData.getRep_data()));
+
+and obviously the repData is null, because we have not stored anything
+before, but according to the spec TS 29.328:
+
+----------------------------------------------------------------------
+	&quot;If both the AS and the HSS have determined via mutual feature
+evaluation to not support the Notif-Eff feature and in the case that
+requested data is not available to the HSS, the HSS shall not include
+the User-Data AVP in the Sh-Pull Response. If both the AS and the HSS
+support the Notif-Eff feature and none of the requested data is
+available to the HSS, the HSS shall not include the User-Data AVP in the
+Sh-Pull Response.
+
+If both the AS and the HSS support the Notif-Eff feature and some of the
+requested data
+is not available to the HSS, it shall be indicated as follows. Empty
+repository data shall
+be indicated with the RepositoryData or AliasesRepositoryData element
+that contains a
+Service Indication and a Sequence Number but does not contain a
+ServiceData element.
+------------------------------------------------------------------------
+
+I need to know if it is the first time I store something in the
+repository data to use a sequence number equal to zero.
+
+Am I wrong? Any help?
+
+Thank you very much in advance.
+
+Enrique
+
+
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se informa a quien lo reciba por error que la informaci&#243;n contenida en el mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000801.html">[OpenIMSCore-HSS] Call conference
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#800">[ date ]</a>
+              <a href="thread.html#800">[ thread ]</a>
+              <a href="subject.html#800">[ subject ]</a>
+              <a href="author.html#800">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

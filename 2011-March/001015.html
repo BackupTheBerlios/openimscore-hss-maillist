@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Profile Update Request problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Profile%20Update%20Request%20problem&In-Reply-To=%3CAANLkTimKZzpCzhDUgSWe%2BZPwkJhA0pcWGPzum7rXYDrX%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001014.html">
+   <LINK REL="Next"  HREF="001016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Profile Update Request problem</H1>
+    <B>Alexandre Mendon&#231;a</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Profile%20Update%20Request%20problem&In-Reply-To=%3CAANLkTimKZzpCzhDUgSWe%2BZPwkJhA0pcWGPzum7rXYDrX%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Profile Update Request problem">brainslog at gmail.com
+       </A><BR>
+    <I>Sat Mar 12 02:32:07 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001014.html">[OpenIMSCore-HSS] Profile Update Request problem
+</A></li>
+        <LI>Next message: <A HREF="001016.html">[OpenIMSCore-HSS] Profile Update Request problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1015">[ date ]</a>
+              <a href="thread.html#1015">[ thread ]</a>
+              <a href="subject.html#1015">[ subject ]</a>
+              <a href="author.html#1015">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Federico,
+
+You can see in TS 29.328 (Table 7.6.1: Data accessible via Sh interface)
+that Data-Referecence code 13 (iFC) is not applicable for the Sh-Update
+operation, only Sh-Pull and Sh-Subs-Notif, so it is not possible to update
+it by using a PUR message. AFAIK, there's no Diameter interface suitable for
+managing iFCs, it should be made by other means.
+
+Regards,
+
+--
+*Alexandre Mendon&#231;a* // JBoss R&amp;D
+ Mobicents Diameter &amp; JAIN SLEE
+<A HREF="http://ammendonca.blogspot.com/">http://ammendonca.blogspot.com/</A>
+
+
+On Wed, Mar 9, 2011 at 13:10, Federico Ballabio
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">federicoballabio at gmail.com</A>&gt;wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i> I have to update the user information stored in the HSS, especially change
+</I>&gt;<i> the initial Filter Criteria for a particular IMS user: I found in TS 29.328
+</I>&gt;<i> the specification for this kind of Diameter message, which must have
+</I>&gt;<i> User-Identity, Data-Reference, User-Data, and Origin-Host AVPs. So, is it
+</I>&gt;<i> possible to change the information about the iFC of a user by simply sending
+</I>&gt;<i> a PUR message, with Data-Reference code 13 (iFC) and as User-Data a String
+</I>&gt;<i> representing the XML document which defines the iFC?
+</I>&gt;<i>
+</I>&gt;<i> Thank you
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110312/419cc9fe/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110312/419cc9fe/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001014.html">[OpenIMSCore-HSS] Profile Update Request problem
+</A></li>
+	<LI>Next message: <A HREF="001016.html">[OpenIMSCore-HSS] Profile Update Request problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1015">[ date ]</a>
+              <a href="thread.html#1015">[ thread ]</a>
+              <a href="subject.html#1015">[ subject ]</a>
+              <a href="author.html#1015">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

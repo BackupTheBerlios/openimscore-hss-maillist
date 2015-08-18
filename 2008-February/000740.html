@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Problem with Profile-Update-Request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20Profile-Update-Request&In-Reply-To=%3C20080211085437.B83954FA6%40webmxp07.emailpersonal.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000737.html">
+   <LINK REL="Next"  HREF="000742.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Problem with Profile-Update-Request</H1>
+    <B>&quot;David Ca&#241;as&quot;</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20Profile-Update-Request&In-Reply-To=%3C20080211085437.B83954FA6%40webmxp07.emailpersonal.com%3E"
+       TITLE="[OpenIMSCore-HSS] Problem with Profile-Update-Request">davidcaleon at mailpersonal.com
+       </A><BR>
+    <I>Mon Feb 11 09:58:19 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000737.html">[OpenIMSCore-HSS] Wrong User-Data (Sh)
+</A></li>
+        <LI>Next message: <A HREF="000742.html">[OpenIMSCore-HSS] Problem with Profile-Update-Request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#740">[ date ]</a>
+              <a href="thread.html#740">[ thread ]</a>
+              <a href="subject.html#740">[ subject ]</a>
+              <a href="author.html#740">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+I have a problem when I Try to use the profile update request.
+First, I can use the &quot;User-Data-Request&quot; without problem. I use this 
+sentence:
+     -&gt;String docSel=&quot;<A HREF="sh://sip:alice@open-ims.test/IMSPublicIdentity/">sh://sip:alice@open-ims.test/IMSPublicIdentity/</A>&quot;;
+     -&gt;Document doc = psvc.getDocument(docSel);
+But, when I Try to add a new line to modify the document (I send the 
+same document witohout changes it):
+     -&gt;psvc.putDocument(docSel, doc)
+I receive this exception:
+     java.lang.IllegalArgumentException: Access key invalid for request
+	at com.bea.wcp.diameter.sh.ShSession.createRequest
+(ShSession.java:40)
+	at com.bea.wcp.diameter.sh.ShSession.createPUR
+(ShSession.java:26)
+	at com.bea.wcp.diameter.sh.ShApplication.putDocument
+(ShApplication.java:147)
+	at com.bea.wcp.diameter.sh.WlssShApplication.putDocument
+(WlssShApplication.java:79)
+	at com.bea.wcp.profile.ShProviderDirect.putDocument
+(ShProviderDirect.java:63)
+	at com.bea.wcp.profile.ShProviderCached.putDocument
+(ShProviderCached.java:65)
+	at com.bea.wcp.sip.engine.WlssProfileService.putDocument
+(WlssProfileService.java:320)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:743)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:856)
+	at 
+weblogic.servlet.internal.StubSecurityHelper$ServletServiceAction.run
+(StubSecurityHelper.java:223)
+	at weblogic.servlet.internal.StubSecurityHelper.invokeServlet
+(StubSecurityHelper.java:125)
+	at weblogic.servlet.internal.ServletStubImpl.execute
+(ServletStubImpl.java:283)
+	at weblogic.servlet.internal.ServletStubImpl.execute
+(ServletStubImpl.java:175)
+	at 
+weblogic.servlet.internal.WebAppServletContext$ServletInvocationAction.
+run(WebAppServletContext.java:3217)
+	at weblogic.security.acl.internal.AuthenticatedSubject.doAs
+(AuthenticatedSubject.java:321)
+	at weblogic.security.service.SecurityManager.runAs
+(SecurityManager.java:121)
+	at 
+weblogic.servlet.internal.WebAppServletContext.securedExecute
+(WebAppServletContext.java:1984)
+	at weblogic.servlet.internal.WebAppServletContext.execute
+(WebAppServletContext.java:1891)
+	at weblogic.servlet.internal.ServletRequestImpl.run
+(ServletRequestImpl.java:1359)
+	at weblogic.work.ExecuteThread.execute(ExecuteThread.java:209)
+	at weblogic.work.ExecuteThread.run(ExecuteThread.java:181).
+
+Whats it's the problem?I think that I&#180;m using the correct sentences to 
+send the profile, and I don&#180;t know why receive this exception.
+
+&#180;Thanks, david.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000737.html">[OpenIMSCore-HSS] Wrong User-Data (Sh)
+</A></li>
+	<LI>Next message: <A HREF="000742.html">[OpenIMSCore-HSS] Problem with Profile-Update-Request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#740">[ date ]</a>
+              <a href="thread.html#740">[ thread ]</a>
+              <a href="subject.html#740">[ subject ]</a>
+              <a href="author.html#740">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

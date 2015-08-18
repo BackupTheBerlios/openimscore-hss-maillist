@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Authentication
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication&In-Reply-To=%3C45AFD4A1.2070909%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000155.html">
+   <LINK REL="Next"  HREF="000157.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Authentication</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Authentication&In-Reply-To=%3C45AFD4A1.2070909%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Authentication">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Jan 18 21:12:17 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000155.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+        <LI>Next message: <A HREF="000157.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#156">[ date ]</a>
+              <a href="thread.html#156">[ thread ]</a>
+              <a href="subject.html#156">[ subject ]</a>
+              <a href="author.html#156">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Here is a paster from 29.228:
+
+Authentication Information
+
+(See 7.9.3)
+
+
+	
+
+SIP-Authenticate
+
+	
+
+M
+
+	
+
+It shall contain, binary encoded, the concatenation of the
+authentication challenge RAND and the token AUTN. See 3GPP TS 33.203 [3]
+for further details about RAND and AUTN.
+
+Authorization Information
+
+(See 7.9.4)
+
+	
+
+SIP-Authorization
+
+	
+
+M
+
+	
+
+It shall contain, binary encoded, the expected response XRES. See 3GPP
+TS 33.203 [3] for further details about XRES.
+
+
+as such, so it is binary encoded (base256 if you would like).
+
+I am not sure that I understand the &quot;MD5&quot; part of the question though.
+
+-Dragos
+
+Jean-Christophe Cimino wrote:
+&gt;<i>
+</I>&gt;<i> Hello Dragos,
+</I>&gt;<i> Thank for your answer, now it's working :).
+</I>&gt;<i>
+</I>&gt;<i> I have another question regarding the Sip-Auth generated vectors in
+</I>&gt;<i> the MAA
+</I>&gt;<i> messages coming from the HSS to the S-CSCF at the registration time.
+</I>&gt;<i>
+</I>&gt;<i> Is the OctectString included in the Sip-Authenticate AVP value in the MAA
+</I>&gt;<i> messages should be base64 and digest MD5 ?
+</I>&gt;<i>
+</I>&gt;<i> Thank you.
+</I>&gt;<i>
+</I>&gt;<i> Jean-Christophe.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>]
+</I>&gt;<i> Sent: Wednesday, January 17, 2007 9:06 AM
+</I>&gt;<i> To: Jean-Christophe Cimino
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] Authentication
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hello Jean-Christophe,
+</I>&gt;<i>
+</I>&gt;<i> I am not sure what part of the SIP2IMS provisioning you are stuck at. So
+</I>&gt;<i> I am pasting from the link that I have sent you before:
+</I>&gt;<i>
+</I>&gt;<i> *---
+</I>&gt;<i> How do I provision a new user?*
+</I>&gt;<i> Use serweb or another tool to create a user in the credentials table.
+</I>&gt;<i> Alternatively, you can manually add a similar entry to those of
+</I>&gt;<i> Alice/Bob. HA1 is irrelevant and can be left blank. HA1b can be computed
+</I>&gt;<i> using e.g.:
+</I>&gt;<i>
+</I>&gt;<i> ser_ims/scripts/gen_ha1 user realm password
+</I>&gt;<i>
+</I>&gt;<i> Don't forget: The username must be the same as the private AND the
+</I>&gt;<i> public identity of the user, as SIP UEs do not usually make a
+</I>&gt;<i> distinction between them.
+</I>&gt;<i> ---
+</I>&gt;<i>
+</I>&gt;<i> I think this is pretty clear... or? Which part is still unclear?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i> Jean-Christophe Cimino wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks Dragos for your answer,
+</I>&gt;<i> &gt; But I have the following comment:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; When the UA receives the SIP Unauthorized (401) at first
+</I>&gt;<i> registration time
+</I>&gt;<i> &gt; (which challenge it to perform authentication), it resend to the SIP2IMS
+</I>&gt;<i> &gt; element a new SIP Register message containing nonce, Md5, ...
+</I>&gt;<i> parameters.
+</I>&gt;<i> &gt; When the SIP2IMS receives it, it call a www_authorize function in which
+</I>&gt;<i> &gt; parameters are: the realm and a database table (it is the credentials
+</I>&gt;<i> &gt; table). The credentials table in the sip2ims database contains a
+</I>&gt;<i> realm, a
+</I>&gt;<i> &gt; auth_username, a password, ha1 and ha1b fields. Theses parameters
+</I>&gt;<i> are used
+</I>&gt;<i> &gt; by the www_authorize function to check if the user is authorize or
+</I>&gt;<i> not to
+</I>&gt;<i> &gt; continue the registration. As we have modified the realm of the user
+</I>&gt;<i> &gt; alice,
+</I>&gt;<i> &gt; I assume that the key ha1 and ha1b need to be changed consequently.
+</I>&gt;<i> &gt; I see in documentation that ha1 is generating by a md5 function in the
+</I>&gt;<i> &gt; following way : MD5(username:realm:password)
+</I>&gt;<i> &gt; Is it the way that you have generated theses parameters ?
+</I>&gt;<i> &gt; There is in sip2ims code a function named authenticate which performs
+</I>&gt;<i> &gt; theses
+</I>&gt;<i> &gt; check using the ha1 and ha1b.
+</I>&gt;<i> &gt; Could you please give me information to help us to be able to be able to
+</I>&gt;<i> &gt; register through the sip2ims ?
+</I>&gt;<i> &gt; Thanks,
+</I>&gt;<i> &gt; Jean-Christophe.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; -----Original Message-----
+</I>&gt;<i> &gt; From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>]
+</I>&gt;<i> &gt; Sent: Tuesday, January 16, 2007 4:11 PM
+</I>&gt;<i> &gt; To: Jean-Christophe Cimino
+</I>&gt;<i> &gt; Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> &gt; Subject: Re: [OpenIMSCore-HSS] Authentication
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hello Jean-Christophe,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; For provisioning the SIP2IMS Gw, please revisit the FAQ:
+</I>&gt;<i> &gt; <A HREF="http://www.openimscore.org/docs/faq.html#sip2ims">http://www.openimscore.org/docs/faq.html#sip2ims</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; For the 2nd step, just use the same authorization name and password in
+</I>&gt;<i> &gt; the SIP2IMS as you will have in the HSS for private identity and secret
+</I>&gt;<i> &gt; key. The SIP2IMS Gateway acts on the IMS side as an AKA client.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The S-CSCF does not &quot;expect&quot; something from the HSS. It receives a full
+</I>&gt;<i> &gt; auth vector, which also contains an expected response for the AKA, from
+</I>&gt;<i> &gt; the client. This expected response is than MD5ed and compared with what
+</I>&gt;<i> &gt; the client produced.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; -Dragos
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Jean-Christophe Cimino wrote:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Hi all,
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; We are using the openimscore ims network to do some interoperability
+</I>&gt;<i> &gt; &gt; test. We are using the P-CSCF, the I-CSCF, the S-CSCF and the Sip2Ims
+</I>&gt;<i> &gt; &gt; network elements.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; As we are developing our own HSS, we have replaced the FoHSS by
+</I>&gt;<i> our HSS.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; We use X-Lite as the UA to generate the Sip register message.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Every thing goes well until we get to the authentication step.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; We tried to exchange, SIP, UAR,UAA, SIP-Unathorized (401 UE
+</I>&gt;<i> &gt; &gt; challenge), SIP (challenge), UAR-UAA, MAR-MAA message.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; The first blocking point is in the SIP2IMS element which is not able
+</I>&gt;<i> &gt; &gt; to authorize the User-Agent upon the SIP-Register message coming from
+</I>&gt;<i> &gt; &gt; the UA after the challenge.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; After having a look on the mysql sip2ims database, I saw that there is
+</I>&gt;<i> &gt; &gt; a table &quot;credentials&quot; which contains ha1 and hab1 row. I assume that
+</I>&gt;<i> &gt; &gt; these fields are use in the first authentication step made by the
+</I>&gt;<i> &gt; &gt; SIP2IMS.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; The thing we modified is that we are replaced the realm
+</I>&gt;<i> &gt; &gt; &quot;open-ims.test&quot; by &quot;127.0.0.1'&quot;. And I assume that &quot;open-ims.test&quot; has
+</I>&gt;<i> &gt; &gt; been used to generate ha1 and hab1 key.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Is it possible that the issue of that is to regenerate correct key of
+</I>&gt;<i> &gt; &gt; ha1 and hab1 with our realm (127.0.0.1) ?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; If yes, could you please give us the way of generating theses key ?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; But after having solve this problem, I think that the next problem
+</I>&gt;<i> &gt; &gt; will be at the S-CSCF level when it will compare the SIP-Auth vector
+</I>&gt;<i> &gt; &gt; generated by our HSS the the one expected from the UA. To generate the
+</I>&gt;<i> &gt; &gt; vector, we use a private key which is provisioned in our HSS database.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Could you please explains us the way of configured our HSS to make it
+</I>&gt;<i> &gt; &gt; generate the SIP-Auth vectors expected by the S-CSCF ?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Thnaks you in advance.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Jean-Christophe.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt; -----------------------------------------
+</I>&gt;<i> &gt; Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> &gt; FOKUS/NGNI
+</I>&gt;<i> &gt; Kaiserin-Augusta-Allee 31
+</I>&gt;<i> &gt; 10589 Berlin,Germany
+</I>&gt;<i> &gt; Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> &gt; Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> &gt; eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> &gt; Web www.fokus.fraunhofer.de
+</I>&gt;<i> &gt; We could change the world if God would give us the source code...
+</I>&gt;<i> &gt; -----------------------------------------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> -----------------------------------------
+</I>&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> FOKUS/NGNI
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin,Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> Web www.fokus.fraunhofer.de
+</I>&gt;<i> We could change the world if God would give us the source code...
+</I>&gt;<i> -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000155.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+	<LI>Next message: <A HREF="000157.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#156">[ date ]</a>
+              <a href="thread.html#156">[ thread ]</a>
+              <a href="subject.html#156">[ subject ]</a>
+              <a href="author.html#156">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

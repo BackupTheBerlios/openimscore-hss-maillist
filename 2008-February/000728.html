@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r515 - better support for Wildcarded	PSI in HSS, S-CSCF follows
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r515%20-%20better%20support%20for%20Wildcarded%0A%09PSI%20in%20HSS%2C%20S-CSCF%20follows&In-Reply-To=%3C200802011900.m11J0o8D025970%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000726.html">
+   <LINK REL="Next"  HREF="000729.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r515 - better support for Wildcarded	PSI in HSS, S-CSCF follows</H1>
+    <B>albertoberlios at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r515%20-%20better%20support%20for%20Wildcarded%0A%09PSI%20in%20HSS%2C%20S-CSCF%20follows&In-Reply-To=%3C200802011900.m11J0o8D025970%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r515 - better support for Wildcarded	PSI in HSS, S-CSCF follows">albertoberlios at users.berlios.de
+       </A><BR>
+    <I>Fri Feb  1 20:00:50 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000726.html">[OpenIMSCore-HSS] FHoSS not responding
+</A></li>
+        <LI>Next message: <A HREF="000729.html">[OpenIMSCore-HSS] [SVN-FHoSS] r515 - better support for	Wildcarded PSI in HSS, S-CSCF follows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#728">[ date ]</a>
+              <a href="thread.html#728">[ thread ]</a>
+              <a href="subject.html#728">[ subject ]</a>
+              <a href="author.html#728">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: albertoberlios
+Date: 2008-02-01 20:00:49 +0100 (Fri, 01 Feb 2008)
+New Revision: 515 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=515">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=515</A> 
+
+Log:
+better support for Wildcarded PSI in HSS, S-CSCF follows 
+
+
+
+Modified:
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/LIR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/LIR.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/LIR.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/SAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPU.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPU.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPU.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/db/op/IMSU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/op/IMSU_DAO.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/op/IMSU_DAO.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPU_Load.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPU_Load.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPU_Load.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPU_Submit.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPU_Submit.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/action/IMPU_Submit.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/web/form/IMPU_Form.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/form/IMPU_Form.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/form/IMPU_Form.java?rev=515&amp;view=diff&amp;r1=515&amp;r2=514</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000726.html">[OpenIMSCore-HSS] FHoSS not responding
+</A></li>
+	<LI>Next message: <A HREF="000729.html">[OpenIMSCore-HSS] [SVN-FHoSS] r515 - better support for	Wildcarded PSI in HSS, S-CSCF follows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#728">[ date ]</a>
+              <a href="thread.html#728">[ thread ]</a>
+              <a href="subject.html#728">[ subject ]</a>
+              <a href="author.html#728">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r323 - Fixed bug observed by Stefan	Spodniak: the SIP-Authorization AVP in MAR was RAND|AUTN|AUTS	instead of RAND|AUTS.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r323%20-%20Fixed%20bug%20observed%20by%20Stefan%0A%09Spodniak%3A%20the%20SIP-Authorization%20AVP%20in%20MAR%20was%20RAND%7CAUTN%7CAUTS%0A%09instead%20of%20RAND%7CAUTS.&In-Reply-To=%3C200706191308.l5JD8HLi017300%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000522.html">
+   <LINK REL="Next"  HREF="000525.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r323 - Fixed bug observed by Stefan	Spodniak: the SIP-Authorization AVP in MAR was RAND|AUTN|AUTS	instead of RAND|AUTS.</H1>
+    <B>vingarzan at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r323%20-%20Fixed%20bug%20observed%20by%20Stefan%0A%09Spodniak%3A%20the%20SIP-Authorization%20AVP%20in%20MAR%20was%20RAND%7CAUTN%7CAUTS%0A%09instead%20of%20RAND%7CAUTS.&In-Reply-To=%3C200706191308.l5JD8HLi017300%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r323 - Fixed bug observed by Stefan	Spodniak: the SIP-Authorization AVP in MAR was RAND|AUTN|AUTS	instead of RAND|AUTS.">vingarzan at users.berlios.de
+       </A><BR>
+    <I>Tue Jun 19 15:08:17 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000522.html">[OpenIMSCore-HSS] [SVN-FHoSS] r316 - Sh-Notification events for iFC	&amp; PSI Activation. Other fixes
+</A></li>
+        <LI>Next message: <A HREF="000525.html">[OpenIMSCore-HSS] chang my email
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#523">[ date ]</a>
+              <a href="thread.html#523">[ thread ]</a>
+              <a href="subject.html#523">[ subject ]</a>
+              <a href="author.html#523">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: vingarzan
+Date: 2007-06-19 15:08:13 +0200 (Tue, 19 Jun 2007)
+New Revision: 323 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=323">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=323</A> 
+
+Log:
+Fixed bug observed by Stefan Spodniak: the SIP-Authorization AVP in MAR was RAND|AUTN|AUTS instead of RAND|AUTS.
+
+
+Modified:
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java?rev=323&amp;view=diff&amp;r1=323&amp;r2=322">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java?rev=323&amp;view=diff&amp;r1=323&amp;r2=322</A>
+   U	ser_ims/trunk/modules/scscf/registration.c
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/ser_ims/trunk/modules/scscf/registration.c?rev=323&amp;view=diff&amp;r1=323&amp;r2=322">http://svn.berlios.de/viewcvs/openimscore/ser_ims/trunk/modules/scscf/registration.c?rev=323&amp;view=diff&amp;r1=323&amp;r2=322</A>
+   U	ser_ims/trunk/modules/scscf/registration.h
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/ser_ims/trunk/modules/scscf/registration.h?rev=323&amp;view=diff&amp;r1=323&amp;r2=322">http://svn.berlios.de/viewcvs/openimscore/ser_ims/trunk/modules/scscf/registration.h?rev=323&amp;view=diff&amp;r1=323&amp;r2=322</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000522.html">[OpenIMSCore-HSS] [SVN-FHoSS] r316 - Sh-Notification events for iFC	&amp; PSI Activation. Other fixes
+</A></li>
+	<LI>Next message: <A HREF="000525.html">[OpenIMSCore-HSS] chang my email
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#523">[ date ]</a>
+              <a href="thread.html#523">[ thread ]</a>
+              <a href="subject.html#523">[ subject ]</a>
+              <a href="author.html#523">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

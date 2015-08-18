@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Supported-Vendor-Id%20in%0A%09theCapabilities-Exchange-Answer&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA1014C6F71%40EXCHSRV.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000751.html">
+   <LINK REL="Next"  HREF="000753.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer</H1>
+    <B>Weik, Peter</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Supported-Vendor-Id%20in%0A%09theCapabilities-Exchange-Answer&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA1014C6F71%40EXCHSRV.fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer">Peter.Weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Feb 13 13:03:43 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000751.html">[OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer
+</A></li>
+        <LI>Next message: <A HREF="000753.html">[OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#752">[ date ]</a>
+              <a href="thread.html#752">[ thread ]</a>
+              <a href="subject.html#752">[ subject ]</a>
+              <a href="author.html#752">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi David,
+
+according to RFC 3588 the FHoSS probably would not need a Supported-Vendor-Id AVP and for sure no Inband- Security-Id AVP as we don't use TLS per default
+
+&lt;RFC3588&gt;
+NO_INBAND_SECURITY                0
+      This peer does not support TLS.  This is the default value, if the
+      AVP is omitted.
+&lt;/RFC3588&gt;
+
+In DiameterPeerHSS.xml you set the supported apps, for anything more, feel free to patch the JavaDiameterPeer.
+
+Wasn't your problem the PUR ?
+
+- Peter
+
+-----Urspr&#252;ngliche Nachricht-----
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] Im Auftrag von &quot;David Ca&#241;as&quot;
+Gesendet: Mittwoch, 13. Februar 2008 12:41
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Betreff: [OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer
+
+Hello,
+When I connect my AS to the FHoSS, the AS send a &quot;Capabilities- Exchange-Request&quot; and the FHoSS respond with a &quot;Capabilities-Exchange- Answer&quot;. In this answer, the fields &quot;Supported-Vendor-Id &quot;and &quot;Inband- Security-Id&quot; are not present.
+How can I configure the FHoSS to send this information?Do I need to modify some configuration&#180;s file?
+
+This is the trace of the Response: (I attach to the file captured with
+EtherReal)
+
+Frame 1133 (218 bytes on wire, 218 bytes captured) Ethernet II, Src: 16.38.24.2 (00:11:bb:eb:9f:c2), Dst: 16.38.27.180
+(00:17:08:32:f4:45)
+Internet Protocol, Src: 16.38.0.112 (16.38.0.112), Dst: 16.38.27.180
+(16.38.27.180)
+Transmission Control Protocol, Src Port: 1812 (1812), Dst Port: 2614 (2614), Seq: 1, Ack: 229, Len: Diameter Protocol
+Version: 0x01
+Length: 164
+Flags: 0x00 (&lt;None&gt;)
+Command Code: Capabilities-Exchange-Answer
+Application-Id: None
+Hop-by-Hop Identifier: 0x2bb55f1a
+End-to-End Identifier: 0xf0468e2d
+Attribute Value Pairs
+Result-Code (Enumerated) l:0xc (12 bytes) (12 padded bytes) AVP Code: Result-Code (268)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x000007d1 (2001): DIAMETER_SUCCESS Origin-Host (DiameterIdentity) l:0x20 (32 bytes) (32 padded bytes) AVP Code: Origin-Host (264)
+Flags: 0x40 (Mandatory)
+AVP Length: 32
+Identity: nnssvm20.esm.cpqcorp.net
+Origin-Realm (UTF8String) l:0xf (15 bytes) (16 padded bytes) AVP Code: Origin-Realm (296)
+Flags: 0x40 (Mandatory)
+AVP Length: 15
+UTF8String: bea.com
+Host-IP-Address (IpAddress) l:0xe (14 bytes) (16 padded bytes) AVP Code: Host-IP-Address (257)
+Flags: 0x40 (Mandatory)
+AVP Length: 14
+Address Family: IPv4 (1)
+IPv4 Address: 16.38.0.112 (16.38.0.112)
+Vendor-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes) AVP Code: Vendor-Id (266)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x000028af (10415): 3GPP
+Product-Name (UTF8String) l:0x17 (23 bytes) (24 padded bytes) AVP Code: Product-Name (269)
+Flags: 0x00 (&lt;None&gt;)
+AVP Length: 23
+UTF8String: HssDiameterPeer
+Vendor-Specific-Application-Id (Grouped) l:0x20 (32 bytes) (32 padded
+bytes)
+AVP Code: Vendor-Specific-Application-Id (260)
+Flags: 0x40 (Mandatory)
+AVP Length: 32
+Vendor-Specific-Application-Id Grouped AVPs Vendor-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes) AVP Code: Vendor-Id (266)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x000028af (10415): 3GPP
+Auth-Application-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes) AVP Code: Auth-Application-Id (258)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x01000001 (16777217): 3GPP Sh
+
+Thanks,
+David
+ 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000751.html">[OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer
+</A></li>
+	<LI>Next message: <A HREF="000753.html">[OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#752">[ date ]</a>
+              <a href="thread.html#752">[ thread ]</a>
+              <a href="subject.html#752">[ subject ]</a>
+              <a href="author.html#752">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

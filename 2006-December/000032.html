@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r47 - in FHoSS/trunk: . lib	src/de/fhg/fokus/hss/diam/sh src/de/fhg/fokus/hss/model	src/de/fhg/fokus/hss/server/cx/op src/de/fhg/fokus/hss/server/sh/op
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r47%20-%20in%20FHoSS/trunk%3A%20.%20lib%0A%09src/de/fhg/fokus/hss/diam/sh%20src/de/fhg/fokus/hss/model%0A%09src/de/fhg/fokus/hss/server/cx/op%20src/de/fhg/fokus/hss/server/sh/op&In-Reply-To=%3C200612011947.kB1JlUpg008217%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r47 - in FHoSS/trunk: . lib	src/de/fhg/fokus/hss/diam/sh src/de/fhg/fokus/hss/model	src/de/fhg/fokus/hss/server/cx/op src/de/fhg/fokus/hss/server/sh/op</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r47%20-%20in%20FHoSS/trunk%3A%20.%20lib%0A%09src/de/fhg/fokus/hss/diam/sh%20src/de/fhg/fokus/hss/model%0A%09src/de/fhg/fokus/hss/server/cx/op%20src/de/fhg/fokus/hss/server/sh/op&In-Reply-To=%3C200612011947.kB1JlUpg008217%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r47 - in FHoSS/trunk: . lib	src/de/fhg/fokus/hss/diam/sh src/de/fhg/fokus/hss/model	src/de/fhg/fokus/hss/server/cx/op src/de/fhg/fokus/hss/server/sh/op">adp at users.berlios.de
+       </A><BR>
+    <I>Fri Dec  1 20:47:30 CET 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000033.html">[OpenIMSCore-HSS] [SVN-FHoSS] r48 - FHoSS/trunk/src
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2006-12-01 20:47:27 +0100 (Fri, 01 Dec 2006)
+New Revision: 47
+
+Added:
+   FHoSS/trunk/lib/castor-1.0.5.jar
+Removed:
+   FHoSS/trunk/lib/castor-0.9.6.jar
+   FHoSS/trunk/lib/castor.jar
+Modified:
+   FHoSS/trunk/.classpath
+   FHoSS/trunk/build.xml
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java
+Log:
+castor upgrated to version 1.0.5
+added castor.properties in src/
+
+Modified: FHoSS/trunk/.classpath
+===================================================================
+--- FHoSS/trunk/.classpath	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/.classpath	2006-12-01 19:47:27 UTC (rev 47)
+@@ -1,6 +1,7 @@
+ &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;classpath&gt;
+ 	&lt;classpathentry kind=&quot;src&quot; path=&quot;src&quot;/&gt;
++	&lt;classpathentry kind=&quot;src&quot; path=&quot;src-gen&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;con&quot; path=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/antlr-2.7.5H3.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/asm.jar&quot;/&gt;
+@@ -37,7 +38,6 @@
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/mysql-connector-java-3.0.14-production-bin.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/struts.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/jdp.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/castor.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/castor-0.9.6.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/castor-1.0.5.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;output&quot; path=&quot;bin&quot;/&gt;
+ &lt;/classpath&gt;
+
+Modified: FHoSS/trunk/build.xml
+===================================================================
+--- FHoSS/trunk/build.xml	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/build.xml	2006-12-01 19:47:27 UTC (rev 47)
+@@ -35,7 +35,7 @@
+ 
+ 	&lt;target name=&quot;gen&quot; depends=&quot;init,clean-gen&quot;&gt;
+ 		&lt;java 
+-			classname=&quot;org.exolab.castor.builder.SourceGenerator&quot;
++			classname=&quot;org.exolab.castor.builder.SourceGeneratorMain&quot;
+ 			fork=&quot;true&quot;&gt;
+ 			&lt;classpath refid=&quot;compile.classpath&quot; /&gt;
+ 			&lt;arg value=&quot;-i&quot; /&gt; 
+@@ -46,7 +46,7 @@
+ 			&lt;arg value=&quot;${src-gen}&quot; /&gt;			
+ 		&lt;/java&gt;
+ 		&lt;java 
+-			classname=&quot;org.exolab.castor.builder.SourceGenerator&quot;
++			classname=&quot;org.exolab.castor.builder.SourceGeneratorMain&quot;
+ 			fork=&quot;true&quot;&gt;
+ 			&lt;classpath refid=&quot;compile.classpath&quot; /&gt;
+ 			&lt;arg value=&quot;-i&quot; /&gt; 
+@@ -57,7 +57,7 @@
+ 			&lt;arg value=&quot;${src-gen}&quot; /&gt;			
+ 		&lt;/java&gt;
+ 		&lt;java 
+-			classname=&quot;org.exolab.castor.builder.SourceGenerator&quot;
++			classname=&quot;org.exolab.castor.builder.SourceGeneratorMain&quot;
+ 			fork=&quot;true&quot;&gt;
+ 			&lt;classpath refid=&quot;compile.classpath&quot; /&gt;
+ 			&lt;arg value=&quot;-i&quot; /&gt; 
+@@ -107,6 +107,7 @@
+ 				&lt;include name=&quot;hibernate.cfg.xml&quot;/&gt;				
+ 				&lt;include name=&quot;mapping.xml&quot;/&gt;				
+ 				&lt;include name=&quot;MessageResources.properties&quot;/&gt;								
++				&lt;include name=&quot;castor.properties&quot;/&gt;								
+ 			&lt;/fileset&gt;
+ 		&lt;/jar&gt;	
+ 	&lt;/target&gt;
+
+Deleted: FHoSS/trunk/lib/castor-0.9.6.jar
+
+Added: FHoSS/trunk/lib/castor-1.0.5.jar
+
+
+Property changes on: FHoSS/trunk/lib/castor-1.0.5.jar
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Deleted: FHoSS/trunk/lib/castor.jar
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java	2006-12-01 19:47:27 UTC (rev 47)
+@@ -112,7 +112,9 @@
+                RequestedData requestedData = loadDataReference(requestMessage);
+                
+                AVP shDataAVP = avpLookUp(requestMessage, AVPCodes._SH_USER_DATA, true, Vendor.V3GPP);
+-               String shDataString = new String(shDataAVP.data);
++               String shDataString = new String(shDataAVP.data);               
++               //System.out.println(&quot;DATA: \n&quot; + shDataString + &quot;\n&quot;);
++
+                ShData shData = (ShData) ShData.unmarshal(new StringReader(shDataString));
+  
+                operations.shUpdate(publicIdentity, shData, applicationServerIdentity, requestedData);
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java	2006-12-01 19:47:27 UTC (rev 47)
+@@ -68,6 +68,7 @@
+ import de.fhg.fokus.cx.datatypes.TSePoTriChoice;
+ import de.fhg.fokus.cx.datatypes.TriggerPoint;
+ import de.fhg.fokus.cx.datatypes.types.TDirectionOfRequest;
++import de.fhg.fokus.cx.datatypes.types.TDefaultHandling;
+ import de.fhg.fokus.cx.exceptions.DiameterException;
+ import de.fhg.fokus.cx.exceptions.base.MissingUserId;
+ import de.fhg.fokus.cx.exceptions.base.UnableToComply;
+@@ -590,8 +591,19 @@
+                                     new ApplicationServer();
+                                 applicationServer.setServerName(
+                                     ifc.getApsvr().getAddress());
+-                                applicationServer.setDefaultHandling(
+-                                    (byte) ifc.getApsvr().getDefaultHandling());
++                                
++                                
++                                switch (ifc.getApsvr().getDefaultHandling()){
++                                	case TDefaultHandling.VALUE_0_TYPE:
++                                		applicationServer.setDefaultHandling(TDefaultHandling.VALUE_0);
++                                		break;
++                                	case TDefaultHandling.VALUE_1_TYPE:
++                                		applicationServer.setDefaultHandling(TDefaultHandling.VALUE_1);
++                                		break;
++                                }
++                                
++/*                                applicationServer.setDefaultHandling(
++                                    (byte) ifc.getApsvr().getDefaultHandling());*/
+                                 initialFilterCriteria.setApplicationServer(
+                                     applicationServer);
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java	2006-12-01 19:47:27 UTC (rev 47)
+@@ -63,8 +63,8 @@
+ import de.fhg.fokus.hss.util.HibernateUtil;
+ import de.fhg.fokus.sh.data.ShData;
+ import de.fhg.fokus.sh.data.ShIMSData;
++import de.fhg.fokus.sh.data.types.TIMSUserState;
+ 
+-
+ /**
+  * This class creates loads saves and updates the public identity.
+  *
+@@ -151,7 +151,27 @@
+ 
+ 	            ShData shData = new ShData();
+ 	            ShIMSData shIMSData = new ShIMSData();
+-	            shIMSData.setIMSUserState((byte)Integer.parseInt(impu.getUserStatus()));
++	            
++	            switch (Integer.parseInt(impu.getUserStatus())){
++	            
++	            case TIMSUserState.VALUE_0_TYPE:
++	            	shIMSData.setIMSUserState(TIMSUserState.VALUE_0);
++	            	break;
++
++	            case TIMSUserState.VALUE_1_TYPE:
++	            	shIMSData.setIMSUserState(TIMSUserState.VALUE_1);
++	            	break;
++	            		
++	            case TIMSUserState.VALUE_2_TYPE:
++	            	shIMSData.setIMSUserState(TIMSUserState.VALUE_2);
++	            	break;
++	            		
++	            case TIMSUserState.VALUE_3_TYPE:	
++	            	shIMSData.setIMSUserState(TIMSUserState.VALUE_3);
++	            	break;
++	            }
++	            
++	            //shIMSData.setIMSUserState((byte)Integer.parseInt(impu.getUserStatus()));
+ 	            shData.setShIMSData(shIMSData);
+ 	            
+ 				// XLB
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java	2006-12-01 19:47:27 UTC (rev 47)
+@@ -139,6 +139,7 @@
+                     repData.setComp_id(repDataPK);
+                     repData.setSqn(new Integer(0));
+                     repData.setSvcData(bufRepData);
++                    
+                     getSession().save(repData);
+                     endTx();
+                 }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java	2006-12-01 19:47:27 UTC (rev 47)
+@@ -60,6 +60,7 @@
+ import de.fhg.fokus.cx.datatypes.ServiceProfile;
+ import de.fhg.fokus.cx.datatypes.TSePoTriChoice;
+ import de.fhg.fokus.cx.datatypes.TriggerPoint;
++import de.fhg.fokus.cx.datatypes.types.TDefaultHandling;
+ import de.fhg.fokus.cx.exceptions.DiameterException;
+ import de.fhg.fokus.cx.exceptions.base.UnableToComply;
+ import de.fhg.fokus.cx.exceptions.ims.IdentitiesDontMatch;
+@@ -351,7 +352,20 @@
+ 
+         ApplicationServer applicationServer = new ApplicationServer();
+         applicationServer.setServerName(apsvr.getAddress());
+-        applicationServer.setDefaultHandling((byte) apsvr.getDefaultHandling());
++        
++        
++        switch (apsvr.getDefaultHandling()){
++        
++        case TDefaultHandling.VALUE_0_TYPE:
++        	applicationServer.setDefaultHandling(TDefaultHandling.VALUE_0);
++        	break;
++
++        case TDefaultHandling.VALUE_1_TYPE:
++        	applicationServer.setDefaultHandling(TDefaultHandling.VALUE_1);
++        	break;
++        }
++        
++        //applicationServer.setDefaultHandling((byte) apsvr.getDefaultHandling());
+         ifc.setApplicationServer(applicationServer);
+ 
+         TriggerPoint triggerPoint = new TriggerPoint();
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java	2006-12-01 17:13:55 UTC (rev 46)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java	2006-12-01 19:47:27 UTC (rev 47)
+@@ -68,12 +68,14 @@
+ import de.fhg.fokus.sh.RequestedDomain;
+ import de.fhg.fokus.sh.UnableToComply;
+ import de.fhg.fokus.sh.UserDataCannotBeRead;
++
+ import de.fhg.fokus.sh.data.ChargingInformation;
+ import de.fhg.fokus.sh.data.PublicIdentifiers;
+ import de.fhg.fokus.sh.data.RepositoryData;
+ import de.fhg.fokus.sh.data.ServiceData;
+ import de.fhg.fokus.sh.data.ShData;
+ import de.fhg.fokus.sh.data.ShIMSData;
++import de.fhg.fokus.sh.data.types.TIMSUserState;
+ 
+ 
+ /**
+@@ -91,7 +93,7 @@
+     private RequestedDomain requestedDomain;
+     /** current location */
+     private CurrentLocation currentLocation;
+-    /** service indivation */
++    /** service indication */
+     byte[] serviceIndication;
+     /** uri of application server */
+     private URI applicationServerName;
+@@ -271,8 +273,7 @@
+ 
+         try
+         {
+-            if ((serviceIndication == null) || (serviceIndication.length &lt; 1))
+-            {
++            if ((serviceIndication == null) || (serviceIndication.length &lt; 1)){
+                 throw new MissingAVP();
+             }
+ 
+@@ -284,12 +285,16 @@
+             String svcIndString = new String(serviceIndication);
+             repDataPK.setSvcInd(svcIndString);
+ 
++            //System.out.println(&quot;Service indication:&quot; + svcIndString);
++            //System.out.println(&quot;Impu id:&quot; + userProfil.getImpu().getImpuId());
++            
+             RepData repData = null;
+             repData = (RepData) session.get(RepData.class, repDataPK);
+ 
+             if (repData == null)
+             {
+-                LOGGER.warn(this, new NullPointerException());
++            	LOGGER.info(&quot;Repository data is null!&quot;);
++            	LOGGER.warn(this, new NullPointerException());
+                 throw new UnableToComply();
+             }
+ 
+@@ -333,8 +338,25 @@
+         LOGGER.debug(&quot;entering&quot;);
+ 
+         ShIMSData shIMSData = new ShIMSData();
+-        shIMSData.setIMSUserState(
+-            (byte) Integer.parseInt(userProfil.getImpu().getUserStatus()));
++        
++        
++        switch (Integer.parseInt(userProfil.getImpu().getUserStatus())){
++        
++        case TIMSUserState.VALUE_0_TYPE:
++        	shIMSData.setIMSUserState(TIMSUserState.VALUE_0);
++        	break;
++        case TIMSUserState.VALUE_1_TYPE:
++        	shIMSData.setIMSUserState(TIMSUserState.VALUE_1);
++        	break;
++        case TIMSUserState.VALUE_2_TYPE:
++        	shIMSData.setIMSUserState(TIMSUserState.VALUE_2);
++        	break;
++        case TIMSUserState.VALUE_3_TYPE:
++        	shIMSData.setIMSUserState(TIMSUserState.VALUE_3);
++        	break;
++        
++        }
++        
+         shData.setShIMSData(shIMSData);
+         LOGGER.debug(&quot;exiting&quot;);
+     }
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000033.html">[OpenIMSCore-HSS] [SVN-FHoSS] r48 - FHoSS/trunk/src
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

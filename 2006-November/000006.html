@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20re%20%3A%20compile%20error%20of%20FHoSS%20and%20JDiameterPeer&In-Reply-To=%3C000f01c711fa%244c5bcf90%24f90d5f0a%40hi.inet%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000005.html">
+   <LINK REL="Next"  HREF="000022.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer</H1>
+    <B>Gustavo Garc&#237;a Bernardo</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20re%20%3A%20compile%20error%20of%20FHoSS%20and%20JDiameterPeer&In-Reply-To=%3C000f01c711fa%244c5bcf90%24f90d5f0a%40hi.inet%3E"
+       TITLE="[OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer">ggb at tid.es
+       </A><BR>
+    <I>Mon Nov 27 09:01:52 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000005.html">[OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer
+</A></li>
+        <LI>Next message: <A HREF="000022.html">[OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Are you sure you are using JDK 1.5? You need it.
+
+
+&gt;<i> -----Mensaje original-----
+</I>&gt;<i> De: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> [mailto:openimscore-hss-
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bounces at lists.berlios.de</A>] En nombre de Dennis Yeung
+</I>&gt;<i> Enviado el: lunes, 27 de noviembre de 2006 8:09
+</I>&gt;<i> Para: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Asunto: [OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer
+</I>&gt;<i> 
+</I>&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> I ran into a problem with compile FHoSS. I downloaded
+</I>&gt;<i> the SVN trunk for FHoSS and start to run &quot;ant gen
+</I>&gt;<i> compile deploy&quot;, but I get the following compile
+</I>&gt;<i> error:
+</I>&gt;<i> 
+</I>&gt;<i> ####################################################################
+</I>&gt;<i> compile:
+</I>&gt;<i>     [javac] Compiling 329 source files to
+</I>&gt;<i> /opt/FHoSS/bin
+</I>&gt;<i>     [javac]
+</I>&gt;<i> /opt/FHoSS/src/de/fhg/fokus/hss/diam/AVPCodes.java:47:
+</I>&gt;<i> cannot access
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.data.AVP
+</I>&gt;<i>     [javac] bad class file:
+</I>&gt;<i> /opt/FHoSS/lib/jdp.jar(de/fhg/fokus/diameter/DiameterPeer/data/AVP.class)
+</I>&gt;<i>     [javac] class file has wrong version 49.0, should
+</I>&gt;<i> be 48.0
+</I>&gt;<i>     [javac] Please remove or make sure it appears in
+</I>&gt;<i> the correct subdirectory of the classpath.
+</I>&gt;<i>     [javac] import
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+</I>&gt;<i>     [javac]
+</I>&gt;<i>     ^
+</I>&gt;<i>     [javac] 1 error
+</I>&gt;<i> 
+</I>&gt;<i> BUILD FAILED
+</I>&gt;<i> /opt/FHoSS/build.xml:89: Compile failed; see the
+</I>&gt;<i> compiler error output for details.
+</I>&gt;<i> 
+</I>&gt;<i> ####################################################################
+</I>&gt;<i> 
+</I>&gt;<i> I guess it is complaining about missing JDiameterPeer,
+</I>&gt;<i> so I go to build the JDiameterPeer trunk first.
+</I>&gt;<i> 
+</I>&gt;<i> When I run &quot;ant compile&quot; in the directory where
+</I>&gt;<i> &quot;build.xml&quot; for JDiameterPeer is located, I got the
+</I>&gt;<i> following error messages instead:
+</I>&gt;<i> 
+</I>&gt;<i> ####################################################################
+</I>&gt;<i> compile:
+</I>&gt;<i>     [javac] Compiling 26 source files to
+</I>&gt;<i> /root/depot/JavaDiameterPeer/trunk/classes
+</I>&gt;<i>     [javac]
+</I>&gt;<i> /root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+</I>&gt;<i> DiameterPeer.java:110:
+</I>&gt;<i> &lt;identifier&gt; expected
+</I>&gt;<i>     [javac]     public Vector&lt;Acceptor&gt; acceptors;
+</I>&gt;<i>     [javac]                      ^
+</I>&gt;<i>     [javac]
+</I>&gt;<i> /root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+</I>&gt;<i> DiameterPeer.java:119:
+</I>&gt;<i> &lt;identifier&gt; expected
+</I>&gt;<i>     [javac]     public Vector&lt;Application&gt;
+</I>&gt;<i> AuthApp,AcctApp;
+</I>&gt;<i>     [javac]                      ^
+</I>&gt;<i>     [javac]
+</I>&gt;<i> /root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+</I>&gt;<i> DiameterPeer.java:122:
+</I>&gt;<i> &lt;identifier&gt; expected
+</I>&gt;<i>     [javac]     public HashMap&lt;String,
+</I>&gt;<i> TreeMap&lt;Integer, String&gt;&gt; routingTable;
+</I>&gt;<i>     [javac]                       ^
+</I>&gt;<i>     [javac]
+</I>&gt;<i> /root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+</I>&gt;<i> DiameterPeer.java:131:
+</I>&gt;<i> &lt;identifier&gt; expected
+</I>&gt;<i>     [javac]     public Vector&lt;EventListener&gt;
+</I>&gt;<i> eventListeners;
+</I>&gt;<i> 
+</I>&gt;<i> etc......
+</I>&gt;<i> 
+</I>&gt;<i> ####################################################################
+</I>&gt;<i> 
+</I>&gt;<i> Does anyone know how to compile JDiameterPeer and make
+</I>&gt;<i> it usable to FHoss?
+</I>&gt;<i> 
+</I>&gt;<i> Any help is appreciated. Thanks.
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Dennis
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________
+</I>&gt;<i>  YM - &#38626;&#32218;&#35338;&#24687;
+</I>&gt;<i>  &#23601;&#31639;&#20320;&#27794;&#26377;&#19978;&#32178;&#65292;&#20320;&#30340;&#26379;&#21451;&#20173;&#21487;&#20197;&#30041;&#19979;&#35338;&#24687;&#32102;&#20320;&#65292;&#30070;&#20320;&#19978;&#32178;&#26178;&#23601;&#33021;&#31435;&#21363;&#30475;&#21040;&#65292;&#20219;&#20309;&#35498;&#35441;&#37117;&#20871;&#36208;&#22833;&#12290;
+</I>&gt;<i>  <A HREF="http://messenger.yahoo.com.hk">http://messenger.yahoo.com.hk</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000005.html">[OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer
+</A></li>
+	<LI>Next message: <A HREF="000022.html">[OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

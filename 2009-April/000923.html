@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Questions about realm routing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Questions%20about%20realm%20routing&In-Reply-To=%3C49DC8985.8010209%40nets.rwth-aachen.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000929.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Questions about realm routing</H1>
+    <B>Juan Miguel Espinosa Carlin</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Questions%20about%20realm%20routing&In-Reply-To=%3C49DC8985.8010209%40nets.rwth-aachen.de%3E"
+       TITLE="[OpenIMSCore-HSS] Questions about realm routing">JuanMiguel.EspinosaCarlin at nets.rwth-aachen.de
+       </A><BR>
+    <I>Wed Apr  8 13:24:53 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000929.html">[OpenIMSCore-HSS] Questions about realm routing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#923">[ date ]</a>
+              <a href="thread.html#923">[ thread ]</a>
+              <a href="subject.html#923">[ subject ]</a>
+              <a href="author.html#923">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everybody!
+
+I have been struggling at configuring realm routing in my Open IMS Core
+deployment (release 608).
+
+The problem in an scenario with two hss is that ALL the requests (around
+20 REGISTERs per second) are handled by the hss with the highest
+configured metric, while the hss with the lowest metric does nothing.
+
+This is the case for the hss1 in the example that I'm sending attached
+to this message: even though the hss1 is overloaded, no requests are
+handled by the hss2.
+
+For this same example, if the metric given to the hss2 is higher that
+the one given to hss1, then ALL the requests are handled by hss2 and the
+hss1 is never queried.
+
+Moreover, if both hss have the same metric, all the requests are handled
+by the hss that appears last in the configuration file.
+
+Is this the proper behavior of this kind of balancing? I want to achieve
+some round-robin assignment of the hss having two equal databases and I
+thought realm routing was exactly that: am I right? If that is the case,
+am I missing something in the configuration?
+
+I checked again the TCP port bindings and they seem to be correct.
+
+Any hints will be kindly appreciated.
+
+Best regards,
+
+	Juan Miguel
+
+-- 
+* M. Sc. Juan Miguel Espinosa Carlin
+* RWTH Aachen University
+* Computer Science Department
+* Informatik 4 - Communication and Distributed Systems
+* Ahornstrasse 55, 52074 Aachen, Germany
+* Phone: +49 241 80-21415
+* Fax:   +49 241 80-22220
+* E-mail: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">JuanMiguel.EspinosaCarlin at nets.rwth-aachen.de</A>
+* WWW: <A HREF="http://www.nets.rwth-aachen.de">http://www.nets.rwth-aachen.de</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: scscf.xml
+Type: text/xml
+Size: 1420 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment.xml">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment.xml</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: icscf.xml
+Type: text/xml
+Size: 1383 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment-0001.xml">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment-0001.xml</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: DiameterPeerHSS.xml.hss1
+Type: text/xml
+Size: 801 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment-0002.xml">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment-0002.xml</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: DiameterPeerHSS.xml.hss2
+Type: text/xml
+Size: 801 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment-0003.xml">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment-0003.xml</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/x-pkcs7-signature
+Size: 3457 bytes
+Desc: S/MIME Cryptographic Signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment.bin">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090408/d71d7660/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000929.html">[OpenIMSCore-HSS] Questions about realm routing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#923">[ date ]</a>
+              <a href="thread.html#923">[ thread ]</a>
+              <a href="subject.html#923">[ subject ]</a>
+              <a href="author.html#923">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

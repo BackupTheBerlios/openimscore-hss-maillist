@@ -1,0 +1,4208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r98 - in FHoSS/trunk: . config lib	scripts src/de/fhg/fokus src/de/fhg/fokus/cx	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/diam	src/de/fhg/fokus/hss/diam/cx src/de/fhg/fokus/hss/diam/sh	src/de/fhg/fokus/hss/diam/zh src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/main src/de/fhg/fokus/hss/model	src/de/fhg/fokus/hss/server src/de/fhg/fokus/hss/server/cx	src/de/fhg/fokus/hss/server/cx/op	src/de/fhg/fokus/hss/server/cx/util	src/de/fhg/fokus/hss/server/zh src/de/fhg/fokus/hss/util	src/de/fhg/fokus/milenage src/de/fhg/fokus/security	src/de/fhg/fokus/security/auth
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r98%20-%20in%20FHoSS/trunk%3A%20.%20config%20lib%0A%09scripts%20src/de/fhg/fokus%20src/de/fhg/fokus/cx%0A%09src/de/fhg/fokus/hss/action%20src/de/fhg/fokus/hss/diam%0A%09src/de/fhg/fokus/hss/diam/cx%20src/de/fhg/fokus/hss/diam/sh%0A%09src/de/fhg/fokus/hss/diam/zh%20src/de/fhg/fokus/hss/form%0A%09src/de/fhg/fokus/hss/main%20src/de/fhg/fokus/hss/model%0A%09src/de/fhg/fokus/hss/server%20src/de/fhg/fokus/hss/server/cx%0A%09src/de/fhg/fokus/hss/server/cx/op%0A%09src/de/fhg/fokus/hss/server/cx/util%0A%09src/de/fhg/fokus/hss/server/zh%20src/de/fhg/fokus/hss/util%0A%09src/de/fhg/fokus/milenage%20src/de/fhg/fokus/security%0A%09src/de/fhg/fokus/security/auth&In-Reply-To=%3C200701222029.l0MKTZWd001773%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000163.html">
+   <LINK REL="Next"  HREF="000165.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r98 - in FHoSS/trunk: . config lib	scripts src/de/fhg/fokus src/de/fhg/fokus/cx	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/diam	src/de/fhg/fokus/hss/diam/cx src/de/fhg/fokus/hss/diam/sh	src/de/fhg/fokus/hss/diam/zh src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/main src/de/fhg/fokus/hss/model	src/de/fhg/fokus/hss/server src/de/fhg/fokus/hss/server/cx	src/de/fhg/fokus/hss/server/cx/op	src/de/fhg/fokus/hss/server/cx/util	src/de/fhg/fokus/hss/server/zh src/de/fhg/fokus/hss/util	src/de/fhg/fokus/milenage src/de/fhg/fokus/security	src/de/fhg/fokus/security/auth</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r98%20-%20in%20FHoSS/trunk%3A%20.%20config%20lib%0A%09scripts%20src/de/fhg/fokus%20src/de/fhg/fokus/cx%0A%09src/de/fhg/fokus/hss/action%20src/de/fhg/fokus/hss/diam%0A%09src/de/fhg/fokus/hss/diam/cx%20src/de/fhg/fokus/hss/diam/sh%0A%09src/de/fhg/fokus/hss/diam/zh%20src/de/fhg/fokus/hss/form%0A%09src/de/fhg/fokus/hss/main%20src/de/fhg/fokus/hss/model%0A%09src/de/fhg/fokus/hss/server%20src/de/fhg/fokus/hss/server/cx%0A%09src/de/fhg/fokus/hss/server/cx/op%0A%09src/de/fhg/fokus/hss/server/cx/util%0A%09src/de/fhg/fokus/hss/server/zh%20src/de/fhg/fokus/hss/util%0A%09src/de/fhg/fokus/milenage%20src/de/fhg/fokus/security%0A%09src/de/fhg/fokus/security/auth&In-Reply-To=%3C200701222029.l0MKTZWd001773%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r98 - in FHoSS/trunk: . config lib	scripts src/de/fhg/fokus src/de/fhg/fokus/cx	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/diam	src/de/fhg/fokus/hss/diam/cx src/de/fhg/fokus/hss/diam/sh	src/de/fhg/fokus/hss/diam/zh src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/main src/de/fhg/fokus/hss/model	src/de/fhg/fokus/hss/server src/de/fhg/fokus/hss/server/cx	src/de/fhg/fokus/hss/server/cx/op	src/de/fhg/fokus/hss/server/cx/util	src/de/fhg/fokus/hss/server/zh src/de/fhg/fokus/hss/util	src/de/fhg/fokus/milenage src/de/fhg/fokus/security	src/de/fhg/fokus/security/auth">adp at users.berlios.de
+       </A><BR>
+    <I>Mon Jan 22 21:29:35 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000163.html">[OpenIMSCore-HSS] Problem integrating with Application Server
+</A></li>
+        <LI>Next message: <A HREF="000165.html">[OpenIMSCore-HSS] [SVN-FHoSS] r99 - in FHoSS/trunk: config lib
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-01-22 21:29:30 +0100 (Mon, 22 Jan 2007)
+New Revision: 98
+
+Added:
+   FHoSS/trunk/lib/log4j.properties
+   FHoSS/trunk/src/de/fhg/fokus/hss/main/HSSProperties.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/util/Util.java
+   FHoSS/trunk/src/de/fhg/fokus/security/
+   FHoSS/trunk/src/de/fhg/fokus/security/auth/
+   FHoSS/trunk/src/de/fhg/fokus/security/auth/DigestAKA.java
+   FHoSS/trunk/src/de/fhg/fokus/security/auth/HexCoDec.java
+   FHoSS/trunk/src/de/fhg/fokus/security/auth/Milenage.java
+   FHoSS/trunk/src/de/fhg/fokus/security/auth/Rijndael32Bit.java
+Removed:
+   FHoSS/trunk/config/log4j.properties
+   FHoSS/trunk/lib/jdp.jar
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/AVPCodes.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/CxCommandAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/HSSProperties.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/util/AKAUtil.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Abstract3gppObject.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/AbstractAuth3gppObject.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Ak.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Amf.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Auth3gppObject.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/AuthKey.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/AuthenticationException.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Autn.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Auts.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Ck.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/DigestAKA.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Ik.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Mac.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/MacVerificationException.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Nonce.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Op.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Opc.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Rand.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Res.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/SIPAuthorization.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/SimpleSqn.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/Sqn.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/SynchronizationException.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/client/
+   FHoSS/trunk/src/de/fhg/fokus/milenage/codec/
+   FHoSS/trunk/src/de/fhg/fokus/milenage/kernel/
+   FHoSS/trunk/src/de/fhg/fokus/milenage/package-info.java
+   FHoSS/trunk/src/de/fhg/fokus/milenage/server/
+   FHoSS/trunk/src/de/fhg/fokus/milenage/util/
+Modified:
+   FHoSS/trunk/.classpath
+   FHoSS/trunk/build.properties
+   FHoSS/trunk/build.xml
+   FHoSS/trunk/config/hibernate.properties
+   FHoSS/trunk/config/hss.properties
+   FHoSS/trunk/scripts/startup.sh
+   FHoSS/trunk/src/de/fhg/fokus/cx/AuthenticationVector.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpiSubmitAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/CommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/Constants.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/OriginHostResolver.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/CxCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/LIRCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/MARCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/PPRCommandAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/RTRCommandAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/SARCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/UARCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PNRCommandAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/SNRCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/UDRCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/ZhCommandListener.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpiForm.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/main/HssServer.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/AuthSchemeBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/PsiBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/CSCFOperationsImpl.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/LocationCxOperation.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java
+Log:
+Bug fixing: 009678, 009870; Improvements: authentication schemes AKAv2 and MD5 and synchronization support for SQN between clients and the HSS
+
+Modified: FHoSS/trunk/.classpath
+===================================================================
+--- FHoSS/trunk/.classpath	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/.classpath	2007-01-22 20:29:30 UTC (rev 98)
+@@ -37,7 +37,7 @@
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/junitee.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/mysql-connector-java-3.0.14-production-bin.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/struts.jar&quot;/&gt;
++	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/castor-1.0.5.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/jdp.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/castor-1.0.5.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;output&quot; path=&quot;bin&quot;/&gt;
+ &lt;/classpath&gt;
+
+Modified: FHoSS/trunk/build.properties
+===================================================================
+--- FHoSS/trunk/build.properties	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/build.properties	2007-01-22 20:29:30 UTC (rev 98)
+@@ -1,9 +1,9 @@
+ ############################################################
+-#
+-# HSS Deployment properties
+-#
++#														   #
++#                HSS Deployment properties                 #
++#														   #
+ ############################################################
+ 
+-#The instalation file of the FHoSS
++# The instalation file of the FHoSS
+ install.dest=deploy
+ 
+
+Modified: FHoSS/trunk/build.xml
+===================================================================
+--- FHoSS/trunk/build.xml	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/build.xml	2007-01-22 20:29:30 UTC (rev 98)
+@@ -76,7 +76,8 @@
+ 			destdir=&quot;${build}&quot;
+ 			debug=&quot;${compile.debug}&quot;
+ 			deprecation=&quot;${compile.deprecation}&quot;
+-			optimize=&quot;${compile.optimize}&quot;&gt;
++			optimize=&quot;${compile.optimize}&quot;
++			compiler=&quot;javac1.5&quot;&gt;
+ 			
+ 			&lt;classpath refid=&quot;compile.classpath&quot; /&gt;			
+ 		&lt;/javac&gt;	
+@@ -86,7 +87,8 @@
+ 			destdir=&quot;${build}&quot;
+ 			debug=&quot;${compile.debug}&quot;
+ 			deprecation=&quot;${compile.deprecation}&quot;
+-			optimize=&quot;${compile.optimize}&quot;&gt;
++			optimize=&quot;${compile.optimize}&quot;
++			compiler=&quot;javac1.5&quot;&gt;
+ 			
+ 			&lt;classpath refid=&quot;compile.classpath&quot; /&gt;			
+ 		&lt;/javac&gt;	
+@@ -109,6 +111,7 @@
+ 				&lt;include name=&quot;MessageResources.properties&quot;/&gt;								
+ 				&lt;include name=&quot;castor.properties&quot;/&gt;								
+ 			&lt;/fileset&gt;
++			
+ 		&lt;/jar&gt;	
+ 	&lt;/target&gt;
+ 	
+@@ -139,6 +142,8 @@
+ 		&lt;/copy&gt;
+ 				
+ 		&lt;copy todir=&quot;${install.dest}/lib&quot; file=&quot;${build}/lib/FHoSS.jar&quot; /&gt;
++&lt;!--		&lt;copy todir=&quot;${install.dest}/lib&quot; file=&quot;config/log4j.properties&quot; /&gt; --&gt;
++
+ 		&lt;copy todir=&quot;${install.dest}/lib&quot;&gt;
+ 			&lt;fileset dir=&quot;lib&quot;&gt;
+ 				&lt;include name=&quot;*.jar&quot;/&gt;
+@@ -151,6 +156,7 @@
+ 			&lt;/fileset&gt;
+ 			&lt;fileset dir=&quot;config&quot;&gt;
+ 				&lt;include name=&quot;*&quot;/&gt;
++				
+ 			&lt;/fileset&gt;			
+ 		&lt;/copy&gt;
+ 		
+@@ -186,10 +192,10 @@
+ 	&lt;/target&gt;
+ 
+ 	&lt;target name=&quot;cleanall&quot; depends=&quot;clean-gen&quot;&gt;
++		&lt;delete dir=&quot;${install.dest}&quot; /&gt;
++		&lt;delete dir=&quot;${src-gen}&quot; /&gt;
+ 		&lt;delete dir=&quot;${build}&quot; /&gt;
+ 	  	&lt;delete dir=&quot;${docs}&quot; /&gt;
+ 	&lt;/target&gt;
+-	
+-	
+ &lt;/project&gt;
+ 
+
+Modified: FHoSS/trunk/config/hibernate.properties
+===================================================================
+--- FHoSS/trunk/config/hibernate.properties	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/config/hibernate.properties	2007-01-22 20:29:30 UTC (rev 98)
+@@ -1,12 +1,3 @@
+-## HypersonicSQL
+-
+-#hibernate.dialect=org.hibernate.dialect.HSQLDialect
+-#hibernate.connection.driver_class=org.hsqldb.jdbcDriver
+-#hibernate.connection.username=sa
+-#hibernate.connection.password=
+-#hibernate.connection.url=jdbc:hsqldb:<A HREF="hsql://localhost/xdb">hsql://localhost/xdb</A>
+-
+-
+ ## MySQL
+ 
+ hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+Modified: FHoSS/trunk/config/hss.properties
+===================================================================
+--- FHoSS/trunk/config/hss.properties	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/config/hss.properties	2007-01-22 20:29:30 UTC (rev 98)
+@@ -1,28 +1,41 @@
+-################################################################################
+-# host: specifies where the tomcat listen, e.g. localhost, absinthe.open-ims.org 
+-################################################################################
++# FOKUS HSS Properties file
++#----------------------------------------------------------------------------------------------------------------------------------
+ 
++
++# host &amp; port : specify where the tomcat listen, e.g. host=localhost, port=8080;  
++
+ host=localhost
++port=8080
+ 
+-################################################################################
+-# appPath: specifies the relative app path of the console web ap
+-################################################################################
+-# Productiv
+-appPath=/hss.web.console
+-
+-################################################################################
+ # operator_id, as hex bytes, required length 32 byte, 
+ # e.g. 00000000000000000000000000000000
+-################################################################################
++
+ operatorId=00000000000000000000000000000000
+ 
+-################################################################################
++
+ # amf_id: Default amf id as hex bytes, required length 4 byte, e.g. 0000
+-################################################################################
+ amfId=0000
+ 
+-################################################################################
+ # defaultPsiImpi: All PSI are assigned by this impi
+-################################################################################
++
+ psi.defaultImpi=<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">psi at open-ims.test</A>
+-psi.defaultPriChrgCollFN=psi.open-ims.test
+\ No newline at end of file
++psi.defaultPriChrgCollFN=psi.open-ims.test
++
++# Authentication properties  - contains configuration parameters relating to Milenage algorithm
++#----------------------------------------------------------------------------------------------------------------------------------
++
++# Enable or disable the use of AK in the Milenage algorithm; if this flag is enabled, 
++#then is mandatory to be enabled also on the client side
++
++USE_AK=true
++
++# IND_LEN property - contains the number of bits assigned for index value; is used in generation of new SQN values 
++# we use SQN which is not time based, as is specified here C.1.1.2, C.1.2, C.2, C3.2 and C.3.4 of TS 33.102
++# (SQN = SEQ || IND)
++IND_LEN=5
++
++# delta value, assuring the protection against wrap around counter in the USIM
++delta=268435456
++
++# L - limit on the difference between SEQ_MS and SEQ_HE
++L=32
+
+Deleted: FHoSS/trunk/config/log4j.properties
+
+Deleted: FHoSS/trunk/lib/jdp.jar
+
+Added: FHoSS/trunk/lib/log4j.properties
+
+Modified: FHoSS/trunk/scripts/startup.sh
+===================================================================
+--- FHoSS/trunk/scripts/startup.sh	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/scripts/startup.sh	2007-01-22 20:29:30 UTC (rev 98)
+@@ -2,10 +2,14 @@
+ # --------------------------------------------------------------
+ # Include JAR Files
+ # --------------------------------------------------------------
++
+ echo &quot;Building Classpath&quot;
++CLASSPATH=$CLASSPATH:log4j.properties:.
+ for i in lib/*.jar; do CLASSPATH=&quot;$i&quot;:&quot;$CLASSPATH&quot;; done
+ echo &quot;Classpath is $CLASSPATH.&quot;
++
+ # --------------------------------------------------------------
+ # Start-up
+ # --------------------------------------------------------------
++
+ $JAVA_HOME/bin/java -cp $CLASSPATH de.fhg.fokus.hss.main.HssServer $1 $2 $3 $4 $5 $6 $7 $8 $9
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/cx/AuthenticationVector.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/cx/AuthenticationVector.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/cx/AuthenticationVector.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -72,7 +72,7 @@
+      *  or Proxy-Authenticate SIP headers that are to be present in a SIP response.
+ 	 * 
+ 	 */
+-	public byte [] sipAuthenticate = new byte [32];
++	public byte [] sipAuthenticate; // 32 bytes
+ 	// RAND(16) || AUTN(16)= (sqn xor ak)(6)||amf(2)||mac(8)
+ 	
+    /**
+@@ -80,17 +80,17 @@
+     * SIP headers suitable for inclusion in a SIP request
+     */ 
+ 	
+-	public byte [] sipAuthorization= new byte[8];
++	public byte [] sipAuthorization; // at least 8 bytes
+ 	
+ 	/**
+ 	 * the confidentiality key
+ 	 */
+-	public byte [] confidentialityityKey = new byte [16];
++	public byte [] confidentialityityKey = new byte[16]; // 16 bytes
+ 	
+ 	/**
+ 	 * the integrity key
+ 	 */
+-	public byte [] integrityKey = new byte [16];
++	public byte [] integrityKey = new byte[16]; // 16 bytes
+ 	
+ 	/**
+ 	 * minimal constructor
+@@ -122,7 +122,15 @@
+ 		this.sipAuthorization = sipAuthorization;
+ 		this.integrityKey = integrityKey;
+ 	}
++
++	public AuthenticationVector(String authenticationScheme, byte [] sipAuthenticate, byte [] sipAuthorization) {
++		this.authenticationScheme = authenticationScheme;
++		this.sipAuthenticate = sipAuthenticate;
++		this.sipAuthorization = sipAuthorization;
++	}
+ 	
++	
++	
+ 	/**
+ 	 * constructor 
+ 	 * @param authenticationScheme 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpiSubmitAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpiSubmitAction.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpiSubmitAction.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -154,15 +154,32 @@
+ 		impi.setImpiString(form.getImpiString());
+ 		impi.setScscfName(form.getScscfName());
+ 
+-		if (form.getAuthScheme().equals(AuthSchemeBO.AUS_MD5))
++		if (form.getAuthScheme().equals(AuthSchemeBO.AUTH_SCHEME_AKAv1))
+ 		{
++			System.out.println(&quot;\n\nAUTH_SCHEME: 1&quot;);
+ 			impi.setAlgorithm(form.getAlgorithm());
+ 			impi.setAuthScheme(form.getAuthScheme());
+ 			impi.setSkey(form.getSkey());
+ 			impi.setOperatorId(form.getOperatorId());
+ 			impi.setAmf(form.getAmf());
+-		} else
++		} 
++		else if (form.getAuthScheme().equals(AuthSchemeBO.AUTH_SCHEME_AKAv2))
+ 		{
++			impi.setAlgorithm(form.getAlgorithm());
++			impi.setAuthScheme(form.getAuthScheme());
++			impi.setSkey(form.getSkey());
++			impi.setOperatorId(form.getOperatorId());
++			impi.setAmf(form.getAmf());
++		} 
++		else if (form.getAuthScheme().equals(AuthSchemeBO.AUTH_SCHEME_MD5)){
++			impi.setAlgorithm(form.getAlgorithm());
++			impi.setAuthScheme(form.getAuthScheme());
++			impi.setSkey(form.getSkey());
++			impi.setOperatorId(form.getOperatorId());
++			impi.setAmf(form.getAmf());
++		}
++		else
++		{
+ 			impi.setAlgorithm(null);
+ 			impi.setAuthScheme(null);
+ 			impi.setSkey(null);
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/hss/diam/AVPCodes.java
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/CommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/CommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/CommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -59,11 +59,10 @@
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public abstract class CommandListener implements EventListener
+-{
++
++public abstract class CommandListener implements EventListener {
+     /** the Logger */
+-    private static final Logger LOGGER =
+-        Logger.getLogger(CommandListener.class);
++    private static final Logger LOGGER = Logger.getLogger(CommandListener.class);
+     /** the diameterPeer */
+     protected DiameterPeer diameterPeer;
+ 
+@@ -73,8 +72,8 @@
+      * @param _diameterPeer
+      */
+     public CommandListener(
+-        DiameterPeer _diameterPeer)
+-    {
++        DiameterPeer _diameterPeer){
++    	
+         LOGGER.debug(&quot;entering&quot;);
+         this.diameterPeer = _diameterPeer;
+         LOGGER.debug(&quot;exiting&quot;);
+@@ -82,41 +81,6 @@
+ 
+    
+     /**
+-     * Try to send a Diameter Unable To Comply Message
+-     * 
+-     * @param FQDN fully qualified domain name
+-     * @param requestMessage the message
+-     */
+-    protected void sendUnableToComply(
+-        String FQDN, DiameterMessage requestMessage)
+-    {
+-        try
+-        {
+-            if (
+-                (diameterPeer != null) &amp;&amp; (FQDN != null)
+-                    &amp;&amp; (requestMessage != null))
+-            {
+-                DiameterMessage msg = diameterPeer.newResponse(requestMessage);
+-                AVP resultAVP = AVPCodes.getAVP(AVPCodes._RESULT_CODE);
+-                resultAVP.setData(ResultCode._DIAMETER_UNABLE_TO_COMPLY);
+-                msg.addAVP(resultAVP);
+-                diameterPeer.sendMessage(FQDN, msg);
+-            }
+-            else
+-            {
+-                LOGGER.error(
+-                    &quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;,
+-                    new NullPointerException());
+-            }
+-        }
+-        catch (RuntimeException e)
+-        {
+-            LOGGER.error(this, e);
+-        }
+-    }
+-
+-   
+-    /**
+      * Extract result code from repsonse and generate resultcode AVP as an base
+      * or grouped experimental avp.
+      * 
+@@ -124,25 +88,18 @@
+      * @param isBase it indicates either a base or grouped experimental avp
+      * @return result code avp.
+      */
+-    protected AVP saveResultCode(int resultCode, boolean isBase)
+-    {
++    protected AVP saveResultCode(int resultCode, boolean isBase){
+         AVP resultCodeAVP;
+ 
+-        if (isBase)
+-        {
+-            resultCodeAVP = AVPCodes.getAVP(AVPCodes._RESULT_CODE);
++        if (isBase){
++            resultCodeAVP = new AVP(Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
+             resultCodeAVP.setData(resultCode);
+         }
+-        else
+-        {
+-            resultCodeAVP =
+-                AVPCodes.getAVP(AVPCodes._EXPERIMENTAL_RESULT_CODE_AVP);
+-
+-            AVP resultCodeCode =
+-                AVPCodes.getAVP(AVPCodes._EXPERIMENTAL_RESULT_CODE);
++        else{
++            resultCodeAVP = new AVP(Constants.AVPCode.EXPERIMENTAL_RESULT_CODE_AVP, true, Constants.Vendor.DIAM);
++            AVP resultCodeCode = new AVP (Constants.AVPCode.EXPERIMENTAL_RESULT_CODE, true, Constants.Vendor.DIAM);
+             resultCodeCode.setData(resultCode);
+-
+-            AVP vendorAVP = AVPCodes.getAVP(AVPCodes._VENDOR_ID);
++            AVP vendorAVP = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
+             vendorAVP.setData(Constants.Vendor.V3GPP);
+             resultCodeAVP.addChildAVP(resultCodeCode);
+             resultCodeAVP.addChildAVP(vendorAVP);
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/Constants.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/Constants.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/Constants.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -87,19 +87,18 @@
+  */
+ package de.fhg.fokus.hss.diam;
+ 
+-
+-
+ /**
+- * It contains constant values like AVPCodes-Codes, Command code values.
++ * It contains constant values like Application types, Vendor types and AVP Codes
+  *
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
++
+ public class Constants
+ {
+     /** 
+-     *  an abstract inner class containing the constants for application
++     *  an inner class containing the constants for application
+      */
+-    public abstract class Application {
++    public class Application {
+ 			/** constant for cx application */
+ 			public static final int CX = 16777216;
+ 			/** constant for sh application */
+@@ -109,9 +108,9 @@
+     }
+  
+     /** 
+-     *  an abstract inner class containing the constants for vendor
++     *  an inner class containing the constants for vendor
+      */    
+-    public abstract class Vendor
++    public class Vendor
+     {
+         /** constant for diam */
+         public static final int DIAM = 0;
+@@ -120,10 +119,10 @@
+     }
+ 
+     /** 
+-     *  an abstract inner class containing the constants for ims 
++     *  an inner class containing the constants for ims 
+      *  specific requests and responses
+      */  
+-    public abstract class COMMAND
++    public class Command
+     {
+     	/** constant for Capablities Exchange Request */
+         public static final int CER = 257;
+@@ -176,4 +175,57 @@
+         /** constant for Multimedia Authentication Request for Zh-Interface */
+ 		public static final int MARzh = 903;
+     }
++    
++    public class AVPCode{
++        public static final int PRIVATE_USER_IDENTITY = 1;
++        public static final int FRAMED_IP_ADDRESS = 8;
++    	public static final int AUTH_APPLICATION_ID = 258;
++        public static final int VENDOR_SPECIFIC_APPLICATION_ID = 260;
++        public static final int ORIGIN_HOST = 264;
++        public static final int VENDOR_ID = 266;
++        public static final int RESULT_CODE = 268;
++    	public static final int AUTH_SESSION_STATE = 277;
++        public static final int DESTINATION_HOST = 293;
++        public static final int EXPERIMENTAL_RESULT_CODE_AVP = 297;
++        public static final int EXPERIMENTAL_RESULT_CODE = 298;
++        public static final int VISITED_NETWORK_IDENTIFIER = 600;
++        public static final int CX_PUBLIC_IDENTITY = 601;
++        public static final int CX_SERVER_NAME = 602;
++        public static final int CX_SERVER_CAPABILITIES = 603;
++        public static final int MANDATORY_CAPABILITY = 604;
++        public static final int OPTIONAL_CAPABILITY = 605;
++        public static final int CX_USER_DATA = 606;
++        public static final int SIP_NUMBER_AUTH_ITEMS = 607;
++        public static final int SIP_AUTHENTICATION_SCHEME = 608;
++        public static final int SIP_AUTHENTICATE = 609;
++        public static final int SIP_AUTHORIZATION = 610;
++        public static final int SIP_AUTHENTICATION_CONTEXT = 611;
++        public static final int SIP_AUTH_DATA_ITEM = 612;
++        public static final int SIP_ITEM_NUMBER = 613;
++        public static final int SERVER_ASSIGNMENT_TYPE = 614;
++        public static final int DEREGISTRATION_REASON = 615;
++        public static final int REASON_CODE = 616;
++        public static final int REASON_INFO = 617;
++        public static final int CHARGING_INFO = 618;
++        public static final int PRI_EVENT_CHARGING_FN_NAME = 619;
++        public static final int SEC_EVENT_CHARGING_FN_NAME = 620;
++        public static final int PRI_CHRG_COLL_FN_NAME = 621;
++        public static final int SEC_CHRG_COLL_FN_NAME = 622;
++        public static final int USER_AUTHORIZATION_TYPE = 623;
++        public static final int USER_DATA_ALREADY_AVAILABLE = 624;
++        public static final int CONFIDENTIALITY_KEY = 625;
++        public static final int INTEGRITY_KEY = 626;
++        
++        public static final int SH_USER_IDENTITY = 700;
++        public static final int SH_PUBLIC_IDENTITY = 601;
++        public static final int SH_SERVER_NAME = 602;
++        public static final int SH_USER_DATA = 702;
++        public static final int SH_DATA_REFERENCE = 703;
++        public static final int SH_SERVICE_INDICATION = 704;
++        public static final int SH_SUBSCRIBTION_REQ_TYPE = 705;
++        
++    	public static final int ZH_GUSS = 400;
++    	
++    }
++    
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/OriginHostResolver.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/OriginHostResolver.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/OriginHostResolver.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -87,7 +87,7 @@
+         Session session = HibernateUtil.currentSession();
+         Iterator it =
+             session.createCriteria(DiamServer.class).list().iterator();
+-
++        
+         while (it.hasNext())
+         {
+             DiamServer diamServer = (DiamServer) it.next();
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/CxCommandAction.java
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/CxCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/CxCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/CxCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -57,10 +57,10 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.CommandListener;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.OriginHostResolver;
++import de.fhg.fokus.hss.diam.ResultCode;
+ 
+ 
+ /**
+@@ -74,8 +74,7 @@
+     private static final Logger LOGGER =
+         Logger.getLogger(CommandListener.class);
+ 
+-    public CxCommandListener(DiameterPeer _diameterPeer)
+-    {
++    public CxCommandListener(DiameterPeer _diameterPeer){
+         super(_diameterPeer);
+     }
+ 
+@@ -93,11 +92,8 @@
+      * @throws DiameterException DIAMETER_MISSING_AVP
+      */
+     protected PublicIdentity loadPublicIdentity(DiameterMessage msg)
+-        throws DiameterException
+-    {
+-        AVP sipUriAVP =
+-            avpLookUp(
+-                msg, AVPCodes._CX_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
++        throws DiameterException{
++        AVP sipUriAVP = avpLookUp(msg, Constants.AVPCode.CX_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
+         PublicIdentity publicIdentity = new PublicIdentity();
+         publicIdentity.setIdentity(new String(sipUriAVP.data));
+ 
+@@ -113,14 +109,11 @@
+      * @return the found avp if it is found otherwise exception
+      * @throws DiameterException
+      */
+-    protected AVP avpLookUp(
+-        DiameterMessage msg, int avpCode, boolean isVendorSpecific, int vendorId)
+-        throws DiameterException
+-    {
++    protected AVP avpLookUp(DiameterMessage msg, int avpCode, boolean isVendorSpecific, int vendorId)
++        throws DiameterException{
+         AVP avp = msg.findAVP(avpCode, isVendorSpecific, vendorId);
+ 
+-        if (avp == null)
+-        {
++        if (avp == null){
+         	LOGGER.warn(String.valueOf(avpCode), new MissingAVP());
+             throw new MissingAVP();
+         }
+@@ -136,25 +129,29 @@
+      * @throws DiameterException
+      */
+     protected URI loadPrivateUserIdentity(DiameterMessage msg)
+-        throws URISyntaxException, DiameterException
+-    {
+-        try
+-        {
++        throws URISyntaxException, DiameterException{
++        try{
+             URI privateUserIdentity =
+-                new URI(
+-                    new String(
+-                        avpLookUp(
+-                            msg, AVPCodes._PRIVATE_USER_IDENTITY, true,
+-                            Constants.Vendor.DIAM).data));
++                new URI(new String(avpLookUp(msg, Constants.AVPCode.PRIVATE_USER_IDENTITY, true, Constants.Vendor.DIAM).data));
+ 
+             return privateUserIdentity;
+         }
+-        catch (URISyntaxException e)
+-        {
++        catch (URISyntaxException e){
+             throw new InvalidAvpValue();
+         }
+     }
+ 
++    
++    protected String loadAuthenticationScheme(DiameterMessage msg)
++    	throws DiameterException{
++    	
++       String authenticationScheme =
++                new String(avpLookUp(msg, Constants.AVPCode.SIP_AUTHENTICATION_SCHEME, true, Constants.Vendor.DIAM).data);
++
++        return authenticationScheme;
++    }    
++    
++    
+     /**
+      * It loads the server name
+      * @param requestMessage the diameter request message 
+@@ -162,19 +159,12 @@
+      * @throws DiameterException
+      */
+     protected String loadServerName(DiameterMessage requestMessage)
+-        throws DiameterException
+-    {
++        throws DiameterException{
++    	
+         String scscfName =
+-            new String(
+-                avpLookUp(
+-                    requestMessage, AVPCodes._CX_SERVER_NAME, true,
+-                    Constants.Vendor.V3GPP).data);
++            new String(avpLookUp(requestMessage, Constants.AVPCode.CX_SERVER_NAME, true, Constants.Vendor.V3GPP).data);
+         String originHost =
+-            new String(
+-                avpLookUp(
+-                    requestMessage, AVPCodes._ORIGIN_HOST, true,
+-                    Constants.Vendor.DIAM).data);
+-
++            new String(avpLookUp(requestMessage, Constants.AVPCode.ORIGIN_HOST, true, Constants.Vendor.DIAM).data);
+         OriginHostResolver.setOriginHost(scscfName, originHost);
+ 
+         return scscfName;
+@@ -189,32 +179,66 @@
+      */
+     protected void sendDiameterException(
+         String FQDN, DiameterMessage requestMessage,
+-        DiameterException diameterException)
+-    {
+-        try
+-        {
+-            if (
+-                (diameterPeer != null) &amp;&amp; (FQDN != null)
+-                    &amp;&amp; (requestMessage != null))
+-            {
++        DiameterException diameterException){
++    	
++        try{
++            if ((diameterPeer != null) &amp;&amp; (FQDN != null)
++                    &amp;&amp; (requestMessage != null)){
++            	
+                 DiameterMessage msg = diameterPeer.newResponse(requestMessage);
+-                AVP resultAVP =
+-                    saveResultCode(
+-                        diameterException.getCode(),
+-                        (diameterException instanceof DiameterBaseException));
++                AVP resultAVP = saveResultCode( diameterException.getCode(),(diameterException instanceof DiameterBaseException));
+                 msg.addAVP(resultAVP);
+                 diameterPeer.sendMessage(FQDN, msg);
+             }
+-            else
+-            {
+-                LOGGER.error(
+-                    &quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;,
+-                    new NullPointerException());
++            else{
++                LOGGER.error(&quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;, new NullPointerException());
+             }
+         }
+-        catch (RuntimeException e)
+-        {
++        catch (RuntimeException e){
+             LOGGER.error(this, e);
+         }
+     }
++
++    /**
++     * Try to send a Diameter Unable To Comply Message
++     * 
++     * @param FQDN fully qualified domain name
++     * @param requestMessage the message
++     */
++    protected void sendUnableToComply(String FQDN, DiameterMessage requestMessage){
++    	
++        try{
++            if ((diameterPeer != null) &amp;&amp; (FQDN != null) &amp;&amp; (requestMessage != null)){
++            	
++                DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
++                
++                AVP resultAVP = new AVP(Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
++                resultAVP.setData(ResultCode._DIAMETER_UNABLE_TO_COMPLY);
++                responseMessage.addAVP(resultAVP);
++                
++                AVP vendorSpecificApplicationID = new AVP(Constants.AVPCode.VENDOR_SPECIFIC_APPLICATION_ID, true, 
++                		Constants.Vendor.DIAM);
++                AVP vendorID = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
++                vendorID.setData(Constants.Vendor.V3GPP);
++                vendorSpecificApplicationID.addChildAVP(vendorID);
++                AVP applicationID = new AVP(Constants.AVPCode.AUTH_APPLICATION_ID, true,  Constants.Vendor.DIAM);
++                applicationID.setData(Constants.Application.CX);
++                vendorSpecificApplicationID.addChildAVP(applicationID);
++                responseMessage.addAVP(vendorSpecificApplicationID);                
++                
++                AVP authSessionState = new AVP(Constants.AVPCode.AUTH_SESSION_STATE, true, Constants.Vendor.DIAM);
++                authSessionState.setData(1);
++                responseMessage.addAVP(authSessionState);
++
++                diameterPeer.sendMessage(FQDN, responseMessage);
++            }
++            else{
++                LOGGER.error(&quot;Unable to send Unable-To-Comply message; missing mandatory param!&quot;);
++            }
++        }
++        catch (RuntimeException e){
++            LOGGER.error(this, e);
++        }
++    }
++
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/LIRCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/LIRCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/LIRCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -54,7 +54,6 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ 
+ 
+@@ -66,15 +65,15 @@
+  *
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class LIRCommandListener extends CxCommandListener
+-{
+-    /** the counter */
++
++public class LIRCommandListener extends CxCommandListener{
++    /** the counter for LIR commands */
+     public static long counter = 0;
+     /** the LOGGER */
+     private static final Logger LOGGER =
+         Logger.getLogger(LIRCommandListener.class);
+     /** the command id for LIR*/    
+-    private static final int COMMAND_ID = Constants.COMMAND.LIR;
++    private static final int COMMAND_ID = Constants.Command.LIR;
+     /** An object representing Cx Operations of HSS*/
+     private HSScxOperations operations;
+ 
+@@ -84,8 +83,7 @@
+      * @param _diameterPeer diameterPeer
+      */
+     public LIRCommandListener(
+-        HSScxOperations _operations, DiameterPeer _diameterPeer)
+-    {
++        HSScxOperations _operations, DiameterPeer _diameterPeer){
+         super(_diameterPeer);
+         this.operations = _operations;
+     }
+@@ -96,16 +94,11 @@
+      * @param requestMessage the diameter message
+      * @see de.fhg.fokus.diameter.DiameterPeer.EventListener#recvMessage(java.lang.String, de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage)
+      */
+-    public void recvMessage(String FQDN, DiameterMessage requestMessage)
+-    {
+-        if (requestMessage.commandCode == COMMAND_ID)
+-        {
++    public void recvMessage(String FQDN, DiameterMessage requestMessage){
++    	
++        if (requestMessage.commandCode == COMMAND_ID){
+             counter++;
+-            LOGGER.debug(&quot;entering&quot;);
+-            LOGGER.debug(FQDN);
+-
+-            try
+-            {
++            try{
+                 PublicIdentity publicIdentity =
+                     loadPublicIdentity(requestMessage);
+ 
+@@ -113,41 +106,40 @@
+                 AVP resultCode = null;
+ 
+                 response = operations.cxLocationQuery(publicIdentity);
+-
+-                if (response == null)
+-                {
++                if (response == null){
+                     throw new UnableToComply();
+                 }
+ 
+                 DiameterMessage responseMessage =
+                     diameterPeer.newResponse(requestMessage);
+ 
+-                if (resultCode == null)
+-                {
+-                    // Add assigned Server Name
+-                    AVP assginedSCSCFName =
+-                        AVPCodes.getAVP(AVPCodes._CX_SERVER_NAME);
+-                    assginedSCSCFName.setData(response.getAssignedSCSCFName());
+-                    responseMessage.addAVP(assginedSCSCFName);
+-
+-                    resultCode =
+-                        saveResultCode(
+-                            response.getResultCode(),
+-                            response.resultCodeIsBase());
+-                }
+-
++                 // Add assigned Server Name
++                AVP assginedSCSCFName = new AVP(Constants.AVPCode.CX_SERVER_NAME, true, Constants.Vendor.V3GPP);
++                assginedSCSCFName.setData(response.getAssignedSCSCFName());
++                responseMessage.addAVP(assginedSCSCFName);
++                    
++                AVP vendorSpecificApplicationID = new AVP(Constants.AVPCode.VENDOR_SPECIFIC_APPLICATION_ID, true, Constants.Vendor.V3GPP);
++                AVP vendorID = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
++                vendorSpecificApplicationID.addChildAVP(vendorID);
++                
++                AVP applicationID = new AVP(Constants.AVPCode.AUTH_APPLICATION_ID, true,  Constants.Vendor.V3GPP);
++                vendorSpecificApplicationID.addChildAVP(applicationID);
++                responseMessage.addAVP(vendorSpecificApplicationID);
++                    
++                AVP authenticationSessionState = new AVP(Constants.AVPCode.AUTH_SESSION_STATE, true, Constants.Vendor.V3GPP);
++                authenticationSessionState.setData(1);
++                responseMessage.addAVP(authenticationSessionState);
++                
++                resultCode = saveResultCode(response.getResultCode(), response.resultCodeIsBase());
+                 responseMessage.addAVP(resultCode);
+ 
+                 diameterPeer.sendMessage(FQDN, responseMessage);
+-                LOGGER.debug(&quot;exiting&quot;);
+             }
+-            catch (DiameterException e)
+-            {
++            catch (DiameterException e){
+                 LOGGER.warn(this, e);
+                 sendDiameterException(FQDN, requestMessage, e);
+             }
+-            catch (Exception e)
+-            {
++            catch (Exception e){
+                 LOGGER.error(this, e);
+                 sendUnableToComply(FQDN, requestMessage);
+             }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/MARCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/MARCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/MARCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -58,8 +58,8 @@
+ import de.fhg.fokus.cx.exceptions.base.UnableToComply;
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
++import de.fhg.fokus.diameter.DiameterPeer.data.AVPDecodeException;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.Constants.Vendor;
+ 
+@@ -72,15 +72,12 @@
+  *
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class MARCommandListener extends CxCommandListener
+-{
++public class MARCommandListener extends CxCommandListener{
+     /** the counter to count calls */
+     public static long counter = 0;
+     /** the Logger */
+     private static final Logger LOGGER =
+         Logger.getLogger(MARCommandListener.class);
+-     /** the command id for MAR */     
+-    private static final int COMMAND_ID = Constants.COMMAND.MAR;
+     /** An object representing Cx Operations of HSS */
+     private HSScxOperations operations;
+ 
+@@ -90,8 +87,7 @@
+      * @param _diameterPeer diameterPeer
+      */    
+     public MARCommandListener(
+-        HSScxOperations _operations, DiameterPeer _diameterPeer)
+-    {
++        HSScxOperations _operations, DiameterPeer _diameterPeer){
+         super(_diameterPeer);
+         this.operations = _operations;
+     }
+@@ -101,71 +97,50 @@
+      * @param requestMessage the diameter message
+      * @see de.fhg.fokus.diameter.DiameterPeer.EventListener#recvMessage(java.lang.String, de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage)
+      */
+-    public void recvMessage(String FQDN, DiameterMessage requestMessage)
+-    {
+-        if (requestMessage.commandCode == COMMAND_ID)
+-        {
++    public void recvMessage(String FQDN, DiameterMessage requestMessage){
++    	
++        if (requestMessage.commandCode == Constants.Command.MAR){
+             counter++;
+             LOGGER.debug(&quot;entering&quot;);
+             LOGGER.debug(FQDN);
+ 
+-            try
+-            {
++            try {
+                 AVP resultCode = null;
+-
+-                PublicIdentity publicIdentity =
+-                    loadPublicIdentity(requestMessage);
++                PublicIdentity publicIdentity = loadPublicIdentity(requestMessage);
+                     
+                 LOGGER.info(&quot;MAR of User: &quot;+ publicIdentity.getIdentity() + 
+                            &quot; is being processed&quot;);      
+                     
+-                URI privateUserIdentity =
+-                    loadPrivateUserIdentity(requestMessage);
+-                Long numberOfAuthVectors =
+-                    loadNumberOfAuthVectors(requestMessage);
+-                AuthenticationVector authenticationVector =
+-                    loadAuthVector(requestMessage);
++                URI privateUserIdentity = loadPrivateUserIdentity(requestMessage);
++                Long numberOfAuthVectors = loadNumberOfAuthVectors(requestMessage);
++                AuthenticationVector authenticationVector = loadAuthVector(requestMessage);
+ 
+                 String scscfName =
+-                    new String(
+-                        avpLookUp(
+-                            requestMessage, AVPCodes._CX_SERVER_NAME, true,
+-                            Constants.Vendor.V3GPP).data);
++                    new String(avpLookUp(requestMessage, Constants.AVPCode.CX_SERVER_NAME, true, Constants.Vendor.V3GPP).data);
+ 
+                 CxAuthDataResponse authDataResponse = null;
+-
+-                authDataResponse =
+-                    operations.cxAuthData(
+-                        publicIdentity, privateUserIdentity, numberOfAuthVectors,
+-                        authenticationVector, scscfName);
+-
+-                if (authDataResponse == null)
+-                {
++                
++                authDataResponse = operations.cxAuthData(publicIdentity, privateUserIdentity, numberOfAuthVectors, authenticationVector, scscfName);
++                
++                if (authDataResponse == null){
+                     throw new UnableToComply();
+                 }
+ 
+-                DiameterMessage responseMessage =
+-                    diameterPeer.newResponse(requestMessage);
+-
++                DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
+                 saveAuthData(authDataResponse, responseMessage);
+ 
+                 // Add result code
+-                resultCode =
+-                    saveResultCode(
+-                        authDataResponse.getResultCode(),
+-                        authDataResponse.resultCodeIsBase());
++                resultCode = saveResultCode(authDataResponse.getResultCode(), authDataResponse.resultCodeIsBase());
+ 
+                 responseMessage.addAVP(resultCode);
+                 diameterPeer.sendMessage(FQDN, responseMessage);
+-                LOGGER.debug(&quot;exiting&quot;);
++                System.out.println(&quot;MAR finished!&quot;);
+             }
+-            catch (DiameterException e)
+-            {
++            catch (DiameterException e){
+                 LOGGER.warn(this, e);
+                 sendDiameterException(FQDN, requestMessage, e);
+             }
+-            catch (Exception e)
+-            {
++            catch (Exception e){
+                 LOGGER.error(this, e);
+                 sendUnableToComply(FQDN, requestMessage);
+             }
+@@ -178,53 +153,44 @@
+      * @param authDataResponse
+      * @param responseMessage
+      */
+-    private void saveAuthData(
+-        CxAuthDataResponse authDataResponse, DiameterMessage responseMessage)
+-    {
++    private void saveAuthData(CxAuthDataResponse authDataResponse, DiameterMessage responseMessage){
+         // Iterete and add vectors to response message
+         Iterator it = authDataResponse.getAuthenticationVectors().iterator();
+         int ix = 0;
+ 
+-        while (it.hasNext())
+-        {
++        while (it.hasNext()){
+             // store one vector in message as Auth Data Item
+             AuthenticationVector vector = (AuthenticationVector) it.next();
+ 
+-            AVP authDataItem = AVPCodes.getAVP(AVPCodes._SIP_AUTH_DATA_ITEM);
+-
+-            //Constants.AVPCodes
+-            AVP itemNumber = AVPCodes.getAVP(AVPCodes._SIP_ITEM_NUMBER);
++            AVP authDataItem = new AVP(Constants.AVPCode.SIP_AUTH_DATA_ITEM, true, Constants.Vendor.V3GPP);
++            AVP itemNumber = new AVP(Constants.AVPCode.SIP_ITEM_NUMBER, true, Constants.Vendor.V3GPP);
+             itemNumber.setData(ix);
+             authDataItem.addChildAVP(itemNumber);
+ 
+-            AVP authScheme =
+-                AVPCodes.getAVP(AVPCodes._SIP_AUTHENTICATION_SCHEME);
++            AVP authScheme = new AVP(Constants.AVPCode.SIP_AUTHENTICATION_SCHEME, true, Constants.Vendor.V3GPP);
+             authScheme.setData(vector.authenticationScheme);
+             authDataItem.addChildAVP(authScheme);
+             
+-            //For the sake of Early IMS
++            //in the case of Early IMS
+             if((vector.authenticationScheme).compareTo(&quot;Early-IMS-Security&quot;) == 0){
+-            	
+-                AVP ip = AVPCodes.getAVP(AVPCodes._FRAMED_IP_ADDRESS);
++                AVP ip = new AVP(Constants.AVPCode.FRAMED_IP_ADDRESS, true, Constants.Vendor.V3GPP);
+                 ip.setData((vector.ip).getAddress());
+                 authDataItem.addChildAVP(ip);
+             }
+-            
+ 
+-            AVP authenticate = AVPCodes.getAVP(AVPCodes._SIP_AUTHENTICATE);
++            AVP authenticate = new AVP(Constants.AVPCode.SIP_AUTHENTICATE, true, Constants.Vendor.V3GPP);
+             authenticate.setData(vector.sipAuthenticate);
+             authDataItem.addChildAVP(authenticate);
+ 
+-            AVP authorization = AVPCodes.getAVP(AVPCodes._SIP_AUTHORIZATION);
++            AVP authorization = new AVP(Constants.AVPCode.SIP_AUTHORIZATION, true, Constants.Vendor.V3GPP);
+             authorization.setData(vector.sipAuthorization);
+             authDataItem.addChildAVP(authorization);
+ 
+-            AVP confidentialityKey =
+-                AVPCodes.getAVP(AVPCodes._CONFIDENTIALITY_KEY);
++            AVP confidentialityKey = new AVP(Constants.AVPCode.CONFIDENTIALITY_KEY, true, Constants.Vendor.V3GPP);
+             confidentialityKey.setData(vector.confidentialityityKey);
+             authDataItem.addChildAVP(confidentialityKey);
+ 
+-            AVP integrityKey = AVPCodes.getAVP(AVPCodes._INTEGRITY_KEY);
++            AVP integrityKey = new AVP(Constants.AVPCode.INTEGRITY_KEY, true, Constants.Vendor.V3GPP);
+             integrityKey.setData(vector.integrityKey);
+             authDataItem.addChildAVP(integrityKey);
+ 
+@@ -233,7 +199,7 @@
+         }
+ 
+         // Save the number of items.
+-        AVP numberOfItems = AVPCodes.getAVP(AVPCodes._SIP_NUMBER_AUTH_ITEMS);
++        AVP numberOfItems = new AVP(Constants.AVPCode.SIP_NUMBER_AUTH_ITEMS, true, Constants.Vendor.V3GPP);
+         numberOfItems.setData(ix);
+         responseMessage.addAVP(numberOfItems);
+     }
+@@ -245,21 +211,15 @@
+      * @throws DiameterException
+      */
+     private Long loadNumberOfAuthVectors(DiameterMessage requestMessage)
+-        throws DiameterException
+-    {
++        throws DiameterException{
++    	
+         Long numberOfAuthVectors = null;
+-
+-        try
+-        {
+-            numberOfAuthVectors =
+-                Long.valueOf(
+-                    avpLookUp(
+-                        requestMessage, AVPCodes._SIP_NUMBER_AUTH_ITEMS, true,
++        try{
++            numberOfAuthVectors = Long.valueOf(avpLookUp(requestMessage, Constants.AVPCode.SIP_NUMBER_AUTH_ITEMS, true,
+                         Constants.Vendor.V3GPP).int_data);
+         }
+-        catch (NumberFormatException e)
+-        {
+-            LOGGER.warn(this, e);
++        catch (NumberFormatException e){
++            LOGGER.error(this, e);
+             throw new InvalidAvpValue();
+         }
+ 
+@@ -273,21 +233,23 @@
+      * @throws DiameterException
+      */
+     private AuthenticationVector loadAuthVector(DiameterMessage requestMessage)
+-        throws DiameterException
+-    {
+-        AuthenticationVector authenticationVector = null;
+-        AVP authVectorAVP =
+-            avpLookUp(
+-                requestMessage, AVPCodes._SIP_AUTH_DATA_ITEM, true, Vendor.V3GPP);
++        throws DiameterException{
++    	
++    	AuthenticationVector authenticationVector = null;
++        AVP authVectorAVP = avpLookUp(requestMessage, Constants.AVPCode.SIP_AUTH_DATA_ITEM, true, Vendor.V3GPP);
+ 
+-        AVP sipAuthorization =
+-            authVectorAVP.findChildAVP(
+-                AVPCodes._SIP_AUTHORIZATION, true, Vendor.V3GPP);
++        try {
++			authVectorAVP.ungroup();
++		} 
++        catch (AVPDecodeException e) {
++        	LOGGER.error(&quot;Ungrouping exception!!!&quot;);
++			e.printStackTrace();
++		}
+ 
+-        if (sipAuthorization != null)
+-        {
+-            authenticationVector =
+-                new AuthenticationVector(sipAuthorization.data);
++        AVP sipAuthorization = authVectorAVP.findChildAVP(Constants.AVPCode.SIP_AUTHORIZATION, true, Vendor.V3GPP);
++
++        if (sipAuthorization != null){
++            authenticationVector = new AuthenticationVector(sipAuthorization.data);
+         }
+ 
+         return authenticationVector;
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/PPRCommandAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/PPRCommandAction.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/PPRCommandAction.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -54,19 +54,19 @@
+ import de.fhg.fokus.cx.datatypes.IMSSubscription;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.HssDiameterStack;
+ import de.fhg.fokus.hss.diam.Constants.Application;
++import de.fhg.fokus.hss.diam.CommandAction;
++import de.fhg.fokus.hss.util.Util;
+ 
+-
+ /**
+  * This class implements the PPR Command Action. For more imformations about PPR
+  * please refer to 3GPP TS 29.229. 
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class PPRCommandAction extends CxCommandAction
++public class PPRCommandAction extends CommandAction
+ {
+     /** counter */
+     public static long counter = 0;
+@@ -76,7 +76,7 @@
+     private static final Logger LOGGER =
+         Logger.getLogger(PPRCommandAction.class);
+     /** the command id for PPR */     
+-    private static final int COMMAND_ID = Constants.COMMAND.PPR;
++    private static final int COMMAND_ID = Constants.Command.PPR;
+     /** the private user identity */
+     private URI privateUserIdentity;
+     /** ims subscription */
+@@ -137,38 +137,58 @@
+      *  to the peer
+      *
+      */
+-    public void execute()
+-    {
++    public void execute(){
+         LOGGER.debug(&quot;entering&quot;);
+         rCounter++;
+         DiameterMessage message;
+ 
+-        try
+-        {
+-            message =
+-                HssDiameterStack.diameterPeer.newRequest(
+-                    COMMAND_ID, Application.CX);
++        try{
++            message = HssDiameterStack.diameterPeer.newRequest(COMMAND_ID, Application.CX);
++            AVP a, b;
++            
++    		/* session-id */
++    		a = new AVP(263,true,0);
++    		a.setData(privateUserIdentity.getPath() + &quot;;11271298949;&quot; + System.currentTimeMillis());
++    		message.addAVP(a);
+ 
+-            // create the message
+-            AVP privateUserAVP =
+-                AVPCodes.getAVP(AVPCodes._PRIVATE_USER_IDENTITY);
++    		/* vendor-specific app id */
++    		a = new AVP(260,true,0);
++    		b = new AVP(266,true,0);
++    		b.setData(10415);
++    		a.addChildAVP(b);
++    		b = new AVP(258,true,0);
++    		b.setData(16777216);
++    		a.addChildAVP(b);
++    		message.addAVP(a);            
++    		
++    		/* auth-session-state, no session maintained */
++    		a = new AVP(277,true,0);
++    		a.setData(1);
++    		message.addAVP(a);
++
++    		/* destionation host and realm */
++            AVP destHostAVP = new AVP(Constants.AVPCode.DESTINATION_HOST, true, Constants.Vendor.DIAM);
++            destHostAVP.setData(Util.getHost(scscfName));
++            message.addAVP(destHostAVP);
++            
++            AVP destRealm = new AVP(283,true,0);
++            destRealm.setData(Util.getRealm(scscfName));
++            message.addAVP(destRealm);
++    		
++            /* username */ 
++            AVP privateUserAVP = new AVP(Constants.AVPCode.PRIVATE_USER_IDENTITY, true, Constants.Vendor.DIAM);
+             privateUserAVP.setData(privateUserIdentity.getPath());
+             message.addAVP(privateUserAVP);
+ 
+-            if (userData != null)
+-            {
++            /* userdata */ 
++            
++            if (userData != null){
+                 SARCommandListener.saveIMSSubscription(userData, message);
+             }
+-            else
+-            {
+-                SARCommandListener.saveChargingInfoSet(
+-                    chargingInfoSet, message);
++            else{
++                SARCommandListener.saveChargingInfoSet(chargingInfoSet, message);
+             }
+ 
+-            AVP destHostAVP = AVPCodes.getAVP(AVPCodes._DESTINATION_HOST);
+-            destHostAVP.setData(scscfName);
+-            message.addAVP(destHostAVP);
+-
+             sendMessage(message, scscfName, true);
+         }
+         catch (MarshalException e)
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/RTRCommandAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/RTRCommandAction.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/RTRCommandAction.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -52,29 +52,26 @@
+ import de.fhg.fokus.cx.DeregistrationSet;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.HssDiameterStack;
+ import de.fhg.fokus.hss.diam.Constants.Application;
+-
+-
++import de.fhg.fokus.hss.diam.CommandAction;
++import de.fhg.fokus.hss.util.Util;
+ /**
+  * This class implements the RTR Command Action. For more imformations about RTR
+  * please refer to 3GPP TS 29.229. 
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class RTRCommandAction extends CxCommandAction
+-{
++
++public class RTRCommandAction extends CommandAction{
+     /** counter */
+     public static long counter = 0;
+     /** counter */
+     public static long rCounter = 0;
+     /** The Logger */
+-    private static final Logger LOGGER =
+-        Logger.getLogger(RTRCommandAction.class);
+-    /** the command id for RTR */    
+-    private static final int COMMAND_ID = Constants.COMMAND.RTR;
++    private static final Logger LOGGER = Logger.getLogger(RTRCommandAction.class);
++
+     /** deregistration set*/
+     private DeregistrationSet deregistrationSet;
+     /** deregistration reason */
+@@ -91,8 +88,8 @@
+      */ 
+     public RTRCommandAction(
+         DeregistrationSet deregistrationSet,
+-        DeregistrationReason deregistrationReason, String scscfName)
+-    {
++        DeregistrationReason deregistrationReason, String scscfName){
++    	
+         LOGGER.debug(&quot;entering&quot;);
+         this.deregistrationSet = deregistrationSet;
+         this.deregistrationReason = deregistrationReason;
+@@ -116,7 +113,7 @@
+      */ 
+     public void recvMessage(String FQDN, DiameterMessage msg)
+     {
+-        if (msg.commandCode == COMMAND_ID)
++        if (msg.commandCode == Constants.Command.RTR)
+         {
+             LOGGER.debug(&quot;entering&quot;);
+             counter++;
+@@ -128,54 +125,71 @@
+      *  It processes the recieved diameter message and sends appropriate response
+      *  to the peer
+      */
+-    public void execute()
+-    {
++    public void execute(){
+         LOGGER.debug(&quot;entering&quot;);
+         rCounter++;
+         
+         DiameterMessage message;
+-        try
+-        {
+-            message =
+-                HssDiameterStack.diameterPeer.newRequest(
+-                    COMMAND_ID, Application.CX);
++        try{
++            message = HssDiameterStack.diameterPeer.newRequest(Constants.Command.RTR, Application.CX);
+ 
++            AVP a, b;
++    		/* session-id */
++    		a = new AVP(263,true,0);
++    		a.setData(deregistrationSet.getUserName().getPath() + &quot;;11271298949;&quot; + System.currentTimeMillis());
++    		message.addAVP(a);
++
++    		/* vendor-specific app id */
++    		a = new AVP(260,true,0);
++    		b = new AVP(266,true,0);
++    		b.setData(10415);
++    		a.addChildAVP(b);
++    		b = new AVP(258,true,0);
++    		b.setData(16777216);
++    		a.addChildAVP(b);
++    		message.addAVP(a);            
++    		
++    		/* auth-session-state, no session maintained */
++    		a = new AVP(277,true,0);
++    		a.setData(1);
++    		message.addAVP(a);
++
++    		/* destionation host and realm */
++            AVP destHostAVP = new AVP(Constants.AVPCode.DESTINATION_HOST, true, Constants.Vendor.DIAM);
++            destHostAVP.setData(Util.getHost(scscfName));
++            message.addAVP(destHostAVP);
++            
++            AVP destRealm = new AVP(283,true,0);
++            destRealm.setData(Util.getRealm(scscfName));
++            message.addAVP(destRealm);
++
++            AVP privateIdAVP = new AVP(Constants.AVPCode.PRIVATE_USER_IDENTITY, true, Constants.Vendor.DIAM);
++            privateIdAVP.setData((String) deregistrationSet.getUserName().getPath());
++            message.addAVP(privateIdAVP);
++            
+             Iterator it = deregistrationSet.getPublicIds().iterator();
+-
+-            while (it.hasNext())
+-            {
+-                AVP publicIdAVP = AVPCodes.getAVP(AVPCodes._CX_PUBLIC_IDENTITY);
++            while (it.hasNext()){
++                AVP publicIdAVP = new AVP(Constants.AVPCode.CX_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
+                 publicIdAVP.setData((String) it.next());
+                 message.addAVP(publicIdAVP);
+             }
+ 
+-            AVP privateIdAVP = AVPCodes.getAVP(AVPCodes._PRIVATE_USER_IDENTITY);
+-            privateIdAVP.setData(
+-                (String) deregistrationSet.getUserName().getPath());
+-            message.addAVP(privateIdAVP);
+ 
+-            AVP deregAVP = AVPCodes.getAVP(AVPCodes._DEREGISTRATION_REASON);
+-            AVP deregCode = AVPCodes.getAVP(AVPCodes._REASON_CODE);
++            AVP deregAVP = new AVP(Constants.AVPCode.DEREGISTRATION_REASON, true, Constants.Vendor.V3GPP);
++            AVP deregCode = new AVP(Constants.AVPCode.REASON_CODE, true, Constants.Vendor.V3GPP);
+             deregCode.setData(deregistrationReason.getDeregistrationCode());
+             deregAVP.addChildAVP(deregCode);
+-
+-            AVP deregInfo = AVPCodes.getAVP(AVPCodes._REASON_INFO);
++            AVP deregInfo = new AVP(Constants.AVPCode.REASON_INFO, true, Constants.Vendor.V3GPP);
+             deregInfo.setData(deregistrationReason.getDeregistrationInfo());
+             deregAVP.addChildAVP(deregInfo);
+             message.addAVP(deregAVP);
+ 
+-            AVP destHostAVP = AVPCodes.getAVP(AVPCodes._DESTINATION_HOST);
+-            destHostAVP.setData(scscfName);
+-            message.addAVP(destHostAVP);
+-
+             sendMessage(message, scscfName, true);
+         }
+-        catch (Exception e)
+-        {
++        catch (Exception e){
+             LOGGER.error(this, e);
+         }
+ 
+         LOGGER.debug(&quot;exiting&quot;);
+     }
+-
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/SARCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/SARCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/SARCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -62,7 +62,6 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ 
+ 
+@@ -82,7 +81,7 @@
+     private static final Logger LOGGER =
+         Logger.getLogger(SARCommandListener.class);
+     /** the command id for SAR */     
+-    private static final int COMMAND_ID = Constants.COMMAND.SAR;
++    private static final int COMMAND_ID = Constants.Command.SAR;
+     /** an object representing the Cx operations for HSS*/
+     private HSScxOperations operations;
+ 
+@@ -115,7 +114,7 @@
+             LOGGER.debug(FQDN);
+ 
+             try
+-            {
++            {                
+                 PublicIdentity publicIdentity =
+                     loadPublicIdentity(requestMessage);
+                 LOGGER.info(&quot;SAR of User: &quot;+ publicIdentity.getIdentity() + &quot; is being processed&quot;);                    
+@@ -133,35 +132,26 @@
+ 
+                 String scscfName = loadServerName(requestMessage);
+ 
+-                int serverAssignmentType =
+-                    avpLookUp(
+-                        requestMessage, AVPCodes._SERVER_ASSIGNMENT_TYPE, true,
++                int serverAssignmentType = avpLookUp(requestMessage, Constants.AVPCode.SERVER_ASSIGNMENT_TYPE, true,
+                         Constants.Vendor.V3GPP).int_data;
+ 
+                 // not supported set to 0
+                 int userDataRequestType = 0;
+-
+-                int userDataAlreadyAvailable =
+-                    avpLookUp(
+-                        requestMessage, AVPCodes._USER_DATA_ALREADY_AVAILABLE,
++                int userDataAlreadyAvailable = avpLookUp(requestMessage, Constants.AVPCode.USER_DATA_ALREADY_AVAILABLE,
+                         true, Constants.Vendor.V3GPP).int_data;
+-
+                 CxSCSCFNotificationResponse response = null;
+                 AVP resultCode = null;
+ 
+-                response =
+-                    operations.cxPull(
++                response = operations.cxPull(
+                         publicIdentity, scscfName, privateUserIdentity,
+                         serverAssignmentType, userDataRequestType,
+                         userDataAlreadyAvailable);
+ 
+-                if (response == null)
+-                {
++                if (response == null){
+                     throw new UnableToComply();
+                 }
+ 
+-                DiameterMessage responseMessage =
+-                    diameterPeer.newResponse(requestMessage);
++                DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
+ 
+                 if (resultCode == null)
+                 {
+@@ -209,7 +199,7 @@
+         IMSSubscription subscription, DiameterMessage responseMessage)
+         throws MarshalException, ValidationException
+     {
+-        AVP userProfileAVP = AVPCodes.getAVP(AVPCodes._CX_USER_DATA);
++        AVP userProfileAVP = new AVP(Constants.AVPCode.CX_USER_DATA, true, Constants.Vendor.V3GPP);
+         StringWriter sw = new StringWriter();
+         subscription.marshal(sw);
+         userProfileAVP.setData(sw.getBuffer().toString());
+@@ -224,38 +214,30 @@
+     public static void saveChargingInfoSet(
+         ChargingInfoSet chargingInfoSet, DiameterMessage responseMessage)
+     {
+-        AVP chargingInfoAVP = AVPCodes.getAVP(AVPCodes._CHARGING_INFO);
++        AVP chargingInfoAVP = new AVP(Constants.AVPCode.CHARGING_INFO, true, Constants.Vendor.V3GPP);
+         AVP fnNameAVP = null;
+ 
+-        if (chargingInfoSet.getPri_chrg_coll_fn_name() != null)
+-        {
+-            fnNameAVP = AVPCodes.getAVP(AVPCodes._PRI_CHRG_COLL_FN_NAME);
+-            fnNameAVP.setData(
+-                chargingInfoSet.getPri_chrg_coll_fn_name().getPath());
++        if (chargingInfoSet.getPri_chrg_coll_fn_name() != null){
++            fnNameAVP = new AVP(Constants.AVPCode.PRI_CHRG_COLL_FN_NAME, true, Constants.Vendor.V3GPP);
++            fnNameAVP.setData(chargingInfoSet.getPri_chrg_coll_fn_name().getPath());
+             chargingInfoAVP.addChildAVP(fnNameAVP);
+         }
+ 
+-        if (chargingInfoSet.getSec_chrg_coll_fn_name() != null)
+-        {
+-            fnNameAVP = AVPCodes.getAVP(AVPCodes._SEC_CHRG_COLL_FN_NAME);
+-            fnNameAVP.setData(
+-                chargingInfoSet.getSec_chrg_coll_fn_name().getPath());
++        if (chargingInfoSet.getSec_chrg_coll_fn_name() != null){
++            fnNameAVP = new AVP(Constants.AVPCode.SEC_CHRG_COLL_FN_NAME, true, Constants.Vendor.V3GPP);
++            fnNameAVP.setData(chargingInfoSet.getSec_chrg_coll_fn_name().getPath());
+             chargingInfoAVP.addChildAVP(fnNameAVP);
+         }
+ 
+-        if (chargingInfoSet.getPri_event_chrg_fn_name() != null)
+-        {
+-            fnNameAVP = AVPCodes.getAVP(AVPCodes._PRI_EVENT_CHARGING_FN_NAME);
+-            fnNameAVP.setData(
+-                chargingInfoSet.getPri_event_chrg_fn_name().getPath());
++        if (chargingInfoSet.getPri_event_chrg_fn_name() != null){
++            fnNameAVP = new AVP(Constants.AVPCode.PRI_EVENT_CHARGING_FN_NAME, true, Constants.Vendor.V3GPP);
++            fnNameAVP.setData(chargingInfoSet.getPri_event_chrg_fn_name().getPath());
+             chargingInfoAVP.addChildAVP(fnNameAVP);
+         }
+ 
+-        if (chargingInfoSet.getSec_event_chrg_fn_name() != null)
+-        {
+-            fnNameAVP = AVPCodes.getAVP(AVPCodes._SEC_EVENT_CHARGING_FN_NAME);
+-            fnNameAVP.setData(
+-                chargingInfoSet.getSec_event_chrg_fn_name().getPath());
++        if (chargingInfoSet.getSec_event_chrg_fn_name() != null){
++            fnNameAVP = new AVP(Constants.AVPCode.SEC_EVENT_CHARGING_FN_NAME, true, Constants.Vendor.V3GPP);
++            fnNameAVP.setData(chargingInfoSet.getSec_event_chrg_fn_name().getPath());
+             chargingInfoAVP.addChildAVP(fnNameAVP);
+         }
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/UARCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/UARCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/cx/UARCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -56,7 +56,6 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.UserAuthorizationTypeAVP;
+ 
+@@ -77,7 +76,7 @@
+     private static final Logger LOGGER =
+         Logger.getLogger(UARCommandListener.class);
+     /** command id for UAR */    
+-    private static final int COMMAND_ID = Constants.COMMAND.UAR;
++    private static final int COMMAND_ID = Constants.Command.UAR;
+     /** an Object representing the Cx operations of HSS*/
+     private HSScxOperations operations;
+ 
+@@ -117,42 +116,27 @@
+                     loadPrivateUserIdentity(requestMessage);
+ 
+                 // Check for Type of Authorization, if null default is set to REGISTRATION.
+-                AVP typeOfAuthAVP =
+-                    requestMessage.findAVP(
+-                        AVPCodes._USER_AUTHORIZATION_TYPE, true,
+-                        Constants.Vendor.V3GPP);
+-                int typeOfAuthorization =
+-                    UserAuthorizationTypeAVP._REGISTRATION;
+-
+-                if (typeOfAuthAVP != null)
+-                {
++                AVP typeOfAuthAVP = requestMessage.findAVP(Constants.AVPCode.USER_AUTHORIZATION_TYPE, true, 
++                		Constants.Vendor.V3GPP);
++                int typeOfAuthorization = UserAuthorizationTypeAVP._REGISTRATION;
++                if (typeOfAuthAVP != null){
+                     typeOfAuthorization = typeOfAuthAVP.int_data;
+                 }
+ 
+-                String visitedNetworkIdentifier =
+-                    new String(
+-                        requestMessage.findAVP(
+-                            AVPCodes._VISITED_NETWORK_IDENTIFIER, true,
+-                            Constants.Vendor.V3GPP).data);
++                String visitedNetworkIdentifier = new String(
++                		requestMessage.findAVP(Constants.AVPCode.VISITED_NETWORK_IDENTIFIER, true,Constants.Vendor.V3GPP).data);
+ 
+                 CxUserRegistrationStatusResponse response = null;
+                 AVP resultCode = null;
++                response = operations.cxQuery(publicIdentity, visitedNetworkIdentifier, typeOfAuthorization, privateUserIdentity);
+ 
+-                response =
+-                    operations.cxQuery(
+-                        publicIdentity, visitedNetworkIdentifier,
+-                        typeOfAuthorization, privateUserIdentity);
+-
+-                if (response == null)
+-                {
++                if (response == null){
+                     throw new UnableToComply();
+                 }
+ 
+-                DiameterMessage responseMessage =
+-                    diameterPeer.newResponse(requestMessage);
++                DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
+ 
+-                if (resultCode == null)
+-                {
++                if (resultCode == null){
+                 	//add  Session Id from Request
+                 	AVP sessionIdAVP = requestMessage.getAVP(0);
+                 	responseMessage.addAVP(sessionIdAVP);
+@@ -160,35 +144,25 @@
+                 	AVP vsAVP = null;
+                 	
+                     // Add assigned Server Name
+-                    if (
+-                        (response.getAssignedSCSCFName() != null)
+-                            &amp;&amp; (response.getAssignedSCSCFName().length() &gt; 0))
+-                    {
+-                        AVP assginedSCSCFName =
+-                            AVPCodes.getAVP(AVPCodes._CX_SERVER_NAME);
+-                        assginedSCSCFName.setData(
+-                            response.getAssignedSCSCFName());
++                    if ( (response.getAssignedSCSCFName() != null) &amp;&amp; (response.getAssignedSCSCFName().length() &gt; 0)){
++                        AVP assginedSCSCFName = new AVP(Constants.AVPCode.CX_SERVER_NAME, true, Constants.Vendor.V3GPP);
++                        assginedSCSCFName.setData(response.getAssignedSCSCFName());
+                         responseMessage.addAVP(assginedSCSCFName);
+                     }
+ 
+                     // Add result code
+-                    resultCode =
+-                        saveResultCode(
+-                            response.getResultCode(),
+-                            response.resultCodeIsBase());
++                    resultCode = saveResultCode(response.getResultCode(), response.resultCodeIsBase());
+                 }
+ 
+                 responseMessage.addAVP(resultCode);
+                 diameterPeer.sendMessage(FQDN, responseMessage);
+                 LOGGER.debug(&quot;exiting&quot;);
+             }
+-            catch (DiameterException e)
+-            {
++            catch (DiameterException e){
+                 LOGGER.warn(this, e);
+                 sendDiameterException(FQDN, requestMessage, e);
+             }
+-            catch (Exception e)
+-            {
++            catch (Exception e){
+                 LOGGER.error(this, e);
+                 sendUnableToComply(FQDN, requestMessage);
+             }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PNRCommandAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PNRCommandAction.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PNRCommandAction.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -48,16 +48,14 @@
+ import java.net.URI;
+ 
+ import org.apache.log4j.Logger;
+-
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.HssDiameterStack;
+ import de.fhg.fokus.hss.diam.Constants.Application;
+ import de.fhg.fokus.sh.data.ShData;
++import de.fhg.fokus.hss.diam.CommandAction;
+ 
+-
+ /**
+  * Implementation of the SH-Command PNR
+  * Send a PNR Command per Diameter to the assigned Application Server.
+@@ -65,15 +63,13 @@
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class PNRCommandAction extends ShCommandAction
++public class PNRCommandAction extends CommandAction
+ {
+     /** Logger */
+     private static final Logger LOGGER =
+         Logger.getLogger(PNRCommandAction.class);
+     /** counter to count calls*/
+     public static long counter = 0;
+-    /** command id for PNR */
+-    private static final int COMMAND_ID = Constants.COMMAND.PNR;
+     /** address of application server*/
+     private String asAddress;
+     /** the public identity*/
+@@ -108,7 +104,7 @@
+      */
+     public void recvMessage(String FQDN, DiameterMessage msg)
+     {
+-        if (msg.commandCode == COMMAND_ID)
++        if (msg.commandCode == Constants.Command.PNR)
+         {
+             LOGGER.debug(&quot;entering&quot;);
+             counter++;
+@@ -127,32 +123,25 @@
+ 
+         DiameterMessage message = null;
+ 
+-        try
+-        {
+-            message =
+-                HssDiameterStack.diameterPeer.newRequest(
+-                    COMMAND_ID, Application.SH);
+-            
+-            AVP userDataAVP = AVPCodes.getAVP(AVPCodes._SH_USER_DATA);
++        try{
++            message = HssDiameterStack.diameterPeer.newRequest(Constants.Command.PNR, Application.SH);
++
++            AVP userDataAVP = new AVP(Constants.AVPCode.SH_USER_DATA, true, Constants.Vendor.V3GPP);
+             StringWriter sw = new StringWriter();
+             shData.marshal(sw);
+             userDataAVP.setData(sw.getBuffer().toString());
+             message.addAVP(userDataAVP);
+             
+-            AVP userIdentityAVP = AVPCodes.getAVP(AVPCodes._SH_USER_IDENTITY);
+-            AVP publicIdentityAVP = AVPCodes.getAVP(AVPCodes._SH_PUBLIC_IDENTITY);
++            AVP userIdentityAVP = new AVP(Constants.AVPCode.SH_USER_IDENTITY, true, Constants.Vendor.V3GPP);
++            AVP publicIdentityAVP = new AVP(Constants.AVPCode.SH_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
+             
+-            // XLB
+-            //publicIdentityAVP.setData(publicIdentity.getPath());
+-            publicIdentityAVP.setData((publicIdentity.toString()).trim());
+-            
++            publicIdentityAVP.setData(publicIdentity.getPath());
++            //publicIdentityAVP.setData((publicIdentity.toString()).trim());
+             userIdentityAVP.addChildAVP(publicIdentityAVP);
+             message.addAVP(userIdentityAVP);
+-            
+             sendMessage(message, asAddress, false);
+         }
+-        catch (Exception e)
+-        {
++        catch (Exception e){
+             LOGGER.error(this, e);
+         }
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/PURCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -52,8 +52,8 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
++import de.fhg.fokus.hss.diam.ResultCode;
+ import de.fhg.fokus.hss.diam.Constants.Vendor;
+ import de.fhg.fokus.sh.DiameterException;
+ import de.fhg.fokus.sh.HSSOperations;
+@@ -74,8 +74,6 @@
+         Logger.getLogger(PURCommandListener.class);
+     /** counter to count calls*/
+     public static long counter = 0;
+-    /** command id for PUR */
+-    private static final int COMMAND_ID = Constants.COMMAND.PUR;
+     /** an object representing the HSS operations */
+ 	private HSSOperations operations;
+     
+@@ -100,43 +98,51 @@
+      */ 
+     public void recvMessage(String FQDN, DiameterMessage requestMessage)
+     {
+-    	 if (requestMessage.commandCode == COMMAND_ID)
+-       {
++    	 if (requestMessage.commandCode == Constants.Command.PUR){
+            counter++;
+            LOGGER.debug(&quot;entering&quot;);
+            LOGGER.debug(FQDN);
+-           try
+-           {
++           
++           try{
+                URI publicIdentity = loadPublicIdentity(requestMessage);
+                String applicationServerIdentity = loadOriginHost(requestMessage);
+                RequestedData requestedData = loadDataReference(requestMessage);
+                
+-               AVP shDataAVP = avpLookUp(requestMessage, AVPCodes._SH_USER_DATA, true, Vendor.V3GPP);
++               AVP shDataAVP = avpLookUp(requestMessage, Constants.AVPCode.SH_USER_DATA, true, Vendor.V3GPP);
+                String shDataString = new String(shDataAVP.data);               
+-               //System.out.println(&quot;DATA: \n&quot; + shDataString + &quot;\n&quot;);
+-
+                ShData shData = (ShData) ShData.unmarshal(new StringReader(shDataString));
+- 
+                operations.shUpdate(publicIdentity, shData, applicationServerIdentity, requestedData);
+ 
+-               DiameterMessage responseMessage =
+-                   diameterPeer.newResponse(requestMessage);
+-
+-               addDiameterSuccess(responseMessage);
++               DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
++               AVP vendorSpecificApplicationID = new AVP(Constants.AVPCode.VENDOR_SPECIFIC_APPLICATION_ID, true, 
++               		Constants.Vendor.DIAM);
++               AVP vendorID = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
++               vendorID.setData(Constants.Vendor.V3GPP);
++               vendorSpecificApplicationID.addChildAVP(vendorID);
++               
++               AVP applicationID = new AVP(Constants.AVPCode.AUTH_APPLICATION_ID, true,  Constants.Vendor.DIAM);
++               applicationID.setData(Constants.Application.SH);
++               vendorSpecificApplicationID.addChildAVP(applicationID);
++               responseMessage.addAVP(vendorSpecificApplicationID);
++               
++               AVP authSessionState = new AVP(Constants.AVPCode.AUTH_SESSION_STATE, true, Constants.Vendor.DIAM);
++               authSessionState.setData(1);
++               responseMessage.addAVP(authSessionState);
++               
++               AVP resultCode = new AVP (Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
++               resultCode.setData(ResultCode._DIAMETER_SUCCESS);
++               responseMessage.addAVP(resultCode);
++               
+                diameterPeer.sendMessage(FQDN, responseMessage);
+            }
+-           catch (DiameterException e)
+-           {
+-               LOGGER.warn(this, e);
++           catch (DiameterException e){
++        	   LOGGER.error(this, e);
+                sendDiameterException(FQDN, requestMessage, e);
+            }
+-           catch (Exception e)
+-           {
++           catch (Exception e){
+                LOGGER.error(this, e);
+                sendUnableToComply(FQDN, requestMessage);
+            }
+-           
+-           
+        }
+     }
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/SNRCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/SNRCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/SNRCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -51,9 +51,9 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.OriginHostResolver;
++import de.fhg.fokus.hss.diam.ResultCode;
+ import de.fhg.fokus.hss.diam.Constants.Vendor;
+ import de.fhg.fokus.sh.DiameterException;
+ import de.fhg.fokus.sh.HSSOperations;
+@@ -68,15 +68,13 @@
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class SNRCommandListener extends ShCommandListener
+-{
++
++public class SNRCommandListener extends ShCommandListener{
+     /** logger */
+     private static final Logger LOGGER =
+         Logger.getLogger(SNRCommandListener.class);
+     /** counter to count calls */
+     public static long counter = 0;
+-    /** command id */
+-    private static final int COMMAND_ID = Constants.COMMAND.SNR;
+     /** an object representing the hss operations */
+     private HSSOperations operations;
+ 
+@@ -99,86 +97,69 @@
+      */ 
+     public void recvMessage(String FQDN, DiameterMessage requestMessage)
+     {
+-        if (requestMessage.commandCode == COMMAND_ID)
+-        {
++        if (requestMessage.commandCode == Constants.Command.SNR){
++        	
+             counter++;
+             LOGGER.debug(&quot;entering&quot;);
+             LOGGER.debug(FQDN);
+ 
+-            try
+-            {
++            try{
+                 // request extract part
+                 URI publicIdentity = loadPublicIdentity(requestMessage);
+-                String applicationServerIdentity =
+-                    loadOriginHost(requestMessage);
++                String applicationServerIdentity = loadOriginHost(requestMessage);
+                 RequestedData requestedData = loadDataReference(requestMessage);
+                 SubscriptionRequestType subscriptionRequestType = null;
+-                AVP subReqTypeAVP =
+-                    avpLookUp(
+-                        requestMessage, AVPCodes._SH_SUBSCRIBTION_REQ_TYPE, true,
++                AVP subReqTypeAVP = avpLookUp(requestMessage, Constants.AVPCode.SH_SUBSCRIBTION_REQ_TYPE, true,
+                         Vendor.V3GPP);
+ 
+-                if (
+-                    subReqTypeAVP.int_data == SubscriptionRequestType._SUBSCRIBE)
+-                {
++                if (subReqTypeAVP.int_data == SubscriptionRequestType._SUBSCRIBE){
+                     subscriptionRequestType = SubscriptionRequestType.SUBSCRIBE;
+                 }
+-                else if (
+-                    subReqTypeAVP.int_data == SubscriptionRequestType._UNSUBSCRIBE)
+-                {
++                else if (subReqTypeAVP.int_data == SubscriptionRequestType._UNSUBSCRIBE){
+                     subscriptionRequestType =
+                         SubscriptionRequestType.UNSUBSCRIBE;
+                 }
+-                else
+-                {
++                else{
+                     throw new InvalidAvpValue();
+                 }
+ 
+                 URI applicationServerName = null;
+-                AVP asNameAVP =
+-                    requestMessage.findAVP(
+-                        AVPCodes._SH_SERVER_NAME, true, Vendor.V3GPP);
+-                // XLB
+-                if (asNameAVP != null)
+-                {
+-                    applicationServerName = new URI(new String(asNameAVP.data));
+-     
++                AVP asNameAVP = requestMessage.findAVP(Constants.AVPCode.SH_SERVER_NAME, true, Vendor.V3GPP);
+ 
++                if (asNameAVP != null){
++                    applicationServerName = new URI(new String(asNameAVP.data));
+ 	                OriginHostResolver.setOriginHost(
+ 	                    applicationServerName.getPath(), applicationServerIdentity);
+                 }
++                
+                 byte[] serviceIndication = null;
+ 
+-                AVP svcIndAVP =
+-                    requestMessage.findAVP(
+-                        AVPCodes._SH_SERVICE_INDICATION, true, Vendor.V3GPP);
++                AVP svcIndAVP = requestMessage.findAVP(Constants.AVPCode.SH_SERVICE_INDICATION, true, Vendor.V3GPP);
+ 
+-                if (svcIndAVP != null)
+-                {
++                if (svcIndAVP != null){
+                     serviceIndication = svcIndAVP.data;
+                 }
+ 
+                 // Do HSS Bussiness
+-                operations.shSubsNotif(
+-                    publicIdentity, requestedData, subscriptionRequestType,
+-                    serviceIndication, applicationServerIdentity,
+-                    applicationServerName);
++                operations.shSubsNotif(publicIdentity, requestedData, subscriptionRequestType,
++                    serviceIndication, applicationServerIdentity, applicationServerName);
+ 
+                 // Answer with a DIAMETER_SUCCESS, error cases will be handled
+                 // by the exception handlers.
+                 DiameterMessage responseMessage =
+                     diameterPeer.newResponse(requestMessage);
+ 
+-                addDiameterSuccess(responseMessage);
++                AVP responseCode = new AVP(Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
++                responseCode.setData(ResultCode._DIAMETER_SUCCESS);
++                responseMessage.addAVP(responseCode);
++
+                 diameterPeer.sendMessage(FQDN, responseMessage);
+             }
+-            catch (DiameterException e)
+-            {
+-                LOGGER.warn(this, e);
++            catch (DiameterException e){
++                LOGGER.error(this, e);
+                 sendDiameterException(FQDN, requestMessage, e);
+             }
+-            catch (Exception e)
+-            {
++            catch (Exception e){
+                 LOGGER.error(this, e);
+                 sendUnableToComply(FQDN, requestMessage);
+             }
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandAction.java
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -53,7 +53,6 @@
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVPDecodeException;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.CommandListener;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.ResultCode;
+@@ -72,8 +71,7 @@
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public abstract class ShCommandListener extends CommandListener
+-{
++public abstract class ShCommandListener extends CommandListener{
+     /** logger */
+     private static final Logger LOGGER =
+         Logger.getLogger(ShCommandListener.class);
+@@ -81,8 +79,7 @@
+      * constructor
+      * @param _diameterPeer diameterpeer
+      */
+-    public ShCommandListener(DiameterPeer _diameterPeer)
+-    {
++    public ShCommandListener(DiameterPeer _diameterPeer){
+         super(_diameterPeer);
+     }
+ 
+@@ -100,38 +97,31 @@
+      * @throws DiameterException DIAMETER_MISSING_AVP
+      */
+     protected URI loadPublicIdentity(DiameterMessage msg)
+-        throws DiameterException
+-    {
+-        AVP avp =
+-            avpLookUp(
+-                msg, AVPCodes._SH_USER_IDENTITY, true, Constants.Vendor.V3GPP);
+-        // XLB
++        throws DiameterException{
++    	
++        AVP avp = avpLookUp(msg, Constants.AVPCode.SH_USER_IDENTITY, true, Constants.Vendor.V3GPP);
+         try {
+ 			avp.ungroup();
+-		} catch (AVPDecodeException e) {
++		} 
++        catch (AVPDecodeException e) {
+             LOGGER.error(this, e);
+             throw new UnableToComply();
+ 		}
+-        
+-        AVP sipUriAVP = avp.findChildAVP(AVPCodes._SH_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
+-        
++
++        AVP sipUriAVP = avp.findChildAVP(Constants.AVPCode.SH_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
+         URI publicIdentity = null;
+ 
+-        try
+-        {
++        try{
+             String uriString = new String(sipUriAVP.data);
+-            if (uriString.toLowerCase().startsWith(&quot;sip:&quot;))
+-            {
++            if (uriString.toLowerCase().startsWith(&quot;sip:&quot;)){
+                 uriString = uriString.substring(4);
+             }
+             publicIdentity = new URI(uriString);
+         }
+-        catch (URISyntaxException e)
+-        {
++        catch (URISyntaxException e){
+             LOGGER.error(this, e);
+             throw new UnableToComply();
+         }
+-
+         return publicIdentity;
+     }
+ 
+@@ -144,15 +134,12 @@
+      * @return AVP given by avpCode and VendorId
+      * @throws DiameterException
+      */
+-    protected AVP avpLookUp(
+-        DiameterMessage msg, int avpCode, boolean mandatory, int vendorId)
+-        throws DiameterException
+-    {
++    protected AVP avpLookUp(DiameterMessage msg, int avpCode, boolean mandatory, int vendorId)
++        throws DiameterException{
+     	AVP avp = msg.findAVP(avpCode, mandatory, vendorId);
+     	
+-        if (avp == null)
+-        {
+-        	LOGGER.debug(&quot;Missing AVP: &quot;+avpCode);
++        if (avp == null){
++        	LOGGER.debug(&quot;Missing AVP: &quot; + avpCode);
+             throw new MissingAVP();
+         }
+ 
+@@ -167,45 +154,83 @@
+      */
+     protected void sendDiameterException(
+         String FQDN, DiameterMessage requestMessage,
+-        DiameterException diameterException)
+-    {
+-        try
+-        {
+-            if (
+-                (diameterPeer != null) &amp;&amp; (FQDN != null)
+-                    &amp;&amp; (requestMessage != null))
+-            {
+-                DiameterMessage msg = diameterPeer.newResponse(requestMessage);
+-                AVP resultAVP =
+-                    saveResultCode(
+-                        (int) diameterException.getCode(),
++        DiameterException diameterException){
++        
++    	try{
++            if ((diameterPeer != null) &amp;&amp; (FQDN != null) &amp;&amp; (requestMessage != null)){
++                
++            	DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
++            	
++                AVP vendorSpecificApplicationID = new AVP(Constants.AVPCode.VENDOR_SPECIFIC_APPLICATION_ID, true, 
++                   		Constants.Vendor.DIAM);
++                AVP vendorID = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
++                vendorID.setData(Constants.Vendor.V3GPP);
++                vendorSpecificApplicationID.addChildAVP(vendorID);
++                   
++                AVP applicationID = new AVP(Constants.AVPCode.AUTH_APPLICATION_ID, true,  Constants.Vendor.DIAM);
++                applicationID.setData(Constants.Application.SH);
++                vendorSpecificApplicationID.addChildAVP(applicationID);
++                responseMessage.addAVP(vendorSpecificApplicationID);                
++                
++                AVP authSessionState = new AVP(Constants.AVPCode.AUTH_SESSION_STATE, true, Constants.Vendor.DIAM);
++                authSessionState.setData(1);
++                responseMessage.addAVP(authSessionState);
++                
++                AVP resultAVP = saveResultCode((int) diameterException.getCode(),
+                         (diameterException instanceof DiameterBaseException));
+-                msg.addAVP(resultAVP);
+-                diameterPeer.sendMessage(FQDN, msg);
++                
++                responseMessage.addAVP(resultAVP);
++                diameterPeer.sendMessage(FQDN, responseMessage);
+             }
+-            else
+-            {
+-                LOGGER.error(
+-                    &quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;,
+-                    new NullPointerException());
++            else{
++                LOGGER.error(&quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;, new NullPointerException());
+             }
+         }
+-        catch (RuntimeException e)
+-        {
++        catch (RuntimeException e){
+             LOGGER.error(this, e);
+         }
+     }
+-
++    
+     /**
+-     * adds the DIAMETER_SUCCESS to the response
+-     * @param responseMessage the diameter response message to which the 
+-     *                         DIAMETER_SUCCESS AVP is added.
++     * Try to send a Diameter Unable To Comply Message
++     * 
++     * @param FQDN fully qualified domain name
++     * @param requestMessage the message
+      */
+-    protected void addDiameterSuccess(DiameterMessage responseMessage)
+-    {
+-        AVP resultCode = AVPCodes.getAVP(AVPCodes._RESULT_CODE);
+-        resultCode.setData(ResultCode._DIAMETER_SUCCESS);
+-        responseMessage.addAVP(resultCode);
++    protected void sendUnableToComply(String FQDN, DiameterMessage requestMessage){
++    	
++        try{
++            if ((diameterPeer != null) &amp;&amp; (FQDN != null) &amp;&amp; (requestMessage != null)){
++            	
++                DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
++                
++                AVP resultAVP = new AVP(Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
++                resultAVP.setData(ResultCode._DIAMETER_UNABLE_TO_COMPLY);
++                responseMessage.addAVP(resultAVP);
++                
++                AVP vendorSpecificApplicationID = new AVP(Constants.AVPCode.VENDOR_SPECIFIC_APPLICATION_ID, true, 
++                		Constants.Vendor.DIAM);
++                AVP vendorID = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
++                vendorID.setData(Constants.Vendor.V3GPP);
++                vendorSpecificApplicationID.addChildAVP(vendorID);
++                AVP applicationID = new AVP(Constants.AVPCode.AUTH_APPLICATION_ID, true,  Constants.Vendor.DIAM);
++                applicationID.setData(Constants.Application.SH);
++                vendorSpecificApplicationID.addChildAVP(applicationID);
++                responseMessage.addAVP(vendorSpecificApplicationID);                
++                
++                AVP authSessionState = new AVP(Constants.AVPCode.AUTH_SESSION_STATE, true, Constants.Vendor.DIAM);
++                authSessionState.setData(1);
++                responseMessage.addAVP(authSessionState);
++
++                diameterPeer.sendMessage(FQDN, responseMessage);
++            }
++            else{
++                LOGGER.error(&quot;Unable to send Unable-To-Comply message; missing mandatory param!&quot;);
++            }
++        }
++        catch (RuntimeException e){
++            LOGGER.error(this, e);
++        }
+     }
+ 
+     /**
+@@ -215,37 +240,34 @@
+      * @throws DiameterException
+      */
+     protected RequestedData loadDataReference(DiameterMessage requestMessage)
+-        throws DiameterException
+-    {
+-        AVP dataReferenceAVP =
+-            avpLookUp(
+-                requestMessage, AVPCodes._SH_DATA_REFERENCE, true, Vendor.V3GPP);
++        throws DiameterException{
++    	
++        AVP dataReferenceAVP = avpLookUp(requestMessage, Constants.AVPCode.SH_DATA_REFERENCE, true, Vendor.V3GPP);
+ 
+-        switch (dataReferenceAVP.int_data)
+-        {
+-        case RequestedData._CHARGINGINFORMATION:
+-            return RequestedData.CHARGINGINFORMATION;
++        switch (dataReferenceAVP.int_data){
++        	case RequestedData._CHARGINGINFORMATION:
++        		return RequestedData.CHARGINGINFORMATION;
+ 
+-        case RequestedData._IMSUSERSTATE:
+-            return RequestedData.IMSUSERSTATE;
++        	case RequestedData._IMSUSERSTATE:
++        		return RequestedData.IMSUSERSTATE;
+ 
+-        case RequestedData._INITIALFILTERCRITERIA:
+-            return RequestedData.INITIALFILTERCRITERIA;
++        	case RequestedData._INITIALFILTERCRITERIA:
++        		return RequestedData.INITIALFILTERCRITERIA;
+ 
+-        case RequestedData._LOCATIONINFORMATION:
+-            return RequestedData.LOCATIONINFORMATION;
++        	case RequestedData._LOCATIONINFORMATION:
++        		return RequestedData.LOCATIONINFORMATION;
+ 
+-        case RequestedData._PUBLICIDENTIFIERS:
+-            return RequestedData.PUBLICIDENTIFIERS;
++        	case RequestedData._PUBLICIDENTIFIERS:
++        		return RequestedData.PUBLICIDENTIFIERS;
+ 
+-        case RequestedData._REPOSITORYDATA:
+-            return RequestedData.REPOSITORYDATA;
++        	case RequestedData._REPOSITORYDATA:
++        		return RequestedData.REPOSITORYDATA;
+ 
+-        case RequestedData._SCSCFNAME:
+-            return RequestedData.SCSCFNAME;
++        	case RequestedData._SCSCFNAME:
++        		return RequestedData.SCSCFNAME;
+ 
+-        case RequestedData._USERSTATE:
+-            return RequestedData.USERSTATE;
++        	case RequestedData._USERSTATE:
++        		return RequestedData.USERSTATE;
+         }
+ 
+         throw new InvalidAvpValue();
+@@ -258,13 +280,10 @@
+      * @throws DiameterException
+      */
+     protected String loadOriginHost(DiameterMessage requestMessage)
+-        throws DiameterException
+-    {
+-        AVP originHostAVP =
+-            avpLookUp(
+-                requestMessage, AVPCodes._ORIGIN_HOST, true, Vendor.DIAM);
++        throws DiameterException {
++    	
++        AVP originHostAVP = avpLookUp(requestMessage, Constants.AVPCode.ORIGIN_HOST, true, Vendor.DIAM);
+         String originHost = new String(originHostAVP.data);
+-
+         return originHost;
+     }
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/UDRCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/UDRCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/UDRCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -52,8 +52,8 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
++import de.fhg.fokus.hss.diam.ResultCode;
+ import de.fhg.fokus.hss.diam.Constants.Vendor;
+ import de.fhg.fokus.sh.CurrentLocation;
+ import de.fhg.fokus.sh.DiameterException;
+@@ -70,9 +70,9 @@
+  *
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public class UDRCommandListener extends ShCommandListener
+-{
+-    /** logger */
++public class UDRCommandListener extends ShCommandListener{
++    
++	/** logger */
+     private static final Logger LOGGER =
+         Logger.getLogger(UDRCommandListener.class);
+     /**
+@@ -80,7 +80,7 @@
+      */
+     public static long counter = 0;
+     /** the command id for UDR */
+-    private static final int COMMAND_ID = Constants.COMMAND.UDR;
++    private static final int COMMAND_ID = Constants.Command.UDR;
+     /** an object representing hss operations */
+     private HSSOperations operations;
+ 
+@@ -89,9 +89,7 @@
+      * @param _operations HssOpeations
+      * @param _diameterPeer diameterPeer
+      */ 
+-    public UDRCommandListener(
+-        HSSOperations _operations, DiameterPeer _diameterPeer)
+-    {
++    public UDRCommandListener(HSSOperations _operations, DiameterPeer _diameterPeer){
+         super(_diameterPeer);
+         this.operations = _operations;
+     }
+@@ -101,31 +99,30 @@
+      * @param FQDN fully qualified domain name
+      * @param requestMessage the diameter message   
+      */ 
+-    public void recvMessage(String FQDN, DiameterMessage requestMessage)
+-    {
+-        if (requestMessage.commandCode == COMMAND_ID)
+-        {
++    public void recvMessage(String FQDN, DiameterMessage requestMessage){
++        if (requestMessage.commandCode == COMMAND_ID){
++        	
+             counter++;
+             LOGGER.debug(&quot;entering&quot;);
+             LOGGER.debug(FQDN);
+ 
+-            try
+-            {
+-            		// request extract
++            try{
++            	
++            	// request extract
+                 URI publicIdentity = loadPublicIdentity(requestMessage);
+                 RequestedData requestedData = loadDataReference(requestMessage);
+                 RequestedDomain requestedDomain = null;
+                 CurrentLocation currentLocation = null;
+                 byte[] serviceIndication = null;
+                 
+-                AVP svcIndAVP = requestMessage.findAVP(AVPCodes._SH_SERVICE_INDICATION, true, Vendor.V3GPP);
++                AVP svcIndAVP = requestMessage.findAVP(Constants.AVPCode.SH_SERVICE_INDICATION, true, Vendor.V3GPP);
+                 if(svcIndAVP != null){
+                 	serviceIndication = svcIndAVP.data;
+                 }
+                 
+                 String applicationServerIdentity = loadOriginHost(requestMessage);
+                 URI applicationServerName = null;
+-                AVP asNameAVP = requestMessage.findAVP(AVPCodes._SH_SERVER_NAME, true, Vendor.V3GPP);
++                AVP asNameAVP = requestMessage.findAVP(Constants.AVPCode.SH_SERVER_NAME, true, Vendor.V3GPP);
+                 if(asNameAVP != null){
+                 	applicationServerName = new URI(new String(asNameAVP.data));
+                 }
+@@ -140,27 +137,27 @@
+                 DiameterMessage responseMessage =
+                     diameterPeer.newResponse(requestMessage);
+ 
+-                AVP userDataAVP = AVPCodes.getAVP(AVPCodes._SH_USER_DATA);
++                AVP userDataAVP = new AVP(Constants.AVPCode.SH_USER_DATA, true, Constants.Vendor.V3GPP);
+                 StringWriter sw = new StringWriter();
+                 shData.marshal(sw);
+                 userDataAVP.setData(sw.getBuffer().toString());
+ 
+                 responseMessage.addAVP(userDataAVP);
+ 
+-                addDiameterSuccess(responseMessage);
++                AVP responseCode = new AVP(Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
++                responseCode.setData(ResultCode._DIAMETER_SUCCESS);
++                responseMessage.addAVP(responseCode);
++                
+                 diameterPeer.sendMessage(FQDN, responseMessage);
+             }
+-            catch (DiameterException e)
+-            {
++            catch (DiameterException e){
+                 LOGGER.warn(this, e);
+                 sendDiameterException(FQDN, requestMessage, e);
+             }
+-            catch (Exception e)
+-            {
++            catch (Exception e){
+                 LOGGER.error(this, e);
+                 sendUnableToComply(FQDN, requestMessage);
+             }
+         }
+     }
+-
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -55,8 +55,8 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.Constants;
++import de.fhg.fokus.hss.diam.ResultCode;
+ import de.fhg.fokus.hss.model.AuthSchemeBO;
+ import de.fhg.fokus.zh.AuthenticationVector;
+ import de.fhg.fokus.zh.ZhAuthDataResponse;
+@@ -79,7 +79,7 @@
+     private static final Logger LOGGER =
+         Logger.getLogger(MARzhCommandListener.class);
+     /** command id for MARzh */    
+-    private static final int COMMAND_ID = Constants.COMMAND.MARzh;
++    private static final int COMMAND_ID = Constants.Command.MARzh;
+     /** an object representing zh operations */
+     private ZhOperations zhOperations;
+ 
+@@ -214,13 +214,11 @@
+      */
+     private void saveGussData(
+         ZhAuthDataResponse authDataResponse, DiameterMessage responseMessage)
+-        throws MarshalException, ValidationException
+-    {
++        throws MarshalException, ValidationException{
+         Guss guss = authDataResponse.getGuss();
+ 
+-        if (guss != null)
+-        {
+-            AVP gussAVP = AVPCodes.getAVP(AVPCodes._ZH_GUSS);
++        if (guss != null){
++            AVP gussAVP = new AVP (Constants.AVPCode.ZH_GUSS, true, Constants.Vendor.V3GPP);
+             StringWriter sw = new StringWriter();
+             guss.marshal(sw);
+             gussAVP.setData(sw.getBuffer().toString());
+@@ -235,43 +233,38 @@
+      * @param responseMessage
+      */
+     private void saveAuthData(
+-        ZhAuthDataResponse authDataResponse, DiameterMessage responseMessage)
+-    {
++        ZhAuthDataResponse authDataResponse, DiameterMessage responseMessage){
+         // Iterete and add vectors to response message
+         Iterator it = authDataResponse.getAuthenticationVectors().iterator();
+         int ix = 0;
+ 
+-        while (it.hasNext())
+-        {
++        while (it.hasNext()){
+             // store one vector in message as Auth Data Item
+             AuthenticationVector vector = (AuthenticationVector) it.next();
+ 
+-            AVP authDataItem = AVPCodes.getAVP(AVPCodes._SIP_AUTH_DATA_ITEM);
+-
+-            //Constants.AVPCodes
+-            AVP itemNumber = AVPCodes.getAVP(AVPCodes._SIP_ITEM_NUMBER);
++            AVP authDataItem = new AVP(Constants.AVPCode.SIP_AUTH_DATA_ITEM, true, Constants.Vendor.V3GPP);
++            
++            AVP itemNumber = new AVP(Constants.AVPCode.SIP_ITEM_NUMBER, true, Constants.Vendor.V3GPP);
+             itemNumber.setData(ix);
+             authDataItem.addChildAVP(itemNumber);
+-
+-            AVP authScheme =
+-                AVPCodes.getAVP(AVPCodes._SIP_AUTHENTICATION_SCHEME);
++            
++            AVP authScheme = new AVP (Constants.AVPCode.SIP_AUTHENTICATION_SCHEME, true, Constants.Vendor.V3GPP);
+             authScheme.setData(vector.authenticationScheme);
+             authDataItem.addChildAVP(authScheme);
+ 
+-            AVP authenticate = AVPCodes.getAVP(AVPCodes._SIP_AUTHENTICATE);
++            AVP authenticate = new AVP(Constants.AVPCode.SIP_AUTHENTICATE, true, Constants.Vendor.V3GPP);
+             authenticate.setData(vector.sipAuthenticate);
+             authDataItem.addChildAVP(authenticate);
+ 
+-            AVP authorization = AVPCodes.getAVP(AVPCodes._SIP_AUTHORIZATION);
++            AVP authorization = new AVP (Constants.AVPCode.SIP_AUTHORIZATION, true, Constants.Vendor.V3GPP);
+             authorization.setData(vector.sipAuthorization);
+             authDataItem.addChildAVP(authorization);
+ 
+-            AVP confidentialityKey =
+-                AVPCodes.getAVP(AVPCodes._CONFIDENTIALITY_KEY);
++            AVP confidentialityKey = new AVP(Constants.AVPCode.CONFIDENTIALITY_KEY, true, Constants.Vendor.V3GPP);
+             confidentialityKey.setData(vector.confidentialityityKey);
+             authDataItem.addChildAVP(confidentialityKey);
+ 
+-            AVP integrityKey = AVPCodes.getAVP(AVPCodes._INTEGRITY_KEY);
++            AVP integrityKey = new AVP(Constants.AVPCode.INTEGRITY_KEY, true, Constants.Vendor.V3GPP);
+             integrityKey.setData(vector.integrityKey);
+             authDataItem.addChildAVP(integrityKey);
+ 
+@@ -280,7 +273,7 @@
+         }
+ 
+         // Save the number of items.
+-        AVP numberOfItems = AVPCodes.getAVP(AVPCodes._SIP_NUMBER_AUTH_ITEMS);
++        AVP numberOfItems = new AVP(Constants.AVPCode.SIP_NUMBER_AUTH_ITEMS, true, Constants.Vendor.V3GPP);
+         numberOfItems.setData(ix);
+         responseMessage.addAVP(numberOfItems);
+     }
+@@ -340,6 +333,49 @@
+         //        }
+         //
+         //        return authenticationVector;
+-        return new AuthenticationVector(AuthSchemeBO.AUTH_ALGO_MD5.getBytes());
++        return new AuthenticationVector(AuthSchemeBO.AUTH_ALGORITHM_AKAv1.getBytes());
+     }
++    
++    /**
++     * Try to send a Diameter Unable To Comply Message
++     * 
++     * @param FQDN fully qualified domain name
++     * @param requestMessage the message
++     */
++    protected void sendUnableToComply(String FQDN, DiameterMessage requestMessage){
++    	
++        try{
++            if ((diameterPeer != null) &amp;&amp; (FQDN != null) &amp;&amp; (requestMessage != null)){
++            	
++                DiameterMessage responseMessage = diameterPeer.newResponse(requestMessage);
++                
++                AVP resultAVP = new AVP(Constants.AVPCode.RESULT_CODE, true, Constants.Vendor.DIAM);
++                resultAVP.setData(ResultCode._DIAMETER_UNABLE_TO_COMPLY);
++                responseMessage.addAVP(resultAVP);
++                
++                AVP vendorSpecificApplicationID = new AVP(Constants.AVPCode.VENDOR_SPECIFIC_APPLICATION_ID, true, 
++                		Constants.Vendor.DIAM);
++                AVP vendorID = new AVP(Constants.AVPCode.VENDOR_ID, true, Constants.Vendor.DIAM);
++                vendorID.setData(Constants.Vendor.V3GPP);
++                vendorSpecificApplicationID.addChildAVP(vendorID);
++                AVP applicationID = new AVP(Constants.AVPCode.AUTH_APPLICATION_ID, true,  Constants.Vendor.DIAM);
++                applicationID.setData(Constants.Application.ZH);
++                vendorSpecificApplicationID.addChildAVP(applicationID);
++                responseMessage.addAVP(vendorSpecificApplicationID);                
++                
++                AVP authSessionState = new AVP(Constants.AVPCode.AUTH_SESSION_STATE, true, Constants.Vendor.DIAM);
++                authSessionState.setData(1);
++                responseMessage.addAVP(authSessionState);
++
++                diameterPeer.sendMessage(FQDN, responseMessage);
++            }
++            else{
++                LOGGER.error(&quot;Unable to send Unable-To-Comply message; missing mandatory param!&quot;);
++            }
++        }
++        catch (RuntimeException e){
++            LOGGER.error(this, e);
++        }
++    }
++
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/ZhCommandListener.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/ZhCommandListener.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/zh/ZhCommandListener.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -55,7 +55,6 @@
+ import de.fhg.fokus.diameter.DiameterPeer.DiameterPeer;
+ import de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+ import de.fhg.fokus.diameter.DiameterPeer.data.DiameterMessage;
+-import de.fhg.fokus.hss.diam.AVPCodes;
+ import de.fhg.fokus.hss.diam.CommandListener;
+ import de.fhg.fokus.hss.diam.Constants;
+ import de.fhg.fokus.hss.diam.OriginHostResolver;
+@@ -68,8 +67,7 @@
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+-public abstract class ZhCommandListener extends CommandListener
+-{
++public abstract class ZhCommandListener extends CommandListener{
+     /** logger */
+     private static final Logger LOGGER =
+         Logger.getLogger(CommandListener.class);
+@@ -77,8 +75,7 @@
+      * constructor
+      * @param _diameterPeer diameter peer
+      */
+-    public ZhCommandListener(DiameterPeer _diameterPeer)
+-    {
++    public ZhCommandListener(DiameterPeer _diameterPeer){
+         super(_diameterPeer);
+     }
+ 
+@@ -96,11 +93,9 @@
+      * @throws DiameterException DIAMETER_MISSING_AVP
+      */
+     protected PublicIdentity loadPublicIdentity(DiameterMessage msg)
+-        throws DiameterException
+-    {
+-        AVP sipUriAVP =
+-            avpLookUp(
+-                msg, AVPCodes._CX_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
++        throws DiameterException {
++    	
++        AVP sipUriAVP = avpLookUp(msg, Constants.AVPCode.CX_PUBLIC_IDENTITY, true, Constants.Vendor.V3GPP);
+         PublicIdentity publicIdentity = new PublicIdentity();
+         publicIdentity.setIdentity(new String(sipUriAVP.data));
+ 
+@@ -116,14 +111,11 @@
+      * @return the avp if found else diameter exception
+      * @throws DiameterException
+      */
+-    protected AVP avpLookUp(
+-        DiameterMessage msg, int avpCode, boolean isVendorSpecific, int vendorId)
+-        throws DiameterException
+-    {
++    protected AVP avpLookUp(DiameterMessage msg, int avpCode, boolean isVendorSpecific, int vendorId)
++        throws DiameterException{
++    	
+         AVP avp = msg.findAVP(avpCode, isVendorSpecific, vendorId);
+-
+-        if (avp == null)
+-        {
++        if (avp == null){
+             throw new DiameterBaseException(MissingAVP.ERRORCODE);
+         }
+ 
+@@ -138,21 +130,14 @@
+      * @throws DiameterException
+      */
+     protected URI loadPrivateUserIdentity(DiameterMessage msg)
+-        throws URISyntaxException, DiameterException
+-    {
+-        try
+-        {
+-            URI privateUserIdentity =
+-                new URI(
+-                    new String(
+-                        avpLookUp(
+-                            msg, AVPCodes._PRIVATE_USER_IDENTITY, true,
+-                            Constants.Vendor.DIAM).data));
+-
++        throws URISyntaxException, DiameterException{
++        
++    	try{
++            URI privateUserIdentity = new URI( new String(
++                        avpLookUp(msg, Constants.AVPCode.PRIVATE_USER_IDENTITY, true, Constants.Vendor.DIAM).data));
+             return privateUserIdentity;
+         }
+-        catch (URISyntaxException e)
+-        {
++        catch (URISyntaxException e){
+             throw new DiameterBaseException(InvalidAvpValue.ERRORCODE);
+         }
+     }
+@@ -164,21 +149,11 @@
+      * @throws DiameterException
+      */
+     protected String loadServerName(DiameterMessage requestMessage)
+-        throws DiameterException
+-    {
+-        String scscfName =
+-            new String(
+-                avpLookUp(
+-                    requestMessage, AVPCodes._CX_SERVER_NAME, true,
+-                    Constants.Vendor.V3GPP).data);
+-        String originHost =
+-            new String(
+-                avpLookUp(
+-                    requestMessage, AVPCodes._ORIGIN_HOST, true,
+-                    Constants.Vendor.DIAM).data);
+-
++        throws DiameterException {
++    	
++        String scscfName = new String(avpLookUp(requestMessage, Constants.AVPCode.CX_SERVER_NAME, true, Constants.Vendor.V3GPP).data);
++        String originHost = new String(avpLookUp(requestMessage, Constants.AVPCode.ORIGIN_HOST, true, Constants.Vendor.DIAM).data);
+         OriginHostResolver.setOriginHost(scscfName, originHost);
+-
+         return scscfName;
+     }
+ 
+@@ -188,33 +163,19 @@
+      * @param requestMessage diameter request message
+      * @param diameterException diameter exception
+      */
+-    protected void sendDiameterException(
+-        String FQDN, DiameterMessage requestMessage,
+-        DiameterException diameterException)
+-    {
+-        try
+-        {
+-            if (
+-                (diameterPeer != null) &amp;&amp; (FQDN != null)
+-                    &amp;&amp; (requestMessage != null))
+-            {
++    protected void sendDiameterException(String FQDN, DiameterMessage requestMessage, DiameterException diameterException){
++        try{
++            if ((diameterPeer != null) &amp;&amp; (FQDN != null) &amp;&amp; (requestMessage != null)){
+                 DiameterMessage msg = diameterPeer.newResponse(requestMessage);
+-                AVP resultAVP =
+-                    saveResultCode(
+-                        diameterException.getCode(),
+-                        (diameterException instanceof DiameterBaseException));
++                AVP resultAVP = saveResultCode(diameterException.getCode(), (diameterException instanceof DiameterBaseException));
+                 msg.addAVP(resultAVP);
+                 diameterPeer.sendMessage(FQDN, msg);
+             }
+-            else
+-            {
+-                LOGGER.error(
+-                    &quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;,
+-                    new NullPointerException());
++            else{
++                LOGGER.error(&quot;Unable To Send Unable_To_Comply_Message, cause missing mandatory param.&quot;, new NullPointerException());
+             }
+         }
+-        catch (RuntimeException e)
+-        {
++        catch (RuntimeException e){
+             LOGGER.error(this, e);
+         }
+     }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpiForm.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpiForm.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpiForm.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -44,8 +44,8 @@
+  */
+ package de.fhg.fokus.hss.form;
+ 
++import de.fhg.fokus.hss.main.HSSProperties;
+ import de.fhg.fokus.hss.model.AuthSchemeBO;
+-import de.fhg.fokus.hss.server.HSSProperties;
+ import de.fhg.fokus.hss.util.Converter;
+ 
+ import org.apache.commons.lang.builder.ToStringBuilder;
+@@ -77,17 +77,19 @@
+     static
+     {
+         authSchemes = new ArrayList();
+-        authSchemes.add(new Tupel(AuthSchemeBO.AUS_MD5, AuthSchemeBO.AUS_MD5));
+-
+-        //authSchemes.add(
+-        //  new Tupel(AuthSchemeBO.AUS_EARLY, AuthSchemeBO.AUS_EARLY));
++        //authSchemes.add(new Tupel(AuthSchemeBO.AUS_EARLY, AuthSchemeBO.AUS_EARLY));
++        authSchemes.add(new Tupel(AuthSchemeBO.AUTH_SCHEME_AKAv1, AuthSchemeBO.AUTH_SCHEME_AKAv1));
++        authSchemes.add(new Tupel(AuthSchemeBO.AUTH_SCHEME_AKAv2, AuthSchemeBO.AUTH_SCHEME_AKAv2));
++        authSchemes.add(new Tupel(AuthSchemeBO.AUTH_SCHEME_MD5, AuthSchemeBO.AUTH_SCHEME_MD5));
+     }
+ 
+     static
+     {
+         authAlgos = new ArrayList();
+-        authAlgos.add(
+-            new Tupel(AuthSchemeBO.AUTH_ALGO_MD5, AuthSchemeBO.AUTH_ALGO_MD5));
++        //authAlgos.add(new Tupel(AuthSchemeBO));
++        authAlgos.add(new Tupel(AuthSchemeBO.AUTH_ALGORITHM_AKAv1, AuthSchemeBO.AUTH_ALGORITHM_AKAv1));
++        authAlgos.add(new Tupel(AuthSchemeBO.AUTH_ALGORITHM_AKAv2, AuthSchemeBO.AUTH_ALGORITHM_AKAv2));
++        authAlgos.add(new Tupel(AuthSchemeBO.AUTH_ALGORITHM_MD5, AuthSchemeBO.AUTH_ALGORITHM_MD5));
+     }
+ 
+     public static final String SQD_UPDATE_TRUE = &quot;1&quot;;
+@@ -133,7 +135,7 @@
+ 
+         if (
+             (getAuthScheme() != null)
+-                &amp;&amp; (getAuthScheme().equals(AuthSchemeBO.AUS_MD5)))
++                &amp;&amp; (getAuthScheme().equals(AuthSchemeBO.AUTH_SCHEME_AKAv1) || getAuthScheme().equals(AuthSchemeBO.AUTH_SCHEME_AKAv2)))
+         {
+             if ((getAmf() == null) || (getAmf().length() != 4))
+             {
+@@ -175,9 +177,9 @@
+         roamNetworkIdentifiers = new TreeSet();
+         scscfName = null;
+         skey = &quot;00000000000000000000000000000000&quot;;
+-        authScheme = AuthSchemeBO.AUS_MD5;
++        authScheme = AuthSchemeBO.AUTH_SCHEME_AKAv1;
+         amf = HSSProperties.AMF_ID;
+-        algorithm = AuthSchemeBO.AUTH_ALGO_MD5;
++        algorithm = AuthSchemeBO.AUTH_ALGORITHM_AKAv1;
+         operatorId = HSSProperties.OPERATOR_ID;
+         sqn = &quot;000000000000&quot;;
+         sqnUpdate = SQD_UPDATE_FALSE;
+
+Copied: FHoSS/trunk/src/de/fhg/fokus/hss/main/HSSProperties.java (from rev 42, FHoSS/trunk/src/de/fhg/fokus/hss/server/HSSProperties.java)
+
+
+Property changes on: FHoSS/trunk/src/de/fhg/fokus/hss/main/HSSProperties.java
+___________________________________________________________________
+Name: svn:keywords
+   + URL HeadURL Author LastChangedBy Date LastChangedDate Rev Revision LastChangedRevision Id
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/main/HssServer.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/main/HssServer.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/main/HssServer.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -47,6 +47,7 @@
+ import java.io.IOException;
+ 
+ import org.apache.log4j.Logger;
++import org.apache.log4j.Level;
+ 
+ import de.fhg.fokus.hss.diam.HssDiameterStack;
+ 
+@@ -54,24 +55,22 @@
+ /**
+  * HSS Server:
+  * 
+- * The main class for starting the FHoSS
++ * It is the main class which is starting FHoSS:
++ * 		- It starts the Tomcat Server
++ * 		- It starts the Diameter Stack
+  *
+- * 	Starting Tomcat Server
+- * 	Starting the Diameter Stack
+- *
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
++
+ public class HssServer
+ {
+-		/**
+-		 * The logger
+-		 */
+     private static final Logger LOGGER = Logger.getLogger(HssServer.class);
+     
++    
+     /**
+      * the current time at start up
+      */
+-    public static long STARTUP = System.currentTimeMillis();
++    public static long STARTUP_TIME = System.currentTimeMillis();
+ 
+     /**
+      * The main method
+@@ -79,61 +78,68 @@
+      */
+     public static void main(String[] args)
+     {
+-        LOGGER.info(&quot;Starting ...&quot;);
+-
+-        try
+-        {
+-        	// Startup tomcat
++    	try{
++    		Thread.sleep(1000);
++    	}
++    	catch(InterruptedException e){
++    		
++    	}
++    	LOGGER.debug(&quot;Starting FHoSS...&quot;);
++        
++        try{
++        	// Starting Tomcat
++        	
+             TomcatServer tomcatServer = new TomcatServer();
+             tomcatServer.setPath(&quot;./&quot;);
+             tomcatServer.startTomcat();
+-            STARTUP = System.currentTimeMillis();
+-            // Startup Diameter Stack
++            STARTUP_TIME = System.currentTimeMillis();
++            
++            // Starting Diameter Stack
++            
+             HssDiameterStack diameterStack = new HssDiameterStack();
+             diameterStack.startup();
+-            // HSS ready!
+-            LOGGER.info(&quot;FHoSS was started and is ready to use.&quot;);
+             
++            LOGGER.info(&quot;FHoSS was started and is ready for use !&quot;);
++            LOGGER.debug(&quot;Testing&quot;);
++            LOGGER.warn(&quot;Testing&quot;);
++            
+             waitForExit();
+-            // On any key pressed, shut down ...
++            
++            // stoping FHoSS
+             tomcatServer.stopTomcat();
+            	diameterStack.shutdown();
+             LOGGER.info(&quot;FHoSS was stopped!&quot;);
++            
+             System.exit(0);
+         }
+-        catch (Exception e)
+-        {
++        catch (Exception e){
+             LOGGER.error(e);
++            e.printStackTrace();
+         }
+     }
+ 
+-		/**
+-		 * This method waits until exit is typed in the console
+-		 * If wait is typed, then it returns.
+-		 */
+-		private static void waitForExit() {
+-			byte[] buffer = new byte[80]; 
+-			int read;
+-			String input = new String(&quot;leer&quot;);
+-			while (true)
+-			{
+-			    try
+-			    {
+-			        System.out.println(&quot;Type 'exit' to exit&quot;);			       
+-			        read = System.in.read(buffer, 0, 80);			        
+-			        input = new String(buffer, 0, read);
+-			        input  = input.trim();			        
+-			        System.out.print(input);
+-			    }
+-			    catch (IOException e)
+-			    {
+-			        e.printStackTrace();
+-			    }
++	/**
++	 * This method waits until exit is typed in the console
++	 * If wait is typed, then it returns.
++	 */
++	private static void waitForExit() {
++		byte[] buffer = new byte[80]; 
++		int read;
++		String input=&quot;&quot;;
++		while (true){
++		    try{
++		        LOGGER.info(&quot;Type 'exit' if you want to exit.&quot;);			       
++		        read = System.in.read(buffer, 0, 80);			        
++		        input = new String(buffer, 0, read);
++		        input  = input.trim();
++		    }
++		    catch (IOException e){
++		        e.printStackTrace();
++		    }
+ 			   
+-			    if(input.equals(&quot;exit&quot;)){
+-			    	return;
+-			    }
+-			}
++		    if(input.equals(&quot;exit&quot;)){
++		    	return;
++		    }
+ 		}
+-
++	}
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -44,7 +44,6 @@
+  */
+ package de.fhg.fokus.hss.main;
+ 
+-import de.fhg.fokus.hss.server.HSSProperties;
+ 
+ import org.apache.catalina.Context;
+ import org.apache.catalina.Engine;
+@@ -53,27 +52,10 @@
+ import org.apache.catalina.realm.MemoryRealm;
+ import org.apache.catalina.startup.Embedded;
+ 
+-import org.apache.log4j.LogManager;
+ import org.apache.log4j.Logger;
+-import org.apache.log4j.jmx.HierarchyDynamicMBean;
+-import org.apache.log4j.spi.LoggerRepository;
+ 
+-import java.io.FileInputStream;
+-
+-import java.util.Enumeration;
+-import java.util.Properties;
+-
+-import javax.management.InstanceAlreadyExistsException;
+-import javax.management.MBeanRegistrationException;
+-import javax.management.MBeanServer;
+-import javax.management.MBeanServerFactory;
+-import javax.management.MalformedObjectNameException;
+-import javax.management.NotCompliantMBeanException;
+-import javax.management.ObjectName;
+-
+-
+ /**
+- * Embeds tomcat ass part of the hss application.
++ * Embedded Tomcat Server, as part of the FHoSS
+  * The following XML code snippet contains the hierarchy of the Tomcat containers:
+  *                &lt;Server&gt;
+  *                  &amp;ltService&gt;
+@@ -87,8 +69,10 @@
+  *                &amp;ltServer&gt;
+  * The server runs in a endless thread.
+  * @see  a href=&quot;<A HREF="http://www.onjava.com/pub/a/onjava/2002/04/03/tomcat.html">http://www.onjava.com/pub/a/onjava/2002/04/03/tomcat.html</A>&quot;&gt;Tomcat Documentation&lt;/a&gt;
++ * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
++
+ public class TomcatServer
+ {
+     /**
+@@ -117,103 +101,58 @@
+      */
+     public void startTomcat() throws Exception
+     {
+-        LOGGER.debug(&quot;entering&quot;);
++        LOGGER.info(&quot;Tomcat-Server is started.&quot;);
+ 
+-        String hostProperty = HSSProperties.TOMCAT_HOST;
+-        String appPath =  HSSProperties.APP_PATH;
+-
+         Engine engine = null;
+ 
+-        System.setProperty(&quot;catalina.home&quot;, getPath());
++        System.setProperty(&quot;catalina.home&quot;, this.path);
+ 
+-        // Create a embedded server
++        // Create an embedded server
+         embedded = new Embedded();
+ 
+-        // Add realm
++        // Add a realm
+         MemoryRealm memRealm = new MemoryRealm();
+-
+         embedded.setRealm(memRealm);
+ 
+         // Create an engine
+         engine = embedded.createEngine();
+         engine.setDefaultHost(&quot;localhost&quot;);
+ 
+-        // Create default virutal host
+-        host = embedded.createHost(hostProperty, getPath() + &quot;/webapps&quot;);
+-
+-        engine.addChild(host);
+-
+-        // Create the ROOT context
+-        Context context = embedded.createContext(&quot;&quot;, getPath() + &quot;/ROOT&quot;);
+-        host.addChild(context);
+-
+         // Install the containers
+         embedded.addEngine(engine);
+ 
+         // Create a connector
+-        Connector connector =
+-            embedded.createConnector(hostProperty, 8080, false);
++        Connector connector = embedded.createConnector(HSSProperties.TOMCAT_HOST, Integer.parseInt(HSSProperties.TOMCAT_PORT), false);
+         embedded.addConnector(connector);
+-
+         embedded.start();
+ 
++        // Create default virutal host
++        host = embedded.createHost(HSSProperties.TOMCAT_HOST, this.path + &quot;/webapps&quot;);
++        engine.addChild(host);
++
++        // Create the ROOT context
++        Context context = embedded.createContext(&quot;&quot;, this.path + &quot;/ROOT&quot;);
++        host.addChild(context);
++        
+         // Create the Manager context
+-        context = embedded.createContext(&quot;/manager&quot;, getPath() + &quot;/manager&quot;);
++        context = embedded.createContext(&quot;/manager&quot;, this.path + &quot;/manager&quot;);
+         host.addChild(context);
+-
+-        LOGGER.debug(&quot;Starting App on path: &quot; + appPath);
+-        context = embedded.createContext(&quot;/hss.web.console&quot;, getPath() + appPath);
++        
++        context = embedded.createContext(&quot;/hss.web.console&quot;, this.path + &quot;/hss.web.console&quot;);
+         context.setReloadable(true);
+         host.addChild(context);
+-
+-        //startMBeanServer();
+-        LOGGER.debug(&quot;exiting&quot;);
++        LOGGER.info(&quot;WebConsole of FHoSS was started !&quot;);
+     }
+ 
+-    /**
+-     * @throws MalformedObjectNameException
+-     * @throws InstanceAlreadyExistsException
+-     * @throws MBeanRegistrationException
+-     * @throws NotCompliantMBeanException
+-     */
+-    private void startMBeanServer()
+-        throws MalformedObjectNameException, InstanceAlreadyExistsException, 
+-            MBeanRegistrationException, NotCompliantMBeanException
+-    {
+-        MBeanServer mbs = MBeanServerFactory.createMBeanServer();
+ 
+-        // Create and Register the top level Log4J MBean
+-        HierarchyDynamicMBean hdm = new HierarchyDynamicMBean();
+-        ObjectName mbo = new ObjectName(&quot;log4j:hiearchy=default&quot;);
+-        mbs.registerMBean(hdm, mbo);
+-
+-        // Add the root logger to the Hierarchy MBean
+-        Logger rootLogger = Logger.getRootLogger();
+-        hdm.addLoggerMBean(rootLogger.getName());
+-
+-        // Get each logger from the Log4J Repository and add it to
+-        // the Hierarchy MBean created above.
+-        LoggerRepository r = LogManager.getLoggerRepository();
+-        Enumeration en = r.getCurrentLoggers();
+-        Logger logger = null;
+-
+-        while (en.hasMoreElements())
+-        {
+-            logger = (Logger) en.nextElement();
+-            hdm.addLoggerMBean(logger.getName());
+-        }
+-    }
+-
+     /**
+      * It stops tomcat
+      * @throws Exception
+      */
+     public void stopTomcat() throws Exception
+     {
+-        LOGGER.debug(&quot;entering&quot;);
+         embedded.stop();
+-        LOGGER.info(&quot;tomcat stoped&quot;);
+-        LOGGER.debug(&quot;exiting&quot;);
++        LOGGER.info(&quot;Tomcat was stoped !&quot;);
+     }
+ 
+     /**
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/AuthSchemeBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/AuthSchemeBO.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/AuthSchemeBO.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -50,10 +50,17 @@
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
+ public class AuthSchemeBO {
+-	/** the digest AKAv1 MD5 authentication scheme */
+-	public static final String AUS_MD5 = &quot;Digest-AKAv1-MD5&quot;;
+ 	/** Early IMS authentication Scheme */
+-	public static final String AUS_EARLY = &quot;Early IMS&quot;;
+-	/** the AKAv1 MD5 authentication scheme */
+-	public static final String AUTH_ALGO_MD5 = &quot;AKAv1-MD5&quot;;
++	public static final String AUS_EARLY = &quot;Early IMS&quot;;		
++
++	// AKA and MD5
++	public static final String AUTH_SCHEME_AKAv1 = &quot;Digest-AKAv1-MD5&quot;;
++	public static final String AUTH_SCHEME_AKAv2 = &quot;Digest-AKAv2-MD5&quot;;
++	public static final String AUTH_SCHEME_MD5 = &quot;Digest-MD5&quot;;
++	
++	public static final String AUTH_ALGORITHM_AKAv1 = &quot;AKAv1-MD5&quot;;
++	public static final String AUTH_ALGORITHM_AKAv2 = &quot;AKAv2-MD5&quot;;
++	public static final String AUTH_ALGORITHM_MD5 = &quot;MD5&quot;;
++	
++	
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/PsiBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/PsiBO.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/PsiBO.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -52,7 +52,7 @@
+ import org.hibernate.Session;
+ import org.hibernate.Transaction;
+ 
+-import de.fhg.fokus.hss.server.HSSProperties;
++import de.fhg.fokus.hss.main.HSSProperties;
+ import de.fhg.fokus.hss.util.HibernateUtil;
+ 
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/RepDataBO.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -108,8 +108,7 @@
+             ServiceData serviceData = repositoryData.getServiceData();
+             byte[] bufRepData = null;
+ 
+-            if (serviceData != null)
+-            {
++            if (serviceData != null){
+                 Object serviceDataObj = serviceData.getAnyObject();
+                 ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                 ObjectOutput out = new ObjectOutputStream(bos);
+@@ -127,13 +126,11 @@
+             RepData repData = null;
+             repData = (RepData) getSession().get(RepData.class, repDataPK);
+ 
+-            if ((repData == null) &amp;&amp; (bufRepData != null))
+-            {
++            if ((repData == null) &amp;&amp; (bufRepData != null)){
+                 // Create entry
+                 LOGGER.debug(&quot;create&quot;);
+ 
+-                if (sqn == 0)
+-                {
++                if (sqn == 0){
+                     beginnTx();
+                     repData = new RepData();
+                     repData.setComp_id(repDataPK);
+@@ -143,51 +140,46 @@
+                     getSession().save(repData);
+                     endTx();
+                 }
+-                else
+-                {
+-                    throw new TransparentDataOutOfSync();
++                else{
++                	throw new TransparentDataOutOfSync();
+                 }
+             }
+-            else
+-            {
+-                if (bufRepData != null)
+-                {
+-                    // Update entry
+-                    LOGGER.debug(&quot;update&quot;);
++            else if (repData != null &amp;&amp; (bufRepData != null)){
++            	// Update entry
++                LOGGER.debug(&quot;update&quot;);
+ 
+-                    if ((sqn - 1) == repData.getSqn().intValue())
+-                    {
+-                        repData.setSvcData(bufRepData);
+-                        repData.setSqn(sqn);
+-                        beginnTx();
+-                        getSession().update(repData);
+-                        endTx();
+-                        commitShChanges(repData);
+-                    }
+-                    else
+-                    {
++                if ((sqn - 1) == repData.getSqn().intValue()){
++                	repData.setSvcData(bufRepData);
++                	repData.setSqn(sqn);
++                	beginnTx();
++                	getSession().update(repData);
++                	endTx();
++                	commitShChanges(repData);
++                }
++                else{
+                         LOGGER.warn(
+-                            &quot;Out of Sync SH-SQN (-1): &quot; + (sqn - 1)
+-                            + &quot;/ HSS-SQN: &quot; + repData.getSqn().intValue());
++                            &quot;Repository-Data out of Sync! SH-SQN-1: &quot; + (sqn - 1)
++                            + &quot; versus HSS-SQN: &quot; + repData.getSqn().intValue());
+                         throw new TransparentDataOutOfSync();
+-                    }
+-                }
+-                else
+-                {
+-                    LOGGER.debug(&quot;delete&quot;);
+-
+-                    // Delete
+-                    beginnTx();
+-                    getSession().delete(repData);
+-                    endTx();
+-                    commitShChanges(repData);
+-                }
++               }
+             }
+-
++             else if (repData != null &amp;&amp; bufRepData == null){
++            	 LOGGER.debug(&quot;delete&quot;);
++                 commitShChanges(repData);
++                 
++                 // Delete
++                 beginnTx();
++                 getSession().delete(repData);
++                 endTx();
++                 
++            }
++             else{
++            	 // repository data is already null
++            	 throw new UnableToComply();
++             }
+             closeSession();
+         }
+-        catch (IOException e)
+-        {
++        catch (IOException e){
+             LOGGER.error(this, e);
+             throw new UnableToComply();
+         }
+@@ -203,6 +195,9 @@
+     {
+         LOGGER.debug(&quot;entering&quot;);
+ 
++        //BUG, the repData is null after some time... NULLPointerException is sent!!!         
++        LOGGER.error(&quot;Notify: &quot; + repData.getNotifyRepDatas());
++
+         if (repData.getNotifyRepDatas().isEmpty() == false)
+         {
+             Iterator it = repData.getNotifyRepDatas().iterator();
+@@ -211,20 +206,12 @@
+             while (it.hasNext())
+             {
+                 NotifyRepData notifyRepData = (NotifyRepData) it.next();
+-                Apsvr notifApsvr =
+-                    (Apsvr) getSession().get(
+-                        Apsvr.class, notifyRepData.getComp_id().getApsvrId());
++                Apsvr notifApsvr = (Apsvr) getSession().get(Apsvr.class, notifyRepData.getComp_id().getApsvrId());
+ 
+-                try
+-                {
+-                    // Use FQDN name instead of SIP     XLB
+-                    operationsImpl.shNotif(
+-                        userProfil.getUri(), shData, notifApsvr.getName());
+-/*                    operationsImpl.shNotif(
+-                            userProfil.getUri(), shData, notifApsvr.getAddress()); */ 
++                try{
++                    operationsImpl.shNotif(userProfil.getUri(), shData, notifApsvr.getName());
+                 }
+-                catch (DiameterException e)
+-                {
++                catch (DiameterException e){
+                     LOGGER.error(this, e);
+                 }
+             }
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/hss/server/HSSProperties.java
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/CSCFOperationsImpl.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/CSCFOperationsImpl.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/CSCFOperationsImpl.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -64,6 +64,7 @@
+  * 
+  * @author Andre Charton (dev -at- open-ims dot org)
+  */
++
+ public class CSCFOperationsImpl implements CSCFOperations
+ {
+     /** logger */
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -58,25 +58,9 @@
+ import de.fhg.fokus.cx.exceptions.DiameterException;
+ import de.fhg.fokus.cx.exceptions.base.UnableToComply;
+ import de.fhg.fokus.hss.diam.ResultCode;
++import de.fhg.fokus.hss.main.HSSProperties;
+ import de.fhg.fokus.hss.model.Impi;
+-import de.fhg.fokus.hss.server.cx.util.AKAUtil;
+-import de.fhg.fokus.milenage.Ak;
+-import de.fhg.fokus.milenage.Amf;
+-import de.fhg.fokus.milenage.AuthKey;
+-import de.fhg.fokus.milenage.Auts;
+-import de.fhg.fokus.milenage.Mac;
+-import de.fhg.fokus.milenage.Nonce;
+-import de.fhg.fokus.milenage.Op;
+-import de.fhg.fokus.milenage.Opc;
+-import de.fhg.fokus.milenage.Rand;
+-import de.fhg.fokus.milenage.SIPAuthorization;
+-import de.fhg.fokus.milenage.SimpleSqn;
+-import de.fhg.fokus.milenage.Sqn;
+-import de.fhg.fokus.milenage.codec.CoDecException;
+-import de.fhg.fokus.milenage.kernel.KernelNotFoundException;
+-import de.fhg.fokus.milenage.server.ServerDigestAKA;
+ 
+-
+ import java.net.Inet4Address;
+ import java.net.URI;
+ 
+@@ -85,12 +69,16 @@
+ import java.security.SecureRandom;
+ 
+ import java.util.ArrayList;
++import de.fhg.fokus.hss.util.*;
++import de.fhg.fokus.security.auth.DigestAKA;
++import de.fhg.fokus.security.auth.HexCoDec;
++import de.fhg.fokus.security.auth.Milenage;
+ 
+-
+ /**
+  * This class represents cx specific authentication operations. It implements the 
+  * processing of MAR.
+  * @author Andre Charton  (dev -at- open-ims dot org)
++ * 
+  */
+ public class AuthCxOperation extends CxOperation
+ {
+@@ -112,19 +100,16 @@
+      * @param _authenticationVector authentication vector 
+      * @param _scscfName serving call session control functions name
+      */     
+-    public AuthCxOperation(
+-        PublicIdentity _publicIdentity, URI _privateUserIdentity,
++    public AuthCxOperation( PublicIdentity _publicIdentity, URI _privateUserIdentity,
+         Long _numberOfAuthVectors, AuthenticationVector _authenticationVector,
+-        String _scscfName)
+-    {
+-        LOGGER.debug(&quot;entering&quot;);
++        String _scscfName){
++    	
+         this.privateUserIdentity = _privateUserIdentity;
+         this.publicIdentity = _publicIdentity;
+         this.authenticationVector = _authenticationVector;
+         this.numberOfAuthVectors = _numberOfAuthVectors;
+         this.scscfName = _scscfName;
+         this.addPropertyChangeListener(this);
+-        LOGGER.debug(&quot;exiting&quot;);
+     }
+ 
+     /**
+@@ -134,52 +119,40 @@
+      * @return an authentication data response object containing authentication data
+      * @see de.fhg.fokus.hss.server.cx.CxOperation#execute()
+      */
+-    public Object execute() throws DiameterException
+-    {
+-        if (LOGGER.isDebugEnabled())
+-        {
+-            LOGGER.debug(&quot;entering&quot;);
++    
++    public Object execute() throws DiameterException{
++        if (LOGGER.isDebugEnabled()){
++            LOGGER.debug(&quot;AuthCXOperation, execute method!&quot;);
+             LOGGER.debug(this);
+         }
+ 
+         CxAuthDataResponse authDataResponse = null;
+ 
+-        try
+-        {
++        try{
+             loadUserProfile();
+-
+-           
+-            // Check the Server name
+-            if (userProfil.getImpi().getScscfName().equals(scscfName) == false)
+-            {
++            if (userProfil.getImpi().getScscfName().equals(scscfName) == false){
+                 userProfil.getImpi().setScscfName(scscfName);
+                 markUpdateUserProfile();
+             }
+ 
+-            ArrayList authVector = null;
++            ArrayList authenticationVectors = null;
+ 
+-            // Generate the Authentiaction Vectors ...
+-            if (authenticationVector != null)
+-            {
+-                // ... for synchronistation
+-                authVector = handleSynchFailure();
++            // Generate the Authentiaction Vectors
++            if (authenticationVector != null){
++                // perform synchronization for the SQN (SQN-hn = SQN-ms)
++                authenticationVectors = performSynchronization();
+             }
+-            else
+-            {
+-                // ... for authentication
+-                authVector = generateVector();
++            else{
++                // generate the authentication vectors
++                authenticationVectors = generateAuthenticationVectors();
+             }
+-
+-            authDataResponse =
+-                new CxAuthDataResponse(ResultCode._DIAMETER_SUCCESS, true);
+-            authDataResponse.setAuthenticationVectors(authVector);
++            authDataResponse = new CxAuthDataResponse(ResultCode._DIAMETER_SUCCESS, true);
++            authDataResponse.setAuthenticationVectors(authenticationVectors);
+             updateUserProfile();
+-            LOGGER.debug(&quot;exiting&quot;);
+         }
+-        finally
+-        {
++        finally{
+         	if(getUserProfil() != null){
+-            getUserProfil().closeSession();
++        		getUserProfil().closeSession();
+         	}
+         }
+ 
+@@ -187,77 +160,80 @@
+     }
+ 
+     /**
+-     * This method generates a list of authentication vectors
++     * This method generates the list of the authentication vectors
+      * @return list of authentication vectors
+      */
+-    public ArrayList generateVector()
+-    {
+-        LOGGER.debug(&quot;entering&quot;);
+-
+-        ArrayList vector = null;
++    public ArrayList generateAuthenticationVectors(){
++        LOGGER.debug(&quot;Generation of Authentication Vectors&quot;);
++        ArrayList vectorList = null;
+         Impi impi = null;
+ 
+-        try
+-        {
++        try{
+             impi = userProfil.getImpi();
++            vectorList = new ArrayList(numberOfAuthVectors.intValue());
+ 
+-            // create per init answer vector
+-            vector = new ArrayList(numberOfAuthVectors.intValue());
++            HexCoDec codec;
++            codec = new HexCoDec();
++            byte [] secretKey = codec.decode(impi.getSkey());
++            byte [] amf = codec.decode(impi.getAmf());
+ 
+-            ServerDigestAKA digestAKA = new ServerDigestAKA();
+-
+-            // Collection values
+-            SecureRandom randomAccess = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);
+-            AuthKey secretKey = new AuthKey(impi.getSkey());
+-            Amf amf = new Amf(impi.getAmf());
+-            Op operator = new Op(impi.getOperatorId());
+-            Opc opc = digestAKA.generateOp_c(secretKey, operator);
++            // op and generate opC	
++            byte [] op = codec.decode(impi.getOperatorId());
++            byte [] opC = Milenage.generateOpC(secretKey, op);
++            
+             String authScheme = impi.getAuthScheme();
+-            //For the sake of Early IMS
+             Inet4Address ip = impi.getIP();
++            byte [] sqn = codec.decode(impi.getSqn());
+ 
+-            String sqnString = new String(impi.getSqn());
+-            Sqn sqn;
++            LOGGER.debug(&quot;Auth-Scheme Used: &quot; + authScheme);
++            // MD5 Authentication Scheme
++            if (authScheme.equalsIgnoreCase(&quot;Digest-MD5&quot;)){
++            	// Authentication Scheme is Digest-MD5
++            	LOGGER.debug(&quot;Auth-Scheme is Digest-MD5&quot;);
++                SecureRandom randomAccess = SecureRandom.getInstance(&quot;SHA1PRNG&quot;);
+ 
+-            if (sqnString == null)
+-            {
+-                sqn = SimpleSqn.getNewInstance();
++                for (long ix = 0; ix &lt; numberOfAuthVectors.intValue(); ix++){
++                    byte[] randBytes = new byte[16];
++                	randomAccess.setSeed(System.currentTimeMillis());
++                    randomAccess.nextBytes(randBytes);
++                    
++                	secretKey = codec.decodePassword(impi.getSkey()).getBytes();
++                	
++                	AuthenticationVector aVector = new AuthenticationVector(authScheme, randBytes, secretKey);
++                	vectorList.add(aVector);
++                }
++            	markUpdateUserProfile();
++            	return vectorList;
+             }
+-            else
+-            {
+-                sqn = new SimpleSqn(sqnString);
+-            }
++            else{
++            	// We have AKAv1 or AKAv2
++            	LOGGER.debug(&quot;Auth-Scheme is Digest-AKA&quot;);
++            	
++                for (long ix = 0; ix &lt; numberOfAuthVectors.intValue(); ix++)
++                {
++                	sqn = DigestAKA.getNextSQN(sqn, HSSProperties.IND_LEN);
++        	        byte[] copySqnHe = new byte[6];
++        	        int k = 0;
++        	        for (int i = 0; i &lt; 6; i++, k++){
++                		copySqnHe[k] = sqn[i]; 
++        	        }
+ 
+-            for (long ix = 0; ix &lt; numberOfAuthVectors.intValue(); ix++)
+-            {
+-                sqn = sqn.calculateNextSqn();
+-                vector.add(
+-                    AKAUtil.generateAuthenticationVector(
+-                        randomAccess, secretKey, amf, opc, sqn, (long) ix,
+-                        digestAKA, authScheme,ip));
++                	AuthenticationVector authenticationVector = DigestAKA.getAuthenticationVector(authScheme, ip,
++                			secretKey, opC, amf, copySqnHe);
++                    vectorList.add(authenticationVector);
++                }
++                impi.setSqn(codec.encode(sqn));
++                markUpdateUserProfile();
+             }
+-
+-            impi.setSqn(sqn.getAsString());
+-            markUpdateUserProfile();
+         }
+-        catch (NoSuchAlgorithmException e)
+-        {
++        catch (NoSuchAlgorithmException e){
+             LOGGER.error(this, e);
+         }
+-        catch (CoDecException e)
+-        {
++        catch (InvalidKeyException e){
+             LOGGER.error(this, e);
+         }
+-        catch (KernelNotFoundException e)
+-        {
+-            LOGGER.error(this, e);
+-        }
+-        catch (InvalidKeyException e)
+-        {
+-            LOGGER.error(this, e);
+-        }
+-        catch (Exception e)
+-        {
++        catch (Exception e){
++        	e.printStackTrace();
+             // Check impi
+             if (impi.getAmf() == null)
+             {
+@@ -280,111 +256,143 @@
+                 throw new NullPointerException(&quot;Missing Operator ID.&quot;);
+             }
+         }
++        return vectorList;
+ 
+-        LOGGER.debug(&quot;exiting&quot;);
+-
+-        return vector;
+     }
+ 
+     /**
+-     * It handles synchronization failures
++     * It handles the synchronization of the SQN-MS with the SQN-HE
+      * @throws DiameterException
+-     * @return a list of authentication vector
++     * @return a list of authentication vectorList
+      */
+-    public ArrayList handleSynchFailure() throws DiameterException
++    public ArrayList performSynchronization() throws DiameterException
+     {
+-        LOGGER.debug(&quot;entering&quot;);
++    	LOGGER.info(&quot;Handling Synchronization between Mobile Station and Home Environment!&quot;);
++        byte[] sipAuthorization = authenticationVector.sipAuthorization;
+ 
+-        try
+-        {
+-            ServerDigestAKA digestAKA = new ServerDigestAKA();
+-            SIPAuthorization sipAuthorization =
+-                new SIPAuthorization(authenticationVector.sipAuthorization);
++        HexCoDec codec;
++        codec = new HexCoDec();
++        Impi impi = userProfil.getImpi();
+ 
+-            Nonce nonce = sipAuthorization.getNonce();
+-            Auts auts = sipAuthorization.getAuts();
+-            Ak ak = null;
+-            Rand rand = nonce.getRand();
+-            AuthKey key = new AuthKey(userProfil.getImpi().getSkey());
+-            Opc opc =
+-                digestAKA.generateOp_c(
+-                    key, new Op(userProfil.getImpi().getOperatorId()));
+-            String sqnHeString = userProfil.getImpi().getSqn();
+-            String amf = userProfil.getImpi().getAmf();
+-            String authScheme = userProfil.getImpi().getAuthScheme();
+-            //For the sake of Early IMS
+-            Inet4Address ip = userProfil.getImpi().getIP();
+-            Sqn sqnHe = null;
++        byte [] secretKey = codec.decode(impi.getSkey());
++        byte [] amf = codec.decode(impi.getAmf());
+ 
+-            if (sqnHeString == null)
+-            {
+-                sqnHe = SimpleSqn.getNewInstance();
+-            }
+-            else
+-            {
+-                sqnHe = new SimpleSqn(sqnHeString);
+-            }
++        try {
++            // get op and generate opC	
++            byte [] op = codec.decode(impi.getOperatorId());
++			byte [] opC = Milenage.generateOpC(secretKey, op);
++			//System.out.println(&quot;opC is: &quot; + codec.encode(opC));
++	        String authScheme = impi.getAuthScheme();
++	        Inet4Address ip = impi.getIP();
+ 
+-            sqnHe = sqnHe.calculateNextSqn();
++	        // sqnHE - represent the SQN from the HSS
++	        // sqnMS - represent the SQN from the client side
++	        byte[] sqnHe = codec.decode(impi.getSqn());
++	        //System.out.println(&quot;SQN_He is before increment: &quot; + codec.encode(sqnHe));
++	        sqnHe = DigestAKA.getNextSQN(sqnHe, HSSProperties.IND_LEN);
++	        //System.out.println(&quot;SQN_He is after increment: &quot; + codec.encode(sqnHe));
+ 
+-            if (Ak.USE_AK)
+-            {
+-                ak = digestAKA.generateSynchronizationAnonoymityKey(
+-                        key, rand, opc);
+-            }
++	        byte [] nonce = new byte[32];
++	        byte [] auts = new byte[14];
++	        int k = 0;
++	        for (int i = 0; i &lt; 32; i++, k++){
++        		nonce[k] = sipAuthorization[i]; 
++	        }
++	        k = 0;
++	        for (int i = 32; i &lt; 46; i++, k++){
++        		auts[k] = sipAuthorization[i]; 
++	        }
++	        //System.out.println(&quot;AUTS is: &quot; + codec.encode(auts));
++	        
++	        byte [] rand = new byte[16];
++	        k = 0;
++	        for (int i = 0; i &lt; 16; i++, k++){
++        		rand[k] = nonce[i]; 
++	        }
++	        //System.out.println(&quot;Rand is: &quot; + codec.encode(rand));
+ 
+-            Sqn sqnMs = auts.extractSqn(ak);
+-
+-            if (!sqnMs.isInRange(sqnHe))
+-            {
+-                Mac xMacS = digestAKA.generateXMACS(key, rand, opc, sqnMs);
+-                Mac macS = auts.getMac();
+-                LOGGER.debug(&quot;X-MACS: &quot; + xMacS);
+-                LOGGER.debug(&quot;MACS:   &quot; + macS);
+-
+-                if (!xMacS.equals(macS))
+-                {
+-                    throw new UnableToComply();
+-                }
+-
+-                sqnHe = sqnMs;
+-                sqnHe = sqnHe.calculateNextSqn();
++	        byte[] ak = null;
++	        if (HSSProperties.USE_AK){
++                ak = Milenage.f5star(secretKey, rand, opC);
+             }
++	        //System.out.println(&quot;AK is: &quot; + codec.encode(ak));
++	        byte [] sqnMs = new byte[6];
++	        k = 0;
++	        
++	        if (HSSProperties.USE_AK){
++		        for (int i = 0; i &lt; 6; i++, k++){
++	        		sqnMs[k] = (byte) (auts[i] ^ ak[i]); 
++		        }
++		        LOGGER.warn(&quot;USE_AK is enabled and will be used in Milenage algorithm!&quot;);
++	        }
++	        else{
++		        for (int i = 0; i &lt; 6; i++, k++){
++	        		sqnMs[k] = auts[i]; 
++		        }
++		        LOGGER.warn(&quot;USE_AK is NOT enabled and will NOT be used in Milenage algorithm!&quot;);
++	        }
++	        //System.out.println(&quot;SQN_MS is: &quot; + codec.encode(sqnMs));
++	        //System.out.println(&quot;SQN_HE is: &quot; + codec.encode(sqnHe));
++	        
++	        if (DigestAKA.SQNinRange(sqnMs, sqnHe, HSSProperties.IND_LEN, HSSProperties.delta, HSSProperties.L)){
++	        	LOGGER.info(&quot;The new generated SQN value shall be accepted on the client, abort synchronization!&quot;);
++	        	k = 0;
++	        	byte[] copySqnHe = new byte[6];
++		        for (int i = 0; i &lt; 6; i++, k++){
++	        		copySqnHe[k] = sqnHe[i]; 
++		        }
++	        	
++	            AuthenticationVector aVector = DigestAKA.getAuthenticationVector(authScheme, ip, secretKey, opC, amf, copySqnHe);
++	            ArrayList vectorsList = new ArrayList();
++	            vectorsList.add(aVector);
+ 
+-            AuthenticationVector newAv =
+-                AKAUtil.generateAuthenticationVector(
+-                    rand, key, new Amf(amf), opc, sqnHe, 0, digestAKA,
+-                    authScheme, ip);
++	            // update Cxdata
++	            userProfil.getImpi().setSqn(codec.encode(sqnHe));
++	            markUpdateUserProfile();
++	            return vectorsList;	        	
++	        }
++	        	
++        	byte xmac_s[] = Milenage.f1star(secretKey, rand, opC, sqnMs, amf);
++        	byte mac_s[] = new byte[8];
++        	k = 0;
++        	for (int i = 6; i &lt; 14; i++, k++){
++        		mac_s[k] = auts[i];
++        	}
++        	//System.out.println(&quot;xmac_s is: &quot; + codec.encode(xmac_s));
++        	//System.out.println(&quot;mac_s is: &quot; + codec.encode(mac_s));
++	        	
++        	for (int i = 0; i &lt; 8; i ++)
++        		if (xmac_s[i] != mac_s[i]){
++        			LOGGER.error(&quot;XMAC and MAC are different! User not authorized in performing synchronization!&quot;);
++        			throw new UnableToComply();
++               }
+ 
+-            ArrayList avs = new ArrayList();
+-            avs.add(newAv);
++            sqnHe = sqnMs;
++            sqnHe = DigestAKA.getNextSQN(sqnHe, HSSProperties.IND_LEN);
++     		LOGGER.info(&quot;Synchronization of SQN_HE with SQN_MS was completed successfully!&quot;);
++	        
++	        byte[] copySqnHe = new byte[6];
++	        k = 0;
++	        for (int i = 0; i &lt; 6; i++, k++){
++        		copySqnHe[k] = sqnHe[i]; 
++	        }
++            AuthenticationVector aVector = DigestAKA.getAuthenticationVector(authScheme, ip, secretKey, opC, amf, copySqnHe);
++            ArrayList vectorsList = new ArrayList();
++            vectorsList.add(aVector);
+ 
+             // update Cxdata
+-            userProfil.getImpi().setSqn(sqnHe.getAsString());
++            userProfil.getImpi().setSqn(codec.encode(sqnHe));
+             markUpdateUserProfile();
+-            LOGGER.debug(&quot;exiting&quot;);
+-
+-            return avs;
+-        }
+-        catch (CoDecException e)
+-        {
+-            LOGGER.error(this, e);
+-            throw new UnableToComply();
+-        }
+-        catch (InvalidKeyException e)
+-        {
+-            LOGGER.error(this, e);
+-            throw new UnableToComply();
+-        }
+-        catch (KernelNotFoundException e)
+-        {
+-            LOGGER.error(this, e);
+-            throw new UnableToComply();
+-        }
+-        catch (Exception e)
+-        {
+-            LOGGER.error(this, e);
+-            throw new UnableToComply();
+-        }
++            return vectorsList;
++            
++		} 
++        catch (InvalidKeyException e) {
++			e.printStackTrace();
++		}
++        catch (NoSuchAlgorithmException e) {
++			e.printStackTrace();
++		}
++        
++        return new ArrayList();
+     }
+ }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/LocationCxOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/LocationCxOperation.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/LocationCxOperation.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -110,7 +110,7 @@
+                 }
+             }
+ 
+-            if (serverName != null)
++            if (serverName != null &amp;&amp; serverName.equals(&quot;&quot;) == false)
+             {
+                 locationQueryResponse =
+                     new CxLocationQueryResponse(
+@@ -120,7 +120,8 @@
+             }
+             else
+             {
+-                throw new IdentityNotRegistered();
++            	LOGGER.info(&quot;User not registered, sending LIA: DIAMETER_ERROR_IDENTITY_NOT_REGISTERED !&quot;);
++            	throw new IdentityNotRegistered();
+             }
+         }
+         finally
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/util/AKAUtil.java
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java	2007-01-19 16:41:37 UTC (rev 97)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java	2007-01-22 20:29:30 UTC (rev 98)
+@@ -64,25 +64,6 @@
+ import de.fhg.fokus.hss.model.Impu;
+ import de.fhg.fokus.hss.model.UserSecSettings;
+ import de.fhg.fokus.hss.util.HibernateUtil;
+-import de.fhg.fokus.milenage.Ak;
+-import de.fhg.fokus.milenage.Amf;
+-import de.fhg.fokus.milenage.AuthKey;
+-import de.fhg.fokus.milenage.Autn;
+-import de.fhg.fokus.milenage.Auts;
+-import de.fhg.fokus.milenage.Ck;
+-import de.fhg.fokus.milenage.Ik;
+-import de.fhg.fokus.milenage.Mac;
+-import de.fhg.fokus.milenage.Nonce;
+-import de.fhg.fokus.milenage.Op;
+-import de.fhg.fokus.milenage.Opc;
+-import de.fhg.fokus.milenage.Rand;
+-import de.fhg.fokus.milenage.Res;
+-import de.fhg.fokus.milenage.SIPAuthorization;
+-import de.fhg.fokus.milenage.SimpleSqn;
+-import de.fhg.fokus.milenage.Sqn;
+-import de.fhg.fokus.milenage.codec.CoDecException;
+-import de.fhg.fokus.milenage.kernel.KernelNotFoundException;
+-import de.fhg.fokus.milenage.server.ServerDigestAKA;
+ import de.fhg.fokus.zh.AuthenticationVector;
+ import de.fhg.fokus.zh.ZhAuthDataResponse;
+ import de.fhg.fokus.zh.ZhOperations;
+@@ -198,7 +179,7 @@
+ 
+         Guss guss = new Guss();
+         guss.setId(impi.getImpiString());
+-
++/*
+         boolean isGba =
+             ((int) impi.getUiccType().byteValue() == 0) ? false : true;
+         Integer keylifeTime = impi.getKeyLifeTime();
+@@ -244,7 +225,7 @@
+             TussListItem ussItem = new TussListItem();
+             Uss uss = new Uss();
+             uss.setId(GussBO.getIdByType(impiUss.getUssType()));
+-            uss.setType(impiUss.getUssType());
++            uss.setType(impiUss.getUssType());pso/index.php?section=Teme&amp;file=Reguli
+             uss.setNafGroup(impiUss.getNafGroup());
+ 
+             Integer flags = impiUss.getFlag();
+@@ -264,7 +245,7 @@
+         guss.setUssList(ussList);
+ 
+         LOGGER.debug(&quot;exiting&quot;);
+-
++*/
+         return guss;
+     }
+ 
+@@ -302,7 +283,7 @@
+         LOGGER.debug(&quot;entering&quot;);
+ 
+         ArrayList vector = null;
+-
++/*
+         try
+         {
+             // create per init answer vector
+@@ -386,7 +367,7 @@
+                 throw new NullPointerException(&quot;Missing Operator ID.&quot;);
+             }
+         }
+-
++*/
+         LOGGER.debug(&quot;exiting&quot;);
+ 
+         return vector;
+@@ -400,7 +381,7 @@
+     public ArrayList handleSynchFailure() throws DiameterException
+     {
+         LOGGER.debug(&quot;entering&quot;);
+-
++/*
+         try
+         {
+             ServerDigestAKA digestAKA = new ServerDigestAKA();
+@@ -491,7 +472,9 @@
+         {
+             LOGGER.error(this, e);
+             throw new DiameterBaseException(UnableToComply.ERRORCODE);
+-        }
++        }*/
++        
++        return null;
+     }
+ 
+     /**
+@@ -508,7 +491,8 @@
+      * @throws CoDecException
+      * @throws InvalidKeyException
+      */ 
+-    private static AuthenticationVector generateAuthenticationVector(
++    
++/*    private static AuthenticationVector generateAuthenticationVector(
+         SecureRandom random, AuthKey secretKey, Amf amf, Opc opc, Sqn sqn,
+         long pos, ServerDigestAKA digestAKA, String authScheme)
+         throws CoDecException, InvalidKeyException
+@@ -522,7 +506,7 @@
+         return generateAuthenticationVector(
+             rand, secretKey, amf, opc, sqn, pos, digestAKA, authScheme);
+     }
+-
++*/
+     /**
+      * It generates authentication vector with the help of provided arguments
+      * @param rand an object which can generate some random value
+@@ -537,7 +521,7 @@
+      * @throws CoDecException
+      * @throws InvalidKeyException
+      */ 
+-    private static AuthenticationVector generateAuthenticationVector(
++/*    private static AuthenticationVector generateAuthenticationVector(
+         Rand rand, AuthKey secretKey, Amf amf, Opc opc, Sqn sqn, long pos,
+         ServerDigestAKA digestAKA, String authScheme)
+         throws CoDecException, InvalidKeyException
+@@ -581,7 +565,7 @@
+         return new AuthenticationVector(
+             authScheme, sipAuthenticate, sipAuthorization, ck.getBytes(),
+             ik.getBytes());
+-    }
++    }*/
+ 
+     /** 
+      *  a string converter
+
+Added: FHoSS/trunk/src/de/fhg/fokus/hss/util/Util.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Abstract3gppObject.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/AbstractAuth3gppObject.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Ak.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Amf.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Auth3gppObject.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/AuthKey.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/AuthenticationException.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Autn.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Auts.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Ck.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/DigestAKA.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Ik.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Mac.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/MacVerificationException.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Nonce.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Op.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Opc.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Rand.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Res.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/SIPAuthorization.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/SimpleSqn.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/Sqn.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/SynchronizationException.java
+
+Deleted: FHoSS/trunk/src/de/fhg/fokus/milenage/package-info.java
+
+Added: FHoSS/trunk/src/de/fhg/fokus/security/auth/DigestAKA.java
+
+Added: FHoSS/trunk/src/de/fhg/fokus/security/auth/HexCoDec.java
+
+Added: FHoSS/trunk/src/de/fhg/fokus/security/auth/Milenage.java
+
+Added: FHoSS/trunk/src/de/fhg/fokus/security/auth/Rijndael32Bit.java
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000163.html">[OpenIMSCore-HSS] Problem integrating with Application Server
+</A></li>
+	<LI>Next message: <A HREF="000165.html">[OpenIMSCore-HSS] [SVN-FHoSS] r99 - in FHoSS/trunk: config lib
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

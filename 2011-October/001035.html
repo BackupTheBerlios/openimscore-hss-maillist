@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore%20%5D%20IMPU%20/%20IMPI%20formats&In-Reply-To=%3CCALursqantkcSmcjR_B6dxkb6Eync_o%2BYvBA1CO6iLX-R9JDYTg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001036.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats</H1>
+    <B>Roc&#237;o Ruz</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore%20%5D%20IMPU%20/%20IMPI%20formats&In-Reply-To=%3CCALursqantkcSmcjR_B6dxkb6Eync_o%2BYvBA1CO6iLX-R9JDYTg%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats">rociorsr at gmail.com
+       </A><BR>
+    <I>Fri Oct  7 10:43:20 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001036.html">[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1035">[ date ]</a>
+              <a href="thread.html#1035">[ thread ]</a>
+              <a href="subject.html#1035">[ subject ]</a>
+              <a href="author.html#1035">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I am using Open IMS Core HSS to create my users and I have constated that
+when using this format :
+
+IMPI:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">+ at domain</A>&gt;
+IMPU : sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>&gt;
+
+Users can get registered normally.
+
+How ever if I use the following format:
+
+ IMPI:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>&gt;
+IMPU : sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ZZZZ at domain</A> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ZZZZ at domain</A>&gt;
+
+The users can not get registered, I have an : 403 forbidden : HSS User
+Unknown.
+My softphones are configured in the same way for both cases :
+
+UserID (or UserName) = IMPU
+Domain: open-ims.test
+Password : password
+Auth.userName : IMPI
+
+Does anybody know why it seems that we can not have an IMPU and IMPI with
+different user-parts?
+That does not seem very logical to me.
+
+Thank you in advance.
+
+RR
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20111007/64a9d1bb/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20111007/64a9d1bb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001036.html">[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1035">[ date ]</a>
+              <a href="thread.html#1035">[ thread ]</a>
+              <a href="subject.html#1035">[ subject ]</a>
+              <a href="author.html#1035">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

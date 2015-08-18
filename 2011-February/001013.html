@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Possible Bug in HSS: Auto PPR for IMPU Updates
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Possible%20Bug%20in%20HSS%3A%20Auto%20PPR%20for%20IMPU%20Updates&In-Reply-To=%3CAANLkTikt4a%2B%2BLqFPv4W%3D%3DgjHKvLvS7cZtWR%3DoKywKg2%2B%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001012.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Possible Bug in HSS: Auto PPR for IMPU Updates</H1>
+    <B>Paul Carter-Brown</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Possible%20Bug%20in%20HSS%3A%20Auto%20PPR%20for%20IMPU%20Updates&In-Reply-To=%3CAANLkTikt4a%2B%2BLqFPv4W%3D%3DgjHKvLvS7cZtWR%3DoKywKg2%2B%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Possible Bug in HSS: Auto PPR for IMPU Updates">paul.carter-brown at smilecoms.com
+       </A><BR>
+    <I>Mon Feb 21 18:18:48 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001012.html">[OpenIMSCore-HSS] FHoSS Detailed Design Specification
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1013">[ date ]</a>
+              <a href="thread.html#1013">[ thread ]</a>
+              <a href="subject.html#1013">[ subject ]</a>
+              <a href="author.html#1013">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am awaiting access to the web site in order to log a ticket, but in the
+mean time, perhaps someone can check if this is indeed an issue.
+
+In IMPU_DAO.java at around line 93, the following code appears:
+
+if (HSSProperties.AUTO_PPR_ENABLED) {
+
+                if (impu.getUser_state() ==
+CxConstants.IMPU_user_state_Registered || impu.getUser_state() ==
+                        CxConstants.IMPU_user_state_Unregistered){
+
+                    // we process the request only if the user is in
+Registered or Unregistered state
+                    int id_impi = IMPU_DAO.get_a_registered_IMPI_ID(session,
+impu.getId());
+                    if (id_impi != -1){
+                        int grp = CxEvents_DAO.get_max_grp(session);
+                        // we have only a PPR message for the implicit set!
+                        CxEvents rtr_ppr = new CxEvents();
+                        rtr_ppr.setId_impi(id_impi);
+
+rtr_ppr.setId_implicit_set(impu.getId_implicit_set());
+                        rtr_ppr.setId_impu(impu.getId());
+                        // type for PPR is 2
+                        rtr_ppr.setType(2);
+                        rtr_ppr.setSubtype(0);// user-data
+                        rtr_ppr.setGrp(grp);
+                        CxEvents_DAO.insert(session, rtr_ppr);
+                    }
+                }
+                else{
+                    logger.warn(&quot;IMPU: &quot; + impu.getIdentity() + &quot; is not
+registered! PPR Aborted!&quot;);
+                }
+ }
+
+
+1) When the code creates the new cx_events row, the grp would be equal to
+the current max grp in the table. Surely this should be grp+1 as per other
+parts of the HSS whenever a new cx_event is added?
+
+2) In addition, this code as well as other code that inserts cx_event rows
+would not be thread safe as duplicate grp's could be used when a race
+condition occurs between the calls to get_max_grp and insertion of the row.
+
+If the code above is indeed a bug, a final comment is that it would seem
+like grp is always unique for every row in cx_events. Could one not use an
+auto_increment then and remove the code that populates the grp field
+altogether. That would sort out the thread safe issue as well. This all gets
+me thinking though.... what is grp even used for as cx_events don't seem to
+be populated in groups at all?
+
+
+
+
+-- 
+Paul Carter-Brown
+Group CIO
+Smile Communications
+Johannesburg, South Africa
+Phone: +27 83 442 7179
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110221/90fe7923/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110221/90fe7923/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001012.html">[OpenIMSCore-HSS] FHoSS Detailed Design Specification
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1013">[ date ]</a>
+              <a href="thread.html#1013">[ thread ]</a>
+              <a href="subject.html#1013">[ subject ]</a>
+              <a href="author.html#1013">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

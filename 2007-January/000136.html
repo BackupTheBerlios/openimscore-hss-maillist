@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS respond with error to successful profile update request (PUR)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20respond%20with%20error%20to%20successful%0A%20profile%20update%20request%20%28PUR%29&In-Reply-To=%3C45A5212B.6050807%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000130.html">
+   <LINK REL="Next"  HREF="000132.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS respond with error to successful profile update request (PUR)</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20respond%20with%20error%20to%20successful%0A%20profile%20update%20request%20%28PUR%29&In-Reply-To=%3C45A5212B.6050807%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS respond with error to successful profile update request (PUR)">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jan 10 18:23:55 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000130.html">[OpenIMSCore-HSS] FHoSS respond with error to successful profile	update request (PUR)
+</A></li>
+        <LI>Next message: <A HREF="000132.html">[OpenIMSCore-HSS] Found reproducable FHoSS bug(?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello Sven,
+
+I tested this also...yes, it is a bug in the response code generated.
+The system deletes the data, but the code generated is not good. You are
+right, the response code should be DIAMETER_SUCCESS. We will consider
+this bug and will solve it.
+
+Thanks,
+Adrian
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Sven.Bornemann at Materna.de</A> wrote:
+&gt;<i> Hi all!
+</I>&gt;<i> I try to delete a user's 'RepositoryData' from the HSS.
+</I>&gt;<i> But the answer contains the Result-Code 5012 even if the 
+</I>&gt;<i> deletion was successful.
+</I>&gt;<i> 
+</I>&gt;<i> Initially the RepositoryData with the ServiceIndication 'foo'
+</I>&gt;<i> for user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>' is not exisiting.
+</I>&gt;<i> 
+</I>&gt;<i> The corrensponding wireshark trace is attached.
+</I>&gt;<i> 
+</I>&gt;<i> I'm sending the following PDUs sequentially:
+</I>&gt;<i> 
+</I>&gt;<i> 1. User-Data-Request with data reference REPOSITORY_DATA and
+</I>&gt;<i>    service indication 'foo' and service data 'bar' for
+</I>&gt;<i>    user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>'.
+</I>&gt;<i> 
+</I>&gt;<i>    Received User-Data-Answer shows that repository data *is not *
+</I>&gt;<i>    existing -&gt; Result-Code: DIAMETER_UNABLE_TO_COMPLY. O.k.
+</I>&gt;<i> 
+</I>&gt;<i> 2. Profile-Update-Request with data reference REPOSITORY_DATA and
+</I>&gt;<i>    service indication 'foo' and service data 'bar' for
+</I>&gt;<i>    user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>'.
+</I>&gt;<i> 
+</I>&gt;<i>    Received Profile-Update-Answer shows that repository data was 
+</I>&gt;<i>    successfully created -&gt; Result-Code: DIAMETER_SUCCESS. O.k.
+</I>&gt;<i>    A manual DB select on hssql shows that repository data was 
+</I>&gt;<i>    successfully created.  
+</I>&gt;<i> 
+</I>&gt;<i> 3. User-Data-Request with data reference REPOSITORY_DATA and
+</I>&gt;<i>    service indication 'foo' and service data 'bar' for
+</I>&gt;<i>    user 'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>'.
+</I>&gt;<i> 
+</I>&gt;<i>    Received User-Data-Answer shows that repository data *is*
+</I>&gt;<i>    existing -&gt; Result-Code: DIAMETER_SUCCESS. O.k.
+</I>&gt;<i> 
+</I>&gt;<i> 4. Profile-Update-Request with data reference REPOSITORY_DATA and
+</I>&gt;<i>    service indication 'foo' and *no* service data for user 
+</I>&gt;<i>    'sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>' in order to delete the data.
+</I>&gt;<i> 
+</I>&gt;<i>    &lt;ERROR&gt;
+</I>&gt;<i>    Received Profile-Update-Answer indicates that repository data
+</I>&gt;<i>    failed to be deleted -&gt; Result-Code: DIAMETER_UNABLE_TO_COMPLY. 
+</I>&gt;<i>    But the data was successfully deleted! A manual DB select on
+</I>&gt;<i>    hssql shows that repository data was successfully deleted.
+</I>&gt;<i>    Additionally subsequently executing step 1.) again returns an
+</I>&gt;<i>    error (DIAMETER_UNABLE_TO_COMPLY).
+</I>&gt;<i>    &lt;/ERROR&gt;
+</I>&gt;<i> 
+</I>&gt;<i> The FHoSS trace for this situation is that:
+</I>&gt;<i> 
+</I>&gt;<i> [Thread-7] ERROR de.fhg.fokus.hss.diam.sh.PURCommandListener  - <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.PURCommandListener at 8c5a4f</A>
+</I>&gt;<i> java.lang.NullPointerException
+</I>&gt;<i>         at org.hibernate.event.def.DefaultInitializeCollectionEventListener.initializeCollectionFromCache(DefaultInitializeCollectionEventListener.java:87)
+</I>&gt;<i>         at org.hibernate.event.def.DefaultInitializeCollectionEventListener.onInitializeCollection(DefaultInitializeCollectionEventListener.java:48)
+</I>&gt;<i>         at org.hibernate.impl.SessionImpl.initializeCollection(SessionImpl.java:1430)
+</I>&gt;<i>         at org.hibernate.collection.AbstractPersistentCollection.initialize(AbstractPersistentCollection.java:176)
+</I>&gt;<i>         at org.hibernate.collection.AbstractPersistentCollection.read(AbstractPersistentCollection.java:48)
+</I>&gt;<i>         at org.hibernate.collection.PersistentSet.isEmpty(PersistentSet.java:118)
+</I>&gt;<i>         at de.fhg.fokus.hss.model.RepDataBO.commitShChanges(RepDataBO.java:206)
+</I>&gt;<i>         at de.fhg.fokus.hss.model.RepDataBO.updateRepData(RepDataBO.java:183)
+</I>&gt;<i>         at de.fhg.fokus.hss.server.sh.op.UpdateShOperation.updateRepData(UpdateShOperation.java:146)
+</I>&gt;<i>         at de.fhg.fokus.hss.server.sh.op.UpdateShOperation.execute(UpdateShOperation.java:119)
+</I>&gt;<i>         at de.fhg.fokus.hss.server.sh.HSSshOperationsImpl.shUpdate(HSSshOperationsImpl.java:147)
+</I>&gt;<i>         at de.fhg.fokus.hss.diam.sh.PURCommandListener.recvMessage(PURCommandListener.java:120)
+</I>&gt;<i>         at de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i> I think the last Profile-Update-Answer Result-Code is wrong and should 
+</I>&gt;<i> indicate success. What do you mean? FHoSS-Bug?
+</I>&gt;<i> 
+</I>&gt;<i> Best Regards,
+</I>&gt;<i> Sven
+</I>
+
+- --
+- --------------------------------------------
+Diplomat Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Alee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFpSEr6Yml36HNIwcRAh2VAKCWUZfLYtvL2OuNEKRqi0+++hKHhACePqdv
+zaV0rL4HrckRoITweQwOLBs=
+=8b4w
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000130.html">[OpenIMSCore-HSS] FHoSS respond with error to successful profile	update request (PUR)
+</A></li>
+	<LI>Next message: <A HREF="000132.html">[OpenIMSCore-HSS] Found reproducable FHoSS bug(?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

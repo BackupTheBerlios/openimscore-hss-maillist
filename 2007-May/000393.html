@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] 478 Unresolvable destination
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20478%20Unresolvable%20destination&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA131854E%40EXCHSRV.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000392.html">
+   <LINK REL="Next"  HREF="000394.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] 478 Unresolvable destination</H1>
+    <B>Emin, Umut</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20478%20Unresolvable%20destination&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA131854E%40EXCHSRV.fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] 478 Unresolvable destination">Umut.Emin at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri May 11 11:14:39 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000392.html">[OpenIMSCore-HSS] 478 Unresolvable destination
+</A></li>
+        <LI>Next message: <A HREF="000394.html">[OpenIMSCore-HSS] 478 Unresolvable destination
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hei Yu,
+
+you also need to have your dns server configured. He should point
+to the computer where you run your open-ims.xen. See the installation
+section &quot;Annex A&quot; in installation doc at <A HREF="http://openimscore.org/openimscore">http://openimscore.org/openimscore</A>
+
+Greetz,
+Umut
+
+-----Urspr&#252;ngliche Nachricht-----
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> im Auftrag von Liao, Yu
+Gesendet: Fr 11.05.2007 10:58
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Betreff: [OpenIMSCore-HSS] 478 Unresolvable destination
+ 
+
+Hi, Team
+
+When I regest to the IMS with eyebeam, there is error:
+	478 Unresolvable destination
+
+And the pcscf report error:
+	1(3129) ERR:P-CSCF:cscf_get_authorization: Message does not
+contain Authorization header.
+ 	1(3129) INF:P-CSCF:P_add_integrity_protected: No authorization
+header found.
+
+The icscf report error:
+ 	2(2984) ERROR: sip_hostport2su: could not resolve hostname:
+&quot;scscf.open-ims.test&quot;
+ 	2(2984) ERROR: uri2dst: failed to resolve &quot;scscf.open-ims.test&quot;
+ 	2(2984) ERROR: t_forward_nonack: failure to add branches
+ 	2(2984) ERROR: sl_reply_error used: I'm terribly sorry, server
+error occurred (1/SL)
+ I change the domain open-ims.test to open-ims.xen.  And modify the
+open-ims.test to open-ims.xen in each .cfg and.xml
+
+Liao Yu,
+Best Regards
+Tel:010-83937705
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070511/1f4256ae/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070511/1f4256ae/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000392.html">[OpenIMSCore-HSS] 478 Unresolvable destination
+</A></li>
+	<LI>Next message: <A HREF="000394.html">[OpenIMSCore-HSS] 478 Unresolvable destination
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

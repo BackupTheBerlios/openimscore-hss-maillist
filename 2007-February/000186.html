@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS compilation error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%20error&In-Reply-To=%3C689132.96136.qm%40web50914.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000187.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS compilation error</H1>
+    <B>Katty Xiong</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%20error&In-Reply-To=%3C689132.96136.qm%40web50914.mail.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS compilation error">cyyxiong at yahoo.com
+       </A><BR>
+    <I>Fri Feb  2 21:00:26 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000187.html">[OpenIMSCore-HSS] HSS compilation error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#186">[ date ]</a>
+              <a href="thread.html#186">[ thread ]</a>
+              <a href="subject.html#186">[ subject ]</a>
+              <a href="author.html#186">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+I ran into problems with &quot;ant gen&quot;. I have xml.xsd
+local on the machine. The java installed is JDK
+(1.5.0_11). Also I have set
+JAVA_HOME=/joy/jdk1.5.0_11. I still get the errors (no
+namespace has been found for schema). Could somebody
+helps me on this?
+
+Thanks a lot,
+Joy
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at primo</A> FHoSS]# ant gen
+Buildfile: build.xml
+
+init:
+
+clean-gen:
+   [delete] Deleting directory
+/joy/OpenIMSCore/FHoSS/src-gen
+
+gen:
+     [java] No namespace declaration has been found
+for schema
+     [java]    * assuming default namespace of
+<A HREF="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</A>
+     [java] An error occured at line: 110:
+getSimpleType: Namespace prefix not recognised 'xs'for
+simpleType:language
+     [java]     at
+org.exolab.castor.xml.schema.reader.ImportUnmarshaller.&lt;init&gt;(ImportUnmarshaller.java:200)
+     [java]     at
+org.exolab.castor.xml.schema.reader.SchemaUnmarshaller.startElement(SchemaUnmarshaller.java:519)
+     [java]     at
+org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:255)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractXMLDocumentParser.emptyElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XMLParser.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+Source)
+     [java]     at
+org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:564)
+     [java]     at
+org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:497)
+     [java]     at
+org.exolab.castor.builder.SourceGeneratorMain.main(SourceGeneratorMain.java:245)
+     [java] Caused by: getSimpleType: Namespace prefix
+not recognised 'xs'for simpleType:language
+     [java]     at
+org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:258)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XMLParser.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+Source)
+     [java]     at
+org.exolab.castor.xml.schema.reader.ImportUnmarshaller.&lt;init&gt;(ImportUnmarshaller.java:194)
+     [java]     ... 14 more
+     [java] Caused by: getSimpleType: Namespace prefix
+not recognised 'xs'for simpleType:language
+     [java]     at
+org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:258)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XMLParser.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+Source)
+     [java]     at
+org.exolab.castor.xml.schema.reader.ImportUnmarshaller.&lt;init&gt;(ImportUnmarshaller.java:194)
+     [java]     at
+org.exolab.castor.xml.schema.reader.SchemaUnmarshaller.startElement(SchemaUnmarshaller.java:519)
+     [java]     at
+org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:255)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractXMLDocumentParser.emptyElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XMLParser.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+Source)
+     [java]     at
+org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:564)
+     [java]     at
+org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:497)
+     [java]     at
+org.exolab.castor.builder.SourceGeneratorMain.main(SourceGeneratorMain.java:245)
+     [java] Caused by: getSimpleType: Namespace prefix
+not recognised 'xs'for simpleType:language
+     [java]     at
+org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:258)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XMLParser.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+Source)
+     [java]     at
+org.exolab.castor.xml.schema.reader.ImportUnmarshaller.&lt;init&gt;(ImportUnmarshaller.java:194)
+     [java]     at
+org.exolab.castor.xml.schema.reader.SchemaUnmarshaller.startElement(SchemaUnmarshaller.java:519)
+     [java]     at
+org.exolab.castor.xml.schema.reader.Sax2ComponentReader.startElement(Sax2ComponentReader.java:255)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractXMLDocumentParser.emptyElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown
+Source)
+     [java]     at
+org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XML11Configuration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.DTDConfiguration.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.XMLParser.parse(Unknown
+Source)
+     [java]     at
+org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown
+Source)
+     [java]     at
+org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:564)
+     [java]     at
+org.exolab.castor.builder.SourceGenerator.generateSource(SourceGenerator.java:497)
+     [java]     at
+org.exolab.castor.builder.SourceGeneratorMain.main(SourceGeneratorMain.java:245)
+
+BUILD SUCCESSFUL
+Total time: 5 seconds
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at primo</A> FHoSS]#
+
+
+
+ 
+____________________________________________________________________________________
+Expecting? Get great news right away with email Auto-Check. 
+Try the Yahoo! Mail Beta.
+<A HREF="http://advision.webevents.yahoo.com/mailbeta/newmail_tools.html">http://advision.webevents.yahoo.com/mailbeta/newmail_tools.html</A> 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000187.html">[OpenIMSCore-HSS] HSS compilation error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#186">[ date ]</a>
+              <a href="thread.html#186">[ thread ]</a>
+              <a href="subject.html#186">[ subject ]</a>
+              <a href="author.html#186">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

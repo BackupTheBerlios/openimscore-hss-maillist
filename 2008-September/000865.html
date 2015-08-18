@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] imcomplete add-user-sql script generated
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20imcomplete%20add-user-sql%20script%20generated&In-Reply-To=%3CB7B40D44871EC84496E2BACA7CADE77B5BFA9B%40spqcexc04.exfo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000862.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] imcomplete add-user-sql script generated</H1>
+    <B>Bin Zhou</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20imcomplete%20add-user-sql%20script%20generated&In-Reply-To=%3CB7B40D44871EC84496E2BACA7CADE77B5BFA9B%40spqcexc04.exfo.com%3E"
+       TITLE="[OpenIMSCore-HSS] imcomplete add-user-sql script generated">bin.zhou at exfo.com
+       </A><BR>
+    <I>Thu Sep 25 21:29:56 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000862.html">[OpenIMSCore-HSS] 480 Temporarily Unavailable - Diameter Cx	interface failed
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#865">[ date ]</a>
+              <a href="thread.html#865">[ thread ]</a>
+              <a href="subject.html#865">[ subject ]</a>
+              <a href="author.html#865">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello
+
+ 
+
+I tried to use the script add-imscore-user_newdb.sh, but I got an
+imcomplete script:
+
+ 
+
+insert into hss_db.imsu(name) values ('test_imsu');
+
+ 
+
+--add Private Identity
+
+ 
+
+--Add <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">test at open-ims.test</A>
+
+insert into hss_db.impi(
+
+        identity,
+
+        id_imsu,
+
+        k,
+
+        auth_scheme,
+
+        default_auth_scheme,
+
+        amf,
+
+        op)
+
+values( '<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">test at open-ims.test</A>',
+
+        (select id from hss_db.imsu where hss_db.imsu.name='test_imsu'),
+
+        '-a',
+
+        127,
+
+        1,
+
+        '
+
+ 
+
+Any idea to make it work? Thanks.
+
+ 
+
+Bin Zhou
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080925/b62f8e56/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080925/b62f8e56/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000862.html">[OpenIMSCore-HSS] 480 Temporarily Unavailable - Diameter Cx	interface failed
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#865">[ date ]</a>
+              <a href="thread.html#865">[ thread ]</a>
+              <a href="subject.html#865">[ subject ]</a>
+              <a href="author.html#865">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

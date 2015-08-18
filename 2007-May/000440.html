@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FW: Unable to create repository data entry for	user using PUR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FW%3A%20Unable%20to%20create%20repository%20data%20entry%20for%0A%09user%20using%20PUR&In-Reply-To=%3C089781E831473740B23334AE52636CD30154DAC6%40SINBNGEX001.TechMahindra.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000438.html">
+   <LINK REL="Next"  HREF="000446.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FW: Unable to create repository data entry for	user using PUR</H1>
+    <B>Nagaraj K</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FW%3A%20Unable%20to%20create%20repository%20data%20entry%20for%0A%09user%20using%20PUR&In-Reply-To=%3C089781E831473740B23334AE52636CD30154DAC6%40SINBNGEX001.TechMahindra.com%3E"
+       TITLE="[OpenIMSCore-HSS] FW: Unable to create repository data entry for	user using PUR">knraj at TechMahindra.com
+       </A><BR>
+    <I>Tue May 29 11:06:16 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000438.html">[OpenIMSCore-HSS] Rtr Erro!
+</A></li>
+        <LI>Next message: <A HREF="000446.html">[OpenIMSCore-HSS] Rtr Erro!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Adrin,
+The problem was solved by providing service data value as child node of
+ServiceData.
+&lt;ServiceData&gt;
+     &lt;allowed&gt;true&lt;/allowed&gt;
+&lt;/ServiceData&gt; instead of &lt;ServiceData&gt;test&lt;/ServiceData&gt;
+ 
+Regards,
+ 
+
+Nagaraj Komarasamy| BT| Tech Mahindra 
+
+KRM Centre, 2 Harrington Road, 5th Floor, Chetpet, Chennai 600 031 
+
+* Office:  044-66212000    |  Extn:2061         | Cell: 9894732672 
+
+Email:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">knraj at techmahindra.com</A>
+
+www.techmahindra.com &lt;<A HREF="http://www.techmahindra.com/">http://www.techmahindra.com/</A>&gt; 
+
+ 
+
+________________________________
+
+From: Nagaraj K 
+Sent: Thursday, May 24, 2007 10:19 AM
+To: 'Adrian-Daniel Popescu'
+Cc: Dragos Vingarzan; Weik, Peter
+Subject: Unable to create repository data entry for user using PUR
+
+
+
+Hi Adrin,
+
+ 
+
+I try to create repository data entry for a user. But I can't. I send
+PUR from weblogic sip server.
+
+I have attached PUR message and PUA message traces and error reported in
+hss console.
+
+Anything went wrong in PUR?
+
+Pls do the needful...
+
+I am using rel-270
+
+ 
+
+Regards,
+
+Nagaraj Komarasamy| BT| Tech Mahindra 
+
+KRM Centre, 2 Harrington Road, 5th Floor, Chetpet, Chennai 600 031 
+
+* Office:  044-66212000    |  Extn:2061         | Cell: 9894732672 
+
+Email:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">knraj at techmahindra.com</A>
+
+www.techmahindra.com &lt;<A HREF="http://www.techmahindra.com/">http://www.techmahindra.com/</A>&gt; 
+
+ 
+
+
+
+============================================================================================================================
+ 
+Disclaimer:
+
+This message and the information contained herein is proprietary and confidential and subject to the Tech Mahindra policy statement, you may review at &lt;a href=&quot;<A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A>&quot;&gt;<A HREF="http://www.techmahindra.com/Disclaimer.html&lt;/a">http://www.techmahindra.com/Disclaimer.html&lt;/a</A>&gt; externally and &lt;a href=&quot;<A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A>&quot;&gt;<A HREF="http://tim.techmahindra.com/Disclaimer.html&lt;/a">http://tim.techmahindra.com/Disclaimer.html&lt;/a</A>&gt; internally within Tech Mahindra.
+
+============================================================================================================================
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment.html</A>&gt;
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: ServiceData.txt
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment.txt">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment.txt</A>&gt;
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: withoutServiceData.txt
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0001.txt">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0001.txt</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: purwithServiceData.pcap
+Type: application/octet-stream
+Size: 584 bytes
+Desc: purwithServiceData.pcap
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: puawithoutservicedata.pcap
+Type: application/octet-stream
+Size: 268 bytes
+Desc: puawithoutservicedata.pcap
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0001.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0001.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: puaWithServiceData.pcap
+Type: application/octet-stream
+Size: 268 bytes
+Desc: puaWithServiceData.pcap
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0002.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0002.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: purwithoutservicedata.pcap
+Type: application/octet-stream
+Size: 548 bytes
+Desc: purwithoutservicedata.pcap
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0003.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070529/d97c2705/attachment-0003.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000438.html">[OpenIMSCore-HSS] Rtr Erro!
+</A></li>
+	<LI>Next message: <A HREF="000446.html">[OpenIMSCore-HSS] Rtr Erro!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

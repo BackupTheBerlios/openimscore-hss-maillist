@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20%3A%20HSS%20user%20unknown%20Error.&In-Reply-To=%3C1169724696.21346.105.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000179.html">
+   <LINK REL="Next"  HREF="000180.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20%3A%20HSS%20user%20unknown%20Error.&In-Reply-To=%3C1169724696.21346.105.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Jan 25 12:31:36 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000179.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+        <LI>Next message: <A HREF="000180.html">[OpenIMSCore-HSS] 4 WARN messages during start of FHoSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#176">[ date ]</a>
+              <a href="thread.html#176">[ thread ]</a>
+              <a href="subject.html#176">[ subject ]</a>
+              <a href="author.html#176">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Pankaj,
+
+you would either have to configure the P-CSCF to insert the domain
+&quot;open-ims.test&quot; in your  P-Visited-Network-ID (currently it seems to be
+set to &quot;Visited network number 1&quot; ) or you configure a new domain in the
+HSS and add that to the roaming networks of the IMPI <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A> 
+
+I overlooked that in the first mail ... sorry.
+
+Regards,
+
+Peter
+
+On Thu, 2007-01-25 at 10:10 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+&gt;<i> 
+</I>&gt;<i> Hello Peter,
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for pointing that out. 
+</I>&gt;<i> I changed the Digest username to &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot; but now i get the
+</I>&gt;<i> following error: 
+</I>&gt;<i> 403 Forbidden- HSS Roaming not allowed.
+</I>&gt;<i> 
+</I>&gt;<i> The HSS also spits an Exception: 
+</I>&gt;<i> [Thread-9] WARN  de.fhg.fokus.hss.diam.cx.UARCommandListener  -
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.cx.UARCommandListener at d337d3</A> 
+</I>&gt;<i> de.fhg.fokus.cx.exceptions.ims.RoamingNotAllowed 
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.server.cx.op.QueryCxOperation.execute(QueryCxOperation.java:131) 
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.server.cx.HSScxOperationsImpl.cxQuery(HSScxOperationsImpl.java:99) 
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.diam.cx.UARCommandListener.recvMessage(UARCommandListener.java:141) 
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I traversed the code and found that it's because of improper value of
+</I>&gt;<i> P-Visited-Network-ID. 
+</I>&gt;<i> What should be the correct value for this?
+</I>&gt;<i> 
+</I>&gt;<i> Actually, ideally a P-CSCF should add this value to a SIP message, but
+</I>&gt;<i> when i send a message from my simulator(without P-Visited-Network-ID),
+</I>&gt;<i> it gives an error saying missing header P-Visited-Network-ID.
+</I>&gt;<i> 
+</I>&gt;<i> Now 
+</I>&gt;<i> 1) Is P-CSCF being bypassed in my setup for a REGISTER? 
+</I>&gt;<i> 2) what should be the correct value of P-Visited-Network-ID here to
+</I>&gt;<i> register the default user bob here.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks again for your time!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -----Original Message----- 
+</I>&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Thu 1/25/2007 2:11 PM 
+</I>&gt;<i> To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks) 
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A> 
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown
+</I>&gt;<i> Error. 
+</I>&gt;<i>   
+</I>&gt;<i> Hi Pankaj,
+</I>&gt;<i> 
+</I>&gt;<i> the Digest username is set to &quot;bob&quot; while it should be 
+</I>&gt;<i> &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i> On Don, 2007-01-25 at 13:00 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote: 
+</I>&gt;<i> &gt; Hi all, 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; We have setup open IMS components and all of them seem to be coming
+</I>&gt;<i> up 
+</I>&gt;<i> &gt; properly. 
+</I>&gt;<i> &gt; We are pumping a SIP REGISTER message to the IMS core using a SIP 
+</I>&gt;<i> &gt; simulator. 
+</I>&gt;<i> &gt; But the simulator receives the following reply : 403 Forbidden :
+</I>&gt;<i> HSS 
+</I>&gt;<i> &gt; user unknown Error. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; The SIP REGISTER message is : 
+</I>&gt;<i> &gt; REGISTER sip:open-ims.test SIP/2.0 
+</I>&gt;<i> &gt; Via: SIP/2.0/UDP open-ims.test:5065 ;branch=z9hG4bKnashds7 
+</I>&gt;<i> &gt; Max-Forwards: 70 
+</I>&gt;<i> &gt; To: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt; 
+</I>&gt;<i> &gt; From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=456248 
+</I>&gt;<i> &gt; Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A> 
+</I>&gt;<i> &gt; CSeq: 1826 REGISTER 
+</I>&gt;<i> &gt; Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 10.117.11.21</A>:5065&gt; 
+</I>&gt;<i> &gt; Expires: 7200 
+</I>&gt;<i> &gt; Content-Length: 0 
+</I>&gt;<i> &gt; Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;, 
+</I>&gt;<i> &gt; realm=&quot;open-ims.test&quot; 
+</I>&gt;<i> &gt; Proxy-Authorization: Digest username=&quot;bob&quot;, realm=&quot;open-ims.test&quot; 
+</I>&gt;<i> &gt; P-Visited-Network-ID: &quot;Visited network number 1&quot; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; And the HSS throws an exception. 
+</I>&gt;<i> &gt; The Exception trace is attached along with this mail. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; Has anyone faced the same problem. 
+</I>&gt;<i> &gt; Any pointers will be highly appreciated. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; Thanks in advance, 
+</I>&gt;<i> &gt; Pankaj 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; The information contained in this electronic message and any 
+</I>&gt;<i> &gt; attachments to this message are intended for the exclusive use of
+</I>&gt;<i> the 
+</I>&gt;<i> &gt; addressee(s) and may contain proprietary, confidential or
+</I>&gt;<i> privileged 
+</I>&gt;<i> &gt; information. If you are not the intended recipient, you should not 
+</I>&gt;<i> &gt; disseminate, distribute or copy this e-mail. Please notify the
+</I>&gt;<i> sender 
+</I>&gt;<i> &gt; immediately and destroy all copies of this message and any 
+</I>&gt;<i> &gt; attachments.  
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; WARNING: Computer viruses can be transmitted via email. The
+</I>&gt;<i> recipient 
+</I>&gt;<i> &gt; should check this email and any attachments for the presence of 
+</I>&gt;<i> &gt; viruses. The company accepts no liability for any damage caused by
+</I>&gt;<i> any 
+</I>&gt;<i> &gt; virus transmitted by this email. 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; www.wipro.com 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; _______________________________________________ 
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list 
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> 
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>-- 
+------------------------------------------------------------------------------------
+Peter Weik
+    
+Fraunhofer Institut FOKUS       phone:  + 49-30 3463-7196
+Kaiserin-Augusta-Allee 31       
+D-10589 Berlin                  web: www.fokus.fraunhofer.de/ims 
+------------------------------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000179.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+	<LI>Next message: <A HREF="000180.html">[OpenIMSCore-HSS] 4 WARN messages during start of FHoSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#176">[ date ]</a>
+              <a href="thread.html#176">[ thread ]</a>
+              <a href="subject.html#176">[ subject ]</a>
+              <a href="author.html#176">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

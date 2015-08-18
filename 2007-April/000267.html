@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Reg%20Java%20Diameter%20Peer%20and%20Connecting%20from%20BEA&In-Reply-To=%3C1175775311.11506.84.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000266.html">
+   <LINK REL="Next"  HREF="000268.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Reg%20Java%20Diameter%20Peer%20and%20Connecting%20from%20BEA&In-Reply-To=%3C1175775311.11506.84.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Apr  5 14:15:11 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000266.html">[OpenIMSCore-HSS] [SVN-FHoSS] r214 - Additions to WebConsole
+</A></li>
+        <LI>Next message: <A HREF="000268.html">[OpenIMSCore-HSS] FW: Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Krishnaveni,
+
+I am forward the answer to your mail to the HSS mailing list as well. 
+
+There is a permission list that is attached to each application server
+that you create. You should enable the specific commands in the GUI. The
+error you get, is related to the fact that the AS you are using is
+currently not provisioned in the HSS. Provide it, make sure that the AS
+has the appropriate permissions set for Sh-Pull and then try again.
+
+Best regards,
+
+Peter
+
+On Thu, 2007-04-05 at 17:21 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Krishnaveni.Mudduluru at cognizant.com</A>
+wrote:
+&gt;<i> Hi Peter,
+</I>&gt;<i> 
+</I>&gt;<i> I am Krishnaveni , working for cognizant.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> I was trying to understand the Open-IMS. And then use the HSS to
+</I>&gt;<i> retrieve the user information from Any SIP Application Server (ex :
+</I>&gt;<i> bea, Ubiquity)
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> For this, 
+</I>&gt;<i> 
+</I>&gt;<i> 1.       I was trying to make an Sh-Pull Request from  BEA 2.2 server
+</I>&gt;<i> to Open-IMS HSS,
+</I>&gt;<i> 
+</I>&gt;<i>                         When I was doing this, I was getting an error
+</I>&gt;<i> in HSS side,
+</I>&gt;<i> 
+</I>&gt;<i>                         The error is , 
+</I>&gt;<i> 
+</I>&gt;<i>                                     2007-04-05 15:16:39,521 [Thread-8]
+</I>&gt;<i> WARN  de.fhg.fokus.hss.server.sh.op.ShOperation  -
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.server.sh.op.PullShOperation at 524a69</A>[
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> requestedData=<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.sh.RequestedData at 1279c8</A>
+</I>&gt;<i> 
+</I>&gt;<i>                                       requestedDomain=&lt;null&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                                       currentLocation=&lt;null&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                                       serviceIndication=&lt;null&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                                       applicationServerName=&lt;null&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                                     ]
+</I>&gt;<i> 
+</I>&gt;<i>                         java.lang.NullPointerException: Unknown
+</I>&gt;<i> application server: hssclient
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.op.ShOperation.loadApsvr(ShOperation.java:151)
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.op.PullShOperation.execute(PullShOperation.java:143)
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.HSSshOperationsImpl.shPull(HSSshOperationsImpl.java:105)
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.UDRCommandListener.recvMessage(UDRCommandListener.java:128)
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i>                                     2007-04-05 15:16:39,522 [Thread-8]
+</I>&gt;<i> WARN  de.fhg.fokus.hss.diam.sh.UDRCommandListener  -
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.UDRCommandListener at 1cee0c8</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> de.fhg.fokus.sh.UnableToComply: errorcode: 5012
+</I>&gt;<i> 
+</I>&gt;<i>                                                         at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.op.ShOperation.loadApsvr(ShOperation.java:152)
+</I>&gt;<i> 
+</I>&gt;<i>                                             at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.op.PullShOperation.execute(PullShOperation.java:143)
+</I>&gt;<i> 
+</I>&gt;<i>                                             at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.HSSshOperationsImpl.shPull(HSSshOperationsImpl.java:105)
+</I>&gt;<i> 
+</I>&gt;<i>                                             at
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.UDRCommandListener.recvMessage(UDRCommandListener.java:128)
+</I>&gt;<i> 
+</I>&gt;<i>                                             at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i>                         [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at Telecom-Linux2</A> deploy]#   tail -f
+</I>&gt;<i> hss.server.log
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.HSSshOperationsImpl.shPull(HSSshOperationsImpl.java:105)
+</I>&gt;<i> 
+</I>&gt;<i>                     at
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.UDRCommandListener.recvMessage(UDRCommandListener.java:128)
+</I>&gt;<i> 
+</I>&gt;<i>                                 at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i>                         2007-04-05 15:16:39,522 [Thread-8] WARN
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.UDRCommandListener  -
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.UDRCommandListener at 1cee0c8</A>
+</I>&gt;<i> 
+</I>&gt;<i>                         de.fhg.fokus.sh.UnableToComply: errorcode:
+</I>&gt;<i> 5012
+</I>&gt;<i> 
+</I>&gt;<i>                     at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.op.ShOperation.loadApsvr(ShOperation.java:152)
+</I>&gt;<i> 
+</I>&gt;<i>                     at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.op.PullShOperation.execute(PullShOperation.java:143)
+</I>&gt;<i> 
+</I>&gt;<i>                     at
+</I>&gt;<i> de.fhg.fokus.hss.server.sh.HSSshOperationsImpl.shPull(HSSshOperationsImpl.java:105)
+</I>&gt;<i> 
+</I>&gt;<i>                     at
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.UDRCommandListener.recvMessage(UDRCommandListener.java:128)
+</I>&gt;<i> 
+</I>&gt;<i>                     at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>                         And in the BEA relay, we were getting the
+</I>&gt;<i> following error,
+</I>&gt;<i> 
+</I>&gt;<i>                                     &lt;Apr 5, 2007 2:34:28 PM IST&gt;
+</I>&gt;<i> &lt;Warning&gt; &lt;Diameter.Core&gt; &lt;BEA-340028&gt;       &lt;Invalid message
+</I>&gt;<i> received: Command unsupported :                  &lt;Unknown-306 Flags=&quot;&quot;
+</I>&gt;<i> AppId=&quot;16777217&quot; HopByHopId=&quot;1473276434&quot; EndToEndId=&quot;221251378&quot;&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                    &lt;Session-Id&gt;hssclient;1175763766;1&lt;/Session-Id&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Origin-Host&gt;hss.open-ims.test&lt;/Origin-Host&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Origin-Realm&gt;open-ims.test&lt;/Origin-Realm&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Vendor-Specific-Application-Id&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Vendor-Id&gt;10415&lt;/Vendor-Id&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Auth-Application-Id&gt;16777217&lt;/Auth-Application-Id&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;/Vendor-Specific-Application-Id&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Auth-Session-State&gt;1&lt;/Auth-Session-State&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;Result-Code&gt;5012&lt;/Result-Code&gt;
+</I>&gt;<i> 
+</I>&gt;<i>                   &lt;/Unknown-306&gt;&gt;
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>             In  order to pull the HSS data , Do I need to do add any
+</I>&gt;<i> permissions in the HSS for the sip server.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Will it work for BEA Sip Server?
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 2.       Is there any other way to get the data from HSS, can we use
+</I>&gt;<i> JavaDiameterPeer to get the data from HSS,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>                         When I was trying to run the DiameterPeerTest
+</I>&gt;<i> then , I was getting the read failed exception.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Could you please help me in solving this problem?
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Thanks  &amp; Regards
+</I>&gt;<i> 
+</I>&gt;<i> Krishnaveni
+</I>&gt;<i> 
+</I>&gt;<i> Extn: 2721
+</I>&gt;<i> 
+</I>&gt;<i> V-net: 63149
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> This e-mail and any files transmitted with it are for the sole use of
+</I>&gt;<i> the intended recipient(s) and may contain confidential and privileged
+</I>&gt;<i> information.
+</I>&gt;<i> If you are not the intended recipient, please contact the sender by
+</I>&gt;<i> reply e-mail and destroy all copies of the original message. 
+</I>&gt;<i> Any unauthorised review, use, disclosure, dissemination, forwarding,
+</I>&gt;<i> printing or copying of this email or any action taken in reliance on
+</I>&gt;<i> this e-mail is strictly 
+</I>&gt;<i> prohibited and may be unlawful.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000266.html">[OpenIMSCore-HSS] [SVN-FHoSS] r214 - Additions to WebConsole
+</A></li>
+	<LI>Next message: <A HREF="000268.html">[OpenIMSCore-HSS] FW: Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

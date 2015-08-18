@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Registration and Deregistration issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registration%20and%20Deregistration%20issues&In-Reply-To=%3C20070623200722.5A1C8F57D2%40mail.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000526.html">
+   <LINK REL="Next"  HREF="000492.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Registration and Deregistration issues</H1>
+    <B>Jean-Christophe Cimino</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registration%20and%20Deregistration%20issues&In-Reply-To=%3C20070623200722.5A1C8F57D2%40mail.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] Registration and Deregistration issues">jccimino at blueslice.com
+       </A><BR>
+    <I>Fri Jun 22 14:33:49 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000526.html">[OpenIMSCore-HSS] Registration and Deregistration issues
+</A></li>
+        <LI>Next message: <A HREF="000492.html">[OpenIMSCore-HSS] FHoSS - PUR problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#528">[ date ]</a>
+              <a href="thread.html#528">[ thread ]</a>
+              <a href="subject.html#528">[ subject ]</a>
+              <a href="author.html#528">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks you Adrian for the answer,
+
+But my question was more precisely: what should we do in the general case I
+described below?
+The Cx 3GPP Spec states that if a Public Identity is registered with more
+than one Private identity, and we get a USER_DEREGISTRATION in a SAR for
+Private 1 - Public 1, the HSS should maintain the Registration State as
+REGISTERED. The same is for the Private 2 - Public 1, that imply the Public
+1 will never been UNREGISTERED.
+My question was:
+
+Is this behavior correct ? Or do I miss something in the spec ?
+
+Jean-Christophe.
+
+-----Original Message-----
+From: Adrian-Daniel Popescu [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adp at fokus.fraunhofer.de</A>] 
+Sent: Friday, June 22, 2007 6:57 AM
+To: Jean-Christophe Cimino
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: Re: [OpenIMSCore-HSS] Registration and Deregistration issues
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hi Jean-Christophe,
+
+Please try the branch, we implemented there the functionality that you
+need and it should work fine. I have just tested your test case and it
+works as it should. The trunk version is a little bit older and as you
+already observed, is not supporting completely the shared public identities.
+
+Regards,
+Adrian
+
+Jean-Christophe Cimino wrote:
+&gt;<i> Hi Guys,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Consider the following subscriber profile where a public identity is
+</I>&gt;<i> linked with 2 private identities:
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> We have the couple:
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Private 1 &lt;-&gt; Public 1
+</I>&gt;<i> 
+</I>&gt;<i> Private 2 &lt;-&gt; Public 1
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Consider to make a registration of the Private 1 &lt;-&gt; Public 1. The
+</I>&gt;<i> following message will be exchanged between the x-CSCF and the HSS:
+</I>&gt;<i> UAR-UAA, MAR-MAA, UAR-UAA, SAR (REGISTRATION)-SAA. After that, the
+</I>&gt;<i> registration status of the Private 1 &lt;-&gt; Public 1 should be REGISTERED
+</I>&gt;<i> if everything was fine.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Now, make the same thing for the link Private 2 &lt;-&gt; Public 2. Same
+</I>&gt;<i> messages will be exchanged and the registration status should be also
+</I>&gt;<i> REGISTERED for that link.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Private 1 &lt;-&gt; Public 1 =&gt; REGISTERED
+</I>&gt;<i> 
+</I>&gt;<i> Private 2 &lt;-&gt; Public 1 =&gt; REGISTERED
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Now consider to deregister the first link Private 1 &lt;-&gt; Public 1 by
+</I>&gt;<i> sending an SAR with USER_DEREGISTRATION(5) in the ServerAssignmentType
+</I>AVP.
+&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> The 3GPP TS 29.228 states the following:
+</I>&gt;<i> 
+</I>&gt;<i> -     If it indicates TIMEOUT_DEREGISTRATION, USER_DEREGISTRATION,
+</I>&gt;<i> DEREGISTRATION_TOO_MUCH_DATA or ADMINISTRATIVE_DEREGISTRATION, the HSS
+</I>&gt;<i> shall check the registration state for all the Public Identities in the
+</I>&gt;<i> request.  If the request did not contain Public Identities the HSS shall
+</I>&gt;<i> check the registration state of the Public Identities associated with
+</I>&gt;<i> the Private Identity identified in the request. For each Public Identity;-
+</I>&gt;<i> 
+</I>&gt;<i> -     if the registration state of the Public User Identity is
+</I>&gt;<i> Registered, the HSS shall check if the Public User Identity is currently
+</I>&gt;<i> registered with one or more Private User Identities.
+</I>&gt;<i> 
+</I>&gt;<i> -     If the Public User Identity is currently registered with only one
+</I>&gt;<i> Private User Identity, the HSS shall set the registration state of the
+</I>&gt;<i> Public User Identity to Not Registered and clear the S-CSCF name
+</I>&gt;<i> associated with the Public User Identity.
+</I>&gt;<i> 
+</I>&gt;<i> -     *If the Public User Identity is currently registered with more
+</I>&gt;<i> than one Private User Identity, the HSS shall keep the registration
+</I>&gt;<i> state of the Public User Identity as Registered and retain the S-CSCF
+</I>&gt;<i> name associated with the Public User Identity*.
+</I>&gt;<i> 
+</I>&gt;<i> -     if the registration state of the Public Identity is Unregistered,
+</I>&gt;<i> the HSS shall set the registration state of the Public Identity to Not
+</I>&gt;<i> Registered and clear the S-CSCF name associated with the Public Identity.
+</I>&gt;<i> 
+</I>&gt;<i> The Result-Code shall be set to DIAMETER_SUCCESS
+</I>&gt;<i> 
+</I>&gt;<i> So as the Public 1 is linked with more than one Private identity (ie the
+</I>&gt;<i> Private 2) with is also REGISTERED, the Registration state is not
+</I>&gt;<i> modified and kept to REGISTERED.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Finally deregister the second link Private 2 &lt;-&gt; Public 1 by sending a
+</I>&gt;<i> SAR with USER_DEREGISTRATION(5) in the serverAssignmentType.
+</I>&gt;<i> 
+</I>&gt;<i> As the Public 1 is linked with the Private 1 which is always in
+</I>&gt;<i> REGISTERED state, the registration status for this link is also kept to
+</I>&gt;<i> REGISTERED.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> My question is:
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> How a user could be DEREGISTERED using this configuration?
+</I>&gt;<i> 
+</I>&gt;<i> The Registration State could never switch to NOT_REGISTER once the 2
+</I>&gt;<i> links have been registered.
+</I>&gt;<i> 
+</I>&gt;<i> Is it allowed to keep the Registration status to REGISTERED even if a
+</I>&gt;<i> user asked for a DEREGISTRATION ?
+</I>&gt;<i> 
+</I>&gt;<i> The only way I see to DEREGISTER such theses links, is by sending a RTR
+</I>&gt;<i> message from the HSS. But that imply an manual operator action on the
+</I>&gt;<i> HSS to Deregister a user.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your comment/answer.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Jean-Christophe Cimino.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGe6r36Yml36HNIwcRAoakAJ49KIZCymDz7MhPEFIY/MCOHKqTogCdGbye
+8+jHxJIe3m72/g4rxanF/6Q=
+=8SsO
+-----END PGP SIGNATURE-----
+
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000526.html">[OpenIMSCore-HSS] Registration and Deregistration issues
+</A></li>
+	<LI>Next message: <A HREF="000492.html">[OpenIMSCore-HSS] FHoSS - PUR problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#528">[ date ]</a>
+              <a href="thread.html#528">[ thread ]</a>
+              <a href="subject.html#528">[ subject ]</a>
+              <a href="author.html#528">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

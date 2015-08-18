@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Problem with Profile-Update-Request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20Profile-Update-Request&In-Reply-To=%3C20080211103853.9D4D44863%40webmxp07.emailpersonal.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000742.html">
+   <LINK REL="Next"  HREF="000744.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Problem with Profile-Update-Request</H1>
+    <B>&quot;David Ca&#241;as&quot;</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Problem%20with%20Profile-Update-Request&In-Reply-To=%3C20080211103853.9D4D44863%40webmxp07.emailpersonal.com%3E"
+       TITLE="[OpenIMSCore-HSS] Problem with Profile-Update-Request">davidcaleon at mailpersonal.com
+       </A><BR>
+    <I>Mon Feb 11 11:42:35 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000742.html">[OpenIMSCore-HSS] Problem with Profile-Update-Request
+</A></li>
+        <LI>Next message: <A HREF="000744.html">[OpenIMSCore-HSS] Problem with Profile-Update-Request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#743">[ date ]</a>
+              <a href="thread.html#743">[ thread ]</a>
+              <a href="subject.html#743">[ subject ]</a>
+              <a href="author.html#743">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Peter,
+I can&#180;t send a trace because the request(the profile request, the 
+other executed correctly) isn&#180;t executed. I receive the exception but 
+there aren&#180;t any communication with the HSS.
+Do you think is a problem with the FhoSS or with the WLSS?
+
+Thanks.
+
+----- Mensaje original -----
+De: &quot;Weik, Peter&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Peter.Weik at fokus.fraunhofer.de</A>&gt;
+Fecha: Lunes, Febrero 11, 2008 11:17 am
+Asunto: RE: [OpenIMSCore-HSS] Problem with Profile-Update-Request
+Para: &quot;David Ca&#241;as&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">davidcaleon at mailpersonal.com</A>&gt;, openimscore-
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">hss at lists.berlios.de</A>
+
+&gt;<i> Hi David,
+</I>&gt;<i> 
+</I>&gt;<i> seems to me more like a post to BEA ;)
+</I>&gt;<i> 
+</I>&gt;<i> Please send a trace of the PUR / PUA - and ideally also a log of 
+</I>&gt;<i> the HSS in DEBUG level.
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> on behalf of &quot;David 
+</I>&gt;<i> Ca&#241;as&quot;Sent: Mon 11-Feb-08 09:58
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: [OpenIMSCore-HSS] Problem with Profile-Update-Request
+</I>&gt;<i> 
+</I>&gt;<i> Hello,
+</I>&gt;<i> I have a problem when I Try to use the profile update request.
+</I>&gt;<i> First, I can use the &quot;User-Data-Request&quot; without problem. I use 
+</I>&gt;<i> this 
+</I>&gt;<i> sentence:
+</I>&gt;<i>     -&gt;String docSel=&quot;<A HREF="sh://sip:alice@open-">sh://sip:alice@open-</A>
+</I>&gt;<i> ims.test/IMSPublicIdentity/&quot;;     -&gt;Document doc = 
+</I>&gt;<i> psvc.getDocument(docSel);But, when I Try to add a new line to 
+</I>&gt;<i> modify the document (I send the 
+</I>&gt;<i> same document witohout changes it):
+</I>&gt;<i>     -&gt;psvc.putDocument(docSel, doc)
+</I>&gt;<i> I receive this exception:
+</I>&gt;<i>     java.lang.IllegalArgumentException: Access key invalid for 
+</I>&gt;<i> request	at com.bea.wcp.diameter.sh.ShSession.createRequest
+</I>&gt;<i> (ShSession.java:40)
+</I>&gt;<i> 	at com.bea.wcp.diameter.sh.ShSession.createPUR
+</I>&gt;<i> (ShSession.java:26)
+</I>&gt;<i> 	at com.bea.wcp.diameter.sh.ShApplication.putDocument
+</I>&gt;<i> (ShApplication.java:147)
+</I>&gt;<i> 	at com.bea.wcp.diameter.sh.WlssShApplication.putDocument
+</I>&gt;<i> (WlssShApplication.java:79)
+</I>&gt;<i> 	at com.bea.wcp.profile.ShProviderDirect.putDocument
+</I>&gt;<i> (ShProviderDirect.java:63)
+</I>&gt;<i> 	at com.bea.wcp.profile.ShProviderCached.putDocument
+</I>&gt;<i> (ShProviderCached.java:65)
+</I>&gt;<i> 	at com.bea.wcp.sip.engine.WlssProfileService.putDocument
+</I>&gt;<i> (WlssProfileService.java:320)
+</I>&gt;<i> 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:743)
+</I>&gt;<i> 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:856)
+</I>&gt;<i> 	at 
+</I>&gt;<i> weblogic.servlet.internal.StubSecurityHelper$ServletServiceAction.run
+</I>&gt;<i> (StubSecurityHelper.java:223)
+</I>&gt;<i> 	at weblogic.servlet.internal.StubSecurityHelper.invokeServlet
+</I>&gt;<i> (StubSecurityHelper.java:125)
+</I>&gt;<i> 	at weblogic.servlet.internal.ServletStubImpl.execute
+</I>&gt;<i> (ServletStubImpl.java:283)
+</I>&gt;<i> 	at weblogic.servlet.internal.ServletStubImpl.execute
+</I>&gt;<i> (ServletStubImpl.java:175)
+</I>&gt;<i> 	at 
+</I>&gt;<i> 
+</I>weblogic.servlet.internal.WebAppServletContext$ServletInvocationAction.
+&gt;<i> run(WebAppServletContext.java:3217)
+</I>&gt;<i> 	at weblogic.security.acl.internal.AuthenticatedSubject.doAs
+</I>&gt;<i> (AuthenticatedSubject.java:321)
+</I>&gt;<i> 	at weblogic.security.service.SecurityManager.runAs
+</I>&gt;<i> (SecurityManager.java:121)
+</I>&gt;<i> 	at 
+</I>&gt;<i> weblogic.servlet.internal.WebAppServletContext.securedExecute
+</I>&gt;<i> (WebAppServletContext.java:1984)
+</I>&gt;<i> 	at weblogic.servlet.internal.WebAppServletContext.execute
+</I>&gt;<i> (WebAppServletContext.java:1891)
+</I>&gt;<i> 	at weblogic.servlet.internal.ServletRequestImpl.run
+</I>&gt;<i> (ServletRequestImpl.java:1359)
+</I>&gt;<i> 	at weblogic.work.ExecuteThread.execute(ExecuteThread.java:209)
+</I>&gt;<i> 	at weblogic.work.ExecuteThread.run(ExecuteThread.java:181).
+</I>&gt;<i> 
+</I>&gt;<i> Whats it's the problem?I think that I&#180;m using the correct 
+</I>&gt;<i> sentences to 
+</I>&gt;<i> send the profile, and I don&#180;t know why receive this exception.
+</I>&gt;<i> 
+</I>&gt;<i> &#180;Thanks, david.
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000742.html">[OpenIMSCore-HSS] Problem with Profile-Update-Request
+</A></li>
+	<LI>Next message: <A HREF="000744.html">[OpenIMSCore-HSS] Problem with Profile-Update-Request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#743">[ date ]</a>
+              <a href="thread.html#743">[ thread ]</a>
+              <a href="subject.html#743">[ subject ]</a>
+              <a href="author.html#743">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

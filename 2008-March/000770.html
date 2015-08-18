@@ -1,0 +1,1225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Server not running well
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Server%20not%20running%20well&In-Reply-To=%3C941692.29888.qm%40web57616.mail.re1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000769.html">
+   <LINK REL="Next"  HREF="000771.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Server not running well</H1>
+    <B>Arief Abdillah</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Server%20not%20running%20well&In-Reply-To=%3C941692.29888.qm%40web57616.mail.re1.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] Server not running well">rief_abdillah at yahoo.com
+       </A><BR>
+    <I>Tue Mar  4 10:54:08 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000769.html">[OpenIMSCore-HSS] [SVN-FHoSS] r538 - 0 is active...
+</A></li>
+        <LI>Next message: <A HREF="000771.html">[OpenIMSCore-HSS] Server not running well
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#770">[ date ]</a>
+              <a href="thread.html#770">[ thread ]</a>
+              <a href="subject.html#770">[ subject ]</a>
+              <a href="author.html#770">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+I've already installed Open IMS Core, scscf,icscf, and pcscf running. But I can't launch local host 8080. Can anyone help me to solve the problem?
+I used open suse on VM ware and I've changed the ip addess. But when I start the server I can't launch local host 8080.
+
+I've been running icscf and the result is :
+server1:/opt/OpenIMSCore # ./icscf.sh
+./icscf.sh: line 3: killser: command not found
+Listening on 
+             udp: 127.0.0.1 [127.0.0.1]:5060
+             tcp: 127.0.0.1 [127.0.0.1]:5060
+Aliases: 
+             tcp: localhost:5060
+             udp: localhost:5060
+             *: open-ims.test:*
+             *: icscf.open-ims.test:*
+
+ 0(5118) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(5118) Maxfwd module- initializing
+ 0(5118) INFO:I-CSCF:mod_init: Initialization of module
+ 0(5118) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 0(5118) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 0(5118) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 0(5118) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 0(5118) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 0(5118) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 0(5118) Twofish encryption ready
+ 0(5118) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(5118) Diameter Peer Config:
+ 0(5118)        FQDN    : icscf.open-ims.test
+ 0(5118)        Realm   : open-ims.test
+ 0(5118)        VendorID: 10415
+ 0(5118)        ProdName: CDiameterPeer
+ 0(5118)        AcceptUn: [X]
+ 0(5118)        DropUnkn: [X]
+ 0(5118)        Tc      : 30
+ 0(5118)        Workers : 4
+ 0(5118)        QueueLen: 8
+ 0(5118)        Peers : 1
+ 0(5118)                FQDN:  hss.open-ims.test         Realm: open-ims.test    Port: 3868
+ 0(5118)        Acceptors : 1
+ 0(5118)                Port:  3869      Bind: 127.0.0.1 
+ 0(5118)        Applications : 3
+ 0(5118)                Auth ID:  16777216       Vendor: 10415 
+ 0(5118)                Auth ID:  16777216       Vendor: 4491 
+ 0(5118)                Auth ID:  16777216       Vendor: 13019 
+ 0(5118)        Routing Table : 
+ 0(5118)                DefaultRoute: [  10] hss.open-ims.test
+ 0(5118) INFO: udp_init: SO_RCVBUF is initially 110592
+ 0(5118) INFO: udp_init: SO_RCVBUF is finally 262142
+ 1(5119) INFO:I-CSCF:mod_init: Initialization of module in child [1]  
+ 1(5119) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 1(5119) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 2(5120) INFO:I-CSCF:mod_init: Initialization of module in child [2]  
+ 2(5120) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 2(5120) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 3(5121) INFO:I-CSCF:mod_init: Initialization of module in child [3]  
+ 3(5121) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 3(5121) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 5(5123) INFO:I-CSCF:mod_init: Initialization of module in child [-1]  
+ 5(5123) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 5(5123) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 6(5124) INFO:I-CSCF:mod_init: Initialization of module in child [-1]  
+ 6(5124) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 6(5124) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 0(5118) INFO:I-CSCF:mod_init: Initialization of module in child [0] main 
+ 0(5118) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 7(5125) INFO:I-CSCF:mod_init: Initialization of module in child [1000]  
+ 7(5125) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 7(5125) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 7(5125) INFO:Acceptor process starting up...
+ 7(5125) INFO:create_sockets: IPv4 Listening on 127.0.0.1:3869
+ 7(5125) INFO:... Acceptor opened sockets. Entering accept loop ...
+ 8(5126) INFO:I-CSCF:mod_init: Initialization of module in child [1001]  
+ 8(5126) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 8(5126) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 8(5126) INFO:[0] Worker process started...
+ 4(5122) INFO:I-CSCF:mod_init: Initialization of module in child [4] receiver child=3 sock=127.0.0.1:5060 
+ 4(5122) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 4(5122) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 9(5127) INFO:I-CSCF:mod_init: Initialization of module in child [1002]  
+ 9(5127) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+ 9(5127) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+ 9(5127) INFO:[1] Worker process started...
+10(5128) INFO:I-CSCF:mod_init: Initialization of module in child [1003]  
+10(5128) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+10(5128) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+10(5128) INFO:[2] Worker process started...
+11(5129) INFO:I-CSCF:mod_init: Initialization of module in child [1004]  
+11(5129) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+11(5129) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+11(5129) INFO:[3] Worker process started...
+12(5130) INFO:I-CSCF:mod_init: Initialization of module in child [1001]  
+12(5130) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+12(5130) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+12(5130) INFO:Timer process starting up...
+ 0(5118) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+13(5131) INFO:I-CSCF:mod_init: Initialization of module in child [5]  
+14(5132) INFO:I-CSCF:mod_init: Initialization of module in child [6]  
+14(5132) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+14(5132) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+15(5133) INFO:I-CSCF:mod_init: Initialization of module in child [7]  
+15(5133) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+15(5133) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+16(5134) INFO:I-CSCF:mod_init: Initialization of module in child [8]  
+16(5134) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+16(5134) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+17(5135) INFO:I-CSCF:mod_init: Initialization of module in child [-4]  
+13(5131) new_connection: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+13(5131) ERR:I-CSCF:icscf_db_init: cannot initialize database connection
+12(5130) DBG:peer_timer(): Peer hss.open-ims.test       State 0 
+12(5130) DBG:sm_process(): Peer hss.open-ims.test       State Closed    Event Start
+12(5130) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test 
+12(5130) WARNING:peer_connect(): Error opening connection to hss.open-ims.test:3868 &gt;Operation not permitted
+12(5130) DBG:sm_process(): Peer hss.open-ims.test       State Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) DBG:peer_timer(): Peer hss.open-ims.test       State 0 
+12(5130) DBG:sm_process(): Peer hss.open-ims.test       State Closed    Event Start
+12(5130) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test 
+12(5130) WARNING:peer_connect(): Error opening connection to hss.open-ims.test:3868 &gt;Operation not permitted
+12(5130) DBG:sm_process(): Peer hss.open-ims.test       State Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+12(5130) --- Peer List: ---
+12(5130)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5130) ------------------
+17(5135) INFO: signal 2 received
+17(5135) qm_sums (0x8162ea0): PKG[tcp main process]
+17(5135) summarizing all alloc'ed. fragments:
+17(5135)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+17(5135)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+17(5135)  count=     1 size=      2048 bytes from tcp_main.c: send_fd_queue_init(1006)
+17(5135)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+17(5135)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+17(5135)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+17(5135)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+17(5135)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+17(5135)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+17(5135)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+17(5135)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+17(5135)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+17(5135)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+17(5135)  count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+17(5135)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+17(5135)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+17(5135)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+17(5135)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+17(5135)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+17(5135)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+17(5135)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+17(5135)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+17(5135)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+17(5135)  count=     3 size=        64 bytes from route.c: route_new_list(202)
+17(5135)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+17(5135)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+17(5135)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+17(5135)  count=     9 size=       144 bytes from sr_module.c: register_module(146)
+17(5135)  count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+17(5135)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+17(5135)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+17(5135)  count=     2 size=       124 bytes from name_alias.h: add_alias(99)
+17(5135)  count=     2 size=        84 bytes from cfg.y: yyparse(474)
+17(5135)  count=     2 size=        80 bytes from cfg.y: yyparse(1362)
+17(5135)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+17(5135)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+17(5135)  count=     3 size=        48 bytes from cfg.y: mk_listen_id(1937)
+17(5135)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+17(5135)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+17(5135)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+17(5135)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+17(5135)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+17(5135)  count=    16 size=       384 bytes from route.c: route_add(129)
+12(5130) INFO: signal 2 received
+12(5130) qm_sums (0x8162ea0): PKG[cdp_timer]
+12(5130) summarizing all alloc'ed. fragments:
+12(5130)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+12(5130)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+12(5130)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+12(5130)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+12(5130)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+12(5130)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+12(5130)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+12(5130)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+12(5130)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+12(5130)  count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+12(5130)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+12(5130)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+12(5130)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+12(5130)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+12(5130)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+12(5130)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+12(5130)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+12(5130)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+12(5130)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+12(5130)  count=     3 size=        64 bytes from route.c: route_new_list(202)
+12(5130)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+12(5130)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+12(5130)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+12(5130)  count=     9 size=       144 bytes from sr_module.c: register_module(146)
+12(5130)  count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+12(5130)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+12(5130)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+12(5130)  count=     2 size=       124 bytes from name_alias.h: add_alias(99)
+12(5130)  count=     2 size=        84 bytes from cfg.y: yyparse(474)
+12(5130)  count=     2 size=        80 bytes from cfg.y: yyparse(1362)
+12(5130)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+12(5130)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+12(5130)  count=     3 size=        48 bytes from cfg.y: mk_listen_id(1937)
+12(5130)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+12(5130)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+12(5130)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+12(5130)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+12(5130)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+12(5130)  count=    16 size=       384 bytes from route.c: route_add(129)
+12(5130)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+12(5130)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+12(5130)  count=   643 size=     47532 bytes in total
+12(5130) -----------------------------
+ 6(5124) INFO: signal 2 received
+ 6(5124) qm_sums (0x8162ea0): PKG[timer]
+ 6(5124) summarizing all alloc'ed. fragments:
+ 6(5124)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+ 6(5124)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+ 6(5124)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+ 6(5124)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+ 6(5124)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+ 6(5124)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+ 6(5124)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+ 6(5124)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+ 6(5124)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+ 6(5124)  count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+ 6(5124)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+ 6(5124)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+ 6(5124)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+ 6(5124)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+ 6(5124)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+ 6(5124)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+16(5134) INFO: signal 2 received
+16(5134) qm_sums (0x8162ea0): PKG[tcp receiver child=3]
+16(5134) summarizing all alloc'ed. fragments:
+16(5134)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+16(5134)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+16(5134)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+16(5134)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+16(5134)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+16(5134)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+16(5134)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+16(5134)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+16(5134)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+16(5134)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+16(5134)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+16(5134)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+16(5134)  count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+16(5134)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+16(5134)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+16(5134)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+16(5134)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+16(5134)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+16(5134)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+16(5134)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+16(5134)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+16(5134)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+16(5134)  count=     3 size=        64 bytes from route.c: route_new_list(202)
+16(5134)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+16(5134)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+16(5134)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+16(5134)  count=     9 size=       144 bytes from sr_module.c: register_module(146)
+16(5134)  count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+16(5134)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+16(5134)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+16(5134)  count=     2 size=       124 bytes from name_alias.h: add_alias(99)
+16(5134)  count=     2 size=        84 bytes from cfg.y: yyparse(474)
+16(5134)  count=     2 size=        80 bytes from cfg.y: yyparse(1362)
+16(5134)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+16(5134)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+16(5134)  count=     3 size=        48 bytes from cfg.y: mk_listen_id(1937)
+16(5134)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+16(5134)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+16(5134)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+16(5134)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+16(5134)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+16(5134)  count=    16 size=       384 bytes from route.c: route_add(129)
+16(5134)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+16(5134)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+16(5134)  count=   646 size=     98252 bytes in total
+16(5134) -----------------------------
+17(5135)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+17(5135)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+17(5135)  count=   647 size=    100300 bytes in total
+17(5135) -----------------------------
+ 6(5124)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+ 6(5124)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+ 6(5124)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+ 6(5124)  count=     3 size=        64 bytes from route.c: route_new_list(202)
+ 6(5124)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+15(5133) INFO: signal 2 received
+ 6(5124)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+ 6(5124)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+ 6(5124)  count=     9 size=       144 bytes from sr_module.c: register_module(146)
+ 6(5124)  count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+ 6(5124)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+ 6(5124)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+ 6(5124) 15(5133) qm_sums (0x8162ea0): PKG[tcp receiver child=2]
+15(5133) summarizing all alloc'ed. fragments:
+15(5133)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+ count=     2 size=       124 bytes from name_alias.h: add_alias(99)
+ 6(5124) 15(5133)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+15(5133)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+15(5133)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+15(5133)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+15(5133)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+15(5133)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+15(5133)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+15(5133)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+15(5133)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+15(5133)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+15(5133)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+15(5133)  count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+15(5133)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+15(5133)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+15(5133)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+15(5133)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+15(5133)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+15(5133)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+15(5133)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+15(5133)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+15(5133)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+15(5133)  count=     3 size=        64 bytes from route.c: route_new_list(202)
+15(5133)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+15(5133)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+15(5133)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+15(5133)  count=     9 size=       144 bytes from sr_module.c: register_module(146)
+15(5133)  count=     2 size=        84 bytes from cfg.y: yyparse(474)
+ 6(5124)  count=     2 size=        80 bytes from cfg.y: yyparse(1362)
+14(5132) INFO: signal 2 received
+14(5132) qm_sums (0x8162ea0): PKG[tcp receiver child=1]
+14(5132) summarizing all alloc'ed. fragments:
+14(5132)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+ 0(5118) child process 5130 exited normally, status=0
+13(5131)  0(5118) INFO: signal 2 received
+child process 5134 exited normally, status=0
+ 0(5118) child process 5135 exited normally, status=0
+11(5129)  0(5118) INFO: terminating due to SIGCHLD
+ 0(5118) Process Table:
+10(5128)  6(5124)  9(5127) INFO: signal 2 received
+ count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+15(5133)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+15(5133)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+15(5133)  9(5127) 14(5132)  8(5126)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+ 7(5125) 14(5132)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+14(5132)  5(5123)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+14(5132) INFO: signal 2 received
+ count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+14(5132)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+14(5132)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+14(5132)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+14(5132)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+14(5132)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+14(5132)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+14(5132)  5(5123)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+14(5132) qm_sums (0x8162ea0): PKG[slow timer]
+ count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+14(5132)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+14(5132)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+ 4(5122) 14(5132)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+14(5132)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+14(5132)  3(5121) INFO: signal 2 received
+ count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+14(5132)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+14(5132)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+14(5132)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+14(5132)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+14(5132)  3(5121)  count=     3 size=        64 bytes from route.c: route_new_list(202)
+14(5132)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+14(5132)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+14(5132)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+14(5132)  count=     9 size=       144 bytes from sr_module.c: register_module(146)
+14(5132)  count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+14(5132)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+14(5132)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+14(5132)  count=     2 size=       124 bytes from name_alias.h: add_alias(99)
+14(5132)  count=     2 size=        84 bytes from cfg.y: yyparse(474)
+14(5132)  count=     2 size=        80 bytes from cfg.y: yyparse(1362)
+14(5132)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+14(5132)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+14(5132)  count=     3 size=        48 bytes from cfg.y: mk_listen_id(1937)
+14(5132)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+14(5132)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+14(5132)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+14(5132)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+14(5132)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+14(5132)  count=    16 size=       384 bytes from route.c: route_add(129)
+14(5132)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+14(5132)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+14(5132)  count=   646 size=     98252 bytes in total
+14(5132) -----------------------------
+ 0(5118)  0. (5118) &gt; attendant 
+ 0(5118)  1. (5119) &gt; receiver child=0 sock=127.0.0.1:5060 
+ 0(5118)  2. (5120) &gt; receiver child=1 sock=127.0.0.1:5060 
+ 0(5118)  3. (5121) &gt; receiver child=2 sock=127.0.0.1:5060 
+ 0(5118)  4. (5122) &gt; receiver child=3 sock=127.0.0.1:5060 
+ 0(5118)  5. (5123) &gt; slow timer 
+ 0(5118)  6. (5124) &gt; timer 
+ 0(5118)  7. (5125) &gt; cdp_acceptor 
+ 0(5118)  8. (5126) &gt; cdp_worker 
+ 0(5118)  9. (5127) &gt; cdp_worker 
+ 0(5118) 10. (5128) &gt; cdp_worker 
+ 0(5118) 11. (5129) &gt; cdp_worker 
+ 0(5118) 12. (5130) &gt; cdp_timer 
+ 0(5118) 13. (5131) &gt; tcp receiver child=0 
+ 0(5118) 14. (5132) &gt; tcp receiver child=1 
+ 0(5118) 15. (5133) &gt; tcp receiver child=2 
+ 0(5118) 16. (5134) &gt; tcp receiver child=3 
+ 0(5118) 17. (5135) &gt; tcp main process 
+ 0(5118) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+ 0(5118) INFO:destroy_diameter_peer(): Terminating all childs...
+ 0(5118) INFO:destroy_diameter_peer(): Waiting for child [5130] to terminate...
+ 0(5118) INFO:destroy_diameter_peer(): Waiting for child [5129] to terminate...
+ 0(5118) INFO:destroy_diameter_peer(): Waiting for child [5128] to terminate...
+ 0(5118) INFO:destroy_diameter_peer(): Waiting for child [5127] to terminate...
+ 0(5118) INFO:destroy_diameter_peer(): Waiting for child [5126] to terminate...
+ 0(5118) INFO:destroy_diameter_peer(): Waiting for child [5125] to terminate...
+ 0(5118) INFO:destroy_diameter_peer(): All processes terminated. Cleaning up.
+ 0(5118) INFO:destroy_diameter_peer(): Bye Bye from C Diameter Peer test
+ 0(5118) INFO:cdp:cdp_exit(): ... CDiameterPeer stoped
+ 0(5118) INFO:I-CSCF:mod_destroy: child exit
+ 0(5118) qm_sums (0x8162ea0): PKG[0]/SHM 
+ 0(5118) summarizing all alloc'ed. fragments:
+ 0(5118)  count=     1 size=        60 bytes from proxy.c: mk_proxy(208)
+ 0(5118)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+ 0(5118)  count=     9 size=       288 bytes from sr_module.c: fix_param(660)
+ 0(5118)  count=     1 size=        20 bytes from proxy.c: hostent_cpy(88)
+ 0(5118)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(99)
+ 0(5118)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(122)
+ 0(5118)  count=     1 size=         8 bytes from proxy.c: hostent_cpy(133)
+ 0(5118)  count=     2 size=        24 bytes from textops.c: fixup_xlstr(228)
+ 0(5118)  count=     1 size=         8 bytes from db/db.c: bind_dbmod(69)
+ 0(5118)  count=     1 size=        52 bytes from mod.c: fix_parameters(301)
+ 0(5118)  count=     1 size=        44 bytes from mod.c: fix_parameters(290)
+ 0(5118)  count=     1 size=        12 bytes from mod.c: fix_parameters(277)
+ 0(5118)  count=     2 size=        24 bytes from name_alias.h: add_alias(101)
+ 0(5118)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+ 0(5118)  count=     3 size=       144 bytes from route.c: fix_expr(312)
+ 0(5118)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+ 0(5118)  count=    45 size=      1200 bytes from sr_module.c: fix_param(626)
+ 0(5118)  count=    33 size=      1056 bytes from route_struct.c: mk_exp(58)
+ 0(5118)  count=    50 size=      1600 bytes from route_struct.c: mk_elem(74)
+ 0(5118)  count=   177 size=     10620 bytes from route_struct.c: mk_action(94)
+ 0(5118)  count=    12 size=       232 bytes from modparam.c: set_mod_param_regex(114)
+ 0(5118)  count=   234 size=     29952 bytes from cfg.lex: addstr(743)
+ 0(5118)  count=     2 size=        36 bytes from name_alias.h: add_alias(101)
+ 0(5118)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+ 0(5118)  count=     2 size=       124 bytes from name_alias.h: add_alias(99)
+ 0(5118)  count=     2 size=        84 bytes from cfg.y: yyparse(474)
+ 0(5118)  count=     2 size=        80 bytes from cfg.y: yyparse(1362)
+ 0(5118)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+ 0(5118)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+ 0(5118)  count=     3 size=        48 bytes from cfg.y: mk_listen_id(1937)
+ 0(5118)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+ 0(5118)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+ 0(5118)  count=     1 size=        64 bytes from str_hash.h: str_hash_alloc(69)
+ 0(5118)  count=     1 size=         4 bytes from route.c: init_rlist(150)
+ 0(5118)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+ 0(5118)  count=    15 size=       360 bytes from route.c: route_add(129)
+ 0(5118)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+ 0(5118)  count=   621 size=     46976 bytes in total
+ 0(5118) -----------------------------
+ 0(5118) qm_sums (0xb57dd000): PKG[0]/SHM 
+ 0(5118) summarizing all alloc'ed. fragments:
+ 0(5118)  count=     1 size=         4 bytes from pt.c: init_pt(79)
+ 0(5118)  count=     1 size=         4 bytes from pt.c: init_pt(74)
+ 0(5118)  count=     1 size=         4 bytes from transaction.c: trans_init(78)
+ 0(5118)  count=     1 size=        12 bytes from transaction.c: trans_init(71)
+ 0(5118)  count=     1 size=         8 bytes from db.c: icscf_db_get_nds(249)
+ 0(5118)  count=     1 size=         4 bytes from mod.c: icscf_mod_init(347)
+ 0(5118)  count=     1 size=         4 bytes from mod.c: icscf_mod_init(345)
+ 0(5118)  count=     1 size=         4 bytes from usr_avp.c: init_avps(97)
+ 0(5118)  count=     1 size=         4 bytes from usr_avp.c: init_avps(96)
+ 0(5118)  count=     1 size=         4 bytes from mem/shm_mem.c: shm_mem_init_mallocs(195)
+ 0(5118)  count=    10 size=        52 bytes in total
+ 0(5118) -----------------------------
+
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems     
+0x4d020a07 196609     root      600        8         
+
+result scscf is:
+server1:/opt/OpenIMSCore # ./scscf.sh
+./scscf.sh: line 5: killser: command not found
+Listening on 
+             udp: 127.0.0.1 [127.0.0.1]:6060
+             tcp: 127.0.0.1 [127.0.0.1]:6060
+Aliases: 
+             tcp: localhost:6060
+             udp: localhost:6060
+             *: scscf.open-ims.test:6060
+
+ 0(5219) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(5219) Maxfwd module- initializing
+ 0(5219) INFO:S-CSCF:mod_init: Initialization of module
+ 0(5219) INFO:ISC: - init
+ 0(5219) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(5219) Diameter Peer Config:
+ 0(5219)        FQDN    : scscf.open-ims.test
+ 0(5219)        Realm   : open-ims.test
+ 0(5219)        VendorID: 10415
+ 0(5219)        ProdName: CDiameterPeer
+ 0(5219)        AcceptUn: [X]
+ 0(5219)        DropUnkn: [X]
+ 0(5219)        Tc      : 30
+ 0(5219)        Workers : 4
+ 0(5219)        QueueLen: 8
+ 0(5219)        Peers : 1
+ 0(5219)                FQDN:  hss.open-ims.test         Realm: open-ims.test    Port: 3868
+ 0(5219)        Acceptors : 1
+ 0(5219)                Port:  3870      Bind: 127.0.0.1 
+ 0(5219)        Applications : 3
+ 0(5219)                Auth ID:  16777216       Vendor: 10415 
+ 0(5219)                Auth ID:  16777216       Vendor: 4491 
+ 0(5219)                Auth ID:  16777216       Vendor: 13019 
+ 0(5219)        Routing Table : 
+ 0(5219)                DefaultRoute: [  10] hss.open-ims.test
+ 0(5219) INFO: udp_init: SO_RCVBUF is initially 110592
+ 0(5219) INFO: udp_init: SO_RCVBUF is finally 262142
+ 1(5220) INFO:S-CSCF:mod_child_init: Initialization of module in child [1] 
+ 2(5221) INFO:S-CSCF:mod_child_init: Initialization of module in child [2] 
+ 3(5222) INFO:S-CSCF:mod_child_init: Initialization of module in child [3] 
+ 4(5223) INFO:S-CSCF:mod_child_init: Initialization of module in child [4] 
+ 5(5224) INFO:S-CSCF:mod_child_init: Initialization of module in child [-1] 
+ 6(5225) INFO:S-CSCF:mod_child_init: Initialization of module in child [-1] 
+ 0(5219) INFO:S-CSCF:mod_child_init: Initialization of module in child [0] 
+ 0(5219) INFO:ISC: - child init [0]
+ 0(5219) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 7(5226) INFO:S-CSCF:mod_child_init: Initialization of module in child [1000] 
+ 8(5227) INFO:S-CSCF:mod_child_init: Initialization of module in child [1001] 
+ 9(5228) INFO:S-CSCF:mod_child_init: Initialization of module in child [1002] 
+10(5229) INFO:S-CSCF:mod_child_init: Initialization of module in child [1003] 
+11(5230) INFO:S-CSCF:mod_child_init: Initialization of module in child [1004] 
+12(5231) INFO:S-CSCF:mod_child_init: Initialization of module in child [1001] 
+ 0(5219) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+13(5232) INFO:S-CSCF:mod_child_init: Initialization of module in child [5] 
+15(5234) INFO:S-CSCF:mod_child_init: Initialization of module in child [7] 
+16(5235) INFO:S-CSCF:mod_child_init: Initialization of module in child [8] 
+17(5236) INFO:S-CSCF:mod_child_init: Initialization of module in child [-4] 
+17(5236) INFO:ISC: - child init [-4]
+ 1(5220) INFO:ISC: - child init [1]
+ 2(5221) INFO:ISC: - child init [2]
+ 8(5227) INFO:ISC: - child init [1001]
+ 8(5227) INFO:[0] Worker process started...
+10(5229) INFO:ISC: - child init [1003]
+10(5229) INFO:[2] Worker process started...
+11(5230) INFO:ISC: - child init [1004]
+11(5230) INFO:[3] Worker process started...
+12(5231) INFO:ISC: - child init [1001]
+12(5231) INFO:Timer process starting up...
+ 3(5222) INFO:ISC: - child init [3]
+ 4(5223) INFO:ISC: - child init [4]
+ 9(5228) INFO:ISC: - child init [1002]
+ 9(5228) INFO:[1] Worker process started...
+13(5232) INFO:ISC: - child init [5]
+ 5(5224) INFO:ISC: - child init [-1]
+ 6(5225) INFO:ISC: - child init [-1]
+ 7(5226) INFO:ISC: - child init [1000]
+ 7(5226) INFO:Acceptor process starting up...
+ 7(5226) INFO:create_sockets: IPv4 Listening on 127.0.0.1:3870
+ 7(5226) INFO:... Acceptor opened sockets. Entering accept loop ...
+14(5233) INFO:S-CSCF:mod_child_init: Initialization of module in child [6] 
+14(5233) INFO:ISC: - child init [6]
+15(5234) INFO:ISC: - child init [7]
+16(5235) INFO:ISC: - child init [8]
+12(5231) DBG:peer_timer(): Peer hss.open-ims.test       State 0 
+12(5231) DBG:sm_process(): Peer hss.open-ims.test       State Closed    Event Start
+12(5231) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test 
+12(5231) WARNING:peer_connect(): Error opening connection to hss.open-ims.test:3868 &gt;Operation not permitted
+12(5231) DBG:sm_process(): Peer hss.open-ims.test       State Wait_Conn_Ack     Event I_Rcv_Conn_NAck
+12(5231) --- Peer List: ---
+12(5231)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5231) ------------------
+12(5231) --- Peer List: ---
+12(5231)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5231) ------------------
+12(5231) --- Peer List: ---
+12(5231)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5231) ------------------
+ 5(5224) INF:S-CSCF:----------  Registrar Contents begin --------
+ 5(5224) INF:S-CSCF:----------  Registrar Contents end ----------
+12(5231) --- Peer List: ---
+12(5231)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5231) ------------------
+12(5231) --- Peer List: ---
+12(5231)  S[Closed] hss.open-ims.test:3868 D[ ]
+12(5231) ------------------
+12(5231) INFO: signal 2 received
+17(5236) 12(5231) INFO: signal 2 received
+ 3(5222) 17(5236) qm_sums (0x8162ea0): PKG[tcp main process]
+17(5236) summarizing all alloc'ed. fragments:
+INFO: signal 2 received
+17(5236)  6(5225) INFO: signal 2 received
+ 3(5222) qm_sums (0x8162ea0): PKG[receiver child=2 sock=127.0.0.1:6060]
+ 3(5222) summarizing all alloc'ed. fragments:
+ 3(5222)  count=     1 size=        28 bytes from udp_server.c: udp_rcv_loop(407)
+ 6(5225)  3(5222) qm_sums (0x8162ea0): PKG[timer]
+ count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+ 3(5222)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+ 3(5222)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+ 3(5222)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+ 3(5222)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+ 3(5222)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+ 3(5222)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+ 3(5222)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+ 3(5222)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+ 3(5222)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+ 3(5222)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+ 3(5222)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+ 3(5222)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+ 3(5222)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+ 3(5222)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+ 3(5222)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+ 3(5222)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+ 3(5222)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+ 3(5222)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+ 3(5222)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+ 3(5222)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+ 3(5222)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+ 3(5222)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+ 3(5222)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+ 3(5222)  count=    10 size=       160 bytes from sr_module.c: register_module(146)
+ 3(5222)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+ 3(5222)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+ 3(5222)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+ 3(5222)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+ 3(5222)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+ 3(5222)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+ 3(5222)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+ 3(5222)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+ 3(5222)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+ 3(5222)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+ 3(5222)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+ 3(5222)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+ 3(5222)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+ 3(5222)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+ 3(5222)  count=    30 size=       728 bytes from route.c: route_add(129)
+ 3(5222)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+ 3(5222)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+ 3(5222)  count=  1045 size=     82536 bytes in total
+ 3(5222) -----------------------------
+ count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+17(5236)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+17(5236)  count=     1 size=      3084 bytes from tcp_main.c: send_fd_queue_init(1006)
+17(5236)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+17(5236)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+17(5236)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+17(5236)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+17(5236)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+17(5236)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+17(5236)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+17(5236)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+17(5236)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+17(5236)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+17(5236)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+17(5236)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+17(5236)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+17(5236)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+17(5236)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+16(5235) INFO: signal 2 received
+16(5235) qm_sums (0x8162ea0): PKG[tcp receiver child=3]
+15(5234) qm_sums (0x8162ea0): PKG[cdp_timer]
+12(5231) summarizing all alloc'ed. fragments:
+11(5230) INFO: signal 2 received
+12(5231)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+11(5230) qm_sums (0x8162ea0): PKG[cdp worker child=3]
+11(5230) summarizing all alloc'ed. fragments:
+12(5231)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+12(5231)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+10(5229)  5(5224)  9(5228) INFO: signal 2 received
+INFO: signal 2 received
+ 9(5228) qm_sums (0x8162ea0): PKG[cdp worker child=1]
+ 9(5228) summarizing all alloc'ed. fragments:
+ 5(5224) qm_sums (0x8162ea0): PKG[slow timer]
+ 5(5224) summarizing all alloc'ed. fragments:
+ 8(5227) INFO: signal 2 received
+ 6(5225) summarizing all alloc'ed. fragments:
+ 8(5227) qm_sums (0x8162ea0): PKG[cdp worker child=0]
+ 8(5227) summarizing all alloc'ed. fragments:
+ 6(5225)  8(5227) 17(5236)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+16(5235) 17(5236)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+INFO: signal 2 received
+15(5234) qm_sums (0x8162ea0): PKG[tcp receiver child=2]
+15(5234) summarizing all alloc'ed. fragments:
+15(5234)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+15(5234)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+15(5234)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+15(5234)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+15(5234)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+15(5234)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+15(5234)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+15(5234)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+15(5234)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+15(5234)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+15(5234)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+15(5234)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+15(5234)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+15(5234)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+15(5234)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+15(5234)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+15(5234)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+15(5234)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+15(5234)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+15(5234)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+15(5234)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+15(5234)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+15(5234)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+15(5234)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+15(5234)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+15(5234)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+15(5234)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+15(5234)  count=    10 size=       160 bytes from sr_module.c: register_module(146)
+15(5234)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+15(5234)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+15(5234)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+15(5234)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+15(5234)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+15(5234)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+15(5234)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+15(5234)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+15(5234)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+15(5234)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+15(5234)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+15(5234)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+15(5234)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+15(5234)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+15(5234)  count=    30 size=       728 bytes from route.c: route_add(129)
+15(5234)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+15(5234)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+15(5234)  count=  1047 size=    133228 bytes in total
+15(5234) -----------------------------
+ 4(5223) INFO: signal 2 received
+ 4(5223) qm_sums (0x8162ea0): PKG[receiver child=3 sock=127.0.0.1:6060]
+ 4(5223) summarizing all alloc'ed. fragments:
+ 4(5223)  count=     1 size=        28 bytes from udp_server.c: udp_rcv_loop(407)
+ 4(5223)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+ 4(5223)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+ 4(5223)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+ 4(5223)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+ 4(5223)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+ 4(5223)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+ 4(5223)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+ 4(5223)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+ 4(5223)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+ 4(5223)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+ 4(5223)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+ 4(5223)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+ 4(5223)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+ 4(5223)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+ 4(5223)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+ 4(5223)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+ 4(5223)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+ 4(5223)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+ 4(5223)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+ 4(5223)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+ 4(5223)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+ 4(5223)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+ 4(5223)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+ 4(5223)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+ 4(5223)  count=    10 size=       160 bytes from sr_module.c: register_module(146)
+ 4(5223)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+ 4(5223)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+ 4(5223)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+ 4(5223)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+ 4(5223)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+ 4(5223)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+ 4(5223)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+ 4(5223)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+ 4(5223)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+ 4(5223)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+ 4(5223)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+ 4(5223)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+ 4(5223)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+ 4(5223)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+ 4(5223)  count=    30 size=       728 bytes from route.c: route_add(129)
+ 4(5223)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+ 4(5223)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+ 4(5223)  count=  1045 size=     82536 bytes in total
+ 4(5223) -----------------------------
+11(5230)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+11(5230)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+11(5230)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+11(5230)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+11(5230)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+11(5230)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+11(5230)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+11(5230)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+11(5230)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+11(5230)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+11(5230)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+11(5230)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+11(5230)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+11(5230)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+11(5230)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+11(5230)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+11(5230)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+11(5230)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+11(5230)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+11(5230)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+11(5230)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+11(5230)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+11(5230)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+11(5230)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+11(5230)  count=    10 size=       160 bytes from sr_module.c: register_module(146)
+11(5230)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+11(5230)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+11(5230)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+11(5230)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+11(5230)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+12(5231)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+12(5231)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+12(5231)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+12(5231)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+12(5231)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+12(5231)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+12(5231)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+12(5231)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+12(5231)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+12(5231)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+12(5231)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+12(5231)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+12(5231)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+12(5231)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+12(5231)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+12(5231)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+12(5231)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+12(5231)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+12(5231)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+12(5231)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+12(5231)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+12(5231)  count=    10 size=       160 bytes from sr_module.c: register_module(146)
+12(5231)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+12(5231)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+12(5231)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+12(5231)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+12(5231)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+12(5231)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+12(5231)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+12(5231)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+12(5231)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+12(5231)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+12(5231)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+12(5231)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+12(5231)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+12(5231)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+12(5231)  count=    30 size=       728 bytes from route.c: route_add(129)
+12(5231)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+12(5231)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+12(5231)  count=  1044 size=     82508 bytes in total
+12(5231) -----------------------------
+11(5230)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+11(5230)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+11(5230)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+11(5230)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+11(5230)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+11(5230)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+11(5230)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+11(5230)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+11(5230)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+11(5230)  count=    30 size=       728 bytes from route.c: route_add(129)
+11(5230)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+11(5230)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+11(5230)  count=  1044 size=     82508 bytes in total
+11(5230) -----------------------------
+INFO: signal 2 received
+10(5229) qm_sums (0x8162ea0): PKG[cdp worker child=2]
+10(5229) summarizing all alloc'ed. fragments:
+10(5229)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+10(5229)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+10(5229)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+10(5229)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+10(5229)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+10(5229)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+10(5229)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+10(5229)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+10(5229)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+10(5229)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+10(5229)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+10(5229)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+10(5229)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+10(5229)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+10(5229)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+10(5229)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+10(5229)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+10(5229)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+10(5229)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+10(5229)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+10(5229)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+10(5229)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+10(5229)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+10(5229)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+ 0(5219) child process 5222 exited normally, status=0
+ 0(5219) child process 5223 exited normally, status=0
+ 0(5219) child process 5230 exited normally, status=0
+ 0(5219) child process 5231 exited normally, status=0
+ 0(5219) child process 5234 exited normally, status=0
+ 0(5219) INFO: terminating due to SIGCHLD
+ 0(5219) Process Table:
+ 0(5219)  0. (5219) &gt; attendant 
+ 0(5219)  1. (5220) &gt; receiver child=0 sock=127.0.0.1:6060 
+ 0(5219)  2. (5221) &gt; receiver child=1 sock=127.0.0.1:6060 
+ 0(5219)  3. (5222) &gt; receiver child=2 sock=127.0.0.1:6060 
+ 0(5219)  4. (5223) &gt; receiver child=3 sock=127.0.0.1:6060 
+ 0(5219)  5. (5224) &gt; slow timer 
+ 0(5219)  6. (5225) &gt; timer 
+ 0(5219)  7. (5226) &gt; cdp_acceptor 
+ 0(5219)  8. (5227) &gt; cdp worker child=0 
+ 0(5219)  9. (5228) &gt; cdp worker child=1 
+ 0(5219) 10. (5229) &gt; cdp worker child=2 
+ 0(5219) 11. (5230) &gt; cdp worker child=3 
+ 0(5219) 12. (5231) &gt; cdp_timer 
+ 0(5219) 13. (5232) &gt; tcp receiver child=0 
+ 0(5219) 14. (5233) &gt; tcp receiver child=1 
+ 0(5219) 15. (5234) &gt; tcp receiver child=2 
+ 0(5219) 16. (5235) &gt; tcp receiver child=3 
+ 0(5219) 17. (5236) &gt; tcp main process 
+14(5233) INFO: signal 15 received
+14(5233) qm_sums (0x8162ea0): PKG[tcp receiver child=1]
+14(5233) summarizing all alloc'ed. fragments:
+14(5233)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(573)
+14(5233)  count=     1 size=     25320 bytes from io_wait.c: init_io_wait(522)
+14(5233)  count=     1 size=        80 bytes from tcp_main.c: tcp_init_children(1996)
+14(5233)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+14(5233)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+14(5233)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+14(5233)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+14(5233)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+14(5233)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+14(5233)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+14(5233)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+14(5233)  count=     1 size=        60 bytes from mod.c: build_record_service_route(410)
+14(5233)  count=     3 size=        48 bytes from script_cb.c: add_callback(60)
+14(5233)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+14(5233)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+14(5233)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+14(5233)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+14(5233)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+14(5233)  count=     3 size=       128 bytes from route.c: route_new_list(202)
+14(5233)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+14(5233)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+14(5233)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+14(5233)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+14(5233)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+14(5233)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+14(5233)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+14(5233)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+14(5233)  count=    10 size=       160 bytes from sr_module.c: register_module(146)
+14(5233)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+14(5233)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+14(5233)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+14(5233)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+14(5233)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+14(5233)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+14(5233)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+14(5233)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+14(5233)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+14(5233)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+14(5233)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+14(5233)  count=     1 size=        12 bytes from nonsip_hooks.c: init_nonsip_hooks(50)
+14(5233)  count=     2 size=        12 bytes from route.c: init_rlist(150)
+14(5233)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+14(5233)  count=    30 size=       728 bytes from route.c: route_add(129)
+14(5233)  count=     5 size=       320 bytes from str_hash.h: str_hash_alloc(69)
+14(5233)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+14(5233)  count=  1047 size=    133228 bytes in total
+14(5233) -----------------------------
+ 0(5219) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+ 0(5219) INFO:destroy_diameter_peer(): Terminating all childs...
+ 0(5219) INFO:destroy_diameter_peer(): Waiting for child [5231] to terminate...
+ 0(5219) INFO:destroy_diameter_peer(): Waiting for child [5230] to terminate...
+ 0(5219) INFO:destroy_diameter_peer(): Waiting for child [5229] to terminate...
+ 0(5219) INFO:destroy_diameter_peer(): Waiting for child [5228] to terminate...
+ 0(5219) INFO:destroy_diameter_peer(): Waiting for child [5227] to terminate...
+ 0(5219) INFO:destroy_diameter_peer(): Waiting for child [5226] to terminate...
+ 0(5219) INFO:destroy_diameter_peer(): All processes terminated. Cleaning up.
+ 0(5219) INFO:destroy_diameter_peer(): Bye Bye from C Diameter Peer test
+ 0(5219) INFO:cdp:cdp_exit(): ... CDiameterPeer stoped
+ 0(5219) INFO:ISC: - child exit
+ 0(5219) INFO:S-CSCF:mod_destroy: child exit
+ 0(5219) qm_sums (0x8162ea0): PKG[0]/SHM 
+ 0(5219) summarizing all alloc'ed. fragments:
+ 0(5219)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(133)
+ 0(5219)  count=     2 size=        16 bytes from route.c: fix_actions(510)
+ 0(5219)  count=     1 size=        32 bytes from textops.c: sel_hf_value_name(1711)
+ 0(5219)  count=     6 size=       192 bytes from sr_module.c: fix_param(660)
+ 0(5219)  count=     1 size=        56 bytes from mod.c: build_record_service_route(434)
+ 0(5219)  count=     1 size=        56 bytes from mod.c: build_record_service_route(428)
+ 0(5219)  count=     1 size=        28 bytes from mod.c: build_record_service_route(422)
+ 0(5219)  count=     1 size=        28 bytes from mod.c: build_record_service_route(416)
+ 0(5219)  count=     3 size=       248 bytes from proxy.c: mk_proxy(208)
+ 0(5219)  count=     3 size=        32 bytes from proxy.c: hostent_cpy(122)
+ 0(5219)  count=     3 size=        12 bytes from proxy.c: hostent_cpy(99)
+ 0(5219)  count=     3 size=        36 bytes from proxy.c: hostent_cpy(88)
+ 0(5219)  count=     2 size=        32 bytes from name_alias.h: add_alias(99)
+ 0(5219)  count=     1 size=       428 bytes from cfg.y: yyparse(1476)
+ 0(5219)  count=    62 size=      1700 bytes from sr_module.c: fix_param(626)
+ 0(5219)  count=     8 size=       272 bytes from route.c: fix_expr(312)
+ 0(5219)  count=     2 size=        28 bytes from name_alias.h: add_alias(101)
+ 0(5219)  count=    37 size=      1184 bytes from route_struct.c: mk_exp(58)
+ 0(5219)  count=    82 size=      2624 bytes from route_struct.c: mk_elem(74)
+ 0(5219)  count=   320 size=     19200 bytes from route_struct.c: mk_action(94)
+ 0(5219)  count=     5 size=       160 bytes from modparam.c: set_mod_param_regex(114)
+ 0(5219)  count=   423 size=     54144 bytes from cfg.lex: addstr(743)
+ 0(5219)  count=     1 size=        20 bytes from name_alias.h: add_alias(101)
+ 0(5219)  count=     2 size=        24 bytes from socket_info.c: fix_socket_list(607)
+ 0(5219)  count=     1 size=        60 bytes from name_alias.h: add_alias(99)
+ 0(5219)  count=     1 size=        20 bytes from cfg.y: yyparse(474)
+ 0(5219)  count=     1 size=        64 bytes from cfg.y: yyparse(1362)
+ 0(5219)  count=     2 size=        24 bytes from socket_info.c: new_sock_info(117)
+ 0(5219)  count=     2 size=       200 bytes from socket_info.c: new_sock_info(112)
+ 0(5219)  count=     2 size=        32 bytes from cfg.y: mk_listen_id(1937)
+ 0(5219)  count=     1 size=        12 bytes from cfg.y: yyparse(455)
+ 0(5219)  count=     1 size=        24 bytes from cfg.y: yyparse(926)
+ 0(5219)  count=     1 size=        64 bytes from str_hash.h: str_hash_alloc(69)
+ 0(5219)  count=     1 size=         4 bytes from route.c: init_rlist(150)
+ 0(5219)  count=     2 size=        16 bytes from socket_info.c: fix_socket_list(565)
+ 0(5219)  count=    27 size=       656 bytes from route.c: route_add(129)
+ 0(5219)  count=     3 size=        24 bytes from select.c: register_select_table(348)
+ 0(5219)  count=  1018 size=     81764 bytes in total
+ 0(5219) -----------------------------
+ 0(5219) qm_sums (0xb5b25000): PKG[0]/SHM 
+ 0(5219) summarizing all alloc'ed. fragments:
+ 0(5219)  count=     1 size=         4 bytes from pt.c: init_pt(79)
+ 0(5219)  count=     1 size=         4 bytes from pt.c: init_pt(74)
+ 0(5219)  count=     1 size=         4 bytes from transaction.c: trans_init(78)
+ 0(5219)  count=     1 size=        12 bytes from transaction.c: trans_init(71)
+ 0(5219)  count=     1 size=        32 bytes from mod.c: isc_init(219)
+ 0(5219)  count=     1 size=         4 bytes from mod.c: mod_init(689)
+ 0(5219)  count=     4 size=       160 bytes from timer.c: register_timer(931)
+ 0(5219)  count=     1 size=         4 bytes from mod.c: mod_init(521)
+ 0(5219)  count=     1 size=         4 bytes from mod.c: mod_init(519)
+ 0(5219)  count=     1 size=         4 bytes from usr_avp.c: init_avps(97)
+ 0(5219)  count=     1 size=         4 bytes from usr_avp.c: init_avps(96)
+ 0(5219)  count=     1 size=         4 bytes from mem/shm_mem.c: shm_mem_init_mallocs(195)
+ 0(5219)  count=    15 size=       240 bytes in total
+ 0(5219) -----------------------------
+
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems     
+0x4d020a07 196609     root      600        8         
+
+
+pcscf the result is:
+server1:/opt/OpenIMSCore # ./pcscf.sh
+./pcscf.sh: line 3: killser: command not found
+./pcscf.sh: line 4: setkey: command not found
+./pcscf.sh: line 5: setkey: command not found
+Listening on 
+             udp: 127.0.0.1 [127.0.0.1]:4060
+             tcp: 127.0.0.1 [127.0.0.1]:4060
+Aliases: 
+             tcp: localhost:4060
+             udp: localhost:4060
+             *: pcscf.open-ims.test:4060
+
+ 0(4812) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(4812) Maxfwd module- initializing
+ 0(4812) INFO:P-CSCF:mod_init: Initialization of module
+ 0(4812) INFO: udp_init: SO_RCVBUF is initially 110592
+ 0(4812) INFO: udp_init: SO_RCVBUF is finally 262142
+ 0(4812) ERROR: tcp_init: bind(5, 0x8197964, 16) on 127.0.0.1:4060 : Address already in use
+ 0(4812) Process Table:
+ 0(4812)  0. (4812) &gt; main 
+ 0(4812) INFO:P-CSCF:mod_destroy: child exit
+server1:/opt/OpenIMSCore # ./pcscf.sh
+./pcscf.sh: line 3: killser: command not found
+./pcscf.sh: line 4: setkey: command not found
+./pcscf.sh: line 5: setkey: command not found
+Listening on 
+             udp: 127.0.0.1 [127.0.0.1]:4060
+             tcp: 127.0.0.1 [127.0.0.1]:4060
+Aliases: 
+             tcp: localhost:4060
+             udp: localhost:4060
+             *: pcscf.open-ims.test:4060
+
+ 0(4821) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(4821) Maxfwd module- initializing
+ 0(4821) INFO:P-CSCF:mod_init: Initialization of module
+ 0(4821) INFO: udp_init: SO_RCVBUF is initially 110592
+ 0(4821) INFO: udp_init: SO_RCVBUF is finally 262142
+ 0(4821) ERROR: tcp_init: bind(5, 0x8197964, 16) on 127.0.0.1:4060 : Address already in use
+ 0(4821) Process Table:
+ 0(4821)  0. (4821) &gt; main 
+ 0(4821) INFO:P-CSCF:mod_destroy: child exit
+
+
+and the startup is:
+server1:/opt/OpenIMSCore/FHoSS/deploy # ./startup.sh
+Building Classpath
+Classpath is lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.1.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.3.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/c3p0-0.9.1.jar:lib/base64.jar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.6.jar::log4j.properties:..
+2008-02-29 09:32:17,072 INFO  de.fhg.fokus.hss.main.TomcatServer - startTomcat Tomcat-Server is started.
+2008-02-29 09:32:18,466 WARN  org.apache.catalina.connector.MapperListener - registerEngine Unknown default host: 127.0.0.1
+2008-02-29 09:32:19,881 INFO  de.fhg.fokus.hss.web.servlet.ResponseFilter - init Response Filter Initialisation!
+2008-02-29 09:32:20,901 INFO  de.fhg.fokus.hss.main.TomcatServer - startTomcat WebConsole of FHoSS was started !
+
+the question is, those are running well or not?
+(i'm sorry that too many question I ask)
+
+thanx and regards,
+Arief
+
+
+
+       
+---------------------------------
+Never miss a thing.   Make Yahoo your homepage.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080304/a9e53ad8/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080304/a9e53ad8/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000769.html">[OpenIMSCore-HSS] [SVN-FHoSS] r538 - 0 is active...
+</A></li>
+	<LI>Next message: <A HREF="000771.html">[OpenIMSCore-HSS] Server not running well
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#770">[ date ]</a>
+              <a href="thread.html#770">[ thread ]</a>
+              <a href="subject.html#770">[ subject ]</a>
+              <a href="author.html#770">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

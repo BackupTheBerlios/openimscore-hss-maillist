@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] MONSTER and UCT ims clients fails to Authenticate	with OpenImsCore Using AKAv2 Algorithm
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20MONSTER%20and%20UCT%20ims%20clients%20fails%20to%20Authenticate%0A%09with%20OpenImsCore%20Using%20AKAv2%20Algorithm&In-Reply-To=%3CEC8D9FC2-631D-495B-B222-97024BEA56ED%40av.it.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000975.html">
+   <LINK REL="Next"  HREF="000977.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] MONSTER and UCT ims clients fails to Authenticate	with OpenImsCore Using AKAv2 Algorithm</H1>
+    <B>Alexandre Brito</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20MONSTER%20and%20UCT%20ims%20clients%20fails%20to%20Authenticate%0A%09with%20OpenImsCore%20Using%20AKAv2%20Algorithm&In-Reply-To=%3CEC8D9FC2-631D-495B-B222-97024BEA56ED%40av.it.pt%3E"
+       TITLE="[OpenIMSCore-HSS] MONSTER and UCT ims clients fails to Authenticate	with OpenImsCore Using AKAv2 Algorithm">abrito at av.it.pt
+       </A><BR>
+    <I>Mon Dec 28 16:14:10 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000975.html">[OpenIMSCore-HSS] [SVN-FHoSS] r784 - Set the default SPT for Method	to INVITE - the drop-down list of methods had a bug,	that showed INVITE as selected even though on new the value was &quot;&quot;.
+</A></li>
+        <LI>Next message: <A HREF="000977.html">[OpenIMSCore-HSS] MONSTER and UCT ims clients fails to	Authenticatewith OpenImsCore Using AKAv2 Algorithm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#976">[ date ]</a>
+              <a href="thread.html#976">[ thread ]</a>
+              <a href="subject.html#976">[ subject ]</a>
+              <a href="author.html#976">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Monster Log:
+ 	ERROR de.fhg.fokus.monster.apps.impl.ims.ModuleWorkItem  - Authentication failed: 401 - Unauthorized - Challenging the UE
+
+UCT Ims Client log:
+	REGISTER with credentials
+	Unauthorized - Challenging the UE (for REGISTER)
+	Error with registration
+
+
+SCSCF Log:
+
+ (16830) DBG:S-CSCF:S_is_authorized: uri=sip:open-ims.test nonce=4UJENY4NMIjJUNEnD7M20dNLZECWYQAAACjHlEETp5s= response=2ad0812b22a8fb6d16820ebd9d7e0b4e qop=auth-int nc=00000001 cnonce=1015550985552101100 hbody=d41d8cd98f00b204e9800998ecf8427e
+ (16830) DBG:S-CSCF:S_is_authorized: UE said: 2ad0812b22a8fb6d16820ebd9d7e0b4e and we  expect c6e9cf62f1d79e679fcce96bc4698714 ha1 7b1a9200c48022b9e3d58b330b87dedb
+
+Both Clients generated mismatch credentials on AKA Algorithm.
+
+However, Mercuro ims client successfully registers without problems.
+
+Does anyone knows exactly what does this mean? 
+Is there a bug on the HSS AKA Authentication Vector generation and mercuro manages to work around it, or aren't the Monster and UCT clients implementing the AKAv2 properly??
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20091228/48581b48/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20091228/48581b48/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4351 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20091228/48581b48/attachment.bin">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20091228/48581b48/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000975.html">[OpenIMSCore-HSS] [SVN-FHoSS] r784 - Set the default SPT for Method	to INVITE - the drop-down list of methods had a bug,	that showed INVITE as selected even though on new the value was &quot;&quot;.
+</A></li>
+	<LI>Next message: <A HREF="000977.html">[OpenIMSCore-HSS] MONSTER and UCT ims clients fails to	Authenticatewith OpenImsCore Using AKAv2 Algorithm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#976">[ date ]</a>
+              <a href="thread.html#976">[ thread ]</a>
+              <a href="subject.html#976">[ subject ]</a>
+              <a href="author.html#976">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

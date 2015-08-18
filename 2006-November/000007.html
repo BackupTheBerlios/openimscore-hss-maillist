@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r27 - in	JavaDiameterPeer/trunk: doxygen/img	src/de/fhg/fokus/diameter/DiameterPeer/peer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-JavaDiameterPeer%5D%20r27%20-%20in%0A%09JavaDiameterPeer/trunk%3A%20doxygen/img%0A%09src/de/fhg/fokus/diameter/DiameterPeer/peer&In-Reply-To=%3C200611270943.kAR9hTO2000182%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000022.html">
+   <LINK REL="Next"  HREF="000008.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r27 - in	JavaDiameterPeer/trunk: doxygen/img	src/de/fhg/fokus/diameter/DiameterPeer/peer</H1>
+    <B>shenny at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-JavaDiameterPeer%5D%20r27%20-%20in%0A%09JavaDiameterPeer/trunk%3A%20doxygen/img%0A%09src/de/fhg/fokus/diameter/DiameterPeer/peer&In-Reply-To=%3C200611270943.kAR9hTO2000182%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r27 - in	JavaDiameterPeer/trunk: doxygen/img	src/de/fhg/fokus/diameter/DiameterPeer/peer">shenny at users.berlios.de
+       </A><BR>
+    <I>Mon Nov 27 10:43:29 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000022.html">[OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer
+</A></li>
+        <LI>Next message: <A HREF="000008.html">[OpenIMSCore-HSS] Wireshark plugin for HSS's Sh and Cx interface	PDUs?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: shenny
+Date: 2006-11-27 10:43:28 +0100 (Mon, 27 Nov 2006)
+New Revision: 27
+
+Added:
+   JavaDiameterPeer/trunk/doxygen/img/osims.jpg
+Modified:
+   JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/peer/StateMachine.java
+Log:
+
+
+Added: JavaDiameterPeer/trunk/doxygen/img/osims.jpg
+
+
+Property changes on: JavaDiameterPeer/trunk/doxygen/img/osims.jpg
+___________________________________________________________________
+Name: svn:mime-type
+   + application/octet-stream
+
+Modified: JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/peer/StateMachine.java
+===================================================================
+--- JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/peer/StateMachine.java	2006-11-26 15:07:05 UTC (rev 26)
++++ JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/peer/StateMachine.java	2006-11-27 09:43:28 UTC (rev 27)
+@@ -722,7 +722,24 @@
+ 		cea.endToEndID = cer.endToEndID;
+ 		cea.origin_host.setData(p.diameterPeer.FQDN);
+ 		cea.origin_realm.setData(p.diameterPeer.Realm);
+-		cea.host_ip_address.setData(p.R_comm.socket.getLocalAddress().getAddress());
++		byte addr[] ,laddr[] = p.R_comm.socket.getLocalAddress().getAddress();
++		switch (laddr.length) {
++			case 16:
++				addr = new byte[18];			
++				addr[0]=(byte)0;
++				addr[1]=(byte)2;
++				System.arraycopy(laddr,0,addr,2,laddr.length);
++				break;			
++			default:
++			case 4:
++				addr = new byte[6];
++				
++				addr[0]=(byte)0;
++				addr[1]=(byte)1;
++				System.arraycopy(laddr,0,addr,2,laddr.length);
++				break;			
++		}
++		cea.host_ip_address.setData(addr);
+ 		cea.vendor_id.setData(p.diameterPeer.Vendor_Id);
+ 		cea.product_name.setData(p.diameterPeer.Product_Name);
+ 		Snd_CE_add_applications(cea,p);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000022.html">[OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer
+</A></li>
+	<LI>Next message: <A HREF="000008.html">[OpenIMSCore-HSS] Wireshark plugin for HSS's Sh and Cx interface	PDUs?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

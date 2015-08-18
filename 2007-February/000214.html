@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r146 - in FHoSS/trunk: src	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/model src/mappings src-web/WEB-INF	src-web/pages/profiles
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r146%20-%20in%20FHoSS/trunk%3A%20src%0A%09src/de/fhg/fokus/hss/action%20src/de/fhg/fokus/hss/form%0A%09src/de/fhg/fokus/hss/model%20src/mappings%20src-web/WEB-INF%0A%09src-web/pages/profiles&In-Reply-To=%3C200702191752.l1JHqgfr031710%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000213.html">
+   <LINK REL="Next"  HREF="000215.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r146 - in FHoSS/trunk: src	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/model src/mappings src-web/WEB-INF	src-web/pages/profiles</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r146%20-%20in%20FHoSS/trunk%3A%20src%0A%09src/de/fhg/fokus/hss/action%20src/de/fhg/fokus/hss/form%0A%09src/de/fhg/fokus/hss/model%20src/mappings%20src-web/WEB-INF%0A%09src-web/pages/profiles&In-Reply-To=%3C200702191752.l1JHqgfr031710%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r146 - in FHoSS/trunk: src	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/model src/mappings src-web/WEB-INF	src-web/pages/profiles">adp at users.berlios.de
+       </A><BR>
+    <I>Mon Feb 19 18:52:42 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000213.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+        <LI>Next message: <A HREF="000215.html">[OpenIMSCore-HSS] [SVN-FHoSS] r149 - in	FHoSS/trunk/src/de/fhg/fokus/hss: action model
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#214">[ date ]</a>
+              <a href="thread.html#214">[ thread ]</a>
+              <a href="subject.html#214">[ subject ]</a>
+              <a href="author.html#214">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-02-19 18:51:54 +0100 (Mon, 19 Feb 2007)
+New Revision: 146
+
+Modified:
+   FHoSS/trunk/src-web/WEB-INF/web.xml
+   FHoSS/trunk/src-web/pages/profiles/impu.jsp
+   FHoSS/trunk/src/MessageResources.properties
+   FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuShowAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/action/PsiSubmitAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpuForm.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java
+   FHoSS/trunk/src/mappings/Impu.hbm.xml
+Log:
+tel: URI support for FHoSS
+
+Modified: FHoSS/trunk/src/MessageResources.properties
+===================================================================
+--- FHoSS/trunk/src/MessageResources.properties	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/MessageResources.properties	2007-02-19 17:51:54 UTC (rev 146)
+@@ -58,11 +58,10 @@
+ impu.title=Public Identity
+ impu.head.id=Public ID
+ impu.head.barred=IMS barred
+-impu.head.sipUrl= SIP URL
+-impu.head.telUrl= Phone URL
++impu.head.identity= sip: or tel: URI
+ impu.head.regStatus = Registration Status
+-impu.error.missing.sipUrl = Please enter a Sip Url.
+-impu.error.format.sipUrl = Sip Url must be start with &quot;sip:&quot;
++impu.error.missing.sipUrl = Please enter a sip[s]: OR a tel[s]: URI
++impu.error.format.sipUrl = The URI  must fallow a &quot;sip:&quot;, &quot;sips:&quot;, &quot;tel:&quot; or &quot;tels:&quot; scheme!
+ 
+ roam.title=Roaming Network Identifiers
+ roam.head.id=Roaming Network Identifiers
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuShowAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuShowAction.java	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuShowAction.java	2007-02-19 17:51:54 UTC (rev 146)
+@@ -81,7 +81,6 @@
+ 				Impu impu = impuBO.load(form.getPrimaryKey());
+ 		        
+ 				form.setSipUrl(impu.getSipUrl());
+-				form.setTelUrl(impu.getTelUrl());
+ 				form.setBarred(impu.getBarringIndication().booleanValue());
+ 				form.setUserStatusId(impu.getUserStatus());
+ 				
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java	2007-02-19 17:51:54 UTC (rev 146)
+@@ -96,7 +96,6 @@
+ 				impu = impuBO.load(primaryKey);
+ 			}
+ 			impu.setSipUrl(form.getSipUrl());
+-			impu.setTelUrl(form.getTelUrl());
+ 			impu.setUserStatus(form.getUserStatusId());
+ 			impu.setBarringIndication(form.isBarred());
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/action/PsiSubmitAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/action/PsiSubmitAction.java	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/action/PsiSubmitAction.java	2007-02-19 17:51:54 UTC (rev 146)
+@@ -96,7 +96,6 @@
+ 
+ 				sipName = psiTempl.getUsername() + form.getWildcard() + &quot;@&quot; + psiTempl.getHostname();
+ 				assginedImpu.setSipUrl(sipName);
+-				assginedImpu.setTelUrl(&quot;&quot;);
+ 				assginedImpu.setBarringIndication(false);
+ 				HibernateUtil.getCurrentSession().save(assginedImpu);
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpuForm.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpuForm.java	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/form/ImpuForm.java	2007-02-19 17:51:54 UTC (rev 146)
+@@ -75,7 +75,6 @@
+     }
+ 
+     private String sipUrl = null;
+-    private String telUrl = null;
+     private String impuId = null;
+     private String impiId = null;
+     private boolean barred = false;
+@@ -86,7 +85,6 @@
+     public void reset(ActionMapping arg0, HttpServletRequest arg1)
+     {
+         sipUrl = null;
+-        telUrl = null;
+         impuId = null;
+         impiId = null;
+         barred = false;
+@@ -106,7 +104,11 @@
+         }
+         if ((getSipUrl() != null) || (getSipUrl().length() &gt; 1))
+         {
+-        	if(getSipUrl().toLowerCase().startsWith(&quot;sip:&quot;) == false){
++        	if((getSipUrl().toLowerCase().startsWith(&quot;sip:&quot;) == false &amp;&amp;
++		getSipUrl().toLowerCase().startsWith(&quot;tel:&quot;) == false) 
++		&amp;&amp; (getSipUrl().toLowerCase().startsWith(&quot;sips:&quot;) == false &amp;&amp;
++		getSipUrl().toLowerCase().startsWith(&quot;tels:&quot;) == false)
++		){
+             actionErrors.add(
+                 &quot;sipUrl&quot;, new ActionMessage(&quot;impu.error.format.sipUrl&quot;));
+         	}
+@@ -161,16 +163,7 @@
+         this.barred = barred;
+     }
+ 
+-    public String getTelUrl()
+-    {
+-        return telUrl;
+-    }
+ 
+-    public void setTelUrl(String telUrl)
+-    {
+-        this.telUrl = telUrl;
+-    }
+-
+     public String getUserStatusId()
+     {
+         return userStatusId;
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java	2007-02-19 17:51:54 UTC (rev 146)
+@@ -75,9 +75,6 @@
+     private String sipUrl;
+ 
+     /** persistent field */
+-    private String telUrl;
+-
+-    /** persistent field */
+     private Boolean barringIndication;
+ 
+     /** persistent field */
+@@ -106,7 +103,6 @@
+      * full constructor 
+      * @param userStatus Status of user
+      * @param sipUrl  sip URL of the public identity
+-     * @param telUrl  telUrl of the public identity
+      * @param barringIndication barringIndication
+      * @param psi a flag to identify if the public identity 
+      *        identifies a public service identity
+@@ -117,14 +113,13 @@
+      * @param notifyScscfnames 
+      */
+     public Impu(
+-        String userStatus, String sipUrl, String telUrl,
++        String userStatus, String sipUrl,
+         Boolean barringIndication, boolean psi,
+         de.fhg.fokus.hss.model.Psi assignedPsi, de.fhg.fokus.hss.model.Svp svp,
+         Set impis, Set notifyImsUserStates, Set notifyScscfnames)
+     {
+         this.userStatus = userStatus;
+         this.sipUrl = sipUrl;
+-        this.telUrl = telUrl;
+         this.barringIndication = barringIndication;
+         this.psi = psi;
+         this.assignedPsi = assignedPsi;
+@@ -138,7 +133,6 @@
+      * minimal constructor 
+      * @param userStatus Status of user
+      * @param sipUrl  sip URL of the public identity
+-     * @param telUrl  telUrl of the public identity
+      * @param barringIndication barringIndication
+      * @param psi a flag to identify if the public identity 
+      *        identifies a public service identity
+@@ -148,13 +142,12 @@
+      * @param notifyScscfnames 
+      */
+     public Impu(
+-        String userStatus, String sipUrl, String telUrl,
++        String userStatus, String sipUrl,
+         Boolean barringIndication, boolean psi, de.fhg.fokus.hss.model.Svp svp,
+         Set impis, Set notifyImsUserStates, Set notifyScscfnames)
+     {
+         this.userStatus = userStatus;
+         this.sipUrl = sipUrl;
+-        this.telUrl = telUrl;
+         this.barringIndication = barringIndication;
+         this.psi = psi;
+         this.svp = svp;
+@@ -167,7 +160,6 @@
+      * minimal constructor 
+      * @param userStatus Status of user
+      * @param sipUrl  sip URL of the public identity
+-     * @param telUrl  telUrl of the public identity
+      * @param barringIndication barringIndication
+      * @param impis public identities
+      * @param notifyImsUserStates 
+@@ -177,13 +169,12 @@
+      *        identifies a public service identity
+      */
+     public Impu(
+-        String userStatus, String sipUrl, String telUrl,
++        String userStatus, String sipUrl,
+         Boolean barringIndication, Set impis, Set notifyImsUserStates,
+         Set notifyScscfnames, boolean psi, Psi assignedPsi)
+     {
+         this.userStatus = userStatus;
+         this.sipUrl = sipUrl;
+-        this.telUrl = telUrl;
+         this.barringIndication = barringIndication;
+         this.impis = impis;
+         this.notifyImsUserStates = notifyImsUserStates;
+@@ -281,24 +272,6 @@
+     }
+ 
+    /**
+-    * Getter method for telUrl
+-    * @return telUrl of public identity
+-    */
+-    public String getTelUrl()
+-    {
+-        return this.telUrl;
+-    }
+-
+-   /**
+-    * Setter method for telUrl
+-    * @param telUrl telUrl of public identity 
+-    */
+-    public void setTelUrl(String telUrl)
+-    {
+-        this.telUrl = telUrl;
+-    }
+-
+-   /**
+     * Getter method for barringIndication 
+     * @return true if user is barred else false
+     */
+
+Modified: FHoSS/trunk/src/mappings/Impu.hbm.xml
+===================================================================
+--- FHoSS/trunk/src/mappings/Impu.hbm.xml	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src/mappings/Impu.hbm.xml	2007-02-19 17:51:54 UTC (rev 146)
+@@ -38,14 +38,8 @@
+         not-null=&quot;true&quot;
+         length=&quot;255&quot;
+     /&gt;
++
+     &lt;property
+-        name=&quot;telUrl&quot;
+-        type=&quot;java.lang.String&quot;
+-        column=&quot;tel_url&quot;
+-        not-null=&quot;true&quot;
+-        length=&quot;255&quot;
+-    /&gt;
+-    &lt;property
+         name=&quot;barringIndication&quot;
+         type=&quot;java.lang.Boolean&quot;
+         column=&quot;barring_indication&quot;
+
+Modified: FHoSS/trunk/src-web/WEB-INF/web.xml
+===================================================================
+--- FHoSS/trunk/src-web/WEB-INF/web.xml	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src-web/WEB-INF/web.xml	2007-02-19 17:51:54 UTC (rev 146)
+@@ -130,8 +130,7 @@
+   &lt;security-constraint&gt;
+     &lt;web-resource-collection&gt;
+       &lt;web-resource-name&gt;hss.web.console&lt;/web-resource-name&gt;
+-      &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+-      &lt;url-pattern&gt;/index.jsp&lt;/url-pattern&gt;
++      &lt;url-pattern&gt;*&lt;/url-pattern&gt;
+     &lt;/web-resource-collection&gt;
+     &lt;auth-constraint&gt;
+        &lt;role-name&gt;hss&lt;/role-name&gt;
+
+Modified: FHoSS/trunk/src-web/pages/profiles/impu.jsp
+===================================================================
+--- FHoSS/trunk/src-web/pages/profiles/impu.jsp	2007-02-16 12:41:06 UTC (rev 145)
++++ FHoSS/trunk/src-web/pages/profiles/impu.jsp	2007-02-19 17:51:54 UTC (rev 146)
+@@ -31,12 +31,8 @@
+ 								property=&quot;impuId&quot; /&gt; &lt;html:hidden property=&quot;impiId&quot; /&gt;&lt;/td&gt;
+ 						&lt;/tr&gt;
+ 						&lt;tr&gt;
+-							&lt;td nowrap=&quot;nowrap&quot;&gt;&lt;bean:message key=&quot;impu.head.sipUrl&quot; /&gt;*&lt;/td&gt;
++							&lt;td nowrap=&quot;nowrap&quot;&gt;&lt;bean:message key=&quot;impu.head.identity&quot; /&gt;&lt;/td&gt;
+ 							&lt;td&gt;&lt;html:text styleClass=&quot;inputtext&quot; property=&quot;sipUrl&quot;  style=&quot;width:325px;&quot;/&gt;&lt;/td&gt;
+-						&lt;/tr&gt;
+-						&lt;tr&gt;
+-							&lt;td nowrap=&quot;nowrap&quot;&gt;&lt;bean:message key=&quot;impu.head.telUrl&quot; /&gt;&lt;/td&gt;
+-							&lt;td&gt;&lt;html:text styleClass=&quot;inputtext&quot; property=&quot;telUrl&quot;  style=&quot;width:325px;&quot;/&gt;&lt;/td&gt;
+ 						&lt;/tr&gt;						
+ 						&lt;tr&gt;
+ 							&lt;td nowrap=&quot;nowrap&quot;&gt;&lt;bean:message key=&quot;impu.head.barred&quot; /&gt;&lt;/td&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000213.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+	<LI>Next message: <A HREF="000215.html">[OpenIMSCore-HSS] [SVN-FHoSS] r149 - in	FHoSS/trunk/src/de/fhg/fokus/hss: action model
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#214">[ date ]</a>
+              <a href="thread.html#214">[ thread ]</a>
+              <a href="subject.html#214">[ subject ]</a>
+              <a href="author.html#214">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

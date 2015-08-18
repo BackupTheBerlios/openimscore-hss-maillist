@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS ignoring MAR request from Diameter Zh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20ignoring%20MAR%20request%20from%20Diameter%20Zh&In-Reply-To=%3C887538.75931.qm%40web37914.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000691.html">
+   <LINK REL="Next"  HREF="000693.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS ignoring MAR request from Diameter Zh</H1>
+    <B>Vijaya Venkatachalam</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20ignoring%20MAR%20request%20from%20Diameter%20Zh&In-Reply-To=%3C887538.75931.qm%40web37914.mail.mud.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS ignoring MAR request from Diameter Zh">vlakshmi at rocketmail.com
+       </A><BR>
+    <I>Tue Dec 18 07:55:31 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000691.html">[OpenIMSCore-HSS] [SVN-FHoSS] r508 - Script for migrating database	hss_db from a version prior to DSAI implementation -	Developed by INYCOM
+</A></li>
+        <LI>Next message: <A HREF="000693.html">[OpenIMSCore-HSS] [SVN-FHoSS] r509 - Default value in expires field	of sh_subscription table changes to -1 (infinite expiration)	- Developed by INYCOM
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#692">[ date ]</a>
+              <a href="thread.html#692">[ thread ]</a>
+              <a href="subject.html#692">[ subject ]</a>
+              <a href="author.html#692">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have implemented a Zh Handler for Diameter. I am running this against the open ims core HSS. I am not running any of the CSCFs. My Zh Handler sends a MAR message for the IMPI <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test.</A> This is already pre-configured in the HSS. But when the HSS receives the MAR, it seems to be totally ignoring it. I don't see anything on the wireshark.
+
+Here is some additional information:
+
+1) HSS tries to establish a connection with the Zh Handler but is failing. This is because my Zh Handler is only acting as a TCP client. But CER/CEA is successful because once the Zh Handler client has established the connection, it sends a CER and for this it gets a CEA from the HSS. But when the Zh Handler sends a MAR, the HSS is not responding.
+
+Can you pls let me know what is going on and why the HSS is ignoring the MAR.
+
+Thanks,
+Vijaya
+ 
+       
+---------------------------------
+Looking for last minute shopping deals?  Find them fast with Yahoo! Search.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071217/a82fec76/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071217/a82fec76/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000691.html">[OpenIMSCore-HSS] [SVN-FHoSS] r508 - Script for migrating database	hss_db from a version prior to DSAI implementation -	Developed by INYCOM
+</A></li>
+	<LI>Next message: <A HREF="000693.html">[OpenIMSCore-HSS] [SVN-FHoSS] r509 - Default value in expires field	of sh_subscription table changes to -1 (infinite expiration)	- Developed by INYCOM
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#692">[ date ]</a>
+              <a href="thread.html#692">[ thread ]</a>
+              <a href="subject.html#692">[ subject ]</a>
+              <a href="author.html#692">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

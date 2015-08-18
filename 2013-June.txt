@@ -1,0 +1,20 @@
+From aon at users.berlios.de  Wed Jun 12 16:12:36 2013
+From: aon at users.berlios.de (aon at users.berlios.de)
+Date: Wed, 12 Jun 2013 16:12:36 +0200 (CEST)
+Subject: [OpenIMSCore-HSS] [SVN-FHoSS] r1183 - removed character ^M from
+	comment
+Message-ID: <20130612141236.6FDFC55B0C@scm.berlios.de>
+
+Author: aon
+Date: 2013-06-12 16:12:35 +0200 (Wed, 12 Jun 2013)
+New Revision: 1183 http://svn.berlios.de/wsvn/openimscore/?op=revision&rev=1183 
+
+Log:
+removed character ^M from comment
+
+
+Modified:
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/sh/op/UDR.java
+		http://svn.berlios.de/wsvn/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/sh/op/UDR.java?op=diff&rev=1183&peg=1183
+
+

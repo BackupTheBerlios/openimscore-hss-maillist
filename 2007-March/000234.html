@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] subscribe error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20subscribe%20error&In-Reply-To=%3C115246.46006.qm%40web58814.mail.re1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000233.html">
+   <LINK REL="Next"  HREF="000235.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] subscribe error</H1>
+    <B>Dillip Behera</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20subscribe%20error&In-Reply-To=%3C115246.46006.qm%40web58814.mail.re1.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] subscribe error">mrdillipkumarbehera at yahoo.com
+       </A><BR>
+    <I>Mon Mar  5 13:56:14 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000233.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r167 - add methods to find	AVPs with the same code
+</A></li>
+        <LI>Next message: <A HREF="000235.html">[OpenIMSCore-HSS] subscribe error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#234">[ date ]</a>
+              <a href="thread.html#234">[ thread ]</a>
+              <a href="subject.html#234">[ subject ]</a>
+              <a href="author.html#234">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi ,
+
+  the traces i have given below is the error i am getting when a user
+registers through the Xlite client and the scscf getting died .
+
+  I am sending the trace of hss and scscf 
+
+//S-CSCF  Error Trace 
+................................................................................................................//
+
+ 
+
+5(20308) INF:S-CSCF:----------  Registrar Contents begin --------
+
+ 5(20308) INF:S-CSCF:----------  Registrar Contents end ----------
+
+18(20378) DBG:sm_process(): Peer hss.open-ims.test      State R_Open    Event R_Rcv_Message
+
+ 3(20306) DBG:S-CSCF:S_is_authorized: UE said:
+d95f70bd4142ecb20d12c30ef44adf4e, but we have 75662ec2f6a3df56 and
+expect d95f70bd4142ecb20d12c30ef44adf4e ha1
+0663aa7a04f4a67a2adccd30a0d36a5c
+
+18(20378) DBG:sm_process(): Peer hss.open-ims.test      State R_Open    Event R_Rcv_Message
+
+ 2(20305) &gt;&gt;       Orig
+
+ 2(20305) DBG:S-CSCF:S_save_dialog(orig): Call-ID &lt;0431b049a0314b39NDBmZjgyYzkyZjBmNmM2OWYzMjRiNmIyMzUyNjIyZDc.&gt;
+
+ 2(20305) INFO:ISC:ISC_match_filter(orig): Checking triggers
+
+ 2(20305) INFO:ISC:isc_mark_get_from_msg: Trying to get the mark from the message
+
+ 2(20305) INFO:ISC:ISC_match_filter(orig): Starting triggering
+
+ 2(20305) INFO:ISC:ISC_match_filter(orig): Orig User &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">dillip at open-ims.test</A>&gt; [1]
+
+ 2(20305) INFO:ISC:isc_checker_find: starting search
+
+ 1(20304) &gt;&gt;       Orig
+
+ 1(20304) DBG:S-CSCF:S_save_dialog(orig): Call-ID &lt;c47c6d58c375255bNDBmZjgyYzkyZjBmNmM2OWYzMjRiNmIyMzUyNjIyZDc.&gt;
+
+ 1(20304) INFO:ISC:ISC_match_filter(orig): Checking triggers
+
+ 1(20304) INFO:ISC:isc_mark_get_from_msg: Trying to get the mark from the message
+
+ 1(20304) INFO:ISC:ISC_match_filter(orig): Starting triggering
+
+11(20314) ERROR: receive_fd: EOF on 7
+
+ 0(20303) child process 20305 exited by a signal 11
+
+ 0(20303) core was generated
+
+ 0(20303) INFO: terminating due to SIGCHLD
+
+ 0(20303) Process Table:
+
+ 0(20303)  0. (20303) &gt; attendant
+
+ 0(20303)  1. (20304) &gt; udp
+
+ 0(20303)  2. (20305) &gt; udp
+
+ 0(20303)  3. (20306) &gt; udp
+
+ 0(20303)  4. (20307) &gt; udp
+
+ 0(20303)  5. (20308) &gt; slow timer
+
+ 0(20303)  6. (20309) &gt; timer
+
+ 0(20303)  7. (20310) &gt; tcp receiver child=0
+
+ 0(20303)  8. (20311) &gt; tcp receiver child=1
+
+ 0(20303)  9. (20312) &gt; tcp receiver child=2
+
+ 0(20303) 10. (20313) &gt; tcp receiver child=3
+
+ 0(20303) 11. (20314) &gt; tcp main process
+
+ 0(20303) 12. (20315) &gt; cdp_acceptor
+
+ 0(20303) 13. (20316) &gt; cdp worker child=0
+
+ 0(20303) 14. (20317) &gt; cdp worker child=1
+
+ 0(20303) 15. (20318) &gt; cdp worker child=2
+
+ 0(20303) 16. (20319) &gt; cdp worker child=3
+
+ 0(20303) 17. (20320) &gt; cdp_timer
+
+ 0(20303) 18. (20378) &gt; receiver R
+
+ 3(20306) INFO: signal 15 received
+
+ 4(20307) INFO: signal 15 received
+
+ 6(20309) INFO: signal 15 received
+
+ 7(20310) INFO: signal 15 received
+
+ 8(20311) INFO: signal 15 received
+
+ 9(20312) INFO: signal 15 received
+
+10(20313) INFO: signal 15 received
+
+13(20316) INFO: signal 15 received
+
+14(20317) INFO: signal 15 received
+
+17(20320) INFO: signal 15 received
+
+18(20378) INFO: signal 15 received
+
+11(20314) INFO: signal 15 received
+
+ 5(20308) INFO: signal 15 received
+
+12(20315) INFO: signal 15 received
+
+15(20318) INFO: signal 15 received
+
+16(20319) INFO: signal 15 received
+
+ 1(20304) INFO: signal 15 received
+
+ 0(20303) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+
+ 0(20303) INFO:destroy_diameter_peer(): Terminating all childs...
+
+ 0(20303) INFO:destroy_diameter_peer(): Waiting for child [20320] to terminate...
+
+ 0(20303) INFO:destroy_diameter_peer(): Waiting for child [20319] to terminate...
+
+ 0(20303) INFO:destroy_diameter_peer(): Waiting for child [20318] to terminate...
+
+ 0(20303) INFO:destroy_diameter_peer(): Waiting for child [20317] to terminate...
+
+ 0(20303) INFO:destroy_diameter_peer(): Waiting for child [20316] to terminate...
+
+ 0(20303) INFO:destroy_diameter_peer(): Waiting for child [20315] to terminate...
+
+ 0(20303) INFO:destroy_diameter_peer(): All processes terminated. Cleaning up.
+
+ 0(20303) INFO:destroy_diameter_peer(): Bye Bye from C Diameter Peer test
+
+ 0(20303) INFO:cdp:cdp_exit(): ... CDiameterPeer stoped
+
+ 0(20303) INFO:ISC: - child exit
+
+ 0(20303) INFO:S-CSCF:mod_destroy: child exit
+
+0(20303) BUG: shutdown timeout triggered, dying..../scscf.sh: line 4: 20303 Aborted                 (core dumped) /opt/OpenIMSCore/ser_ims/ser -f /opt/OpenIMSCore/scscf.cfg -D -D
+
+//S-CSCF  Error Trace 
+Ends here ................................................................................................................//
+
+
+
+//HSS Trace Starts here ....................................................................................//
+
+
+
+2007-03-05 18:02:57,594 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManage                                                                            
+r - run Connecting to peer scscf.open-ims.test dynamic false dropping
+true
+
+2007-03-05 18:02:57,594 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachi                                                                            
+ne - I_Snd_Conn_Req StateMachine: Peer scscf.open-ims.test not
+responding to
+con                                                                            
+nection attempt
+
+2007-03-05 18:02:58,464 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachi                                                                            
+ne - Snd_DWA Diameter: Code=280 AppID=0 HbHID=-1881747345
+E2EID=472135062
+
+        AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+
+        AVP: Code=264 M Len=17
+Data=0x6873732e6f70656e2d696d732e74657374
+INT_Dat                                                                            
+a=1752396590 Char_Data=&quot;hss.open-ims.test&quot;
+
+        AVP: Code=296 M Len=13 Data=0x6f70656e2d696d732e74657374
+INT_Data=186963                                                                            
+6974 Char_Data=&quot;open-ims.test&quot;
+
+
+
+2007-03-05 18:03:27,894 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+peer scscf.open-ims.test dynamic false dropping true
+
+2007-03-05 18:03:27,894 ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+StateMachine: Peer scscf.open-ims.test not responding to connection
+attempt
+
+2007-03-05 18:03:28,764 DEBUG
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - Snd_DWA
+Diameter: Code=280 AppID=0 HbHID=-1864970129 E2EID=488912278
+
+        AVP: Code=268 M Len=4 Data=0x000007d1 INT_Data=2001 Char_Data=&quot;....&quot;
+
+        AVP: Code=264 M Len=17 Data=0x6873732e6f70656e2d696d732e74657374 INT_Data=1752396590 Char_Data=&quot;hss.open-ims.test&quot;
+
+        AVP: Code=296 M Len=13 Data=0x6f70656e2d696d732e74657374 INT_Data=1869636974 Char_Data=&quot;open-ims.test&quot;
+
+
+
+//HSS Trace Ends here ....................................................................................//
+
+
+
+
+please suggest, thanks in advance
+
+
+
+regard's 
+
+Dillip
+
+
+
+
+
+
+ 
+____________________________________________________________________________________
+Do you Yahoo!?
+Everyone is raving about the all-new Yahoo! Mail beta.
+<A HREF="http://new.mail.yahoo.com">http://new.mail.yahoo.com</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070305/3d9d3455/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070305/3d9d3455/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000233.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r167 - add methods to find	AVPs with the same code
+</A></li>
+	<LI>Next message: <A HREF="000235.html">[OpenIMSCore-HSS] subscribe error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#234">[ date ]</a>
+              <a href="thread.html#234">[ thread ]</a>
+              <a href="subject.html#234">[ subject ]</a>
+              <a href="author.html#234">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

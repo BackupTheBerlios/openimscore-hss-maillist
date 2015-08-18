@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20BasicResourcePool%20-%20Acquisition%20Attempt%20Failed&In-Reply-To=%3C20061220061905.20692.qmail%40web39802.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000102.html">
+   <LINK REL="Next"  HREF="000106.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed</H1>
+    <B>Kedar P Bhise</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20BasicResourcePool%20-%20Acquisition%20Attempt%20Failed&In-Reply-To=%3C20061220061905.20692.qmail%40web39802.mail.mud.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed">kbhise_if at yahoo.com
+       </A><BR>
+    <I>Wed Dec 20 07:19:05 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000102.html">[OpenIMSCore-HSS] [Fwd: Re: java.sql.SQLException: Connections could not be acquired from the underlying database!]
+</A></li>
+        <LI>Next message: <A HREF="000106.html">[OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Franz,
+
+One point to verify: Ensure that the my.cnf file on net2.test has the correct BIND address. This will allow connections to the correct IP address.
+
+Point 2: If your privileges on MySQL are granted against a specific hostname, then those would need to be updated on net2.test domain.
+
+Kedar P Bhise
+Architect
+T-Systems India
+
+----- Original Message ----
+From: Franz Edler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>&gt;
+To: Adrian-Daniel Popescu &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>&gt;
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Sent: Wednesday, December 20, 2006 11:10:49 AM
+Subject: Re: [OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed
+
+Hello Adrian,
+ 
+&gt;<i> As I know these errors are related to the libraries that hibernate use
+</I>&gt;<i> in managing the connections to the database (c3p0). Is very strange your
+</I>&gt;<i> error. This error occurs only when you try to start a second HSS? If you
+</I>&gt;<i> start just one, it works? This is the instance from the vmware? If yes,
+</I>&gt;<i> maybe something is not simulated well on the virtual machine and this is
+</I>&gt;<i> why hibernate fails.Can you give us more details?
+</I>
+Your assumption hits the problem.
+I try to build a test-scenario with two domains (net1.test and net2.test)
+and use two instances of my VMware-workstation on my host, one for domain
+net1.test and one for domain net2.test. Using two separate instances of
+VMware I can keep both domains isolated from SW point of view from each
+other.
+
+I can successfully work on the first instance (net1.test). Than I have
+cloned this virtual machine and modified the IP address, hostname, database
+... everything to make it a true net2.test domain. But when I start the HSS
+on the second instance even without running the first instance I get the
+hibernate problems.
+
+I have attached the logfile when starting the first instance on net1.test
+(HSS-net1.log) and the logfile when starting the second instance on
+net2.test (HSS-net2.log).
+
+The first remarkable differences start at line 100 of HSS-net2.log: 
+ -- Acquisition Attempt Failed!!!
+
+What might be wrong?
+
+Thanks in advance.
+Franz
+
+_______________________________________________
+OpenIMSCore-HSS mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+
+
+
+
+
+
+__________________________________________________
+Do You Yahoo!?
+Tired of spam?  Yahoo! Mail has the best spam protection around 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061219/a17e7946/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061219/a17e7946/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000102.html">[OpenIMSCore-HSS] [Fwd: Re: java.sql.SQLException: Connections could not be acquired from the underlying database!]
+</A></li>
+	<LI>Next message: <A HREF="000106.html">[OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

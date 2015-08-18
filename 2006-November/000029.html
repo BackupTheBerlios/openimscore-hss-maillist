@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r40 -	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-JavaDiameterPeer%5D%20r40%20-%0A%09JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer&In-Reply-To=%3C200611301153.kAUBrilF019421%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000028.html">
+   <LINK REL="Next"  HREF="000030.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r40 -	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer</H1>
+    <B>shenny at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-JavaDiameterPeer%5D%20r40%20-%0A%09JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer&In-Reply-To=%3C200611301153.kAUBrilF019421%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r40 -	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer">shenny at users.berlios.de
+       </A><BR>
+    <I>Thu Nov 30 12:53:44 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000028.html">[OpenIMSCore-HSS] [SVN-FHoSS] r32 - in FHoSS/trunk: config	src/de/fhg/fokus/hss/model
+</A></li>
+        <LI>Next message: <A HREF="000030.html">[OpenIMSCore-HSS] [SVN-FHoSS] r41 - FHoSS/trunk/lib
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: shenny
+Date: 2006-11-30 12:53:42 +0100 (Thu, 30 Nov 2006)
+New Revision: 40
+
+Modified:
+   JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java
+Log:
+Add method to enable proxiable flag set.
+
+Modified: JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java
+===================================================================
+--- JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java	2006-11-29 21:54:41 UTC (rev 39)
++++ JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java	2006-11-30 11:53:42 UTC (rev 40)
+@@ -395,21 +395,41 @@
+ 			this.transactionWorker = new TransactionWorker(this,timeout,checkInterval);
+ 	}
+ 	
++	
++	
+ 	/**
++	 * Creates a new Diameter request with proxiable bit set. 
++	 * 
++	 * @param command_code		Command code of the request.
++	 * @param application_id	Application id in the message header. 
++	 * @return Created Diameter request.
++	 */
++	public DiameterMessage newRequest(int command_code, int application_id)
++	{
++		return newRequest(command_code, true, application_id);
++	}
++	
++	
++	
++	/**
+ 	 * Creates a new Diameter request. 
+ 	 * 
+ 	 * @param command_code		Command code of the request.
++	 * @param Proxiable			Proxiable is set if true. 
+ 	 * @param application_id	Application id in the message header. 
+ 	 * @return Created Diameter request.
+ 	 */
+-	public DiameterMessage newRequest(int command_code,int application_id)
++	public DiameterMessage newRequest(int command_code, boolean Proxiable, 
++			int application_id)
+ 	{
+-		DiameterMessage msg = new DiameterMessage(command_code,true,application_id);
++		DiameterMessage msg = new DiameterMessage(command_code, 
++												  true, 
++												  Proxiable, 
++												  application_id, 
++												  this.getNextHopByHopId(), 
++												  this.getNextEndToEndId());
+ 		AVP avp;
+ 		
+-		msg.endToEndID = this.getNextEndToEndId();
+-		msg.hopByHopID = this.getNextHopByHopId();
+-
+ 		avp = new AVP(AVP.Origin_Host,true,0);
+ 		avp.setData(this.FQDN);
+ 		msg.addAVP(avp);
+@@ -417,12 +437,12 @@
+ 		avp = new AVP(AVP.Origin_Realm,true,0);
+ 		avp.setData(this.Realm);
+ 		msg.addAVP(avp);
+-		
+-		
+-		
++
+ 		return msg;
+ 	}
+ 	
++	
++	
+ 	/**
+ 	 * Creates a new Diameter answer.
+ 	 * 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000028.html">[OpenIMSCore-HSS] [SVN-FHoSS] r32 - in FHoSS/trunk: config	src/de/fhg/fokus/hss/model
+</A></li>
+	<LI>Next message: <A HREF="000030.html">[OpenIMSCore-HSS] [SVN-FHoSS] r41 - FHoSS/trunk/lib
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

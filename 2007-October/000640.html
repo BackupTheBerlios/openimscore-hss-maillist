@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Read &quot;Public Identifiers&quot; contain invalid data(?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Read%20%22Public%20Identifiers%22%20contain%20invalid%20data%28%3F%29&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC203540FDF%40taxis.buc.materna.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000639.html">
+   <LINK REL="Next"  HREF="000641.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Read &quot;Public Identifiers&quot; contain invalid data(?)</H1>
+    <B>Sven.Bornemann at materna.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Read%20%22Public%20Identifiers%22%20contain%20invalid%20data%28%3F%29&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC203540FDF%40taxis.buc.materna.com%3E"
+       TITLE="[OpenIMSCore-HSS] Read &quot;Public Identifiers&quot; contain invalid data(?)">Sven.Bornemann at materna.de
+       </A><BR>
+    <I>Wed Oct 31 10:05:00 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000639.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+        <LI>Next message: <A HREF="000641.html">[OpenIMSCore-HSS] Read &quot;Public Identifiers&quot; contain invalid	data(?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#640">[ date ]</a>
+              <a href="thread.html#640">[ thread ]</a>
+              <a href="subject.html#640">[ subject ]</a>
+              <a href="author.html#640">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi!
+I'm trying to decode the read Public Identifiers for my test user &quot;bob&quot;.
+The returned Public Identifiers are as follows:
+
+&lt;Sh-Data&gt;
+  &lt;PublicIdentifiers&gt;
+    &lt;IMSPublicIdentity&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&lt;/IMSPublicIdentity&gt;
+    &lt;IMSPublicIdentity&gt;tel:497123456&lt;/IMSPublicIdentity&gt;
+    &lt;Extension&gt;
+      &lt;IdentityType&gt;0&lt;/IdentityType&gt;
+    &lt;/Extension&gt;
+  &lt;/PublicIdentifiers&gt;
+&lt;/Sh-Data&gt;
+
+Decoding this with Castor does not work, since the ShDataType.xsd-Schema
+does not allow the &quot;Extension&quot;-element inside the PublicIdentifiers.
+I'm quite sure, that I'm using the latest ShDataType.xsd from the Open
+IMS Core repository.
+
+What's going wrong here?
+
+Best regards,
+Sven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000639.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+	<LI>Next message: <A HREF="000641.html">[OpenIMSCore-HSS] Read &quot;Public Identifiers&quot; contain invalid	data(?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#640">[ date ]</a>
+              <a href="thread.html#640">[ thread ]</a>
+              <a href="subject.html#640">[ subject ]</a>
+              <a href="author.html#640">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

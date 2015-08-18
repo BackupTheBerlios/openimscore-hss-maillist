@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Registering with XLite
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registering%20with%20XLite&In-Reply-To=%3C47F24318.8060909%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000787.html">
+   <LINK REL="Next"  HREF="000789.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Registering with XLite</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registering%20with%20XLite&In-Reply-To=%3C47F24318.8060909%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Registering with XLite">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr  1 16:13:44 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000787.html">[OpenIMSCore-HSS] How I can disable the authentication ??
+</A></li>
+        <LI>Next message: <A HREF="000789.html">[OpenIMSCore-HSS] Fwd: Profile service not configured
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#788">[ date ]</a>
+              <a href="thread.html#788">[ thread ]</a>
+              <a href="subject.html#788">[ subject ]</a>
+              <a href="author.html#788">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Better than polite, we decided to let it go through and derive the 
+private identity from the public identity, because most ofter you use 
+XLite and you can't change that. Search the list for how this derivation 
+happens. Quick answer:
+
+sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A> -&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>
+
+Cheers,
+-Dragos
+
+
+Alex Rootham wrote:
+&gt;<i> Hi there,
+</I>&gt;<i>  
+</I>&gt;<i> I am trying to register from XLite to the P-CSCF.  The P-CSCF does not 
+</I>&gt;<i> seem to be responding to the REGISTER requrest at all.  The following 
+</I>&gt;<i> logs are shown in the P-CSCF:
+</I>&gt;<i>  
+</I>&gt;<i>  1(30637) DBG:P-CSCF:P_verify_security: Looking for 
+</I>&gt;<i> &lt;1://172.23.41.33:44154&gt;
+</I>&gt;<i>  1(30637) ERR:P-CSCF:cscf_get_authorization: Message does not contain 
+</I>&gt;<i> Authorization header.
+</I>&gt;<i>  1(30637) INF:P-CSCF:P_add_integrity_protected: No authorization 
+</I>&gt;<i> header found.
+</I>&gt;<i> I thought that the initial register request can be sent without any 
+</I>&gt;<i> Authorization header;  even if it does not contain that header, isn't 
+</I>&gt;<i> it still polite to send some kind of SIP error response?
+</I>&gt;<i>  
+</I>&gt;<i> Where should I start to debug?
+</I>&gt;<i>  
+</I>&gt;<i> AlexR
+</I>&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)176 - 48 32 16 00
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000787.html">[OpenIMSCore-HSS] How I can disable the authentication ??
+</A></li>
+	<LI>Next message: <A HREF="000789.html">[OpenIMSCore-HSS] Fwd: Profile service not configured
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#788">[ date ]</a>
+              <a href="thread.html#788">[ thread ]</a>
+              <a href="subject.html#788">[ subject ]</a>
+              <a href="author.html#788">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

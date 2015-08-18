@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r342 - 1 - Zh Interface completed. 2	- synchronization fix regarding the SIP-Authorization size in MAR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r342%20-%201%20-%20Zh%20Interface%20completed.%202%0A%09-%20synchronization%20fix%20regarding%20the%20SIP-Authorization%20size%20in%20MAR&In-Reply-To=%3C200706261308.l5QD8gpA000343%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000541.html">
+   <LINK REL="Next"  HREF="000531.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r342 - 1 - Zh Interface completed. 2	- synchronization fix regarding the SIP-Authorization size in MAR</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r342%20-%201%20-%20Zh%20Interface%20completed.%202%0A%09-%20synchronization%20fix%20regarding%20the%20SIP-Authorization%20size%20in%20MAR&In-Reply-To=%3C200706261308.l5QD8gpA000343%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r342 - 1 - Zh Interface completed. 2	- synchronization fix regarding the SIP-Authorization size in MAR">adp at users.berlios.de
+       </A><BR>
+    <I>Tue Jun 26 15:08:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000541.html">[OpenIMSCore-HSS] HSS Sh Interface
+</A></li>
+        <LI>Next message: <A HREF="000531.html">[OpenIMSCore-HSS] [SVN-FHoSS] r343 - web interface adjustments
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#530">[ date ]</a>
+              <a href="thread.html#530">[ thread ]</a>
+              <a href="subject.html#530">[ subject ]</a>
+              <a href="author.html#530">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-06-26 15:08:20 +0200 (Tue, 26 Jun 2007)
+New Revision: 342 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=342">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=342</A> 
+
+Log:
+1 - Zh Interface completed. 2 - synchronization fix regarding the SIP-Authorization size  in MAR
+
+Added:
+   A	FHoSS/branches/01_RevampDB/src-web/pages/user/gba_uss.jsp
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src-web/pages/user/gba_uss.jsp?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src-web/pages/user/gba_uss.jsp?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/Zh_USS.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/Zh_USS.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/Zh_USS.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/Zh_USS_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/Zh_USS_DAO.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/Zh_USS_DAO.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/GBA_USS_Load.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/GBA_USS_Load.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/GBA_USS_Load.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/GBA_USS_Submit.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/GBA_USS_Submit.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/GBA_USS_Submit.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/GBA_USS_Form.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/GBA_USS_Form.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/GBA_USS_Form.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/USS_Form.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/USS_Form.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/USS_Form.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhConstants.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhConstants.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhConstants.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhExperimentalResultException.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhExperimentalResultException.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhExperimentalResultException.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhFinalResultException.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhFinalResultException.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/ZhFinalResultException.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/op/
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/op/?rev=342">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/op/?rev=342</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/op/MAR.java?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/zh/op/MAR.java?rev=342&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/mappings/Zh_USS.hbm.xml
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/mappings/Zh_USS.hbm.xml?rev=342&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/mappings/Zh_USS.hbm.xml?rev=342&amp;view=markup</A>
+Modified:
+   U	FHoSS/branches/01_RevampDB/config/hss.properties
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/config/hss.properties?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/config/hss.properties?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/scripts/hss_db.sql
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/scripts/hss_db.sql?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/scripts/hss_db.sql?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src-web/WEB-INF/struts-config.xml
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src-web/WEB-INF/struts-config.xml?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src-web/WEB-INF/struts-config.xml?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src-web/pages/user/impi.jsp
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src-web/pages/user/impi.jsp?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src-web/pages/user/impi.jsp?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxExperimentalResultException.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxExperimentalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxExperimentalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxFinalResultException.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxFinalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxFinalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/LIR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/LIR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/LIR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/SAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/UAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/UAR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/UAR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/ApplicationServer.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/ApplicationServer.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/ApplicationServer.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/IMPI.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/IMPI.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/IMPI.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/TP_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/TP_DAO.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/TP_DAO.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/DiameterConstants.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/DiameterConstants.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/DiameterConstants.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/UtilAVP.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/UtilAVP.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/UtilAVP.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Tester.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Tester.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Tester.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/ShExperimentalResultException.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/ShExperimentalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/ShExperimentalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/ShFinalResultException.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/ShFinalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/ShFinalResultException.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/PUR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/PUR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/PUR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/SNR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/SNR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/SNR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/TP_Load.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/TP_Load.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/TP_Load.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/TP_Submit.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/TP_Submit.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/TP_Submit.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/util/WebConstants.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/util/WebConstants.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/util/WebConstants.java?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/hibernate.cfg.xml
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/hibernate.cfg.xml?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/hibernate.cfg.xml?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+   U	FHoSS/branches/01_RevampDB/src/mappings/IMPI.hbm.xml
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/mappings/IMPI.hbm.xml?rev=342&amp;view=diff&amp;r1=342&amp;r2=341">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/mappings/IMPI.hbm.xml?rev=342&amp;view=diff&amp;r1=342&amp;r2=341</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000541.html">[OpenIMSCore-HSS] HSS Sh Interface
+</A></li>
+	<LI>Next message: <A HREF="000531.html">[OpenIMSCore-HSS] [SVN-FHoSS] r343 - web interface adjustments
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#530">[ date ]</a>
+              <a href="thread.html#530">[ thread ]</a>
+              <a href="subject.html#530">[ subject ]</a>
+              <a href="author.html#530">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

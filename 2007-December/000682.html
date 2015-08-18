@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Issue on BYE: 403 Forbidden - HSS User Unkown
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Issue%20on%20BYE%3A%20403%20Forbidden%20-%20HSS%20User%20Unkown&In-Reply-To=%3C013201c836d8%2463b41040%242b1c30c0%24%40wurth%40cadencellc.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000687.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Issue on BYE: 403 Forbidden - HSS User Unkown</H1>
+    <B>Russell Wurth</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Issue%20on%20BYE%3A%20403%20Forbidden%20-%20HSS%20User%20Unkown&In-Reply-To=%3C013201c836d8%2463b41040%242b1c30c0%24%40wurth%40cadencellc.com%3E"
+       TITLE="[OpenIMSCore-HSS] Issue on BYE: 403 Forbidden - HSS User Unkown">russell.wurth at cadencellc.com
+       </A><BR>
+    <I>Wed Dec  5 01:47:17 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000687.html">[OpenIMSCore-HSS] Issue on BYE: 403 Forbidden - HSS User Unkown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#682">[ date ]</a>
+              <a href="thread.html#682">[ thread ]</a>
+              <a href="subject.html#682">[ subject ]</a>
+              <a href="author.html#682">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have OpenIMS running as openims1.dev and 2 clients, one OpenIC Lite on
+Linux (alice) and one XLite (bob).
+
+Registration seems to be OK, although it takes 2 attempts for each phone.
+The REGISTER is sent, then a &quot;401 Unauthorized - Challenging UE&quot; returned,
+followed by another REGISTER and then &quot;200 OK&quot;.
+
+I am able to call from alice to bob and vice versa.  The problem is in the
+trigger point for my BEA B2BUA running at presence.openims1.dev:7060.  When
+one phone hangs up, that leg is terminated, but the BYE is never sent to the
+other leg.  I get the &quot;403 Forbidden&quot; message after the BYE request is sent.
+
+I also get the following exception from the HSS:
+&lt;hssException&gt;
+de.fhg.fokus.hss.cx.CxExperimentalResultException:
+IMS_Diameter_Error_User_Unknown
+        at de.fhg.fokus.hss.cx.op.SAR.processRequest(SAR.java:135)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:164)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+2007-12-04 17:33:21,066 DEBUG de.fhg.fokus.hss.main.Task - execute
+Processing SAR!
+&lt;/hssException&gt;
+
+Here is the log from wireshark:
+
+No.     Time        Source                Destination           Protocol
+Info
+   1135 22.580468   192.168.80.1          192.168.80.180        SIP
+Request: BYE
+sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">app-1kuoupe3mblg9 at presence.openims1.dev</A>:7060;transport=udp;wlsscid=1ae3f
+d44d3cdfe
+
+Frame 1135 (711 bytes on wire, 711 bytes captured)
+    Arrival Time: Dec  4, 2007 17:33:21.032725000
+    [Time delta from previous packet: 22.580468000 seconds]
+    [Time since reference or first frame: 22.580468000 seconds]
+    Frame Number: 1135
+    Packet Length: 711 bytes
+    Capture Length: 711 bytes
+    [Frame is marked: False]
+    [Protocols in frame: eth:ip:udp:sip]
+    [Coloring Rule Name: UDP]
+    [Coloring Rule String: udp]
+Ethernet II, Src: Vmware_c0:00:08 (00:50:56:c0:00:08), Dst: Vmware_0e:e4:ea
+(00:0c:29:0e:e4:ea)
+    Destination: Vmware_0e:e4:ea (00:0c:29:0e:e4:ea)
+        Address: Vmware_0e:e4:ea (00:0c:29:0e:e4:ea)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address
+(factory default)
+    Source: Vmware_c0:00:08 (00:50:56:c0:00:08)
+        Address: Vmware_c0:00:08 (00:50:56:c0:00:08)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address
+(factory default)
+    Type: IP (0x0800)
+Internet Protocol, Src: 192.168.80.1 (192.168.80.1), Dst: 192.168.80.180
+(192.168.80.180)
+    Version: 4
+    Header length: 20 bytes
+    Differentiated Services Field: 0x00 (DSCP 0x00: Default; ECN: 0x00)
+        0000 00.. = Differentiated Services Codepoint: Default (0x00)
+        .... ..0. = ECN-Capable Transport (ECT): 0
+        .... ...0 = ECN-CE: 0
+    Total Length: 697
+    Identification: 0x5bde (23518)
+    Flags: 0x00
+        0... = Reserved bit: Not set
+        .0.. = Don't fragment: Not set
+        ..0. = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 128
+    Protocol: UDP (0x11)
+    Header checksum: 0xba4f [correct]
+        [Good: True]
+        [Bad : False]
+    Source: 192.168.80.1 (192.168.80.1)
+    Destination: 192.168.80.180 (192.168.80.180)
+User Datagram Protocol, Src Port: 45712 (45712), Dst Port: 4060 (4060)
+    Source port: 45712 (45712)
+    Destination port: 4060 (4060)
+    Length: 677
+    Checksum: 0xa580 [correct]
+        [Good Checksum: True]
+        [Bad Checksum: False]
+Session Initiation Protocol
+    Request-Line: BYE
+sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">app-1kuoupe3mblg9 at presence.openims1.dev</A>:7060;transport=udp;wlsscid=1ae3f
+d44d3cdfe SIP/2.0
+        Method: BYE
+        [Resent Packet: False]
+    Message Header
+        Via: SIP/2.0/UDP
+192.168.80.1:45712;branch=z9hG4bK-d87543-8b54fd3fe62b0210-1--d87543-;rport
+            Transport: UDP
+            Sent-by Address: 192.168.80.1
+            Sent-by port: 45712
+            Branch: z9hG4bK-d87543-8b54fd3fe62b0210-1--d87543-
+            RPort: rport
+        Max-Forwards: 70
+        Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">mo at pcscf.openims1.dev</A>:4060;lr&gt;
+        Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">mo at scscf.openims1.dev</A>:6060;lr&gt;
+        Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">mt at scscf.openims1.dev</A>:6060;lr&gt;
+        Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 192.168.80.1</A>:45712&gt;
+            Contact Binding: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 192.168.80.1</A>:45712&gt;
+                URI: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 192.168.80.1</A>:45712&gt;
+                    SIP contact address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 192.168.80.1</A>:45712
+        To: &quot;alice (openims1.dev)&quot;&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at openims1.dev</A>&gt;;tag=46a93524
+            SIP Display info: &quot;alice (openims1.dev)&quot;
+            SIP to address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at openims1.dev</A>
+            SIP tag: 46a93524
+        From: &quot;bob&quot;&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at openims1.dev</A>&gt;;tag=807de838
+            SIP Display info: &quot;bob&quot;
+            SIP from address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at openims1.dev</A>
+            SIP tag: 807de838
+        Call-ID: OTQ4YTRjOTgyMWRkNTViODI4YThmNDMwM2FmNzMzNjQ.
+        CSeq: 2 BYE
+            Sequence Number: 2
+            Method: BYE
+        User-Agent: X-Lite release 1011s stamp 41150
+        Reason: SIP;description=&quot;User Hung Up&quot;
+        Content-Length: 0
+No.     Time        Source                Destination           Protocol
+Info
+   1136 22.638905   192.168.80.180        192.168.80.1          SIP
+Status: 403 Forbidden - HSS User Unknown
+
+Frame 1136 (451 bytes on wire, 451 bytes captured)
+    Arrival Time: Dec  4, 2007 17:33:21.091162000
+    [Time delta from previous packet: 0.058437000 seconds]
+    [Time since reference or first frame: 22.638905000 seconds]
+    Frame Number: 1136
+    Packet Length: 451 bytes
+    Capture Length: 451 bytes
+    [Frame is marked: False]
+    [Protocols in frame: eth:ip:udp:sip]
+    [Coloring Rule Name: UDP]
+    [Coloring Rule String: udp]
+Ethernet II, Src: Vmware_0e:e4:ea (00:0c:29:0e:e4:ea), Dst: Vmware_c0:00:08
+(00:50:56:c0:00:08)
+    Destination: Vmware_c0:00:08 (00:50:56:c0:00:08)
+        Address: Vmware_c0:00:08 (00:50:56:c0:00:08)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address
+(factory default)
+    Source: Vmware_0e:e4:ea (00:0c:29:0e:e4:ea)
+        Address: Vmware_0e:e4:ea (00:0c:29:0e:e4:ea)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address
+(factory default)
+    Type: IP (0x0800)
+Internet Protocol, Src: 192.168.80.180 (192.168.80.180), Dst: 192.168.80.1
+(192.168.80.1)
+    Version: 4
+    Header length: 20 bytes
+    Differentiated Services Field: 0x10 (DSCP 0x04: Unknown DSCP; ECN: 0x00)
+        0001 00.. = Differentiated Services Codepoint: Unknown (0x04)
+        .... ..0. = ECN-Capable Transport (ECT): 0
+        .... ...0 = ECN-CE: 0
+    Total Length: 437
+    Identification: 0x0000 (0)
+    Flags: 0x04 (Don't Fragment)
+        0... = Reserved bit: Not set
+        .1.. = Don't fragment: Set
+        ..0. = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 64
+    Protocol: UDP (0x11)
+    Header checksum: 0x1722 [correct]
+        [Good: True]
+        [Bad : False]
+    Source: 192.168.80.180 (192.168.80.180)
+    Destination: 192.168.80.1 (192.168.80.1)
+User Datagram Protocol, Src Port: 4060 (4060), Dst Port: 45712 (45712)
+    Source port: 4060 (4060)
+    Destination port: 45712 (45712)
+    Length: 417
+    Checksum: 0x8834 [correct]
+        [Good Checksum: True]
+        [Bad Checksum: False]
+Session Initiation Protocol
+    Status-Line: SIP/2.0 403 Forbidden - HSS User Unknown
+        Status-Code: 403
+        [Resent Packet: False]
+    Message Header
+        Via: SIP/2.0/UDP
+192.168.80.1:45712;branch=z9hG4bK-d87543-8b54fd3fe62b0210-1--d87543-;rport=4
+5712
+            Transport: UDP
+            Sent-by Address: 192.168.80.1
+            Sent-by port: 45712
+            Branch: z9hG4bK-d87543-8b54fd3fe62b0210-1--d87543-
+            RPort: 45712
+        To: &quot;alice (openims1.dev)&quot;&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at openims1.dev</A>&gt;;tag=46a93524
+            SIP Display info: &quot;alice (openims1.dev)&quot;
+            SIP to address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at openims1.dev</A>
+            SIP tag: 46a93524
+        From: &quot;bob&quot;&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at openims1.dev</A>&gt;;tag=807de838
+            SIP Display info: &quot;bob&quot;
+            SIP from address: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at openims1.dev</A>
+            SIP tag: 807de838
+        Call-ID: OTQ4YTRjOTgyMWRkNTViODI4YThmNDMwM2FmNzMzNjQ.
+        CSeq: 2 BYE
+            Sequence Number: 2
+            Method: BYE
+        Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+        Content-Length: 0
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071204/21b764d1/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071204/21b764d1/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000687.html">[OpenIMSCore-HSS] Issue on BYE: 403 Forbidden - HSS User Unkown
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#682">[ date ]</a>
+              <a href="thread.html#682">[ thread ]</a>
+              <a href="subject.html#682">[ subject ]</a>
+              <a href="author.html#682">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

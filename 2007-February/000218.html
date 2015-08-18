@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r154 - in FHoSS/trunk: .	src/de/fhg/fokus/hss/model src/de/fhg/fokus/hss/server/cx/op
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r154%20-%20in%20FHoSS/trunk%3A%20.%0A%09src/de/fhg/fokus/hss/model%20src/de/fhg/fokus/hss/server/cx/op&In-Reply-To=%3C200702262219.l1QMJHKv030079%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000217.html">
+   <LINK REL="Next"  HREF="000219.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r154 - in FHoSS/trunk: .	src/de/fhg/fokus/hss/model src/de/fhg/fokus/hss/server/cx/op</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r154%20-%20in%20FHoSS/trunk%3A%20.%0A%09src/de/fhg/fokus/hss/model%20src/de/fhg/fokus/hss/server/cx/op&In-Reply-To=%3C200702262219.l1QMJHKv030079%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r154 - in FHoSS/trunk: .	src/de/fhg/fokus/hss/model src/de/fhg/fokus/hss/server/cx/op">adp at users.berlios.de
+       </A><BR>
+    <I>Mon Feb 26 23:19:17 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000217.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Open Source Java Diameter	implementation
+</A></li>
+        <LI>Next message: <A HREF="000219.html">[OpenIMSCore-HSS] 403: HSS returned no authenticaton vectors
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#218">[ date ]</a>
+              <a href="thread.html#218">[ thread ]</a>
+              <a href="subject.html#218">[ subject ]</a>
+              <a href="author.html#218">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-02-26 23:19:10 +0100 (Mon, 26 Feb 2007)
+New Revision: 154
+
+Modified:
+   FHoSS/trunk/.classpath
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/ApsvrBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/CxOperation.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/UpdateCxOperation.java
+Log:
+bug fixing: 1 - a wrong PPR was sent after each successsfull registration - fixed \n 2 - IMPU registration problems when multiple IMPU were defined for a single IMPI-solved, implicit set not yet supported
+
+Modified: FHoSS/trunk/.classpath
+===================================================================
+--- FHoSS/trunk/.classpath	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/.classpath	2007-02-26 22:19:10 UTC (rev 154)
+@@ -6,8 +6,6 @@
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/antlr-2.7.5H3.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/asm.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/asm-attrs.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/c3p0-0.9.0.2.jar&quot;/&gt;
+-	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/c3p0-oracle-thin-extras-0.9.0.2.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/catalina.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/catalina-optional.jar&quot;/&gt;
+ 	&lt;classpathentry kind=&quot;lib&quot; path=&quot;lib/cglib-2.1.jar&quot;/&gt;
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/ApsvrBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/ApsvrBO.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/ApsvrBO.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -178,10 +178,9 @@
+ 
+                                 if (cxUserProfil.isRegistered())
+                                 {
+-                                    URI privateIdentity = new URI(cxUserProfil.getImpi()
+-                                                                              .getImpiString());
++                                    
+                                     UpdateCxOperation cxOperation = new UpdateCxOperation(cxUserProfil,
+-                                            privateIdentity);
++                                    		cxUserProfil.getImpi().getImpiString(), pi.getIdentity());
+                                     cxOperation.execute();
+                                     impuIds.add(impu.getImpuId());
+                                 }
+@@ -195,10 +194,6 @@
+         {
+             LOGGER.error(this, e);
+         }
+-        catch (URISyntaxException e)
+-        {
+-            LOGGER.error(this, e);
+-        }
+ 
+         LOGGER.debug(&quot;exiting&quot;);
+     }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/CxUserProfil.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -533,29 +533,27 @@
+      *
+      * @return IMSSubscription Object
+      */
+-    public IMSSubscription getIMSSubscription()
++    public IMSSubscription getIMSSubscription(String publicUserIdentity)
+     {
+         IMSSubscription subscription = new IMSSubscription();
+         subscription.setPrivateID(getImpi().getImpiString());
+ 
+         ServiceProfile serviceProfile = null;
+-        TreeMap svpMap = new TreeMap();
+ 
+-        if (impuList != null)
+-        {
+-            Iterator it = impuList.iterator();
++        Impu impu = null;
++        Iterator it = impuList.iterator(); 
++        while (it.hasNext()){
++        	impu = (Impu) it.next();
++        	if (impu.getSipUrl().equals(publicUserIdentity))
++        		break;
++        }
++        
+ 
+-            while (it.hasNext())
+-            {
+-                Impu next = (Impu) it.next();
+-
+                 if (impu.getSvp() != null)
+                 {
+                     Svp svp = impu.getSvp();
+                     Integer key = svp.getSvpId();
+ 
+-                    if (svpMap.containsKey(key) == false)
+-                    {
+                         serviceProfile = new ServiceProfile();
+ 
+                         if (svp.getIfc2svps() != null)
+@@ -605,24 +603,16 @@
+                                     initialFilterCriteria);
+                             }
+                             
++                            
+                             PublicIdentity publicIdentity = new PublicIdentity();
+-                            publicIdentity.setIdentity(next.getSipUrl());
++                            publicIdentity.setIdentity(impu.getSipUrl());
+                             publicIdentity.setBarringIndication(
+-                                next.getBarringIndication());
++                                impu.getBarringIndication());
+                             serviceProfile.addPublicIdentity(publicIdentity);
+                         }
+-
+-                        svpMap.put(key, serviceProfile);
+-                        subscription.addServiceProfile(serviceProfile);
+-                    }
+-                    else
+-                    {
+-                        serviceProfile = (ServiceProfile) svpMap.get(key);
+-                    }
++                        
+                 }
+-            }
+-        }
+-
++        subscription.addServiceProfile(serviceProfile);        
+         return subscription;
+     }
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/Impu.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -248,7 +248,6 @@
+     */
+     public void setUserStatus(String userStatus)
+     {
+-        fire(&quot;userStatus&quot;, this.userStatus, userStatus);
+         this.userStatus = userStatus;
+     }
+ 
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/ImpuBO.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -202,10 +202,11 @@
+                 pi.setIdentity(impu.getSipUrl());
+ 
+                 CxUserProfil cxUserProfil = new CxUserProfil(pi);
+-                URI privateIdentity =
+-                    new URI(cxUserProfil.getImpi().getImpiString());
++                String privateIdentity = cxUserProfil.getImpi().getImpiString();
++                String publicIdentity =
++                	cxUserProfil.getImpu().getSipUrl();
+                 UpdateCxOperation cxOperation =
+-                    new UpdateCxOperation(cxUserProfil, privateIdentity);
++                    new UpdateCxOperation(cxUserProfil, privateIdentity, publicIdentity);
+                 cxOperation.execute();
+             }
+         }
+@@ -213,10 +214,6 @@
+         {
+             LOGGER.error(impu, e);
+         }
+-        catch (URISyntaxException e)
+-        {
+-            LOGGER.error(impu, e);
+-        }
+ 
+         LOGGER.debug(&quot;exiting&quot;);
+     }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -133,8 +133,8 @@
+                 cxUserProfil = new CxUserProfil(impu);
+ 
+                 if (cxUserProfil.isRegistered() &amp;&amp; cxUserProfil.getImpi() != null){
+-                    URI privateIdentity = new URI(cxUserProfil.getImpi().getImpiString());
+-                    UpdateCxOperation cxOperation = new UpdateCxOperation(cxUserProfil, privateIdentity);
++                    
++                    UpdateCxOperation cxOperation = new UpdateCxOperation(cxUserProfil, cxUserProfil.getImpi().getImpiString(), impu.getSipUrl());
+                     operationsList.add(cxOperation);
+                 }
+             }
+@@ -148,9 +148,6 @@
+         catch (DiameterException e){
+             LOGGER.error(svp, e);
+         }
+-        catch (URISyntaxException e){
+-            LOGGER.error(svp, e);
+-        }
+ 
+         LOGGER.debug(&quot;exiting&quot;);
+     }
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/CxOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/CxOperation.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/CxOperation.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -89,7 +89,7 @@
+         LOGGER.debug(&quot;entering&quot;);
+ 
+         try{
+-            UpdateCxOperation cxOperation = new UpdateCxOperation(getUserProfil(), privateUserIdentity);
++            UpdateCxOperation cxOperation = new UpdateCxOperation(getUserProfil(), privateUserIdentity.getPath(), publicIdentity.getIdentity());
+             cxOperation.execute();
+         }
+         catch (DiameterException e){
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -253,7 +253,8 @@
+                 throw new UnableToComply();
+             }
+             // Download the user profile and the charging functions
+-            notificationResponse.setUserProfile(userProfil.getIMSSubscription(), userProfil.getChargingInfoSet());
++            notificationResponse.setUserProfile(userProfil.getIMSSubscription(this.publicIdentity.getIdentity()), 
++            		userProfil.getChargingInfoSet());
+         }
+ 
+         updateUserProfile();
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/UpdateCxOperation.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/UpdateCxOperation.java	2007-02-26 14:42:23 UTC (rev 153)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/server/cx/op/UpdateCxOperation.java	2007-02-26 22:19:10 UTC (rev 154)
+@@ -46,6 +46,7 @@
+ package de.fhg.fokus.hss.server.cx.op;
+ 
+ import java.net.URI;
++import java.net.URISyntaxException;
+ 
+ import org.apache.log4j.Logger;
+ 
+@@ -65,16 +66,23 @@
+ 	private static final Logger LOGGER = Logger.getLogger(UpdateCxOperation.class);
+ 	/** name of serving call session control function */
+ 	private String scscfName;
+-
++	private String publicUserIdentity;
+     /**
+      * constructor
+      * @param _userProfil user profile
+      * @param _privateUserIdentity private user identity
+      */    	
+-	public UpdateCxOperation(CxUserProfil _userProfil, URI _privateUserIdentity){
++	public UpdateCxOperation(CxUserProfil _userProfil, String privateIdentity, String publicUserIdentity){
+ 		LOGGER.debug(&quot;entering&quot;);
+ 		this.userProfil = _userProfil;
+-		this.privateUserIdentity = _privateUserIdentity;
++		try {
++			this.privateUserIdentity = new URI(privateIdentity);
++			this.publicUserIdentity = publicUserIdentity;
++			
++		} 
++		catch (URISyntaxException e) {
++			e.printStackTrace();
++		}
+ 		this.scscfName = userProfil.getImpi().getScscfName();
+ 		LOGGER.debug(&quot;exiting&quot;);
+ 	}
+@@ -88,7 +96,8 @@
+ 	public Object execute() throws DiameterException {
+ 		LOGGER.debug(&quot;entering&quot;);
+ 		CSCFOperations operations = new CSCFOperationsImpl();
+-		operations.cxUpdateSubscriberData(privateUserIdentity, userProfil.getIMSSubscription(), userProfil.getChargingInfoSet(), scscfName);
++		operations.cxUpdateSubscriberData(privateUserIdentity, userProfil.getIMSSubscription(publicUserIdentity),
++				userProfil.getChargingInfoSet(), scscfName);
+ 		LOGGER.debug(&quot;exiting&quot;);
+ 		return null;
+ 	}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000217.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Open Source Java Diameter	implementation
+</A></li>
+	<LI>Next message: <A HREF="000219.html">[OpenIMSCore-HSS] 403: HSS returned no authenticaton vectors
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#218">[ date ]</a>
+              <a href="thread.html#218">[ thread ]</a>
+              <a href="subject.html#218">[ subject ]</a>
+              <a href="author.html#218">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

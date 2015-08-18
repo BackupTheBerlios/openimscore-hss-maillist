@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20401%20Unauthorized%20-%20Challenging%20the%20UE&In-Reply-To=%3C94ea6c5d0908171700u7abe684fs5b70e4d3bb74d7ea%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000966.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE</H1>
+    <B>Brian Sexton</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20401%20Unauthorized%20-%20Challenging%20the%20UE&In-Reply-To=%3C94ea6c5d0908171700u7abe684fs5b70e4d3bb74d7ea%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE">brian.w.sexton at gmail.com
+       </A><BR>
+    <I>Tue Aug 18 02:00:39 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000966.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#967">[ date ]</a>
+              <a href="thread.html#967">[ thread ]</a>
+              <a href="subject.html#967">[ subject ]</a>
+              <a href="author.html#967">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ive changed both the HSS and the modparam in the scscf.config as
+recommended and now Im getting a 500 internal server error
+
+SIP/2.0 500 Server Internal Error - while packing auth vectors
+CSeq: 567 REGISTER
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 192.168.75.132:6060 &quot;Noisy feedback tells:  pid=12852
+req_src_ip=192.168.75.132 req_src_port=5060
+in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=d8e9074cb856fe8efc14e03b15be1db7-d069
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=1250552875921
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de95852bdd1da66ace6e7e7005ad1414 at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:3463;branch=z9hG4bKa8122ffcedb439035c105aec8a60a28c;received=192.168.75.1;rport=3463
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+
+23:47:56.093 SipClientTransport received Response [500 Server Internal
+Error - while packing auth vectors]
+23:47:56.093 Found matching SipClientTransaction (2)
+23:47:56.093 SipClientTransaction (2) received Response [500 Server
+Internal Error - while packing auth vectors] to Request [REGISTER
+sip:open-ims.test]
+23:47:56.093 Release From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=1250552875921
+
+[192.168.75.132:4060;tcp]
+23:47:56.093 Clearing timer BorF
+23:47:56.093 SipClientConnectionImpl received Response [500 Server
+Internal Error - while packing auth vectors] to Request [REGISTER
+sip:open-ims.test] from SipClientTransaction (2)
+23:47:56.109 &lt;-No dialog found
+23:47:56.109 **&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de95852bdd1da66ace6e7e7005ad1414 at 192.168.1.111250552875921d8e9074cb856fe8efc14e03b15be1db7-d069</A>
+23:47:56.109 SipClientConnectionImpl doMessage(Response [500 Server
+Internal Error - while packing auth vectors] to Request [REGISTER
+sip:open-ims.test])
+23:47:56.109 SipClientConnectionImpl receive(0)...
+23:47:56.109 SipClientConnectionImpl receive(0) - Response [500 Server
+Internal Error - while packing auth vectors] to Request [REGISTER
+sip:open-ims.test]
+23:47:56.109 UnregisterTransaction() SipClientTransaction (2)
+23:47:56.109 Closed SipClientTransaction (2)
+
+On Mon, Aug 17, 2009 at 12:59 PM, Franz Edler&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz-edler at aon.at</A>&gt; wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;&gt;<i> I changed the HSS authentication to &quot;Early IMS&quot; and put the clients IP
+</I>&gt;&gt;<i> address into the IP address field but its still failing on the
+</I>&gt;&gt;<i> authentication. ...
+</I>&gt;<i>
+</I>&gt;<i> Just a further hint:
+</I>&gt;<i> In scscf.cfg you should also set the authentication method to
+</I>&gt;<i> modparam(&quot;scscf&quot;,&quot;registration_default_algorithm&quot;,&quot;HSS-Selected&quot;)
+</I>&gt;<i>
+</I>&gt;<i> If the Authentication Scheme at the PUID data is set to Early-IMS-Security
+</I>&gt;<i> and the correct Early-IMS-IP-Address is provisioned, then no 401 response
+</I>&gt;<i> should be sent. At least this I expect, but I did not try it myself.
+</I>&gt;<i>
+</I>&gt;<i> Franz
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000966.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#967">[ date ]</a>
+              <a href="thread.html#967">[ thread ]</a>
+              <a href="subject.html#967">[ subject ]</a>
+              <a href="author.html#967">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

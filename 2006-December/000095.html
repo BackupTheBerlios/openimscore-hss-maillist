@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] mysql.so
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20mysql.so&In-Reply-To=%3C4584518C.7090603%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000093.html">
+   <LINK REL="Next"  HREF="000096.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] mysql.so</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20mysql.so&In-Reply-To=%3C4584518C.7090603%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] mysql.so">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Sat Dec 16 21:05:32 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000093.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+        <LI>Next message: <A HREF="000096.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#95">[ date ]</a>
+              <a href="thread.html#95">[ thread ]</a>
+              <a href="subject.html#95">[ subject ]</a>
+              <a href="author.html#95">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ahmed,
+
+Not sure how you changed the path to the mysql.h, but if you changed it
+in ser_ims/modules/Makefile, make sure that you also change the -L
+parameter so that it also gets linked.
+
+-Dragos
+
+Java Addict wrote:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> While trying to get rid of this mysql.so error I looked into the C
+</I>&gt;<i> source and header files in modules/mysql and adjusted the path of
+</I>&gt;<i> mysql.h to local location of mysql.h and the compilation went fine and
+</I>&gt;<i> generated mysql.so in mysql folder But now I get the following error
+</I>&gt;<i> while trying to do ./icscf.sh
+</I>&gt;<i>
+</I>&gt;<i> ./icscf.sh: line 3: killser: command not found
+</I>&gt;<i>  0(32686) ERROR: load_module: could not open module
+</I>&gt;<i> &lt;/OpenIMSCore/ser_ims/modules/mysql/mysql.so&gt;:
+</I>&gt;<i> /OpenIMSCore/ser_ims/modules/mysql/mysql.so: undefined symbol: log
+</I>&gt;<i>  0(32686) parse error (30,13-14): failed to load module
+</I>&gt;<i> ERROR: bad config file (1 errors)
+</I>&gt;<i>  0(32686) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+</I>&gt;<i>
+</I>&gt;<i> Any comments?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i> Ahmed
+</I>&gt;<i> */Java Addict &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">java.addict at yahoo.com</A>&gt;/* wrote:
+</I>&gt;<i>
+</I>&gt;<i>     Hi Dragos n All,
+</I>&gt;<i>
+</I>&gt;<i>     Thanks for your help.
+</I>&gt;<i>
+</I>&gt;<i>     Here is the error I get from doing a make in the mysql directory.
+</I>&gt;<i>
+</I>&gt;<i>     ../../Makefile.modules:26: &quot;you should run make from the main ser
+</I>&gt;<i>     directory&quot;
+</I>&gt;<i>     ../../Makefile.modules:26: &quot;you should run make from the main ser
+</I>&gt;<i>     directory&quot;
+</I>&gt;<i>     gcc -fPIC -DPIC -g -O9 -funroll-loops -Wcast-align -Wall
+</I>&gt;<i>     -minline-all-stringops -falign-loops -ftree-vectorize
+</I>&gt;<i>     -mtune=athlon64   -DNAME='&quot;ser&quot;'
+</I>&gt;<i>     -DVERSION='&quot;0.10.99-dev53-tm_fixes&quot;' -DARCH='&quot;i386&quot;' -DOS='linux_'
+</I>&gt;<i>     -DOS_QUOTED='&quot;linux&quot;' -DCOMPILER='&quot;gcc 4.1.1&quot;' -D__CPU_i386
+</I>&gt;<i>     -D__OS_linux -DSER_VER=10099 -DCFG_DIR='&quot;/usr/local/etc/ser/&quot;'
+</I>&gt;<i>     -DPKG_MALLOC -DSHM_MEM  -DSHM_MMAP -DDNS_IP_HACK -DUSE_IPV6
+</I>&gt;<i>     -DUSE_MCAST -DUSE_TCP -DDISABLE_NAGLE -DHAVE_RESOLV_RES
+</I>&gt;<i>     -DDBG_QM_MALLOC -DUSE_DNS_CACHE -DUSE_DNS_FAILOVER
+</I>&gt;<i>     -DUSE_DST_BLACKLIST -ggdb  -DFAST_LOCK -DADAPTIVE_WAIT
+</I>&gt;<i>     -DADAPTIVE_WAIT_LOOPS=1024  -DCC_GCC_LIKE_ASM
+</I>&gt;<i>     -DHAVE_GETHOSTBYNAME2 -DHAVE_UNION_SEMUN -DHAVE_SCHED_YIELD
+</I>&gt;<i>     -DHAVE_MSG_NOSIGNAL -DHAVE_MSGHDR_MSG_CONTROL -DHAVE_ALLOCA_H
+</I>&gt;<i>     -DHAVE_TIMEGM -DHAVE_EPOLL -DHAVE_SIGIO_RT -DSIGINFO64_WORKARROUND
+</I>&gt;<i>     -DHAVE_SELECT -I/usr/local/include -I/usr/local/include/mysql
+</I>&gt;<i>     -I/usr/local/mysql/include -I/usr/include/mysql
+</I>&gt;<i>     -L/usr/local/mysql/include -c dbase.c -o dbase.o
+</I>&gt;<i>     dbase.c:34:25: error: mysql/mysql.h: No such file or directory
+</I>&gt;<i>     dbase.c:35:26: error: mysql/errmsg.h: No such file or directory
+</I>&gt;<i>     In file included from dbase.c:40:
+</I>&gt;<i>     val.h:44: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+</I>&gt;<i>     In file included from dbase.c:41:
+</I>&gt;<i>     my_con.h:43: error: expected specifier-qualifier-list before &#8216;MYSQL&#8217;
+</I>&gt;<i>     In file included from dbase.c:42:
+</I>&gt;<i>     res.h:37: error: expected specifier-qualifier-list before &#8216;MYSQL_RES&#8217;
+</I>&gt;<i>     dbase.c: In function &#8216;submit_query&#8217;:
+</I>&gt;<i>     dbase.c:67: error: &#8216;struct my_con&#8217; has no member named &#8216;timestamp&#8217;
+</I>&gt;<i>     dbase.c:68: warning: implicit declaration of function &#8216;mysql_ping&#8217;
+</I>&gt;<i>     dbase.c:68: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:72: error: &#8216;struct my_con&#8217; has no member named &#8216;timestamp&#8217;
+</I>&gt;<i>     dbase.c:90: warning: implicit declaration of function &#8216;mysql_query&#8217;
+</I>&gt;<i>     dbase.c:90: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:93: warning: implicit declaration of function &#8216;mysql_errno&#8217;
+</I>&gt;<i>     dbase.c:93: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:94: error: &#8216;CR_SERVER_GONE_ERROR&#8217; undeclared (first use in
+</I>&gt;<i>     this function)
+</I>&gt;<i>     dbase.c:94: error: (Each undeclared identifier is reported only once
+</I>&gt;<i>     dbase.c:94: error: for each function it appears in.)
+</I>&gt;<i>     dbase.c:94: error: &#8216;CR_SERVER_LOST&#8217; undeclared (first use in this
+</I>&gt;<i>     function)
+</I>&gt;<i>     dbase.c:98: warning: implicit declaration of function &#8216;mysql_error&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:98: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:98: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c: At top level:
+</I>&gt;<i>     dbase.c:138: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+</I>&gt;<i>     dbase.c:166: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+</I>&gt;<i>     dbase.c:212: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+</I>&gt;<i>     dbase.c: In function &#8216;store_result&#8217;:
+</I>&gt;<i>     dbase.c:338: error: &#8216;struct my_res&#8217; has no member named &#8216;res&#8217;
+</I>&gt;<i>     dbase.c:338: warning: implicit declaration of function
+</I>&gt;<i>     &#8216;mysql_store_result&#8217;
+</I>&gt;<i>     dbase.c:338: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:339: error: &#8216;struct my_res&#8217; has no member named &#8216;res&#8217;
+</I>&gt;<i>     dbase.c:340: warning: implicit declaration of function
+</I>&gt;<i>     &#8216;mysql_field_count&#8217;
+</I>&gt;<i>     dbase.c:340: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:345: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:345: warning: format &#8216;%s&#8217; expects type &#8216;char *&#8217;, but
+</I>&gt;<i>     argument 3 has type &#8216;int&#8217;
+</I>&gt;<i>     dbase.c:354: warning: implicit declaration of function
+</I>&gt;<i>     &#8216;mysql_free_result&#8217;
+</I>&gt;<i>     dbase.c:354: error: &#8216;struct my_res&#8217; has no member named &#8216;res&#8217;
+</I>&gt;<i>     dbase.c: In function &#8216;db_query&#8217;:
+</I>&gt;<i>     dbase.c:432: warning: implicit declaration of function &#8216;print_where&#8217;
+</I>&gt;<i>     dbase.c:432: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c: In function &#8216;db_insert&#8217;:
+</I>&gt;<i>     dbase.c:505: warning: implicit declaration of function &#8216;print_values&#8217;
+</I>&gt;<i>     dbase.c:505: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c: In function &#8216;db_delete&#8217;:
+</I>&gt;<i>     dbase.c:550: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c: In function &#8216;db_update&#8217;:
+</I>&gt;<i>     dbase.c:593: warning: implicit declaration of function &#8216;print_set&#8217;
+</I>&gt;<i>     dbase.c:593: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c:602: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     dbase.c: In function &#8216;db_replace&#8217;:
+</I>&gt;<i>     dbase.c:645: error: &#8216;struct my_con&#8217; has no member named &#8216;con&#8217;
+</I>&gt;<i>     make: *** [dbase.o] Error 1
+</I>&gt;<i>
+</I>&gt;<i>     Also can you let me know of some repository from where I can get
+</I>&gt;<i>     libmysql?
+</I>&gt;<i>
+</I>&gt;<i>     Thanks
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     */Dragos Vingarzan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt;/* wrote:
+</I>&gt;<i>
+</I>&gt;<i>         Hello Ahsan,
+</I>&gt;<i>
+</I>&gt;<i>         I have already remove the mysql from the exclude list, as you
+</I>&gt;<i>         noticed.
+</I>&gt;<i>         However, in you case, it seems that the make process for
+</I>&gt;<i>         ser_ims/modules/mysql fails. Go into that folder and do a make.
+</I>&gt;<i>
+</I>&gt;<i>         Most probably the error message will guide you towards installing
+</I>&gt;<i>         libmysql with the development headers (this is in the
+</I>&gt;<i>         prerequisites
+</I>&gt;<i>         section of the installation procedures... I am sure that this
+</I>&gt;<i>         issue was
+</I>&gt;<i>         discussed before, but can't find the thread right now...).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         -Dragos
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         Java Addict wrote:
+</I>&gt;<i>         &gt; Hi All,
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; I have reached so far to step 6 of installation guide and I
+</I>&gt;<i>         have done
+</I>&gt;<i>         &gt; almost every step till now in my view. In step 6 with
+</I>&gt;<i>         running icscf.sh
+</I>&gt;<i>         &gt; I get
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; 0(19056) ERROR: load_module: could not open module
+</I>&gt;<i>         &gt; :
+</I>&gt;<i>         &gt; /OpenIMSCore/ser_ims/modules/mysql/mysql.so: cannot open
+</I>&gt;<i>         shared object
+</I>&gt;<i>         &gt; file: No such file or directory
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; Now I don't have &quot;mysql.so&quot; anywhere on my system and on
+</I>&gt;<i>         another forum
+</I>&gt;<i>         &gt; I got this thread which says that remove mysql from $exclude
+</I>&gt;<i>         in the
+</I>&gt;<i>         &gt; make file and compile ser_ims again.
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; I have checked the make file and it doesn't have mysql in
+</I>&gt;<i>         the exclude
+</I>&gt;<i>         &gt; section.
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; Thanks in advance.
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; Regards,
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; Ahsan
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; __________________________________________________
+</I>&gt;<i>         &gt; Do You Yahoo!?
+</I>&gt;<i>         &gt; Tired of spam? Yahoo! Mail has the best spam protection around
+</I>&gt;<i>         &gt; <A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A>
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         ------------------------------------------------------------------------
+</I>&gt;<i>         &gt;
+</I>&gt;<i>         &gt; _______________________________________________
+</I>&gt;<i>         &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i>         &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i>         &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>         &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         -- 
+</I>&gt;<i>         -----------------------------------------
+</I>&gt;<i>         Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i>         FOKUS/NGNI
+</I>&gt;<i>         Kaiserin-Augusta-Allee 31
+</I>&gt;<i>         10589 Berlin,Germany
+</I>&gt;<i>         Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i>         Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i>         eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i>         Web www.fokus.fraunhofer.de
+</I>&gt;<i>         We could change the world if God would give us the source code...
+</I>&gt;<i>         -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     __________________________________________________
+</I>&gt;<i>     Do You Yahoo!?
+</I>&gt;<i>     Tired of spam? Yahoo! Mail has the best spam protection around
+</I>&gt;<i>     <A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> _______________________________________________
+</I>&gt;<i>     OpenIMSCore-HSS mailing list
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> __________________________________________________
+</I>&gt;<i> Do You Yahoo!?
+</I>&gt;<i> Tired of spam? Yahoo! Mail has the best spam protection around
+</I>&gt;<i> <A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A>
+</I>&gt;<i>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000093.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+	<LI>Next message: <A HREF="000096.html">[OpenIMSCore-HSS] mysql.so
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#95">[ date ]</a>
+              <a href="thread.html#95">[ thread ]</a>
+              <a href="subject.html#95">[ subject ]</a>
+              <a href="author.html#95">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

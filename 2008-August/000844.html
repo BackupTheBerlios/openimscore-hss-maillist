@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FW: AS and HSS communication/Java Diameter Peer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FW%3A%20AS%20and%20HSS%20communication/Java%20Diameter%20Peer&In-Reply-To=%3C4C525A9A3424EA46BE6471D6899FBB2591E259%40esealmw103.eemea.ericsson.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000843.html">
+   <LINK REL="Next"  HREF="000847.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FW: AS and HSS communication/Java Diameter Peer</H1>
+    <B>Zerin Y&#252;ce</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FW%3A%20AS%20and%20HSS%20communication/Java%20Diameter%20Peer&In-Reply-To=%3C4C525A9A3424EA46BE6471D6899FBB2591E259%40esealmw103.eemea.ericsson.se%3E"
+       TITLE="[OpenIMSCore-HSS] FW: AS and HSS communication/Java Diameter Peer">zerin.yuce at ericsson.com
+       </A><BR>
+    <I>Mon Aug  4 22:05:25 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000843.html">[OpenIMSCore-HSS] AS and HSS communication/Java Diameter Peer
+</A></li>
+        <LI>Next message: <A HREF="000847.html">[OpenIMSCore-HSS] FW: AS and HSS communication/Java	Diameter	Peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#844">[ date ]</a>
+              <a href="thread.html#844">[ thread ]</a>
+              <a href="subject.html#844">[ subject ]</a>
+              <a href="author.html#844">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+-----Original Message-----
+From: Zerin Y&#252;ce 
+Sent: Monday, August 04, 2008 10:03 PM
+To: '<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>'
+Subject: RE: [OpenIMSCore-HSS] AS and HSS communication/Java Diameter Peer
+
+Hi Franz,
+
+I meant with the &quot;registered&quot; actually the configuration of  the service profile for the AS:
+-trigger point
+-iFC etc...
+
+As far as I know there is no diameter support in sailfin. I want to request cell ID and so on from HSS... So in that case I need a DiameterPeer I think...
+
+Kind Regars,
+zerin
+
+ 
+
+-----Original Message-----
+From: Franz Edler [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>]
+Sent: Monday, August 04, 2008 9:44 PM
+To: Zerin Y&#252;ce; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: RE: [OpenIMSCore-HSS] AS and HSS communication/Java Diameter Peer
+
+Hi Zerin,
+ 
+&gt;<i> I am using Sailfin AS and want to communicate with the HSS. I already 
+</I>&gt;<i> registered the AS over the hss web console.
+</I>
+What do you mean with &quot;registered&quot;? An AS need not be registered. It is addressed via routing in cas an iFC point to the AS.
+
+&gt;<i> But I do not really know how to establish a connection. 
+</I>
+You have to set an IFc which point to the AS. More details at <A HREF="http://www.openimscore.org/faq">http://www.openimscore.org/faq</A>
+
+
+&gt;<i> Do I have to use the JavaDiameterPeer?
+</I>
+Only in case of some advanced services you might need a connection to the HSS (Sh interface). If Sailfin does not support Sh interface (diameter) you have to find a solution than. Maybe JavaDiameterPeer might help than.
+
+Regards
+Franz
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000843.html">[OpenIMSCore-HSS] AS and HSS communication/Java Diameter Peer
+</A></li>
+	<LI>Next message: <A HREF="000847.html">[OpenIMSCore-HSS] FW: AS and HSS communication/Java	Diameter	Peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#844">[ date ]</a>
+              <a href="thread.html#844">[ thread ]</a>
+              <a href="subject.html#844">[ subject ]</a>
+              <a href="author.html#844">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

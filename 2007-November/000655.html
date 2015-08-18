@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not	being notified automatically to the S-CSCF (instead it can	be	launched manually)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Changes%20in%20the%20SP%20assigned%20to%20an%20IMPU%20is%20not%0A%09being%20notified%20automatically%20to%20the%20S-CSCF%20%28instead%20it%20can%0A%09be%09launched%20manually%29&In-Reply-To=%3C067C9C32AA86BF4E89E111E2112B71BBA1AA452A%40srvcentral00.inycom.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000654.html">
+   <LINK REL="Next"  HREF="000656.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not	being notified automatically to the S-CSCF (instead it can	be	launched manually)</H1>
+    <B>Beatriz Calvo P&#233;rez</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Changes%20in%20the%20SP%20assigned%20to%20an%20IMPU%20is%20not%0A%09being%20notified%20automatically%20to%20the%20S-CSCF%20%28instead%20it%20can%0A%09be%09launched%20manually%29&In-Reply-To=%3C067C9C32AA86BF4E89E111E2112B71BBA1AA452A%40srvcentral00.inycom.es%3E"
+       TITLE="[OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not	being notified automatically to the S-CSCF (instead it can	be	launched manually)">beatriz.calvo at inycom.es
+       </A><BR>
+    <I>Thu Nov  8 17:08:49 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000654.html">[OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not being notified automatically to the S-CSCF (instead it can be	launched manually)
+</A></li>
+        <LI>Next message: <A HREF="000656.html">[OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not being notified automatically to the S-CSCF (instead it can be	launched manually)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#655">[ date ]</a>
+              <a href="thread.html#655">[ thread ]</a>
+              <a href="subject.html#655">[ subject ]</a>
+              <a href="author.html#655">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Dragos,
+
+I don&#180;t think we are talking about the same things, maybe I didn&#180;t express myself very well :(
+I was talking about changing the SP which is mapped to an IMPU (i.e, mapping a different one), and not about changing the configuration of the IFCs in the SP.
+Switching the SP mapped to an IMPU would only require one PPR, the one that has to be sent to the S-CSCF. Am I wrong? 
+However, I think you were talking about changes in the configuration of a SP, for example changes in the SPTs of the IFCs. Such a change would require as many notifications (PPRs) as the amount of IMPUs having that SP mapped in its account. And the destination of every notification will be sent to the S-CSCF which acts as a registrar for the affected IMPU. These type of changes are more global, then require a great deal of notifications. 
+
+The thing is that I didn&#180;t realize that changes in the SPs configurations (IFCs associated, SPTs of the IFCs...) were not being spread automatically. Instead, I thougt that only the IMPU-SP mapping was not being notified automatically, and that is why I proposed to improve that, avoiding the manual interaction.
+
+For DSAI-Value changes we have implemented a mechanism of automatic notifications. I mean, when a DSAI is changed from ACTIVE to INACTIVE for an IMPU such a change is notified to the ASs subscribed to the DSAI information, to the ASs subscribed to the IFC information for that IMPU, and to the S-CSCF associated to the IMPU. Tomorrow (hopefully) we are uploading our development to the DSAI branch, then you can have a look on it and we can correct the potential errors altogether.
+
+Best regards,
+Beatriz Calvo Perez
+Instrumentacion y Componentes S.A (Inycom)
+
+
+
+-----Mensaje original-----
+De: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Dragos.Vingarzan at fokus.fraunhofer.de</A>] 
+Enviado el: jueves, 08 de noviembre de 2007 15:30
+Para: Beatriz Calvo P&#233;rez
+CC: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Asunto: Re: [OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not being notified automatically to the S-CSCF (instead it can be launched manually)
+
+Hello Beatriz,
+
+well, this is the way that it was before the Rel.7 revamp and the change was for good reasons.
+
+First, the real usage case is that no operator would do this. I mean, if you change a little SPT condition you could trigger a flood of PPRs that would probably kill the S-CSCF and HSS. You know, when you call your operator to change something on your account, they usually tell you that they did the change and that you will see changes in a few minutes/hours/next day. This is because they have a throttling mechanism for pushing changes. Well, we don't so far, so it is better to let the operator do it manually. Anyway, they probably won't notice when doing the change how many users are affected by that change.
+
+Second, trying to write the queries to find all the users affected is quite complex and maybe not worth the trouble.
+
+Third, you will also have to implement a way of versioning the service profiles. This is because your changes are not atomically probably and when you update something and change like the AS uri, a SPT condition and a IFC priority you will have 3xPPR, which will possibly be inconsistent if you push them individually (not to mention too many PPRs).
+
+So :). I would be for automatic-PPRs if it is done right, but after all the points before, it seems overkill for such a small feature. For partial support it would still be acceptable for the trunk if you provide a configuration switch for it.
+
+For the Sh interface it is a different story as the receivers (app
+servers) are with several orders of magnitude fewer than the Cx interface ones (subscribers).
+
+Cheers,
+-Dragos
+
+
+Beatriz Calvo P&#233;rez wrote:
+&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> When the Service Profile assigned to an IMPU is changed via the GUI, a 
+</I>&gt;<i> &quot;notification for IFC&quot; record is inserted in the ShNotification table.
+</I>&gt;<i> This way the ASs which had previously subscribed to the IFC 
+</I>&gt;<i> information for this IMPU will be notified about the change.
+</I>&gt;<i>
+</I>&gt;<i> From my view, a similar notification should also be sent to the S-CSCF 
+</I>&gt;<i> which acts as a registrar for the user. To do so, a record should be 
+</I>&gt;<i> inserted in the CxEvents table. However this is not being done at the 
+</I>&gt;<i> moment. On the contrary, a PPR button is provided in the IMPU form of 
+</I>&gt;<i> the GUI to allow the administrator managing such notifications by himself.
+</I>&gt;<i>
+</I>&gt;<i> Don&#180;t you think that both notifications should be launched the same 
+</I>&gt;<i> way and automatically when it is detected that something has changed 
+</I>&gt;<i> and must be notified?
+</I>&gt;<i>
+</I>&gt;<i> If you agree, we could fix that and upload the corrected files to the 
+</I>&gt;<i> DSAI branch in Berlios, together with the rest of the source files we 
+</I>&gt;<i> are currently working on. Please let me know your thoughts.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Beatriz Calvo Perez
+</I>&gt;<i> Instrumentacion y Componentes S.A (Inycom)
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+--
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+Web www.fokus.fraunhofer.de www.openimscore.org We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000654.html">[OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not being notified automatically to the S-CSCF (instead it can be	launched manually)
+</A></li>
+	<LI>Next message: <A HREF="000656.html">[OpenIMSCore-HSS] Changes in the SP assigned to an IMPU is not being notified automatically to the S-CSCF (instead it can be	launched manually)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#655">[ date ]</a>
+              <a href="thread.html#655">[ thread ]</a>
+              <a href="subject.html#655">[ subject ]</a>
+              <a href="author.html#655">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

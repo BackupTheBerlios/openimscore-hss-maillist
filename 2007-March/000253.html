@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] sh question
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20sh%20question&In-Reply-To=%3C45F83159.701%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000252.html">
+   <LINK REL="Next"  HREF="000254.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] sh question</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20sh%20question&In-Reply-To=%3C45F83159.701%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] sh question">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Mar 14 18:31:05 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000252.html">[OpenIMSCore-HSS] sh question
+</A></li>
+        <LI>Next message: <A HREF="000254.html">[OpenIMSCore-HSS] sh question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#253">[ date ]</a>
+              <a href="thread.html#253">[ thread ]</a>
+              <a href="subject.html#253">[ subject ]</a>
+              <a href="author.html#253">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hi Luis Silva,
+
+The Origin-Host, Identity field should indicate the name of the host,
+not the IP address. This name, then is resolved into the IP address. In
+this way, the hss will know with which AS is speaking and what rights it
+has regarding the Sh interface. I think this is the normal way.
+
+Example:
+AS1
+sip:as1.open-ims.test:5070
+
+AS2
+sip:as2.open-ims.test:5080
+
+The Identity field of the Origin-host will be as1.open-ims.test,
+as2.open-ims.test respectively.
+The IP address for the two names can be of course, the same.
+
+Cheers,
+Adrian
+
+
+Lu&#237;s Filipe Silva wrote:
+&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> I have a doubt regarding the sh interface. So, in your application (web
+</I>&gt;<i> interface) you have the AS address as a SIP URI, but according to the
+</I>&gt;<i> 29.328 spec, the AS is identified by the Origin-Host which is an IP
+</I>&gt;<i> address. How do you validate the AS, i.e. how do you check if an AS has
+</I>&gt;<i> permissions to the operation requested? If you only match with the IP
+</I>&gt;<i> part from the SIP URI, there can be a problem because according with
+</I>&gt;<i> your web interface you can have multiple AS with the same IP address
+</I>&gt;<i> (not with the same SIP URI). Which one do you validate?
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Luis Silva
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFF+DFZ6Yml36HNIwcRArmBAJ9ocsL+glyAzTpCPX7YFbF2yfGzIwCeLWtl
+GVeUXBq9jDwXovv+NEEI08I=
+=F7bI
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000252.html">[OpenIMSCore-HSS] sh question
+</A></li>
+	<LI>Next message: <A HREF="000254.html">[OpenIMSCore-HSS] sh question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#253">[ date ]</a>
+              <a href="thread.html#253">[ thread ]</a>
+              <a href="subject.html#253">[ subject ]</a>
+              <a href="author.html#253">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r149 - in	FHoSS/trunk/src/de/fhg/fokus/hss: action model
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r149%20-%20in%0A%09FHoSS/trunk/src/de/fhg/fokus/hss%3A%20action%20model&In-Reply-To=%3C200702211242.l1LCgOdK026376%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000214.html">
+   <LINK REL="Next"  HREF="000216.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r149 - in	FHoSS/trunk/src/de/fhg/fokus/hss: action model</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r149%20-%20in%0A%09FHoSS/trunk/src/de/fhg/fokus/hss%3A%20action%20model&In-Reply-To=%3C200702211242.l1LCgOdK026376%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r149 - in	FHoSS/trunk/src/de/fhg/fokus/hss: action model">adp at users.berlios.de
+       </A><BR>
+    <I>Wed Feb 21 13:42:24 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000214.html">[OpenIMSCore-HSS] [SVN-FHoSS] r146 - in FHoSS/trunk: src	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/model src/mappings src-web/WEB-INF	src-web/pages/profiles
+</A></li>
+        <LI>Next message: <A HREF="000216.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Open Source Java Diameter	implementation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#215">[ date ]</a>
+              <a href="thread.html#215">[ thread ]</a>
+              <a href="subject.html#215">[ subject ]</a>
+              <a href="author.html#215">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-02-21 13:41:51 +0100 (Wed, 21 Feb 2007)
+New Revision: 149
+
+Modified:
+   FHoSS/trunk/src/de/fhg/fokus/hss/action/Impu2ImpiAction.java
+   FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java
+Log:
+Fix for deleting registered IMPUs from IMPI. Duble check for impu2impi association before sending Cx updates.
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/action/Impu2ImpiAction.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/action/Impu2ImpiAction.java	2007-02-20 20:13:28 UTC (rev 148)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/action/Impu2ImpiAction.java	2007-02-21 12:41:51 UTC (rev 149)
+@@ -54,6 +54,7 @@
+ 
+ import de.fhg.fokus.hss.form.ImpiForm;
+ import de.fhg.fokus.hss.model.ImpuBO;
++import de.fhg.fokus.hss.model.Impu;
+ import de.fhg.fokus.hss.util.HibernateUtil;
+ import de.fhg.fokus.hss.util.InfrastructureException;
+ 
+@@ -81,8 +82,17 @@
+ 		Integer impuPk = Integer.valueOf(form.getImpuSelectId());
+ 		boolean isLink = form.getImpuSelect().equals(&quot;remove&quot;) == false;
+ 
++		
+ 		try{
+ 			HibernateUtil.beginTransaction();
++
++			Impu impu = (Impu) HibernateUtil.getCurrentSession().load(Impu.class, impuPk);
++	
++			if (isLink == false &amp;&amp; !impu.getUserStatus().equals(Impu.USER_STATUS_NOT_REGISTERED)){
++				impu.setUserStatus(Impu.USER_STATUS_NOT_REGISTERED);
++				impuBO.saveOrUpdate(impu);
++			}
++
+ 			impuBO.linkImpu2Impi(impiPk, impuPk, isLink);
+ 			HibernateUtil.commitTransaction();
+ 		}
+
+Modified: FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java
+===================================================================
+--- FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java	2007-02-20 20:13:28 UTC (rev 148)
++++ FHoSS/trunk/src/de/fhg/fokus/hss/model/SvpBO.java	2007-02-21 12:41:51 UTC (rev 149)
+@@ -132,7 +132,7 @@
+                 Impu impu = (Impu) itImpu.next();
+                 cxUserProfil = new CxUserProfil(impu);
+ 
+-                if (cxUserProfil.isRegistered()){
++                if (cxUserProfil.isRegistered() &amp;&amp; cxUserProfil.getImpi() != null){
+                     URI privateIdentity = new URI(cxUserProfil.getImpi().getImpiString());
+                     UpdateCxOperation cxOperation = new UpdateCxOperation(cxUserProfil, privateIdentity);
+                     operationsList.add(cxOperation);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000214.html">[OpenIMSCore-HSS] [SVN-FHoSS] r146 - in FHoSS/trunk: src	src/de/fhg/fokus/hss/action src/de/fhg/fokus/hss/form	src/de/fhg/fokus/hss/model src/mappings src-web/WEB-INF	src-web/pages/profiles
+</A></li>
+	<LI>Next message: <A HREF="000216.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Open Source Java Diameter	implementation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#215">[ date ]</a>
+              <a href="thread.html#215">[ thread ]</a>
+              <a href="subject.html#215">[ subject ]</a>
+              <a href="author.html#215">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

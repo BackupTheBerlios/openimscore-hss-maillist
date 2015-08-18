@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] XML schema for UDA
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20XML%20schema%20for%20UDA&In-Reply-To=%3C14513D9CD9650446BF2F0A76846EE312010EA2BC%40inosplex01.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000532.html">
+   <LINK REL="Next"  HREF="000540.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] XML schema for UDA</H1>
+    <B>Jo&#227;o Vitor Torres</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20XML%20schema%20for%20UDA&In-Reply-To=%3C14513D9CD9650446BF2F0A76846EE312010EA2BC%40inosplex01.ptin.corpPT.com%3E"
+       TITLE="[OpenIMSCore-HSS] XML schema for UDA">joao-v-torres at ptinovacao.pt
+       </A><BR>
+    <I>Wed Jun 27 17:29:47 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000532.html">[OpenIMSCore-HSS] [SVN-FHoSS] r344 - hss database-dump update
+</A></li>
+        <LI>Next message: <A HREF="000540.html">[OpenIMSCore-HSS] XML schema for UDA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+ 
+
+The root element for the xml in the User-Data AVP in UDA messages should be Sh-Data, not ShData.  I've attached the schema from 3GPP TS 29.328 Rel7 for your reference.
+
+ 
+
+The problem is in lines 55 e 56 of ShDataTypes.java file.
+
+        public static final String ShData_s = &quot;&lt;ShData&gt;&quot;;
+
+        public static final String ShData_e = &quot;&lt;/ShData&gt;&quot;;
+
+ 
+
+Jo&#227;o Vitor Torres
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070627/bb599a12/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070627/bb599a12/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ShDataType_Rel7.xsd
+Type: application/octet-stream
+Size: 25029 bytes
+Desc: ShDataType_Rel7.xsd
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070627/bb599a12/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070627/bb599a12/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000532.html">[OpenIMSCore-HSS] [SVN-FHoSS] r344 - hss database-dump update
+</A></li>
+	<LI>Next message: <A HREF="000540.html">[OpenIMSCore-HSS] XML schema for UDA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

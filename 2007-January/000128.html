@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Not able to start hss
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Not%20able%20to%20start%20hss&In-Reply-To=%3C45A27259.9030706%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000126.html">
+   <LINK REL="Next"  HREF="000129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Not able to start hss</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Not%20able%20to%20start%20hss&In-Reply-To=%3C45A27259.9030706%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Not able to start hss">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jan  8 17:33:29 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000126.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+        <LI>Next message: <A HREF="000129.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi Manjunath,
+
+As it looks, the problem occurs due to a improper JDBC connection
+setting (&quot; No connection properties specified - the user must supply
+JDBC connections&quot;). Have you changed anything in
+&quot;conf/hibernate.properties&quot;? That file is responsible for specifying the
+connection to the mysql database. If not, probably your mysql is not
+configured properly on your machine and the HSS can't connect to the
+database.
+
+Cheers,
+Adrian
+
+Manjunath Kadaba wrote:
+&gt;<i> Hi Kedar,
+</I>&gt;<i> 
+</I>&gt;<i> Below is my hss.properties file
+</I>&gt;<i> 
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> # host: specifies where the tomcat listen, e.g. localhost,
+</I>&gt;<i> absinthe.open-ims.org
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> host=localhost
+</I>&gt;<i> 
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> # appPath: specifies the relative app path of the console web ap
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> # Productiv
+</I>&gt;<i> appPath=/hss.web.console
+</I>&gt;<i> 
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> # operator_id, as hex bytes, required length 32 byte,
+</I>&gt;<i> # e.g. 00000000000000000000000000000000
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> operatorId=00000000000000000000000000000000
+</I>&gt;<i> 
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> # amf_id: Default amf id as hex bytes, required length 4 byte, e.g. 0000
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> amfId=0000
+</I>&gt;<i> 
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> # defaultPsiImpi: All PSI are assigned by this impi
+</I>&gt;<i> ################################################################################
+</I>&gt;<i> 
+</I>&gt;<i> psi.defaultImpi=<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">psi at globaledgesoft.com</A>
+</I>&gt;<i> psi.defaultPriChrgCollFN=psi.globaledgesoft.com
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Regards
+</I>&gt;<i> Manjunath
+</I>&gt;<i> 
+</I>&gt;<i> Message: 3
+</I>&gt;<i> Date: Mon, 8 Jan 2007 05:24:50 -0800 (PST)
+</I>&gt;<i> From: Kedar P Bhise &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">kbhise_if at yahoo.com</A>&gt;
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] Not able to start hss
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">20070108132450.26641.qmail at web39807.mail.mud.yahoo.com</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;us-ascii&quot;
+</I>&gt;<i> 
+</I>&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> Are your HSS properties configured correctly? Perhaps if you attach your
+</I>&gt;<i> HSS configuration, we could provide a proper answer.
+</I>&gt;<i> 
+</I>&gt;<i> A quicker way would be to read through the mailing list archives. This
+</I>&gt;<i> issue has been discussed in the past as well.
+</I>&gt;<i> 
+</I>&gt;<i> Kedar P Bhise
+</I>&gt;<i> Architect
+</I>&gt;<i> T-Systems India
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am able to run pcscf, icscf, scscf and sip2ims
+</I>&gt;&gt;<i> But when i try to run FHoSS/deploy/startup.sh shows the following error
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impu.notifyImsUserStates -&gt; notify_ims_user_state
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Impu.notifyScscfnames -&gt; notify_scscfname
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Trigpt.spts -&gt; spt
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.PsiTempl.psis -&gt; psi
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.RepData.notifyRepDatas -&gt; notify_rep_data
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Svp.ifc2svps -&gt; ifc2svp
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+</I>&gt;&gt;<i> de.fhg.fokus.hss.model.Svp.impus -&gt; impu
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.Configuration  - processing association
+</I>&gt;&gt;<i> property references
+</I>&gt;&gt;<i> [main] INFO  org.hibernate.cfg.Configuration  - processing foreign key
+</I>&gt;&gt;<i> constraints
+</I>&gt;&gt;<i> [main] WARN  org.hibernate.connection.UserSuppliedConnectionProvider 
+</I>&gt;&gt;<i> - No connection properties specified - the user must supply JDBC
+</I>&gt;&gt;<i> connections
+</I>&gt;&gt;<i> [main] ERROR de.fhg.fokus.hss.util.HibernateUtil  - Initial
+</I>&gt;&gt;<i> SessionFactory creation failed.
+</I>&gt;&gt;<i> org.hibernate.HibernateException: database product name cannot be null
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.dialect.DialectFactory.determineDialect(DialectFactory.java:57)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.dialect.DialectFactory.buildDialect(DialectFactory.java:39)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory.determineDialect(SettingsFactory.java:374)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory.buildSettings(SettingsFactory.java:110)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration.buildSettings(Configuration.java:1463)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1004)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.util.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:75)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.init(OriginHostResolver.java:87)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.&lt;clinit&gt;(OriginHostResolver.java:76)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.HssDiameterStack.startup(HssDiameterStack.java:117)
+</I>&gt;&gt;<i>        at de.fhg.fokus.hss.main.HssServer.main(HssServer.java:93)
+</I>&gt;&gt;<i> Exception in thread &quot;main&quot; java.lang.ExceptionInInitializerError
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.util.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:82)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.init(OriginHostResolver.java:87)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.OriginHostResolver.&lt;clinit&gt;(OriginHostResolver.java:76)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.diam.HssDiameterStack.startup(HssDiameterStack.java:117)
+</I>&gt;&gt;<i>        at de.fhg.fokus.hss.main.HssServer.main(HssServer.java:93)
+</I>&gt;&gt;<i> Caused by: org.hibernate.HibernateException: database product name
+</I>&gt;&gt;<i> cannot be null
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.dialect.DialectFactory.determineDialect(DialectFactory.java:57)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.dialect.DialectFactory.buildDialect(DialectFactory.java:39)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory.determineDialect(SettingsFactory.java:374)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.SettingsFactory.buildSettings(SettingsFactory.java:110)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration.buildSettings(Configuration.java:1463)
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1004)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>        at
+</I>&gt;&gt;<i> de.fhg.fokus.hss.util.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:75)
+</I>&gt;&gt;<i>        ... 4 more
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> An y help is highly appreciated.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards
+</I>&gt;&gt;<i> Manjunath 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> This e-mail contains PRIVILEGED AND CONFIDENTIAL INFORMATION intended solely for the use of the addressee(s). If you are not the intended recipient, please notify the sender by e-mail and delete the original message.Global Edge Software Ltd has taken every reasonable precaution to minimize this risk, but is not liable for any damage you may sustain as a result of any virus in this e-mail. You should carry out your own virus checks before opening the e-mail or attachment. Global Edge Software Ltd reserves the right to monitor and review the content of all messages sent to or from this e-mail address
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diplomat Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Alee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFonJZ6Yml36HNIwcRAjw9AJsHimkP13MTBcuMTs0kKyEdVOdVoQCglta9
+j2MQuxDMA+qBsJyOjlE7g6U=
+=Pl6A
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000126.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+	<LI>Next message: <A HREF="000129.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

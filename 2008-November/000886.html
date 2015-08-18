@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Trigger point - request URI generic
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Trigger%20point%20-%20request%20URI%20generic&In-Reply-To=%3C1227010618.13416.7.camel%40peer1%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000885.html">
+   <LINK REL="Next"  HREF="000888.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Trigger point - request URI generic</H1>
+    <B>Enrique de Meer</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Trigger%20point%20-%20request%20URI%20generic&In-Reply-To=%3C1227010618.13416.7.camel%40peer1%3E"
+       TITLE="[OpenIMSCore-HSS] Trigger point - request URI generic">enrique.demeer at inycom.es
+       </A><BR>
+    <I>Tue Nov 18 13:16:58 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000885.html">[OpenIMSCore-HSS] Trigger point - request URI generic
+</A></li>
+        <LI>Next message: <A HREF="000888.html">[OpenIMSCore-HSS] Trigger point - request URI generic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#886">[ date ]</a>
+              <a href="thread.html#886">[ thread ]</a>
+              <a href="subject.html#886">[ subject ]</a>
+              <a href="author.html#886">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi i2cat,
+
+I found the thread in the mailing lists in which Dragos talks about
+triggering on the Request-URI.
+
+Dragos says:
+
+&quot;Unfortunately, the 3GPP specs do not indicate the possibility of using 
+
+regular expressions in the Request-URI. I find this strange, but it is 
+implemented like this right now.
+
+I would propose extensions, as this is often quite bothering. Now we 
+triggered instead on the To header, as for headers you can use regular 
+expression, but this is not so good.&quot;
+
+
+And this is the complete thread:
+
+<A HREF="http://lists.berlios.de/pipermail/openimscore-users/2008-May/005498.html">http://lists.berlios.de/pipermail/openimscore-users/2008-May/005498.html</A>
+
+
+
+Take a look, I think it will be useful for you.
+
+Regards, 
+
+Enrique
+
+
+
+El mar, 18-11-2008 a las 11:52 +0100, Enrique de Meer escribi&#243;:
+
+&gt;<i> Hi i2cat,
+</I>&gt;<i> 
+</I>&gt;<i> I think there was some problems using that kind of nomenclature with
+</I>&gt;<i> Request-URIs in Trigger Point....I remember you should use it in &quot;To&quot;
+</I>&gt;<i> header instead of &quot;Request-URI&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> I am going to look for it in another thread...and I will send the link
+</I>&gt;<i> to you.
+</I>&gt;<i> 
+</I>&gt;<i> I hope it helps...
+</I>&gt;<i> 
+</I>&gt;<i> Best Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Enrique
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> El vie, 14-11-2008 a las 07:13 +0100, Franz Edler escribi&#243;: 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Hi i2cat Fundacion,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &gt; But now I want to do a trigger to
+</I>&gt;<i> &gt; &gt; process a generic request URI to avoid to do a trigger point for similar
+</I>&gt;<i> &gt; &gt; request URIs as following:
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ws1 at open-ims.test</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ws2 at open-ims.test</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">wsXXXXXX at open-ims.test</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I do not know how to do this and I have tried to use &quot; .* &quot; without
+</I>&gt;<i> &gt; &gt; success:
+</I>&gt;<i> &gt; &gt; (ws.*@open-ims.test)--&gt;DO NOT WORK
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I don't think that it is possible to use a wildcard notation for the request
+</I>&gt;<i> &gt; URI because that would result in a bulk operation to set the profile for all
+</I>&gt;<i> &gt; PUIDs matching the wildcard expression.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt; Franz
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> 
+</I>&gt;<i> Enrique de Meer
+</I>&gt;<i> Intelligent Networks
+</I>&gt;<i> INSTRUMENTACI&#211;N Y COMPONENTES, S.A.
+</I>&gt;<i> Tel. 974 215 493
+</I>&gt;<i> Fax. 976 010 977
+</I>&gt;<i> www.inycom.es
+</I>
+-- 
+
+Enrique de Meer
+Intelligent Networks
+INSTRUMENTACI&#211;N Y COMPONENTES, S.A.
+Tel. 974 215 493
+Fax. 976 010 977
+www.inycom.es
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20081118/e40bb65b/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20081118/e40bb65b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000885.html">[OpenIMSCore-HSS] Trigger point - request URI generic
+</A></li>
+	<LI>Next message: <A HREF="000888.html">[OpenIMSCore-HSS] Trigger point - request URI generic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#886">[ date ]</a>
+              <a href="thread.html#886">[ thread ]</a>
+              <a href="subject.html#886">[ subject ]</a>
+              <a href="author.html#886">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

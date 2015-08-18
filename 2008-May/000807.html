@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] PUR Update issue
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PUR%20Update%20issue&In-Reply-To=%3C1211786231.6010.15.camel%40peer1%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000806.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] PUR Update issue</H1>
+    <B>Enrique de Meer</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20PUR%20Update%20issue&In-Reply-To=%3C1211786231.6010.15.camel%40peer1%3E"
+       TITLE="[OpenIMSCore-HSS] PUR Update issue">enrique.demeer at inycom.es
+       </A><BR>
+    <I>Mon May 26 09:17:11 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000806.html">[OpenIMSCore-HSS] PUR Update issue
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#807">[ date ]</a>
+              <a href="thread.html#807">[ thread ]</a>
+              <a href="subject.html#807">[ subject ]</a>
+              <a href="author.html#807">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Terry,
+
+&quot;container&quot; means something special which contains the data if you want
+to store a xml String. 
+
+That's because the FHoSS parser interprets the tags inside your data and
+as you can see it only stores the last field after &quot;jumping&quot; through all
+the tag's.
+
+I had the same issue and to fix that you can involve your data in
+[CDATA[...]]
+
+for example:
+
+[CDATA[&lt;&#65279;Name&gt;Test User&lt;/Name&gt;&lt;Phone&gt;8005551212&lt;/Phone&gt;]]
+
+test it. it ran for me.
+
+
+Regards, Enrique
+
+
+El vie, 23-05-2008 a las 15:45 +0200, Terry Logon escribi&#243;:
+&gt;<i> We are using Rel 7 of FHoSS. We find that PUR Update stores only the
+</I>&gt;<i> last parameter of Service-Data.
+</I>&gt;<i> This problem was reported by someone else earlier and the suggestion
+</I>&gt;<i> to fix was to add a Container around
+</I>&gt;<i> the data. We added a container and have the same problem.
+</I>&gt;<i> 
+</I>&gt;<i> For example, if the following is sent, 8005551212 is stored in the
+</I>&gt;<i> rep_data field.
+</I>&gt;<i> 
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;Sh-Data xmlns:xsi=&quot;<A HREF="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</A>&quot;
+</I>&gt;<i> xsi:noNamespaceSchemaLocation=&quot;ShDataType.xsd&quot;&gt;
+</I>&gt;<i> &lt;RepositoryData&gt;
+</I>&gt;<i> &lt;ServiceIndication&gt;AppData&lt;/ServiceIndication&gt;
+</I>&gt;<i> &lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+</I>&gt;<i> &lt;ServiceData&gt;
+</I>&gt;<i> &lt;Container&gt;
+</I>&gt;<i> &lt;Name&gt;Test User&lt;/Name&gt;
+</I>&gt;<i> &lt;Phone&gt;8005551212&lt;/Phone&gt;
+</I>&gt;<i> &lt;/Container&gt;
+</I>&gt;<i> &lt;/ServiceData&gt;
+</I>&gt;<i> &lt;/RepositoryData&gt;
+</I>&gt;<i> &lt;/Sh-Data&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> If instead this is sent, &quot;Test User&quot; is stored.:
+</I>&gt;<i> &lt;RepositoryData&gt;
+</I>&gt;<i> &lt;ServiceIndication&gt;AppData&lt;/ServiceIndication&gt;
+</I>&gt;<i> &lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+</I>&gt;<i> &lt;ServiceData&gt;
+</I>&gt;<i> &lt;Container&gt;
+</I>&gt;<i> &lt;Name&gt;Test User&lt;/Name&gt;
+</I>&gt;<i> &lt;/Container&gt;
+</I>&gt;<i> &lt;/ServiceData&gt;
+</I>&gt;<i> &lt;/RepositoryData&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Finally if this is sent, &quot;8006667676&quot; is stored:
+</I>&gt;<i> &lt;RepositoryData&gt;
+</I>&gt;<i> &lt;ServiceIndication&gt;AppData&lt;/ServiceIndication&gt;
+</I>&gt;<i> &lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;
+</I>&gt;<i> &lt;ServiceData&gt;
+</I>&gt;<i> &lt;Container&gt;
+</I>&gt;<i> &lt;Name&gt;Test User&lt;/Name&gt;
+</I>&gt;<i> &lt;Phone&gt;8005551212&lt;/Phone&gt;
+</I>&gt;<i> &lt;Fax&gt;8006667676&lt;/Fax&gt;
+</I>&gt;<i> &lt;/Container&gt;
+</I>&gt;<i> &lt;/ServiceData&gt;
+</I>&gt;<i> &lt;/RepositoryData&gt;
+</I>&gt;<i> &lt;/Sh-Data&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se informa a quien lo reciba por error que la informaci&#243;n contenida en el mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000806.html">[OpenIMSCore-HSS] PUR Update issue
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#807">[ date ]</a>
+              <a href="thread.html#807">[ thread ]</a>
+              <a href="subject.html#807">[ subject ]</a>
+              <a href="author.html#807">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

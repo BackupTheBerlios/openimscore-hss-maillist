@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS	infotoI-CSCF?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Help%3A%20Dx%20Interface%20-%20How%20SLF%20convey%20HSS%0A%09infotoI-CSCF%3F&In-Reply-To=%3COFD85B83CB.DF318578-ON652572E5.0021494B-652572E5.0022E646%40flextronicssoftware.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000432.html">
+   <LINK REL="Next"  HREF="000436.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS	infotoI-CSCF?</H1>
+    <B>Hrusikesa Patro</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Help%3A%20Dx%20Interface%20-%20How%20SLF%20convey%20HSS%0A%09infotoI-CSCF%3F&In-Reply-To=%3COFD85B83CB.DF318578-ON652572E5.0021494B-652572E5.0022E646%40flextronicssoftware.com%3E"
+       TITLE="[OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS	infotoI-CSCF?">Hrusikesa.Patro at aricent.com
+       </A><BR>
+    <I>Thu May 24 08:22:38 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000432.html">[OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS info	toI-CSCF?
+</A></li>
+        <LI>Next message: <A HREF="000436.html">[OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS	infotoI-CSCF?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#433">[ date ]</a>
+              <a href="thread.html#433">[ thread ]</a>
+              <a href="subject.html#433">[ subject ]</a>
+              <a href="author.html#433">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+Thanks for the reply. One more clarification regarding this, is needed.
+
+Section 6.1.7, RFC 3588 says reply (from SLF to I-CSCF) will have &quot;command 
++ 'E' bit + Result-Code = DIAMETER_REDIRECT_INDICATION + Redirect-Host 
+AVP(s)&quot;. It's not clear whether R bit will be reset. By seeing Result-Code 
+AVP, I'm assuming it's LIA. But, TS 29.229 (Section 6.1.6) doesn't include 
+Redirect-Host AVP. Will it be part of __*[ AVP ]__ ?
+
+Rgs,
+Hrusi
+
+
+
+&quot;Franz Edler&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>&gt; 
+Sent by: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+24/05/07 10:06 AM
+
+Please respond to
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>
+
+
+To
+Hrusikesa Patro/CHE/<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">HSS at HSS</A>, &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>&gt;
+cc
+
+Subject
+Re: [OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS 
+infotoI-CSCF?
+
+
+
+
+
+
+Hello Hrusi,
+
+&gt;<i> If it is LIA, which AVP will be used?
+</I>
+TS 29.229 (chapter 5.5) says:
+Once the redirector function (SLF) has returned the address or the
+destination HSS (using Redirect-Host AVP), ...
+
+Cheers
+Franz 
+
+_______________________________________________
+OpenIMSCore-HSS mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+
+
+
+***********************  Aricent-Unclassified   ***********************
+&quot;DISCLAIMER: This message is proprietary to Aricent and is intended solely for the use of 
+the individual to whom it is addressed. It may contain privileged or confidential information and should not be 
+circulated or used for any purpose other than for what it is intended. If you have received this message in error, 
+please notify the originator immediately. If you are not the intended recipient, you are notified that you are strictly
+prohibited from using, copying, altering, or disclosing the contents of this message. Aricent accepts no responsibility for 
+loss or damage arising from the use of the information transmitted by this email including damage from virus.&quot;
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070524/191739ed/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070524/191739ed/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000432.html">[OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS info	toI-CSCF?
+</A></li>
+	<LI>Next message: <A HREF="000436.html">[OpenIMSCore-HSS] Help: Dx Interface - How SLF convey HSS	infotoI-CSCF?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#433">[ date ]</a>
+              <a href="thread.html#433">[ thread ]</a>
+              <a href="subject.html#433">[ subject ]</a>
+              <a href="author.html#433">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Interaction between Open Diameter Client and	OpenImsCore HSS - PNR Message failures
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Interaction%20between%20Open%20Diameter%20Client%20and%0A%09OpenImsCore%20HSS%20-%20PNR%20Message%20failures&In-Reply-To=%3C7A08D093BA1381489222A2C886DF77CE0610B227%40BLR-EC-MBX04.wipro.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000369.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Interaction between Open Diameter Client and	OpenImsCore HSS - PNR Message failures</H1>
+    <B>sheik.farid at wipro.com</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Interaction%20between%20Open%20Diameter%20Client%20and%0A%09OpenImsCore%20HSS%20-%20PNR%20Message%20failures&In-Reply-To=%3C7A08D093BA1381489222A2C886DF77CE0610B227%40BLR-EC-MBX04.wipro.com%3E"
+       TITLE="[OpenIMSCore-HSS] Interaction between Open Diameter Client and	OpenImsCore HSS - PNR Message failures">sheik.farid at wipro.com
+       </A><BR>
+    <I>Sat Apr 28 16:28:47 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000369.html">[OpenIMSCore-HSS] Application Server connection to HSS
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#370">[ date ]</a>
+              <a href="thread.html#370">[ thread ]</a>
+              <a href="subject.html#370">[ subject ]</a>
+              <a href="author.html#370">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+
+Hi All,
+
+   Has anyone used open diameter as a client with OpenImsCore Hss for implementing Sh interface?
+  
+   There are mismatch in message formats between these two open sources.
+
+   I am facing an issue when I try to get a PNR from HSS: 
+
+  1)I sent an SNR(From Diameter Cleint) request to HSS for change in userState notification.
+
+  2)I have deregisted the user.
+
+  3)The PNR sent to Diameter Cleint says &quot;missing session-id avp&quot; and &quot;Parse Errors&quot; etc.
+
+  What could be the problem?  The &quot;r&quot; flag is also found to be &quot;0&quot; in the PNR message. Pls suggest.
+
+  These are the error messages:
+
+missing Session-Id avp.
+Parse error(24292|3033656208) IO [] reported: Parsing error
+invalid message length
+Parse error(24292|3033656208) IO [] reported: Parsing error
+command (7566126,r-flag=0) not found
+(24292|3033656208) IO [] reported: Parsing error
+command (7566126,r-flag=0) not found
+(24292|3033656208) IO [] reported: Parsing error
+command (21,r-flag=0) not found
+(24292|3033656208) IO [] reported: Parsing error
+command (7566126,r-flag=0) not found
+(24292|3033656208) IO [] reported: Parsing error
+command (7628147,r-flag=0) not found
+(24292|3033656208) IO [] reported: Parsing error
+
+
+--Sheik Farid
+
+
+
+
+The information contained in this electronic message and any attachments to this message are intended for the exclusive use of the addressee(s) and may contain proprietary, confidential or privileged information. If you are not the intended recipient, you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately and destroy all copies of this message and any attachments. 
+
+WARNING: Computer viruses can be transmitted via email. The recipient should check this email and any attachments for the presence of viruses. The company accepts no liability for any damage caused by any virus transmitted by this email.
+ 
+www.wipro.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070428/af35b4fe/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070428/af35b4fe/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000369.html">[OpenIMSCore-HSS] Application Server connection to HSS
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#370">[ date ]</a>
+              <a href="thread.html#370">[ thread ]</a>
+              <a href="subject.html#370">[ subject ]</a>
+              <a href="author.html#370">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

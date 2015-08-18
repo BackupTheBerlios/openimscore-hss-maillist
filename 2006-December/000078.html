@@ -1,0 +1,2100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS compilation errors
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20compilation%20errors&In-Reply-To=%3C457D45E4.5010900%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000077.html">
+   <LINK REL="Next"  HREF="000079.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS compilation errors</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20compilation%20errors&In-Reply-To=%3C457D45E4.5010900%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS compilation errors">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Dec 11 12:49:56 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000077.html">[OpenIMSCore-HSS] FHoSS compilation errors
+</A></li>
+        <LI>Next message: <A HREF="000079.html">[OpenIMSCore-HSS] Problem with registration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hello Gaurav,
+
+I am thinking that you didn't compile the sources with java 1.5. Be
+aware, that even you have java 1.5 installed on your machine, your
+compiler settings can be changed, to compile your sources also as java
+1.4 or as 1.3. So, verify again your compiler settings. To force your
+compilation to 1.5 you can specify this in build.xml, at javac section.
+Add compiler=&quot;javac1.5&quot; attribute to javac.
+
+Also, another possibility is that you have more versions of java
+installed on your machine, and &quot;ant&quot; see your other version, not the 1.5
+version. If you use linux, look on JAVA_HOME variable that is used by
+ant. (e.g. echo $JAVA_HOME) If is not pointing to your java1.5 change it
+with export.
+
+I am almost sure, that one of these is the cause for your problem.
+
+Adrian
+
+Gaurav Kansal wrote:
+&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> I checked the contents of src-gen folder. I am attaching the log of
+</I>&gt;<i> files in that folder.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> I am not connected to internet. But I have done the steps mentioned in
+</I>&gt;<i> FAQs so that ?ant gen? is successful.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> I face errors when I run ?ant compile?. The log for same is also
+</I>&gt;<i> attached with this mail.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Gaurav Kansal
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Velankani Software Private Limited,
+</I>&gt;<i> 
+</I>&gt;<i> 43, Electronics City,
+</I>&gt;<i> 
+</I>&gt;<i> Phase - 2, Hosur Road,
+</I>&gt;<i> 
+</I>&gt;<i> Bangalore - 560100
+</I>&gt;<i> 
+</I>&gt;<i> Phone : +91 80 4037 5300/01 Extn. # 5401
+</I>&gt;<i> 
+</I>&gt;<i> Direct  : +91 80 4037 5401
+</I>&gt;<i> 
+</I>&gt;<i> Fax     : +91 80 4037 5303
+</I>&gt;<i> 
+</I>&gt;<i> Mobile : +91 98454 22400
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">gkansal at velankani.com</A>
+</I>&gt;<i> 
+</I>&gt;<i> www.velankani.com
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> &quot;Every Customer is a Reference Customer&quot;
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Hi Gaurav,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> seems that src-gen was not created. Please take a look at
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="000064.html">http://lists.berlios.de/pipermail/openimscore-hss/2006-December/000064.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> where this issue was also covered.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> On Mon, 2006-12-11 at 14:36 +0530, Gaurav Kansal wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/ Hi/
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/ /
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/  /
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/ /
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/ I am facing the compilation errors while doing ?ant compile?. The/
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/ errors are there in the attached log file. Can somebody help in/
+</I>&gt;<i> 
+</I>&gt;&gt;<i>/ resolving these? Java version installed is 1.5.0_10./
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> de:
+</I>&gt;<i> fhg
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg:
+</I>&gt;<i> fokus
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus:
+</I>&gt;<i> cx
+</I>&gt;<i> sh
+</I>&gt;<i> zh
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/cx:
+</I>&gt;<i> datatypes
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/cx/datatypes:
+</I>&gt;<i> ApplicationServerDescriptor.java
+</I>&gt;<i> ApplicationServer.java
+</I>&gt;<i> CoreNetworkServicesAuthorizationDescriptor.java
+</I>&gt;<i> CoreNetworkServicesAuthorization.java
+</I>&gt;<i> IMSSubscriptionDescriptor.java
+</I>&gt;<i> IMSSubscription.java
+</I>&gt;<i> InitialFilterCriteriaDescriptor.java
+</I>&gt;<i> InitialFilterCriteria.java
+</I>&gt;<i> PublicIdentityDescriptor.java
+</I>&gt;<i> PublicIdentity.java
+</I>&gt;<i> ServiceProfileDescriptor.java
+</I>&gt;<i> ServiceProfile.java
+</I>&gt;<i> SessionDescriptionDescriptor.java
+</I>&gt;<i> SessionDescription.java
+</I>&gt;<i> SIPHeaderDescriptor.java
+</I>&gt;<i> SIPHeader.java
+</I>&gt;<i> SPTDescriptor.java
+</I>&gt;<i> SPT.java
+</I>&gt;<i> TApplicationServerDescriptor.java
+</I>&gt;<i> TApplicationServer.java
+</I>&gt;<i> TCoreNetworkServicesAuthorizationDescriptor.java
+</I>&gt;<i> TCoreNetworkServicesAuthorization.java
+</I>&gt;<i> THeaderDescriptor.java
+</I>&gt;<i> THeader.java
+</I>&gt;<i> TIMSSubscriptionDescriptor.java
+</I>&gt;<i> TIMSSubscription.java
+</I>&gt;<i> TInitialFilterCriteriaDescriptor.java
+</I>&gt;<i> TInitialFilterCriteria.java
+</I>&gt;<i> TPublicIdentityDescriptor.java
+</I>&gt;<i> TPublicIdentity.java
+</I>&gt;<i> TriggerPointDescriptor.java
+</I>&gt;<i> TriggerPoint.java
+</I>&gt;<i> TSePoTriChoiceDescriptor.java
+</I>&gt;<i> TSePoTriChoice.java
+</I>&gt;<i> TSePoTriDescriptor.java
+</I>&gt;<i> TSePoTri.java
+</I>&gt;<i> TServiceProfileDescriptor.java
+</I>&gt;<i> TServiceProfile.java
+</I>&gt;<i> TSessionDescriptionDescriptor.java
+</I>&gt;<i> TSessionDescription.java
+</I>&gt;<i> TTriggerDescriptor.java
+</I>&gt;<i> TTrigger.java
+</I>&gt;<i> types
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/cx/datatypes/types:
+</I>&gt;<i> TDefaultHandlingDescriptor.java
+</I>&gt;<i> TDefaultHandling.java
+</I>&gt;<i> TDirectionOfRequestDescriptor.java
+</I>&gt;<i> TDirectionOfRequest.java
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/sh:
+</I>&gt;<i> data
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/sh/data:
+</I>&gt;<i> ApplicationServerDescriptor.java
+</I>&gt;<i> ApplicationServer.java
+</I>&gt;<i> ChargingInformationDescriptor.java
+</I>&gt;<i> ChargingInformation.java
+</I>&gt;<i> CSLocationInformationDescriptor.java
+</I>&gt;<i> CSLocationInformation.java
+</I>&gt;<i> InitialFilterCriteriaDescriptor.java
+</I>&gt;<i> InitialFilterCriteria.java
+</I>&gt;<i> MSCNumberDescriptor.java
+</I>&gt;<i> MSCNumber.java
+</I>&gt;<i> PSLocationInformationDescriptor.java
+</I>&gt;<i> PSLocationInformation.java
+</I>&gt;<i> PublicIdentifiersDescriptor.java
+</I>&gt;<i> PublicIdentifiers.java
+</I>&gt;<i> RepositoryDataDescriptor.java
+</I>&gt;<i> RepositoryData.java
+</I>&gt;<i> ServiceDataDescriptor.java
+</I>&gt;<i> ServiceData.java
+</I>&gt;<i> SessionDescriptionDescriptor.java
+</I>&gt;<i> SessionDescription.java
+</I>&gt;<i> SGSNNumberDescriptor.java
+</I>&gt;<i> SGSNNumber.java
+</I>&gt;<i> ShDataDescriptor.java
+</I>&gt;<i> ShData.java
+</I>&gt;<i> ShIMSDataDescriptor.java
+</I>&gt;<i> ShIMSData.java
+</I>&gt;<i> SIPHeaderDescriptor.java
+</I>&gt;<i> SIPHeader.java
+</I>&gt;<i> SPTDescriptor.java
+</I>&gt;<i> SPT.java
+</I>&gt;<i> TApplicationServerDescriptor.java
+</I>&gt;<i> TApplicationServer.java
+</I>&gt;<i> TChargingInformationDescriptor.java
+</I>&gt;<i> TChargingInformation.java
+</I>&gt;<i> TCSLocationInformationChoiceDescriptor.java
+</I>&gt;<i> TCSLocationInformationChoice.java
+</I>&gt;<i> TCSLocationInformationDescriptor.java
+</I>&gt;<i> TCSLocationInformation.java
+</I>&gt;<i> THeaderDescriptor.java
+</I>&gt;<i> THeader.java
+</I>&gt;<i> TInitialFilterCriteriaDescriptor.java
+</I>&gt;<i> TInitialFilterCriteria.java
+</I>&gt;<i> TISDNAddressDescriptor.java
+</I>&gt;<i> TISDNAddress.java
+</I>&gt;<i> TPSLocationInformationChoiceDescriptor.java
+</I>&gt;<i> TPSLocationInformationChoice.java
+</I>&gt;<i> TPSLocationInformationDescriptor.java
+</I>&gt;<i> TPSLocationInformation.java
+</I>&gt;<i> TPublicIdentityDescriptor.java
+</I>&gt;<i> TPublicIdentity.java
+</I>&gt;<i> TriggerPointDescriptor.java
+</I>&gt;<i> TriggerPoint.java
+</I>&gt;<i> TSePoTriChoiceDescriptor.java
+</I>&gt;<i> TSePoTriChoice.java
+</I>&gt;<i> TSePoTriDescriptor.java
+</I>&gt;<i> TSePoTri.java
+</I>&gt;<i> TServiceDataDescriptor.java
+</I>&gt;<i> TServiceData.java
+</I>&gt;<i> TSessionDescriptionDescriptor.java
+</I>&gt;<i> TSessionDescription.java
+</I>&gt;<i> TShDataDescriptor.java
+</I>&gt;<i> TShData.java
+</I>&gt;<i> TShIMSDataDescriptor.java
+</I>&gt;<i> TShIMSData.java
+</I>&gt;<i> TTransparentDataDescriptor.java
+</I>&gt;<i> TTransparentData.java
+</I>&gt;<i> TTriggerDescriptor.java
+</I>&gt;<i> TTrigger.java
+</I>&gt;<i> types
+</I>&gt;<i> VLRNumberDescriptor.java
+</I>&gt;<i> VLRNumber.java
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/sh/data/types:
+</I>&gt;<i> TCSUserStateDescriptor.java
+</I>&gt;<i> TCSUserState.java
+</I>&gt;<i> TDefaultHandlingDescriptor.java
+</I>&gt;<i> TDefaultHandling.java
+</I>&gt;<i> TDirectionOfRequestDescriptor.java
+</I>&gt;<i> TDirectionOfRequest.java
+</I>&gt;<i> TIMSUserStateDescriptor.java
+</I>&gt;<i> TIMSUserState.java
+</I>&gt;<i> TPSUserStateDescriptor.java
+</I>&gt;<i> TPSUserState.java
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/zh:
+</I>&gt;<i> data
+</I>&gt;<i> 
+</I>&gt;<i> de/fhg/fokus/zh/data:
+</I>&gt;<i> BsfInfoDescriptor.java
+</I>&gt;<i> BsfInfo.java
+</I>&gt;<i> FlagsDescriptor.java
+</I>&gt;<i> Flags.java
+</I>&gt;<i> GussDescriptor.java
+</I>&gt;<i> Guss.java
+</I>&gt;<i> TbsfInfoDescriptor.java
+</I>&gt;<i> TbsfInfo.java
+</I>&gt;<i> TflagsDescriptor.java
+</I>&gt;<i> TflagsItemDescriptor.java
+</I>&gt;<i> TflagsItem.java
+</I>&gt;<i> Tflags.java
+</I>&gt;<i> TgussDescriptor.java
+</I>&gt;<i> Tguss.java
+</I>&gt;<i> TuidsDescriptor.java
+</I>&gt;<i> TuidsItemDescriptor.java
+</I>&gt;<i> TuidsItem.java
+</I>&gt;<i> Tuids.java
+</I>&gt;<i> TussDescriptor.java
+</I>&gt;<i> Tuss.java
+</I>&gt;<i> TussListDescriptor.java
+</I>&gt;<i> TussListItemDescriptor.java
+</I>&gt;<i> TussListItem.java
+</I>&gt;<i> TussList.java
+</I>&gt;<i> UidsDescriptor.java
+</I>&gt;<i> Uids.java
+</I>&gt;<i> UssDescriptor.java
+</I>&gt;<i> Uss.java
+</I>&gt;<i> UssListDescriptor.java
+</I>&gt;<i> UssList.java
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> Buildfile: build.xml
+</I>&gt;<i> 
+</I>&gt;<i> init:
+</I>&gt;<i> 
+</I>&gt;<i> compile:
+</I>&gt;<i>     [javac] Compiling 156 source files to /opt/OpenIMSCore/FHoSS/bin
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 1. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/ApplicationServer.java (at line 22)
+</I>&gt;<i>     [javac] 	public class ApplicationServer extends TApplicationServer 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ApplicationServer does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 2. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/CoreNetworkServicesAuthorizat
+</I>&gt;<i>     [javac] ion.java (at line 22)
+</I>&gt;<i>     [javac] 	public class CoreNetworkServicesAuthorization extends TCoreNetworkServicesAuthorization 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class CoreNetworkServicesAuthorization does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 3. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/IMSSubscription.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class IMSSubscription extends TIMSSubscription 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IMSSubscription does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 4. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/InitialFilterCriteria.java (at line 22)
+</I>&gt;<i>     [javac] 	public class InitialFilterCriteria extends TInitialFilterCriteria 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class InitialFilterCriteria does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 5. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/PublicIdentity.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class PublicIdentity extends TPublicIdentity 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PublicIdentity does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 6. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/SIPHeader.java (at line 22)
+</I>&gt;<i>     [javac] 	public class SIPHeader extends THeader 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SIPHeader does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 7. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/SPT.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class SPT extends TSePoTri 
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class SPT does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 8. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/ServiceProfile.java (at line 22)
+</I>&gt;<i>     [javac] 	public class ServiceProfile extends TServiceProfile 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ServiceProfile does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 9. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/SessionDescription.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class SessionDescription extends TSessionDescription 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SessionDescription does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 10. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TApplicationServer.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TApplicationServer implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TApplicationServer does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 11. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TCoreNetworkServicesAuthoriz
+</I>&gt;<i>     [javac] ation.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TCoreNetworkServicesAuthorization implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TCoreNetworkServicesAuthorization does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 12. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/THeader.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class THeader implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class THeader does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 13. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TIMSSubscription.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TIMSSubscription implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TIMSSubscription does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 14. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TInitialFilterCriteria.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TInitialFilterCriteria implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TInitialFilterCriteria does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 15. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TPublicIdentity.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TPublicIdentity implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TPublicIdentity does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 16. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TSePoTri.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TSePoTri implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TSePoTri does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 17. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TSePoTriChoice.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TSePoTriChoice implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TSePoTriChoice does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 18. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TServiceProfile.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TServiceProfile implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TServiceProfile does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 19. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TSessionDescription.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TSessionDescription implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TSessionDescription does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 20. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TTrigger.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TTrigger implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TTrigger does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 21. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/TriggerPoint.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TriggerPoint extends TTrigger 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TriggerPoint does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 22. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/types/TDefaultHandling.java
+</I>&gt;<i>     [javac]  (at line 21)
+</I>&gt;<i>     [javac] 	public class TDefaultHandling implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TDefaultHandling does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 23. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/cx/datatypes/types/TDirectionOfRequest.java (at line 21)
+</I>&gt;<i>     [javac] 	public class TDirectionOfRequest implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TDirectionOfRequest does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 24. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/ApplicationServer.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class ApplicationServer extends TApplicationServer 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ApplicationServer does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 25. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/CSLocationInformation.java (at line 22)
+</I>&gt;<i>     [javac] 	public class CSLocationInformation extends TCSLocationInformation 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class CSLocationInformation does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 26. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/ChargingInformation.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class ChargingInformation extends TChargingInformation 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ChargingInformation does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 27. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/InitialFilterCriteria.java (at line 22)
+</I>&gt;<i>     [javac] 	public class InitialFilterCriteria extends TInitialFilterCriteria 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class InitialFilterCriteria does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 28. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/MSCNumber.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class MSCNumber extends TISDNAddress 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class MSCNumber does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 29. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/PSLocationInformation.java (at line 22)
+</I>&gt;<i>     [javac] 	public class PSLocationInformation extends TPSLocationInformation 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PSLocationInformation does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 30. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/PublicIdentifiers.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class PublicIdentifiers extends TPublicIdentity 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PublicIdentifiers does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 31. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/RepositoryData.java (at line 22)
+</I>&gt;<i>     [javac] 	public class RepositoryData extends TTransparentData 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class RepositoryData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 32. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/SGSNNumber.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class SGSNNumber extends TISDNAddress 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SGSNNumber does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 33. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/SIPHeader.java (at line 22)
+</I>&gt;<i>     [javac] 	public class SIPHeader extends THeader 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SIPHeader does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 34. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/SPT.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class SPT extends TSePoTri 
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class SPT does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 35. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/ServiceData.java (at line 22)
+</I>&gt;<i>     [javac] 	public class ServiceData extends TServiceData 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ServiceData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 36. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/SessionDescription.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class SessionDescription extends TSessionDescription 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SessionDescription does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 37. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/ShData.java (at line 22)
+</I>&gt;<i>     [javac] 	public class ShData extends TShData 
+</I>&gt;<i>     [javac] 	             ^^^^^^
+</I>&gt;<i>     [javac] The serializable class ShData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 38. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/ShIMSData.java (at line 22)
+</I>&gt;<i>     [javac] 	public class ShIMSData extends TShIMSData 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ShIMSData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 39. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TApplicationServer.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TApplicationServer implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TApplicationServer does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 40. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TCSLocationInformation.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TCSLocationInformation implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TCSLocationInformation does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 41. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TCSLocationInformationChoice.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TCSLocationInformationChoice implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TCSLocationInformationChoice does not declare a static final serialVersionUID
+</I>&gt;<i>     [javac]  field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 42. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TChargingInformation.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TChargingInformation implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TChargingInformation does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 43. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/THeader.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class THeader implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class THeader does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 44. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TISDNAddress.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TISDNAddress implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TISDNAddress does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 45. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TInitialFilterCriteria.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TInitialFilterCriteria implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TInitialFilterCriteria does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 46. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TPSLocationInformation.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TPSLocationInformation implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TPSLocationInformation does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 47. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TPSLocationInformationChoice.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TPSLocationInformationChoice implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TPSLocationInformationChoice does not declare a static final serialVersionUID
+</I>&gt;<i>     [javac]  field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 48. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TPublicIdentity.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TPublicIdentity implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TPublicIdentity does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 49. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TSePoTri.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TSePoTri implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TSePoTri does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 50. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TSePoTriChoice.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TSePoTriChoice implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TSePoTriChoice does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 51. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TServiceData.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TServiceData implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TServiceData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 52. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TSessionDescription.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TSessionDescription implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TSessionDescription does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 53. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TShData.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TShData implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TShData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 54. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TShIMSData.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TShIMSData implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TShIMSData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 55. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TTransparentData.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TTransparentData implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TTransparentData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 56. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TTrigger.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TTrigger implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TTrigger does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 57. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/TriggerPoint.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TriggerPoint extends TTrigger 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TriggerPoint does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 58. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/VLRNumber.java (at line 22)
+</I>&gt;<i>     [javac] 	public class VLRNumber extends TISDNAddress 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class VLRNumber does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 59. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/types/TCSUserState.java
+</I>&gt;<i>     [javac]  (at line 21)
+</I>&gt;<i>     [javac] 	public class TCSUserState implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TCSUserState does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 60. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/types/TDefaultHandling.java (at line 21)
+</I>&gt;<i>     [javac] 	public class TDefaultHandling implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TDefaultHandling does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 61. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/types/TDirectionOfRequest.java
+</I>&gt;<i>     [javac]  (at line 21)
+</I>&gt;<i>     [javac] 	public class TDirectionOfRequest implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TDirectionOfRequest does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 62. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/types/TIMSUserState.java (at line 21)
+</I>&gt;<i>     [javac] 	public class TIMSUserState implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TIMSUserState does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 63. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/sh/data/types/TPSUserState.java
+</I>&gt;<i>     [javac]  (at line 21)
+</I>&gt;<i>     [javac] 	public class TPSUserState implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TPSUserState does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 64. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/BsfInfo.java (at line 22)
+</I>&gt;<i>     [javac] 	public class BsfInfo extends TbsfInfo 
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BsfInfo does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 65. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Flags.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class Flags extends Tflags 
+</I>&gt;<i>     [javac] 	             ^^^^^
+</I>&gt;<i>     [javac] The serializable class Flags does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 66. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Guss.java (at line 22)
+</I>&gt;<i>     [javac] 	public class Guss extends Tguss 
+</I>&gt;<i>     [javac] 	             ^^^^
+</I>&gt;<i>     [javac] The serializable class Guss does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 67. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/TbsfInfo.java (at line 22)
+</I>&gt;<i>     [javac] 	public class TbsfInfo implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TbsfInfo does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 68. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Tflags.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class Tflags implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^
+</I>&gt;<i>     [javac] The serializable class Tflags does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 69. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/TflagsItem.java (at line 15)
+</I>&gt;<i>     [javac] 	public class TflagsItem implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TflagsItem does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 70. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Tguss.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class Tguss implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^
+</I>&gt;<i>     [javac] The serializable class Tguss does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 71. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Tuids.java (at line 22)
+</I>&gt;<i>     [javac] 	public class Tuids implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^
+</I>&gt;<i>     [javac] The serializable class Tuids does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 72. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/TuidsItem.java
+</I>&gt;<i>     [javac]  (at line 15)
+</I>&gt;<i>     [javac] 	public class TuidsItem implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TuidsItem does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 73. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Tuss.java (at line 22)
+</I>&gt;<i>     [javac] 	public class Tuss implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^
+</I>&gt;<i>     [javac] The serializable class Tuss does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 74. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/TussList.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class TussList implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TussList does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 75. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/TussListItem.java (at line 15)
+</I>&gt;<i>     [javac] 	public class TussListItem implements java.io.Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TussListItem does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 76. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Uids.java
+</I>&gt;<i>     [javac]  (at line 22)
+</I>&gt;<i>     [javac] 	public class Uids extends Tuids 
+</I>&gt;<i>     [javac] 	             ^^^^
+</I>&gt;<i>     [javac] The serializable class Uids does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 77. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/Uss.java (at line 22)
+</I>&gt;<i>     [javac] 	public class Uss extends Tuss 
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class Uss does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 78. WARNING in /opt/OpenIMSCore/FHoSS/src-gen/de/fhg/fokus/zh/data/UssList.java (at line 22)
+</I>&gt;<i>     [javac] 	public class UssList extends TussList 
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UssList does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 78 problems (78 warnings)
+</I>&gt;<i>     [javac] Compiling 329 source files to /opt/OpenIMSCore/FHoSS/bin
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 1. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/CSCFOperations.java (at line 51)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.cx.datatypes.PublicIdentity;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.cx.datatypes.PublicIdentity is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 2. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/DiameterException.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	public class DiameterException extends Exception implements DiameterResultCode {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 3. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/BaseAuthorizationRejected.java (at line 58)
+</I>&gt;<i>     [javac] 	public class BaseAuthorizationRejected extends PermanentFailure {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BaseAuthorizationRejected does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 4. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/BaseCommandUnsupported.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class BaseCommandUnsupported extends PermanentFailure {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BaseCommandUnsupported does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 5. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/BaseLimitedSuccess.java (at line 58)
+</I>&gt;<i>     [javac] 	public class BaseLimitedSuccess extends Success {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BaseLimitedSuccess does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 6. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/BaseMultiRoundAuthenticatio
+</I>&gt;<i>     [javac] n.java (at line 60)
+</I>&gt;<i>     [javac] 	public class BaseMultiRoundAuthentication extends Informational {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BaseMultiRoundAuthentication does not declare a static final serialVersionUID field of type long
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 7. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/BaseSuccess.java (at line 57)
+</I>&gt;<i>     [javac] 	public class BaseSuccess extends Success {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BaseSuccess does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 8. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/BaseUnableToDeliver.java
+</I>&gt;<i>     [javac]  (at line 61)
+</I>&gt;<i>     [javac] 	public class BaseUnableToDeliver extends PermanentFailure {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class BaseUnableToDeliver does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 9. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/DiameterBaseException.java (at line 59)
+</I>&gt;<i>     [javac] 	public class DiameterBaseException extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterBaseException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 10. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/Informational.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class Informational extends DiameterBaseException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Informational does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 11. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/InvalidAvpValue.java (at line 58)
+</I>&gt;<i>     [javac] 	public class InvalidAvpValue extends PermanentFailure {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class InvalidAvpValue does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 12. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/MissingAVP.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	public class MissingAVP extends PermanentFailure
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class MissingAVP does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 13. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/MissingUserId.java (at line 55)
+</I>&gt;<i>     [javac] 	public class MissingUserId extends PermanentFailure {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class MissingUserId does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 14. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/PermanentFailure.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class PermanentFailure extends DiameterBaseException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PermanentFailure does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 15. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/Success.java (at line 57)
+</I>&gt;<i>     [javac] 	public class Success extends DiameterBaseException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Success does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 16. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/TransientFailure.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class TransientFailure extends DiameterBaseException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TransientFailure does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 17. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/UnableToComply.java (at line 49)
+</I>&gt;<i>     [javac] 	import org.apache.log4j.Logger;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import org.apache.log4j.Logger is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 18. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/base/UnableToComply.java (at line 55)
+</I>&gt;<i>     [javac] 	public class UnableToComply extends PermanentFailure {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UnableToComply does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 19. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/AuthSchemeNotSupported.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class AuthSchemeNotSupported extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class AuthSchemeNotSupported does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 20. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/DiameterIMSException.java (at line 59)
+</I>&gt;<i>     [javac] 	public class DiameterIMSException extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterIMSException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 21. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/ErrorInAssignmentType.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class ErrorInAssignmentType extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ErrorInAssignmentType does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 22. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/FirstRegistration.java (at line 58)
+</I>&gt;<i>     [javac] 	public class FirstRegistration extends IMSSuccess {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class FirstRegistration does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 23. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/IMSPermanentFailures.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class IMSPermanentFailures extends DiameterIMSException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IMSPermanentFailures does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 24. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/IMSSuccess.java (at line 58)
+</I>&gt;<i>     [javac] 	public class IMSSuccess extends DiameterIMSException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IMSSuccess does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 25. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/IdentitiesDontMatch.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class IdentitiesDontMatch extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IdentitiesDontMatch does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 26. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/IdentityAlreadyRegistered.java (at line 57)
+</I>&gt;<i>     [javac] 	public class IdentityAlreadyRegistered extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IdentityAlreadyRegistered does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 27. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/IdentityNotRegistered.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class IdentityNotRegistered extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IdentityNotRegistered does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 28. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/NotSupportedUserData.java (at line 57)
+</I>&gt;<i>     [javac] 	public class NotSupportedUserData extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotSupportedUserData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 29. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/RoamingNotAllowed.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class RoamingNotAllowed extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class RoamingNotAllowed does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 30. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/ServerSelection.java (at line 60)
+</I>&gt;<i>     [javac] 	public class ServerSelection extends IMSSuccess {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ServerSelection does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 31. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/SubsequentRegistration.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class SubsequentRegistration extends IMSSuccess {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SubsequentRegistration does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 32. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/SuccessServerNameNotStored.java (at line 58)
+</I>&gt;<i>     [javac] 	public class SuccessServerNameNotStored extends IMSSuccess {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SuccessServerNameNotStored does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 33. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/TooMuchData.java
+</I>&gt;<i>     [javac]  (at line 57)
+</I>&gt;<i>     [javac] 	public class TooMuchData extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TooMuchData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 34. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/UnregisteredService.java (at line 60)
+</I>&gt;<i>     [javac] 	public class UnregisteredService extends IMSSuccess {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UnregisteredService does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 35. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/cx/exceptions/ims/UserUnknown.java
+</I>&gt;<i>     [javac]  (at line 57)
+</I>&gt;<i>     [javac] 	public class UserUnknown extends IMSPermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserUnknown does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 36. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/Log4jInit.java (at line 60)
+</I>&gt;<i>     [javac] 	public class Log4jInit extends HttpServlet {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Log4jInit does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 37. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/StartUp.java
+</I>&gt;<i>     [javac]  (at line 121)
+</I>&gt;<i>     [javac] 	private static void createDataSets(Session session){
+</I>&gt;<i>     [javac] 	                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method createDataSets(Session) from the type StartUp is never used locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 38. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/AsDeleteAction.java (at line 85)
+</I>&gt;<i>     [javac] 	.setInteger(0, primaryKey).uniqueResult()).intValue();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 39. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/AsDeleteAction.java
+</I>&gt;<i>     [javac]  (at line 90)
+</I>&gt;<i>     [javac] 	.setInteger(0, primaryKey).uniqueResult()).intValue();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 40. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/ChargingSetsShowAction.java (at line 83)
+</I>&gt;<i>     [javac] 	ActionForward forward = null;
+</I>&gt;<i>     [javac] 	              ^^^^^^^
+</I>&gt;<i>     [javac] The local variable forward is never read
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 41. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/GussShowAction.java (at line 87)
+</I>&gt;<i>     [javac] 	query.setInteger(0, form.getPrimaryKey());
+</I>&gt;<i>     [javac] 	      ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 42. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/GussShowAction.java
+</I>&gt;<i>     [javac]  (at line 121)
+</I>&gt;<i>     [javac] 	form.setKeyLifeTime(impi.getKeyLifeTime());
+</I>&gt;<i>     [javac] 	     ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setKeyLifeTime(int) in the type GussForm is not applicable for the arguments (Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 43. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/GussSubmitAction.java (at line 121)
+</I>&gt;<i>     [javac] 	userSecSettings.setFlag(ussForm.getFlag());
+</I>&gt;<i>     [javac] 	                ^^^^^^^
+</I>&gt;<i>     [javac] The method setFlag(Integer) in the type UserSecSettings is not applicable for the arguments (int)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 44. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/GussSubmitAction.java
+</I>&gt;<i>     [javac]  (at line 124)
+</I>&gt;<i>     [javac] 	.setUssType(new Integer(ussForm.getUssType()));
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setUssType(int) in the type UserSecSettings is not applicable for the arguments (Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 45. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/IfcSubmitAction.java (at line 95)
+</I>&gt;<i>     [javac] 	ifc = ifcBO.create();
+</I>&gt;<i>     [javac] 	      ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The static method create() from the type IfcBO should be accessed in a static way
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 46. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/ImpiSubmitAction.java (at line 108)
+</I>&gt;<i>     [javac] 	Integer assignedSubscriptionId = new Integer(form
+</I>&gt;<i>     [javac] 								.getImsuId());
+</I>&gt;<i>     [javac] 	                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The constructor Integer(Integer) is undefined
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 47. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java (at line 91)
+</I>&gt;<i>     [javac] 	.setInteger(0, impu.getImpuId()).list().iterator();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 48. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/ImpuDeleteAction.java
+</I>&gt;<i>     [javac]  (at line 102)
+</I>&gt;<i>     [javac] 	.setInteger(0, impu.getImpuId()).list().iterator();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 49. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java (at line 95)
+</I>&gt;<i>     [javac] 	impu = impuBO.create();
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The static method create() from the type ImpuBO should be accessed in a static way
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 50. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/ImpuSubmitAction.java (at line 104)
+</I>&gt;<i>     [javac] 	impu.setBarringIndication(form.isBarred());
+</I>&gt;<i>     [javac] 	     ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setBarringIndication(Boolean) in the type Impu is not applicable for the arguments (boolean)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 51. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/PsiSubmitAction.java
+</I>&gt;<i>     [javac]  (at line 107)
+</I>&gt;<i>     [javac] 	assginedImpu.setBarringIndication(false);
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setBarringIndication(Boolean) in the type Impu is not applicable for the arguments (boolean)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 52. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/SvpShowAction.java (at line 112)
+</I>&gt;<i>     [javac] 	.setIfcId(convString(ifc2svp.getIfc().getIfcId().intValue()));
+</I>&gt;<i>     [javac] 	          ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method convString(Integer) in the type HssAction is not applicable for the arguments (int)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 53. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/SvpShowAction.java
+</I>&gt;<i>     [javac]  (at line 114)
+</I>&gt;<i>     [javac] 	ifcForm.setPriority(convString(ifc2svp.getPriority()));
+</I>&gt;<i>     [javac] 	                    ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method convString(Integer) in the type HssAction is not applicable for the arguments (int)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 54. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/action/TriggerPointDeleteAction.java (at line 93)
+</I>&gt;<i>     [javac] 	.setInteger(0, primaryKey).uniqueResult()).intValue();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 55. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/diam/cx/CxCommandAction.java
+</I>&gt;<i>     [javac]  (at line 57)
+</I>&gt;<i>     [javac] 	private static final Logger LOGGER =
+</I>&gt;<i>     [javac] 	                            ^^^^^^
+</I>&gt;<i>     [javac] The field CxCommandAction.LOGGER is never read locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 56. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/diam/cx/UARCommandListener.java (at line 160)
+</I>&gt;<i>     [javac] 	AVP vsAVP = null;
+</I>&gt;<i>     [javac] 	    ^^^^^
+</I>&gt;<i>     [javac] The local variable vsAVP is never read
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 57. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/diam/zh/MARzhCommandListener.java (at line 324)
+</I>&gt;<i>     [javac] 	private AuthenticationVector loadAuthVector(DiameterMessage requestMessage)
+</I>&gt;<i>     [javac]         
+</I>&gt;<i>     [javac] throws DiameterException
+</I>&gt;<i>     [javac] 	                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method loadAuthVector(DiameterMessage) from the type MARzhCommandListener is never used locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 58. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/AsForm.java (at line 47)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.hss.action.HssAction;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.hss.action.HssAction is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 59. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/AsForm.java (at line 48)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.hss.model.AsPermList;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.hss.model.AsPermList is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 60. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/AsForm.java (at line 64)
+</I>&gt;<i>     [javac] 	public class AsForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^
+</I>&gt;<i>     [javac] The serializable class AsForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 61. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/AsSearchForm.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	public class AsSearchForm extends AsForm {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class AsSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 62. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ChrginfoForm.java (at line 59)
+</I>&gt;<i>     [javac] 	public class ChrginfoForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ChrginfoForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 63. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/GussForm.java
+</I>&gt;<i>     [javac]  (at line 66)
+</I>&gt;<i>     [javac] 	public class GussForm extends ImpiForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class GussForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 64. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/HssForm.java (at line 49)
+</I>&gt;<i>     [javac] 	import javax.servlet.http.HttpServletRequest;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import javax.servlet.http.HttpServletRequest is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 65. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/HssForm.java (at line 55)
+</I>&gt;<i>     [javac] 	import org.apache.struts.action.ActionMapping;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import org.apache.struts.action.ActionMapping is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 66. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/Ifc2svpForm.java
+</I>&gt;<i>     [javac]  (at line 48)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.hss.model.Network;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.hss.model.Network is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 67. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/Ifc2svpForm.java
+</I>&gt;<i>     [javac]  (at line 50)
+</I>&gt;<i>     [javac] 	import org.apache.commons.collections.Factory;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import org.apache.commons.collections.Factory is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 68. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/Ifc2svpForm.java (at line 51)
+</I>&gt;<i>     [javac] 	import org.apache.commons.collections.list.LazyList;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import org.apache.commons.collections.list.LazyList is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 69. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/Ifc2svpForm.java (at line 57)
+</I>&gt;<i>     [javac] 	import java.util.ArrayList;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.ArrayList is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 70. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/Ifc2svpForm.java (at line 66)
+</I>&gt;<i>     [javac] 	public class Ifc2svpForm extends SvpForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Ifc2svpForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 71. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/IfcForm.java
+</I>&gt;<i>     [javac]  (at line 61)
+</I>&gt;<i>     [javac] 	public class IfcForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IfcForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 72. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/IfcSearchForm.java (at line 55)
+</I>&gt;<i>     [javac] 	public class IfcSearchForm extends IfcForm{
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class IfcSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 73. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImpiForm.java
+</I>&gt;<i>     [javac]  (at line 71)
+</I>&gt;<i>     [javac] 	public class ImpiForm extends ImpuSubSelectForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ImpiForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 74. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImpiSearchForm.java (at line 56)
+</I>&gt;<i>     [javac] 	public class ImpiSearchForm extends ImpiForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ImpiSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 75. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImpuForm.java
+</I>&gt;<i>     [javac]  (at line 62)
+</I>&gt;<i>     [javac] 	public class ImpuForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ImpuForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 76. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImpuSearchForm.java (at line 56)
+</I>&gt;<i>     [javac] 	public class ImpuSearchForm extends ImpuForm implements SearchForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ImpuSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 77. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImpuSubSelectForm.java
+</I>&gt;<i>     [javac]  (at line 175)
+</I>&gt;<i>     [javac] 	query.setInteger(1, form.getImsuId());
+</I>&gt;<i>     [javac] 	      ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 78. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImsuForm.java (at line 47)
+</I>&gt;<i>     [javac] 	import java.util.ArrayList;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.ArrayList is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 79. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImsuForm.java (at line 48)
+</I>&gt;<i>     [javac] 	import java.util.List;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.List is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 80. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImsuForm.java (at line 62)
+</I>&gt;<i>     [javac] 	public class ImsuForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ImsuForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 81. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/ImsuSearchForm.java
+</I>&gt;<i>     [javac]  (at line 54)
+</I>&gt;<i>     [javac] 	public class ImsuSearchForm extends ImsuForm implements SearchForm {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ImsuSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 82. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/NetworkForm.java (at line 57)
+</I>&gt;<i>     [javac] 	public class NetworkForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NetworkForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 83. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/PsiForm.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	import java.util.Set;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.Set is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 84. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/PsiForm.java
+</I>&gt;<i>     [javac]  (at line 56)
+</I>&gt;<i>     [javac] 	import java.util.TreeSet;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.TreeSet is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 85. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/PsiForm.java
+</I>&gt;<i>     [javac]  (at line 64)
+</I>&gt;<i>     [javac] 	public class PsiForm extends ImpuSubSelectForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PsiForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 86. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/PsiSearchForm.java (at line 57)
+</I>&gt;<i>     [javac] 	public class PsiSearchForm extends PsiForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PsiSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 87. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/PsiTemplForm.java
+</I>&gt;<i>     [javac]  (at line 63)
+</I>&gt;<i>     [javac] 	public class PsiTemplForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PsiTemplForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 88. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/PsiTemplSearchForm.java (at line 55)
+</I>&gt;<i>     [javac] 	public class PsiTemplSearchForm extends PsiTemplForm {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PsiTemplSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 89. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/RoamingForm.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class RoamingForm extends ImpiForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class RoamingForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 90. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/SearchForm.java (at line 47)
+</I>&gt;<i>     [javac] 	import org.apache.log4j.Logger;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import org.apache.log4j.Logger is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 91. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/SptForm.java (at line 63)
+</I>&gt;<i>     [javac] 	public class SptForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SptForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 92. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/SvpForm.java (at line 49)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.hss.action.HssAction;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.hss.action.HssAction is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 93. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/SvpForm.java (at line 50)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.hss.model.AsPermList;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.hss.model.AsPermList is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 94. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/SvpForm.java (at line 66)
+</I>&gt;<i>     [javac] 	public class SvpForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SvpForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 95. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/SvpSearchForm.java
+</I>&gt;<i>     [javac]  (at line 56)
+</I>&gt;<i>     [javac] 	public class SvpSearchForm extends SvpForm implements SearchForm {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SvpSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 96. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/TriggerPointForm.java (at line 68)
+</I>&gt;<i>     [javac] 	public class TriggerPointForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TriggerPointForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 97. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/TriggerPointSearchForm.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	public class TriggerPointSearchForm extends TriggerPointForm {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TriggerPointSearchForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 98. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/form/UssForm.java (at line 61)
+</I>&gt;<i>     [javac] 	public class UssForm extends HssForm
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UssForm does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 99. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/main/TomcatServer.java
+</I>&gt;<i>     [javac]  (at line 61)
+</I>&gt;<i>     [javac] 	import java.io.FileInputStream;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.io.FileInputStream is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 100. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/main/TomcatServer.java
+</I>&gt;<i>     [javac]  (at line 64)
+</I>&gt;<i>     [javac] 	import java.util.Properties;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.Properties is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 101. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/main/TomcatServer.java
+</I>&gt;<i>     [javac]  (at line 179)
+</I>&gt;<i>     [javac] 	private void startMBeanServer()
+</I>&gt;<i>     [javac]         throws MalformedObjectNameException, InstanceAlreadyExistsException, 
+</I>&gt;<i>     [javac]             MBeanRegistrationException, NotCompliantMBeanException
+</I>&gt;<i>     [javac] 	      
+</I>&gt;<i>     [javac]        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method startMBeanServer() from the type TomcatServer is never used locally
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 102. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Apsvr.java (at line 59)
+</I>&gt;<i>     [javac] 	public class Apsvr extends NotifySupport implements Serializable
+</I>&gt;<i>     [javac] 	             ^^^^^
+</I>&gt;<i>     [javac] The serializable class Apsvr does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 103. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/ApsvrBO.java
+</I>&gt;<i>     [javac]  (at line 150)
+</I>&gt;<i>     [javac] 	query.setInteger(0, apsvr.getApsvrId());
+</I>&gt;<i>     [javac] 	      ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 104. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/AsPermList.java (at line 56)
+</I>&gt;<i>     [javac] 	public class AsPermList implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class AsPermList does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 105. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Chrginfo.java
+</I>&gt;<i>     [javac]  (at line 56)
+</I>&gt;<i>     [javac] 	public class Chrginfo implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Chrginfo does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 106. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/CxUserProfil.java (at line 389)
+</I>&gt;<i>     [javac] 	barring = impu.getBarringIndication();
+</I>&gt;<i>     [javac] 	          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] Type mismatch: cannot convert from Boolean to boolean
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 107. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/CxUserProfil.java (at line 622)
+</I>&gt;<i>     [javac] 	publicIdentity.setBarringIndication(
+</I>&gt;<i>     [javac] 	               ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setBarringIndication(boolean) in the type TPublicIdentity is not applicable for the arguments (Boolean)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 108. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/DiamServer.java
+</I>&gt;<i>     [javac]  (at line 56)
+</I>&gt;<i>     [javac] 	public class DiamServer implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiamServer does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 109. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Ifc.java (at line 59)
+</I>&gt;<i>     [javac] 	public class Ifc extends NotifySupport implements Serializable
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class Ifc does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 110. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Ifc2svp.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class Ifc2svp implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Ifc2svp does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 111. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Ifc2svpPK.java (at line 58)
+</I>&gt;<i>     [javac] 	public class Ifc2svpPK implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Ifc2svpPK does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 112. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/IfcBO.java
+</I>&gt;<i>     [javac]  (at line 141)
+</I>&gt;<i>     [javac] 	.setInteger(0, ifc.getApsvr().getApsvrId()).list();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 113. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Impi.java (at line 62)
+</I>&gt;<i>     [javac] 	public class Impi extends NotifySupport implements Serializable
+</I>&gt;<i>     [javac] 	             ^^^^
+</I>&gt;<i>     [javac] The serializable class Impi does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 114. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Impu.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class Impu extends NotifySupport implements Serializable
+</I>&gt;<i>     [javac] 	             ^^^^
+</I>&gt;<i>     [javac] The serializable class Impu does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 115. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Imsu.java (at line 57)
+</I>&gt;<i>     [javac] 	public class Imsu implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^
+</I>&gt;<i>     [javac] The serializable class Imsu does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 116. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Network.java (at line 57)
+</I>&gt;<i>     [javac] 	public class Network implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class Network does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 117. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyIfc.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class NotifyIfc implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyIfc does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 118. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyIfcPK.java (at line 57)
+</I>&gt;<i>     [javac] 	public class NotifyIfcPK implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyIfcPK does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 119. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyImsUserState.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class NotifyImsUserState implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyImsUserState does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 120. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyImsUserStatePK.java (at line 58)
+</I>&gt;<i>     [javac] 	public class NotifyImsUserStatePK implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyImsUserStatePK does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 121. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyRepData.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class NotifyRepData implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyRepData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 122. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyRepDataPK.java (at line 59)
+</I>&gt;<i>     [javac] 	public class NotifyRepDataPK implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyRepDataPK does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 123. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyScscfname.java
+</I>&gt;<i>     [javac]  (at line 58)
+</I>&gt;<i>     [javac] 	public class NotifyScscfname implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyScscfname does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 124. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/NotifyScscfnamePK.java (at line 59)
+</I>&gt;<i>     [javac] 	public class NotifyScscfnamePK implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class NotifyScscfnamePK does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 125. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Psi.java
+</I>&gt;<i>     [javac]  (at line 57)
+</I>&gt;<i>     [javac] 	public class Psi implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class Psi does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 126. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/PsiBO.java (at line 64)
+</I>&gt;<i>     [javac] 	public class PsiBO extends Psi
+</I>&gt;<i>     [javac] 	             ^^^^^
+</I>&gt;<i>     [javac] The serializable class PsiBO does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 127. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/PsiTempl.java (at line 57)
+</I>&gt;<i>     [javac] 	public class PsiTempl implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PsiTempl does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 128. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/RepData.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class RepData implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^
+</I>&gt;<i>     [javac] The serializable class RepData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 129. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/RepDataBO.java (at line 75)
+</I>&gt;<i>     [javac] 	private Apsvr apsvr;
+</I>&gt;<i>     [javac] 	              ^^^^^
+</I>&gt;<i>     [javac] The field RepDataBO.apsvr is never read locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 130. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/RepDataBO.java (at line 161)
+</I>&gt;<i>     [javac] 	repData.setSqn(sqn);
+</I>&gt;<i>     [javac] 	        ^^^^^^
+</I>&gt;<i>     [javac] The method setSqn(Integer) in the type RepData is not applicable for the arguments (int)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 131. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/RepDataPK.java (at line 57)
+</I>&gt;<i>     [javac] 	public class RepDataPK implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class RepDataPK does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 132. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/ShUserProfil.java
+</I>&gt;<i>     [javac]  (at line 176)
+</I>&gt;<i>     [javac] 	boolean roamingNotAllowed = false;
+</I>&gt;<i>     [javac] 	        ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The local variable roamingNotAllowed is never read
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 133. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/ShUserProfil.java
+</I>&gt;<i>     [javac]  (at line 217)
+</I>&gt;<i>     [javac] 	return impu.getBarringIndication();
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] Type mismatch: cannot convert from Boolean to boolean
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 134. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Spt.java
+</I>&gt;<i>     [javac]  (at line 57)
+</I>&gt;<i>     [javac] 	public class Spt extends NotifySupport implements Serializable
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class Spt does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 135. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Spt.java (at line 261)
+</I>&gt;<i>     [javac] 	fire(&quot;sessionCase&quot;, this.sessionCase, sessionCase);
+</I>&gt;<i>     [javac] 	^^^^
+</I>&gt;<i>     [javac] The method fire(String, Object, Object) in the type NotifySupport is not applicable for the argument
+</I>&gt;<i>     [javac] s (String, int, int)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 136. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Spt.java (at line 345)
+</I>&gt;<i>     [javac] 	fire(&quot;groupId&quot;, this.groupId, group);
+</I>&gt;<i>     [javac] 	^^^^
+</I>&gt;<i>     [javac] The method fire(String, Object, Object) in the type NotifySupport is not applicable for the arguments (String, int, int)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 137. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Spt.java
+</I>&gt;<i>     [javac]  (at line 366)
+</I>&gt;<i>     [javac] 	fire(&quot;neg&quot;, this.neg, neg);
+</I>&gt;<i>     [javac] 	^^^^
+</I>&gt;<i>     [javac] The method fire(String, Object, Object) in the type NotifySupport is not applicable for the arguments (String, boolean, boolean)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 138. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/SptBO.java (at line 52)
+</I>&gt;<i>     [javac] 	public class SptBO extends Spt {
+</I>&gt;<i>     [javac] 	             ^^^^^
+</I>&gt;<i>     [javac] The serializable class SptBO does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 139. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Svp.java (at line 57)
+</I>&gt;<i>     [javac] 	public class Svp extends NotifySupport implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^
+</I>&gt;<i>     [javac] The serializable class Svp does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 140. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Trigpt.java
+</I>&gt;<i>     [javac]  (at line 59)
+</I>&gt;<i>     [javac] 	public class Trigpt extends NotifySupport implements Serializable
+</I>&gt;<i>     [javac] 	             ^^^^^^
+</I>&gt;<i>     [javac] The serializable class Trigpt does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 141. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/Trigpt.java (at line 177)
+</I>&gt;<i>     [javac] 	fire(&quot;spts&quot;, false, value);
+</I>&gt;<i>     [javac] 	^^^^
+</I>&gt;<i>     [javac] The method fire(String, Object, Object) in the type NotifySupport is not applicable for the argument
+</I>&gt;<i>     [javac] s (String, boolean, boolean)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 142. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/TrigptBO.java (at line 113)
+</I>&gt;<i>     [javac] 	query.setInteger(0, trigpt.getTrigptId());
+</I>&gt;<i>     [javac] 	      ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 143. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/UserSecSettings.java
+</I>&gt;<i>     [javac]  (at line 56)
+</I>&gt;<i>     [javac] 	public class UserSecSettings implements Serializable {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserSecSettings does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 144. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/UserSecSettings.java (at line 101)
+</I>&gt;<i>     [javac] 	this.ussType = ussType;
+</I>&gt;<i>     [javac] 	               ^^^^^^^
+</I>&gt;<i>     [javac] Type mismatch: cannot convert from Integer to int
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 145. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/model/UserSecSettings.java (at line 102)
+</I>&gt;<i>     [javac] 	this.impiId = impiId;
+</I>&gt;<i>     [javac] 	              ^^^^^^
+</I>&gt;<i>     [javac] Type mismatch: cannot convert from int to Integer
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 146. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java (at line 81)
+</I>&gt;<i>     [javac] 	import java.net.URI;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.net.URI is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 147. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java (at line 83)
+</I>&gt;<i>     [javac] 	import java.security.InvalidKeyException;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.security.InvalidKeyException is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 148. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java
+</I>&gt;<i>     [javac]  (at line 84)
+</I>&gt;<i>     [javac] 	import java.security.NoSuchAlgorithmException;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.security.NoSuchAlgorithmException is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 149. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java (at line 85)
+</I>&gt;<i>     [javac] 	import java.security.SecureRandom;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.security.SecureRandom is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 150. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/AuthCxOperation.java (at line 87)
+</I>&gt;<i>     [javac] 	import java.util.ArrayList;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import java.util.ArrayList is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 151. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java (at line 140)
+</I>&gt;<i>     [javac] 	if(impu_status.equals(impu1.USER_STATUS_NOT_REGISTERED))
+</I>&gt;<i>     [javac] 	                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The static field Impu.USER_STATUS_NOT_REGISTERED should be accessed in a static way
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 152. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java
+</I>&gt;<i>     [javac]  (at line 143)
+</I>&gt;<i>     [javac] 	else if(impu_status.equals(impu1.USER_STATUS_REGISTERED))
+</I>&gt;<i>     [javac] 	                                 ^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The static field Impu.USER_STATUS_REGISTERED should be accessed in a static way
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 153. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/cx/op/PullCxOperation.java (at line 146)
+</I>&gt;<i>     [javac] 	else if(impu_status.equals(impu1.USER_STATUS_UNREGISTERED))
+</I>&gt;<i>     [javac] 	                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The static field Impu.USER_STATUS_UNREGISTERED should be accessed in a static way
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 154. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/sh/op/NotifShOperation.java
+</I>&gt;<i>     [javac]  (at line 65)
+</I>&gt;<i>     [javac] 	private RequestedData requestedData;
+</I>&gt;<i>     [javac] 	                      ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The field NotifShOperation.requestedData is never read locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 155. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/sh/op/NotifShOperation.java (at line 69)
+</I>&gt;<i>     [javac] 	private URI applicationServerName;
+</I>&gt;<i>     [javac] 	            ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The field NotifShOperation.applicationServerName is never read locally
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 156. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java (at line 93)
+</I>&gt;<i>     [javac] 	private RequestedDomain requestedDomain;
+</I>&gt;<i>     [javac] 	                        ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The field PullShOperation.requestedDomain is never read locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 157. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java
+</I>&gt;<i>     [javac]  (at line 95)
+</I>&gt;<i>     [javac] 	private CurrentLocation currentLocation;
+</I>&gt;<i>     [javac] 	                        ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The field PullShOperation.currentLocation is never read locally
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 158. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/sh/op/PullShOperation.java (at line 302)
+</I>&gt;<i>     [javac] 	repositoryData.setSequenceNumber(repData.getSqn());
+</I>&gt;<i>     [javac] 	               ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setSequenceNumber(int) in the type TTransparentData is not applicable for the arguments (Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 159. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/sh/op/ShOperation.java
+</I>&gt;<i>     [javac]  (at line 54)
+</I>&gt;<i>     [javac] 	import de.fhg.fokus.cx.exceptions.ims.IdentitiesDontMatch;
+</I>&gt;<i>     [javac] 	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The import de.fhg.fokus.cx.exceptions.ims.IdentitiesDontMatch is never used
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 160. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java (at line 238)
+</I>&gt;<i>     [javac] 	.setInteger(0, impi.getImpiId()).list().iterator();
+</I>&gt;<i>     [javac] 	 ^^^^^^^^^^
+</I>&gt;<i>     [javac] The method setInteger(int, int) in the type Query is not applicable for the arguments (int, Integer)
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 161. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/server/zh/HSSzhOperationsImpl.java
+</I>&gt;<i>     [javac]  (at line 333)
+</I>&gt;<i>     [javac] 	for (long ix = 0; ix &lt; numberAuthItems; ix++)
+</I>&gt;<i>     [javac] 	                  ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The operator &lt; is undefined for the argument type(s) long, Long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 162. ERROR in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/util/LoggerHelper.java (at line 123)
+</I>&gt;<i>     [javac] 	BUFFER.append(
+</I>&gt;<i>     [javac] 	       ^^^^^^
+</I>&gt;<i>     [javac] The method append(String) is undefined for the type StringWriter
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 163. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/AuthenticationException.java (at line 50)
+</I>&gt;<i>     [javac] 	public class AuthenticationException extends Exception
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class AuthenticationException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 164. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/MacVerificationException.java
+</I>&gt;<i>     [javac]  (at line 50)
+</I>&gt;<i>     [javac] 	public class MacVerificationException extends Exception
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class MacVerificationException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 165. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/SynchronizationException.java (at line 50)
+</I>&gt;<i>     [javac] 	public class SynchronizationException extends Exception
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class SynchronizationException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 166. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/client/InvalidRegistrationSessionSt
+</I>&gt;<i>     [javac] ateException.java (at line 50)
+</I>&gt;<i>     [javac] 	public class InvalidRegistrationSessionStateException extends Exception
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class InvalidRegistrationSessionStateException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 167. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/codec/CoDecException.java
+</I>&gt;<i>     [javac]  (at line 52)
+</I>&gt;<i>     [javac] 	public class CoDecException extends Exception
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class CoDecException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 168. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/milenage/kernel/KernelNotFoundException.java (at line 50)
+</I>&gt;<i>     [javac] 	public class KernelNotFoundException extends Exception
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class KernelNotFoundException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 169. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/DiameterException.java
+</I>&gt;<i>     [javac]  (at line 53)
+</I>&gt;<i>     [javac] 	public class DiameterException extends Exception implements DiameterResultCode {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 170. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/InvalidAvpValue.java (at line 53)
+</I>&gt;<i>     [javac] 	public class InvalidAvpValue extends PermanentFailures  implements DiameterBaseException{
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class InvalidAvpValue does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 171. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/MissingAVP.java
+</I>&gt;<i>     [javac]  (at line 6)
+</I>&gt;<i>     [javac] 	public class MissingAVP extends PermanentFailures implements DiameterBaseException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class MissingAVP does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 172. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/MissingUserId.java (at line 50)
+</I>&gt;<i>     [javac] 	public class MissingUserId extends PermanentFailures implements DiameterBaseException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class MissingUserId does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 173. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/OperationNotAllowed.java
+</I>&gt;<i>     [javac]  (at line 53)
+</I>&gt;<i>     [javac] 	public class OperationNotAllowed extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class OperationNotAllowed does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 174. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/PermanentFailures.java (at line 54)
+</I>&gt;<i>     [javac] 	public class PermanentFailures extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PermanentFailures does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 175. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/PriorUpdateInProgress.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	public class PriorUpdateInProgress extends TransientFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class PriorUpdateInProgress does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 176. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/ProtocolError.java (at line 53)
+</I>&gt;<i>     [javac] 	public class ProtocolError extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class ProtocolError does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 177. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/TooMuchData.java
+</I>&gt;<i>     [javac]  (at line 54)
+</I>&gt;<i>     [javac] 	public class TooMuchData extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TooMuchData does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 178. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/TransientFailures.java (at line 55)
+</I>&gt;<i>     [javac] 	public class TransientFailures extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TransientFailures does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 179. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/TransparentDataOutOfSync.java
+</I>&gt;<i>     [javac]  (at line 55)
+</I>&gt;<i>     [javac] 	public class TransparentDataOutOfSync extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class TransparentDataOutOfSync does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 180. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/UnableToComply.java (at line 51)
+</I>&gt;<i>     [javac] 	public class UnableToComply extends PermanentFailures implements DiameterBaseException 
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UnableToComply does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 181. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/UserDataCannotBeModified.java
+</I>&gt;<i>     [javac]  (at line 53)
+</I>&gt;<i>     [javac] 	public class UserDataCannotBeModified extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserDataCannotBeModified does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 182. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/UserDataCannotBeNotified.java (at line 53)
+</I>&gt;<i>     [javac] 	public class UserDataCannotBeNotified extends PermanentFailures implements DiameterEx
+</I>&gt;<i>     [javac] perimentalException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserDataCannotBeNotified does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 183. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/UserDataCannotBeRead.java (at line 53)
+</I>&gt;<i>     [javac] 	public class UserDataCannotBeRead extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserDataCannotBeRead does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 184. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/UserDataNotRecognized.java
+</I>&gt;<i>     [javac]  (at line 54)
+</I>&gt;<i>     [javac] 	public class UserDataNotRecognized extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserDataNotRecognized does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 185. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/sh/UserUnknown.java (at line 53)
+</I>&gt;<i>     [javac] 	public class UserUnknown extends PermanentFailures {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UserUnknown does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 186. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/exceptions/DiameterBaseException.java
+</I>&gt;<i>     [javac]  (at line 52)
+</I>&gt;<i>     [javac] 	public class DiameterBaseException extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterBaseException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 187. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/exceptions/DiameterException.java (at line 55)
+</I>&gt;<i>     [javac] 	public class DiameterException extends Exception implements DiameterResultCode {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 188. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/exceptions/DiameterIMSException.java
+</I>&gt;<i>     [javac]  (at line 52)
+</I>&gt;<i>     [javac] 	public class DiameterIMSException extends DiameterException {
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class DiameterIMSException does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 189. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/exceptions/UnknownGuss.java (at line 52)
+</I>&gt;<i>     [javac] 	public class UnknownGuss extends DiameterIMSException
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UnknownGuss does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 190. WARNING in /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/exceptions/UnknownImpi.java
+</I>&gt;<i>     [javac]  (at line 53)
+</I>&gt;<i>     [javac] 	public class UnknownImpi extends DiameterIMSException
+</I>&gt;<i>     [javac] 	             ^^^^^^^^^^^
+</I>&gt;<i>     [javac] The serializable class UnknownImpi does not declare a static final serialVersionUID field of type long
+</I>&gt;<i>     [javac] ----------
+</I>&gt;<i>     [javac] 190 problems (32 errors, 158 warnings)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFfUXi6Yml36HNIwcRAmNGAJ9RIxTX6esZqCh8KzYLZFkzjkxtrACbBCPD
+NS/+hMJ9lJJi9khghNPAi7o=
+=yJ/z
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000077.html">[OpenIMSCore-HSS] FHoSS compilation errors
+</A></li>
+	<LI>Next message: <A HREF="000079.html">[OpenIMSCore-HSS] Problem with registration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

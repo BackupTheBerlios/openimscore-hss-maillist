@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data does not exist
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%3A%20package%20de.fhg.fokus.zh.data%0A%20does%20not%20exist&In-Reply-To=%3C45A26F5B.2080009%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000122.html">
+   <LINK REL="Next"  HREF="000123.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data does not exist</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20compilation%3A%20package%20de.fhg.fokus.zh.data%0A%20does%20not%20exist&In-Reply-To=%3C45A26F5B.2080009%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data does not exist">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jan  8 17:20:43 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000122.html">[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data	does not exist
+</A></li>
+        <LI>Next message: <A HREF="000123.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#127">[ date ]</a>
+              <a href="thread.html#127">[ thread ]</a>
+              <a href="subject.html#127">[ subject ]</a>
+              <a href="author.html#127">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hello Zoltan,
+
+You skipped a step; before compilation you should generate additional
+sources through &quot;ant gen&quot;. Only if this action is completed
+successfully, you  will have all the necessary sources for the compilation.
+Please look carefully to the installation steps presented here:
+<A HREF="http://www.openimscore.org/docs/install.html#step3">http://www.openimscore.org/docs/install.html#step3</A>
+
+Cheers,
+Adrian
+
+Zoltan Toth wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I tried to compile the daily snapshot from FHoSS20061214.r0072.tgz.
+</I>&gt;<i> `ant compile' failed with the following errors:
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:49: package de.fhg.fokus.zh.data does not exist
+</I>&gt;<i>     [javac] import de.fhg.fokus.zh.data.Guss;
+</I>&gt;<i>     [javac]                             ^
+</I>&gt;<i>     [javac] /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/zh/ZhAuthDataResponse.java:64: cannot find symbol
+</I>&gt;<i>     [javac] symbol  : class Guss
+</I>&gt;<i>     [javac] location: class de.fhg.fokus.zh.ZhAuthDataResponse
+</I>&gt;<i>     [javac]     private Guss guss;
+</I>&gt;<i>     [javac]             ^
+</I>&gt;<i> ...
+</I>&gt;<i> (Total: 36 errors)
+</I>&gt;<i> 
+</I>&gt;<i> I checked and the named package and its classes are really not included
+</I>&gt;<i> in the snapshot. Moreover, I can't see them if I browse the SVN source.
+</I>&gt;<i> 
+</I>&gt;<i> Have these files been forgotten to be checked into SVN?
+</I>&gt;<i> 
+</I>&gt;<i> BR,
+</I>&gt;<i> 
+</I>&gt;<i> Elek
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+
+- --
+- --------------------------------------------
+Diplomat Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Alee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFom9b6Yml36HNIwcRAtK8AJ9OJ3FKcPkm94QcnG0ifrMFyJmnUQCgiGJJ
+Nkahki8q+QO+7EFSrs85kxY=
+=ieWy
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000122.html">[OpenIMSCore-HSS] HSS compilation: package de.fhg.fokus.zh.data	does not exist
+</A></li>
+	<LI>Next message: <A HREF="000123.html">[OpenIMSCore-HSS] Not able to start hss
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#127">[ date ]</a>
+              <a href="thread.html#127">[ thread ]</a>
+              <a href="subject.html#127">[ subject ]</a>
+              <a href="author.html#127">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

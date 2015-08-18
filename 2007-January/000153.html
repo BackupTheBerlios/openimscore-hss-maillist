@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Response%20480%20-%20Diameter%20Cx%20interface%20failed&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA162208B%40EXCHSRV.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000152.html">
+   <LINK REL="Next"  HREF="000155.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed</H1>
+    <B>Weik, Peter</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Response%20480%20-%20Diameter%20Cx%20interface%20failed&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA162208B%40EXCHSRV.fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed">Peter.Weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Jan 18 18:48:24 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000152.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+        <LI>Next message: <A HREF="000155.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Bindu,
+
+your database settings seem to be not correctly set. Please adjust them and try again to register. Your MySQL version should be at least 5.0, see also <A HREF="000131.html">http://lists.berlios.de/pipermail/openimscore-hss/2007-January/000131.html</A> 
+
+Regards,
+
+Peter
+
+&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> [mailto:openimscore-hss-
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bounces at lists.berlios.de</A>] Im Auftrag von Bindu B Pillai
+</I>&gt;<i> Gesendet: Donnerstag, 18. Januar 2007 17:59
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Betreff: [OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</I>&gt;<i> 
+</I>&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> I am trying to register to the IMS core with the
+</I>&gt;<i> following register message. the response i get is the
+</I>&gt;<i> same when tried from IMS client or Xlite SIP phone.
+</I>&gt;<i> 
+</I>&gt;<i> REGISTER sip:open-ims.test SIP/2.0
+</I>&gt;<i> From:
+</I>&gt;<i> &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tagT58688-200a0a0a-1b95-45010-3c4e4-381f7a3b-
+</I>&gt;<i> 3c4e4
+</I>&gt;<i> To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+</I>&gt;<i> Call-ID:
+</I>&gt;<i> 7890258-200a0a0a-1b95-45010-3c4e1-43aa4d4-3c4e1
+</I>&gt;<i> CSeq: 1 REGISTER
+</I>&gt;<i> Via: SIP/2.0/UDP
+</I>&gt;<i> 10.10.10.32:7061;branch=z9hG4bK-3c4e4-eb91aaf-222a4471
+</I>&gt;<i> Max-Forwards: 70
+</I>&gt;<i> Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at 10.10.10.32</A>:7061&gt;
+</I>&gt;<i> Authorization: Digest
+</I>&gt;<i> username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,nonce=&quot;&quot;,response=&quot;&quot;
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i> 
+</I>&gt;<i> Response message looks like -
+</I>&gt;<i> SIP/2.0 480 Temporarily Unavailable - Diameter Cx
+</I>&gt;<i> interface failed
+</I>&gt;<i> From:
+</I>&gt;<i> &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tagT58688-200a0a0a-1b95-45010-3c4e4-381f7a3b-
+</I>&gt;<i> 3c4e4
+</I>&gt;<i> To:
+</I>&gt;<i> &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag3f3d0d6be4b306955131d96c31eff0-0c8b
+</I>&gt;<i> Call-ID:
+</I>&gt;<i> 7890258-200a0a0a-1b95-45010-3c4e1-43aa4d4-3c4e1
+</I>&gt;<i> CSeq: 1 REGISTER
+</I>&gt;<i> Via: SIP/2.0/UDP
+</I>&gt;<i> 10.10.10.32:7061;rportp61;branch=z9hG4bK-3c4e4-eb91aaf-222a4471
+</I>&gt;<i> Server: Sip EXpress router (0.10.99-dev53-tm_fixes
+</I>&gt;<i> (i386/linux))
+</I>&gt;<i> Warning: 392 10.10.10.101:5060 &quot;Noisy feedback tells:
+</I>&gt;<i> pid0149 req_src_ip.10.10.101 <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">req_src_port at 60</A>
+</I>&gt;<i> in_uri=sip:open-ims.test out_uri=sip:open-ims.test
+</I>&gt;<i> via_cnt==2&quot;
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i> 
+</I>&gt;<i> Messages seen on the screen running icscf.sh
+</I>&gt;<i>  2(30147) ERR:I-CSCF:I_UAR: Error creating/sending UAR
+</I>&gt;<i> or UAR time-out
+</I>&gt;<i>  2(30147) ERROR: _reply_light: can't generate 480
+</I>&gt;<i> reply when a final 480 was sent out
+</I>&gt;<i>  1(30146) ERR:I-CSCF:I_UAR: Error creating/sending UAR
+</I>&gt;<i> or UAR time-out
+</I>&gt;<i>  1(30146) ERROR: _reply_light: can't generate 480
+</I>&gt;<i> reply when a final 480 was sent out
+</I>&gt;<i> 
+</I>&gt;<i> Message on HSS window -
+</I>&gt;<i> 
+</I>&gt;<i> 2007-01-18 09:59:29,904 ERROR
+</I>&gt;<i> org.hibernate.util.JDBCExceptionReporter -
+</I>&gt;<i> logExceptions Connections could not be acquired from
+</I>&gt;<i> the underlying database!
+</I>&gt;<i> 2007-01-18 09:59:29,904 ERROR
+</I>&gt;<i> org.hibernate.util.JDBCExceptionReporter -
+</I>&gt;<i> logExceptions Connections could not be acquired from
+</I>&gt;<i> the underlying database!
+</I>&gt;<i> 2007-01-18 09:59:29,905 ERROR
+</I>&gt;<i> de.fhg.fokus.hss.model.CxUserProfil -
+</I>&gt;<i> loadByPrivateIdentity
+</I>&gt;<i> org.hibernate.exception.GenericJDBCException: Cannot
+</I>&gt;<i> open connection
+</I>&gt;<i> 2007-01-18 09:59:29,906 ERROR
+</I>&gt;<i> de.fhg.fokus.hss.model.CxUserProfil -
+</I>&gt;<i> loadByPrivateIdentity
+</I>&gt;<i> org.hibernate.exception.GenericJDBCException: Cannot
+</I>&gt;<i> open connection
+</I>&gt;<i> 2007-01-18 09:59:29,904 ERROR
+</I>&gt;<i> org.hibernate.util.JDBCExceptionReporter -
+</I>&gt;<i> logExceptions Connections could not be acquired from
+</I>&gt;<i> the underlying database!
+</I>&gt;<i> 2007-01-18 09:59:29,907 DEBUG
+</I>&gt;<i> de.fhg.fokus.hss.server.cx.op.QueryCxOperation -
+</I>&gt;<i> execute exiting
+</I>&gt;<i> 2007-01-18 09:59:29,908 ERROR
+</I>&gt;<i> de.fhg.fokus.hss.model.CxUserProfil -
+</I>&gt;<i> loadByPrivateIdentity
+</I>&gt;<i> org.hibernate.exception.GenericJDBCException: Cannot
+</I>&gt;<i> open connection
+</I>&gt;<i> 
+</I>&gt;<i> ... (debug messages followed by this warning)
+</I>&gt;<i> 2007-01-18 09:59:29,910 WARN
+</I>&gt;<i> de.fhg.fokus.hss.diam.cx.UARCommandListener -
+</I>&gt;<i> recvMessage
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.cx.UARCommandListener at 30d83d</A>
+</I>&gt;<i> de.fhg.fokus.cx.exceptions.base.UnableToComply
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Please Help!
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> -bindu
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> __________________________________________________________________________
+</I>&gt;<i> __________
+</I>&gt;<i> Now that's room service!  Choose from over 150,000 hotels
+</I>&gt;<i> in 45,000 destinations on Yahoo! Travel to find your fit.
+</I>&gt;<i> <A HREF="http://farechase.yahoo.com/promo-generic-14795097">http://farechase.yahoo.com/promo-generic-14795097</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000152.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+	<LI>Next message: <A HREF="000155.html">[OpenIMSCore-HSS] Response 480 - Diameter Cx interface failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20The%20FHoss%20DiameterPeer%20problem%3F&In-Reply-To=%3CDreamMail__091547_70005352345%40mail.astrocom.cn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000469.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] The FHoss DiameterPeer problem?</H1>
+    <B>fancy_xiao</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20The%20FHoss%20DiameterPeer%20problem%3F&In-Reply-To=%3CDreamMail__091547_70005352345%40mail.astrocom.cn%3E"
+       TITLE="[OpenIMSCore-HSS] The FHoss DiameterPeer problem?">fancy_xiao at astrocom.cn
+       </A><BR>
+    <I>Fri Jun  1 03:15:47 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000469.html">[OpenIMSCore-HSS] RTR and PPR miss must AVP?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#468">[ date ]</a>
+              <a href="thread.html#468">[ thread ]</a>
+              <a href="subject.html#468">[ subject ]</a>
+              <a href="author.html#468">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Shengyao Chen,openimscore-hss&#65292;&#20320;&#22909;
+
+yea,wo configed it correctly,but my Diameter Peers are open Diameter CX Clients!
+
+fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+2007-06-01 
+----- Original Message ----- 
+From: Shengyao Chen 
+To: fancy_xiao,openimscore-hss 
+Sent: 2007-05-31, 22:11:25
+Subject: RE: [OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+
+
+The FHoSS can be connected with more then 4 DiameterPeers without any problems. 
+There are Diameter configure files both at FHoSS and at DiameterPeers connected to the FHoSS. Have you modified them correctly?
+
+e.g. at FHoSS:
+
+ &lt;Peer FQDN=&quot;icscf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3869&quot;&gt;
+ &lt;Peer FQDN=&quot;scscf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3870&quot;&gt;
+ &lt;Peer FQDN=&quot;scscf1.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3871&quot;&gt;
+ &lt;Peer FQDN=&quot;scscf2.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3872&quot;&gt;
+
+
+at S-CSCF1: 
+ &lt;DiameterPeer
+  FQDN=&quot;scscf1.open-ims.test&quot;
+  ...
+ &gt;
+
+ &lt;Acceptor port=&quot;3871&quot; bind=&quot;127.0.0.1&quot;&gt;
+
+at S-CSCF2:
+ &lt;DiameterPeer
+  FQDN=&quot;scscf2.open-ims.test&quot;
+  ...
+ &gt;
+
+ &lt;Acceptor port=&quot;3872&quot; bind=&quot;127.0.0.1&quot;&gt;
+
+- Shengyao
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> 
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] On Behalf 
+</I>&gt;<i> Of fancy_xiao
+</I>&gt;<i> Sent: Donnerstag, 31. Mai 2007 05:45
+</I>&gt;<i> To: openimscore-hss
+</I>&gt;<i> Subject: [OpenIMSCore-HSS] The FHoss DiameterPeer problem?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> openimscore-hss&#65292;&#20320;&#22909; 
+</I>&gt;<i> 
+</I>&gt;<i> when FHoSS Peers increase to 4 or more, the Cx Client can't 
+</I>&gt;<i> conneted to FHoSS&#65281; why? 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> 
+</I>&gt;<i> 2007-05-31 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070601/a7af5c9a/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070601/a7af5c9a/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000469.html">[OpenIMSCore-HSS] RTR and PPR miss must AVP?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#468">[ date ]</a>
+              <a href="thread.html#468">[ thread ]</a>
+              <a href="subject.html#468">[ subject ]</a>
+              <a href="author.html#468">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Registration and Deregistration issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registration%20and%20Deregistration%20issues&In-Reply-To=%3C20070620135714.B46C8F586D%40mail.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000491.html">
+   <LINK REL="Next"  HREF="000526.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Registration and Deregistration issues</H1>
+    <B>Jean-Christophe Cimino</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registration%20and%20Deregistration%20issues&In-Reply-To=%3C20070620135714.B46C8F586D%40mail.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] Registration and Deregistration issues">jccimino at blueslice.com
+       </A><BR>
+    <I>Wed Jun 20 15:47:26 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000491.html">[OpenIMSCore-HSS] Call for presentations at Globecom 2007 D&amp;D Forum	on IMS
+</A></li>
+        <LI>Next message: <A HREF="000526.html">[OpenIMSCore-HSS] Registration and Deregistration issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#524">[ date ]</a>
+              <a href="thread.html#524">[ thread ]</a>
+              <a href="subject.html#524">[ subject ]</a>
+              <a href="author.html#524">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Guys,
+
+ 
+
+Consider the following subscriber profile where a public identity is linked
+with 2 private identities:
+
+ 
+
+We have the couple:
+
+ 
+
+Private 1 &lt;-&gt; Public 1
+
+Private 2 &lt;-&gt; Public 1
+
+ 
+
+Consider to make a registration of the Private 1 &lt;-&gt; Public 1. The following
+message will be exchanged between the x-CSCF and the HSS: UAR-UAA, MAR-MAA,
+UAR-UAA, SAR (REGISTRATION)-SAA. After that, the registration status of the
+Private 1 &lt;-&gt; Public 1 should be REGISTERED if everything was fine.
+
+ 
+
+Now, make the same thing for the link Private 2 &lt;-&gt; Public 2. Same messages
+will be exchanged and the registration status should be also REGISTERED for
+that link.
+
+ 
+
+Private 1 &lt;-&gt; Public 1 =&gt; REGISTERED
+
+Private 2 &lt;-&gt; Public 1 =&gt; REGISTERED
+
+ 
+
+ 
+
+Now consider to deregister the first link Private 1 &lt;-&gt; Public 1 by sending
+an SAR with USER_DEREGISTRATION(5) in the ServerAssignmentType AVP.
+
+ 
+
+The 3GPP TS 29.228 states the following:
+
+-     If it indicates TIMEOUT_DEREGISTRATION, USER_DEREGISTRATION,
+DEREGISTRATION_TOO_MUCH_DATA or ADMINISTRATIVE_DEREGISTRATION, the HSS shall
+check the registration state for all the Public Identities in the request.
+If the request did not contain Public Identities the HSS shall check the
+registration state of the Public Identities associated with the Private
+Identity identified in the request. For each Public Identity;-
+
+-     if the registration state of the Public User Identity is Registered,
+the HSS shall check if the Public User Identity is currently registered with
+one or more Private User Identities. 
+
+-     If the Public User Identity is currently registered with only one
+Private User Identity, the HSS shall set the registration state of the
+Public User Identity to Not Registered and clear the S-CSCF name associated
+with the Public User Identity.
+
+-     If the Public User Identity is currently registered with more than one
+Private User Identity, the HSS shall keep the registration state of the
+Public User Identity as Registered and retain the S-CSCF name associated
+with the Public User Identity.
+
+-     if the registration state of the Public Identity is Unregistered, the
+HSS shall set the registration state of the Public Identity to Not
+Registered and clear the S-CSCF name associated with the Public Identity.
+
+The Result-Code shall be set to DIAMETER_SUCCESS
+
+So as the Public 1 is linked with more than one Private identity (ie the
+Private 2) with is also REGISTERED, the Registration state is not modified
+and kept to REGISTERED.
+
+ 
+
+ 
+
+Finally deregister the second link Private 2 &lt;-&gt; Public 1 by sending a SAR
+with USER_DEREGISTRATION(5) in the serverAssignmentType.
+
+As the Public 1 is linked with the Private 1 which is always in REGISTERED
+state, the registration status for this link is also kept to REGISTERED.
+
+ 
+
+My question is:
+
+ 
+
+How a user could be DEREGISTERED using this configuration? 
+
+The Registration State could never switch to NOT_REGISTER once the 2 links
+have been registered. 
+
+Is it allowed to keep the Registration status to REGISTERED even if a user
+asked for a DEREGISTRATION ?
+
+The only way I see to DEREGISTER such theses links, is by sending a RTR
+message from the HSS. But that imply an manual operator action on the HSS to
+Deregister a user.
+
+ 
+
+Thanks for your comment/answer.
+
+ 
+
+Jean-Christophe Cimino.
+
+ 
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070620/a3958287/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070620/a3958287/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000491.html">[OpenIMSCore-HSS] Call for presentations at Globecom 2007 D&amp;D Forum	on IMS
+</A></li>
+	<LI>Next message: <A HREF="000526.html">[OpenIMSCore-HSS] Registration and Deregistration issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#524">[ date ]</a>
+              <a href="thread.html#524">[ thread ]</a>
+              <a href="subject.html#524">[ subject ]</a>
+              <a href="author.html#524">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

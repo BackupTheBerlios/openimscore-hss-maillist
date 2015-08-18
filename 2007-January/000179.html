@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20%3A%20HSS%20user%20unknown%20Error.&In-Reply-To=%3C45B8CCB3.2000902%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000185.html">
+   <LINK REL="Next"  HREF="000176.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20%3A%20HSS%20user%20unknown%20Error.&In-Reply-To=%3C45B8CCB3.2000902%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Jan 25 16:28:51 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000185.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+        <LI>Next message: <A HREF="000176.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Rajaram,
+
+The first Request-URI is right. You are REGISTERing to the
+sip:open-ims.test domain. People often make this mistake of assuming
+that the registration is between a UE and a specific SIP Proxy, when it
+is between the UE and the abstract network from the UE's point of view.
+
+But you should configure your client to always use the P-CSCF as
+outbound proxy for ALL messages going out. This means that irrespective
+of the Request-URI or Route headers, the messages should always be sent
+to the assigned P-CSCF for that UE (the P-CSCF should be assigned to the
+UEs during DHCP, but we don't control that).
+
+Also, you should only accept incoming messages from that P-CSCF. All
+others are considered attacks.
+
+-Dragos
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+&gt;<i>
+</I>&gt;<i> Hello Babu,
+</I>&gt;<i>
+</I>&gt;<i> i was using REGISTER sip:open-ims.test SIP/2.0.
+</I>&gt;<i> But to send it to the PCSCF, i modified the Request URI to:
+</I>&gt;<i> REGISTER sip:open-ims.test:4064 SIP/2.0
+</I>&gt;<i>
+</I>&gt;<i> but it gives me the following response:
+</I>&gt;<i> SIP/2.0 483 Too Many Hops
+</I>&gt;<i> Via: SIP/2.0/UDP
+</I>&gt;<i> open-ims.test:5065;rport=5065;received=127.0.0.1;branch=z9hG4bKnashds7
+</I>&gt;<i> To: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=8456b23699f06fdb908a4dfde0051a59.2df5
+</I>&gt;<i> From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=456248
+</I>&gt;<i> Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A>
+</I>&gt;<i> CSeq: 1826 REGISTER
+</I>&gt;<i> Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+</I>&gt;<i> Warning: 392 127.0.0.1:4060 &quot;Noisy feedback tells:  pid=4713
+</I>&gt;<i> req_src_ip=127.0.0.1 req_src_port=4060 in_uri=sip:open-ims.test:4060
+</I>&gt;<i> out_uri=sip:open-ims.test:4060 via_cnt==18&quot;
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i>
+</I>&gt;<i> I hope this is the correct way to ensure that we contact the PCSCF
+</I>&gt;<i> directly.
+</I>&gt;<i> kindly correct me if i'm wrong.
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Rajaram
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Babu George [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bgeorge at aylus.com</A>]
+</I>&gt;<i> Sent: Thu 1/25/2007 3:28 PM
+</I>&gt;<i> To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+</I>&gt;<i> Cc: openimscore-hss; weik
+</I>&gt;<i> Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</I>&gt;<i>
+</I>&gt;<i> Rajaram,
+</I>&gt;<i>
+</I>&gt;<i>  It seems you are sending the message to ICSCF instead of PCSCF.
+</I>&gt;<i>
+</I>&gt;<i>  PCSCF won't complain about the missing header P-Visited Network
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i>
+</I>&gt;<i> Babu
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   _____ 
+</I>&gt;<i>
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A>]
+</I>&gt;<i> Sent: Thursday, January 25, 2007 2:41 PM
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hello Peter,
+</I>&gt;<i>
+</I>&gt;<i> Thanks for pointing that out.
+</I>&gt;<i> I changed the Digest username to &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot; but now i get the
+</I>&gt;<i> following error:
+</I>&gt;<i> 403 Forbidden- HSS Roaming not allowed.
+</I>&gt;<i>
+</I>&gt;<i> The HSS also spits an Exception:
+</I>&gt;<i> [Thread-9] WARN  de.fhg.fokus.hss.diam.cx.UARCommandListener  -
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.cx.UARCommandListener at d337d3</A>
+</I>&gt;<i> de.fhg.fokus.cx.exceptions.ims.RoamingNotAllowed
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.server.cx.op.QueryCxOperation.execute(QueryCxOperation.
+</I>&gt;<i> java:131)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.server.cx.HSScxOperationsImpl.cxQuery(HSScxOperationsIm
+</I>&gt;<i> pl.java:99)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.diam.cx.UARCommandListener.recvMessage(UARCommandListen
+</I>&gt;<i> er.java:141)
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.jav
+</I>&gt;<i> a:100)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I traversed the code and found that it's because of improper value of
+</I>&gt;<i> P-Visited-Network-ID.
+</I>&gt;<i> What should be the correct value for this?
+</I>&gt;<i>
+</I>&gt;<i> Actually, ideally a P-CSCF should add this value to a SIP message, but
+</I>&gt;<i> when i send a message from my simulator(without P-Visited-Network-ID),
+</I>&gt;<i> it gives an error saying missing header P-Visited-Network-ID.
+</I>&gt;<i> Now
+</I>&gt;<i> 1) Is P-CSCF being bypassed in my setup for a REGISTER?
+</I>&gt;<i> 2) what should be the correct value of P-Visited-Network-ID here to
+</I>&gt;<i> register the default user bob here.
+</I>&gt;<i>
+</I>&gt;<i> Thanks again for your time!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>]
+</I>&gt;<i> Sent: Thu 1/25/2007 2:11 PM
+</I>&gt;<i> To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</I>&gt;<i>
+</I>&gt;<i> Hi Pankaj,
+</I>&gt;<i>
+</I>&gt;<i> the Digest username is set to &quot;bob&quot; while it should be
+</I>&gt;<i> &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Peter
+</I>&gt;<i>
+</I>&gt;<i> On Don, 2007-01-25 at 13:00 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; We have setup open IMS components and all of them seem to be coming up
+</I>&gt;<i> &gt; properly.
+</I>&gt;<i> &gt; We are pumping a SIP REGISTER message to the IMS core using a SIP
+</I>&gt;<i> &gt; simulator.
+</I>&gt;<i> &gt; But the simulator receives the following reply : 403 Forbidden : HSS
+</I>&gt;<i> &gt; user unknown Error.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The SIP REGISTER message is :
+</I>&gt;<i> &gt; REGISTER sip:open-ims.test SIP/2.0
+</I>&gt;<i> &gt; Via: SIP/2.0/UDP open-ims.test:5065 ;branch=z9hG4bKnashds7
+</I>&gt;<i> &gt; Max-Forwards: 70
+</I>&gt;<i> &gt; To: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+</I>&gt;<i> &gt; From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=456248
+</I>&gt;<i> &gt; Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A>
+</I>&gt;<i> &gt; CSeq: 1826 REGISTER
+</I>&gt;<i> &gt; Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 10.117.11.21</A>:5065&gt;
+</I>&gt;<i> &gt; Expires: 7200
+</I>&gt;<i> &gt; Content-Length: 0
+</I>&gt;<i> &gt; Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;,
+</I>&gt;<i> &gt; realm=&quot;open-ims.test&quot;
+</I>&gt;<i> &gt; Proxy-Authorization: Digest username=&quot;bob&quot;, realm=&quot;open-ims.test&quot;
+</I>&gt;<i> &gt; P-Visited-Network-ID: &quot;Visited network number 1&quot;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; And the HSS throws an exception.
+</I>&gt;<i> &gt; The Exception trace is attached along with this mail.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Has anyone faced the same problem.
+</I>&gt;<i> &gt; Any pointers will be highly appreciated.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks in advance,
+</I>&gt;<i> &gt; Pankaj
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The information contained in this electronic message and any
+</I>&gt;<i> &gt; attachments to this message are intended for the exclusive use of the
+</I>&gt;<i> &gt; addressee(s) and may contain proprietary, confidential or privileged
+</I>&gt;<i> &gt; information. If you are not the intended recipient, you should not
+</I>&gt;<i> &gt; disseminate, distribute or copy this e-mail. Please notify the sender
+</I>&gt;<i> &gt; immediately and destroy all copies of this message and any
+</I>&gt;<i> &gt; attachments.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> &gt; should check this email and any attachments for the presence of
+</I>&gt;<i> &gt; viruses. The company accepts no liability for any damage caused by any
+</I>&gt;<i> &gt; virus transmitted by this email.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; www.wipro.com
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The information contained in this electronic message and any attachments
+</I>&gt;<i> to this message are intended for the exclusive use of the addressee(s)
+</I>&gt;<i> and may contain proprietary, confidential or privileged information. If
+</I>&gt;<i> you are not the intended recipient, you should not disseminate,
+</I>&gt;<i> distribute or copy this e-mail. Please notify the sender immediately and
+</I>&gt;<i> destroy all copies of this message and any attachments.
+</I>&gt;<i>
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> should check this email and any attachments for the presence of viruses.
+</I>&gt;<i> The company accepts no liability for any damage caused by any virus
+</I>&gt;<i> transmitted by this email.
+</I>&gt;<i>
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i>   
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The information contained in this electronic message and any
+</I>&gt;<i> attachments to this message are intended for the exclusive use of the
+</I>&gt;<i> addressee(s) and may contain proprietary, confidential or privileged
+</I>&gt;<i> information. If you are not the intended recipient, you should not
+</I>&gt;<i> disseminate, distribute or copy this e-mail. Please notify the sender
+</I>&gt;<i> immediately and destroy all copies of this message and any attachments.
+</I>&gt;<i>
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> should check this email and any attachments for the presence of
+</I>&gt;<i> viruses. The company accepts no liability for any damage caused by any
+</I>&gt;<i> virus transmitted by this email.
+</I>&gt;<i>
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000185.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+	<LI>Next message: <A HREF="000176.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

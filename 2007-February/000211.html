@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] compile error for FHoSS r130
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20compile%20error%20for%20FHoSS%20r130&In-Reply-To=%3C45D5A945.8030800%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000210.html">
+   <LINK REL="Next"  HREF="000212.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] compile error for FHoSS r130</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20compile%20error%20for%20FHoSS%20r130&In-Reply-To=%3C45D5A945.8030800%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] compile error for FHoSS r130">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Feb 16 13:53:25 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000210.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+        <LI>Next message: <A HREF="000212.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#211">[ date ]</a>
+              <a href="thread.html#211">[ thread ]</a>
+              <a href="subject.html#211">[ subject ]</a>
+              <a href="author.html#211">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello Ovidiu,
+
+As I understand from the logs, you have a version problem.I am thinking
+that maybe you haven't made a clean update to the new revision and you
+have a version problem. The &quot;jdp.jar&quot; was updated in revision 93 I
+think, so be sure that you do not have in deploy/lib the old one. It is
+a good thing to make an ant cleanall or remove the old deploy/lib
+directory, before start a new deployment.
+
+I tried again, a clean checkout from revision 130 and it worked fine, so
+I am sure that is not a revision problem.
+
+bye,
+Adrian
+
+
+Ovidiu Sas wrote:
+&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I followed the instructions from the wiki:
+</I>&gt;<i> <A HREF="http://www.openimscore.org/docs/install.html#installscript">http://www.openimscore.org/docs/install.html#installscript</A>
+</I>&gt;<i> 
+</I>&gt;<i> and I have the following error:
+</I>&gt;<i> /opt/OpenIMSCore/FHoSS$ ant gen compile
+</I>&gt;<i> Buildfile: build.xml
+</I>&gt;<i> 
+</I>&gt;<i> init:
+</I>&gt;<i>     [mkdir] Created dir: /opt/OpenIMSCore/FHoSS/bin
+</I>&gt;<i>     [mkdir] Created dir: /opt/OpenIMSCore/FHoSS/src-gen
+</I>&gt;<i> 
+</I>&gt;<i> clean-gen:
+</I>&gt;<i>    [delete] Deleting directory /opt/OpenIMSCore/FHoSS/src-gen
+</I>&gt;<i> 
+</I>&gt;<i> gen:
+</I>&gt;<i>      [java] 2007-02-15 16:25:25,026 WARN
+</I>&gt;<i> org.exolab.castor.builder.SourceGenerator - processImportedSchemas
+</I>&gt;<i> Warning: Do not forget to generate source code for the following
+</I>&gt;<i> imported schema: <A HREF="http://www.w3.org/2001/xml.xsd">http://www.w3.org/2001/xml.xsd</A>
+</I>&gt;<i> 
+</I>&gt;<i> init:
+</I>&gt;<i> 
+</I>&gt;<i> compile:
+</I>&gt;<i>     [javac] Compiling 156 source files to /opt/OpenIMSCore/FHoSS/bin
+</I>&gt;<i>     [javac] Compiling 282 source files to /opt/OpenIMSCore/FHoSS/bin
+</I>&gt;<i>     [javac] /opt/OpenIMSCore/FHoSS/src/de/fhg/fokus/hss/diam/CommandAction.java:47:
+</I>&gt;<i> cannot access de.fhg.fokus.diameter.DiameterPeer.EventListener
+</I>&gt;<i>     [javac] bad class file:
+</I>&gt;<i> /opt/OpenIMSCore/FHoSS/lib/jdp.jar(de/fhg/fokus/diameter/DiameterPeer/EventListener.class)
+</I>&gt;<i>     [javac] class file has wrong version 49.0, should be 48.0
+</I>&gt;<i>     [javac] Please remove or make sure it appears in the correct
+</I>&gt;<i> subdirectory of the classpath.
+</I>&gt;<i>     [javac] import de.fhg.fokus.diameter.DiameterPeer.EventListener;
+</I>&gt;<i>     [javac]                                           ^
+</I>&gt;<i>     [javac] 1 error
+</I>&gt;<i> 
+</I>&gt;<i> BUILD FAILED
+</I>&gt;<i> /opt/OpenIMSCore/FHoSS/build.xml:91: Compile failed; see the compiler
+</I>&gt;<i> error output for details.
+</I>&gt;<i> 
+</I>&gt;<i> Total time: 8 seconds
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> /opt/OpenIMSCore/FHoSS$ svn info
+</I>&gt;<i> Path: .
+</I>&gt;<i> URL: <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk">http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk</A>
+</I>&gt;<i> Repository Root: <A HREF="http://svn.berlios.de/svnroot/repos/openimscore">http://svn.berlios.de/svnroot/repos/openimscore</A>
+</I>&gt;<i> Repository UUID: a36f3ba7-d720-0410-92d7-d12b36172079
+</I>&gt;<i> Revision: 144
+</I>&gt;<i> Node Kind: directory
+</I>&gt;<i> Schedule: normal
+</I>&gt;<i> Last Changed Author: adp
+</I>&gt;<i> Last Changed Rev: 130
+</I>&gt;<i> Last Changed Date: 2007-02-08 13:11:21 -0500 (Thu, 08 Feb 2007)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Ovidiu Sas
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFF1alF6Yml36HNIwcRAqd3AKCVEhZDwOuS0MZKu6hAImAhoo1QIwCcCaZr
+kk8MaOAM4zJVHEjuTGdQggk=
+=zRt2
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000210.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+	<LI>Next message: <A HREF="000212.html">[OpenIMSCore-HSS] compile error for FHoSS r130
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#211">[ date ]</a>
+              <a href="thread.html#211">[ thread ]</a>
+              <a href="subject.html#211">[ subject ]</a>
+              <a href="author.html#211">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

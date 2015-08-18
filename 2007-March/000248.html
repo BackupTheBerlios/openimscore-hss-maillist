@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-CSCS%20Interconnecting%20problem&In-Reply-To=%3C45F7B823.40705%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000245.html">
+   <LINK REL="Next"  HREF="000243.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20-CSCS%20Interconnecting%20problem&In-Reply-To=%3C45F7B823.40705%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Mar 14 09:53:55 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000245.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+        <LI>Next message: <A HREF="000243.html">[OpenIMSCore-HSS] Non initial SIP methods offered on HSS	Web-interface.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>1 - registration is one of the most comprehensive operations. So it is a
+good test.
+
+2 - could you send some network traces of the SIP and Diameter traffic
+together with the I-CSCF logs?
+
+-Dragos
+
+SRINI VASAN.R.J wrote:
+&gt;<i> Hi  Adrian,
+</I>&gt;<i> 
+</I>&gt;<i>            Thanks for your reply, Its  really helped me, I follwed your
+</I>steps and configured S-CSCF anf HSS and they are communicating , Now i
+have some more doubts.
+&gt;<i> 
+</I>&gt;<i>                 1) How to test whether all the components working fine not
+</I>&gt;<i> 
+</I>&gt;<i>                 2) i tried to register <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>
+</I>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt; ( prepopulated in hss) using 3CX phone, The
+Register message reached at ICSCF but its not fowarded to SCSCF,whether
+we have to do some configuration settings to forward requsest to SCSCF.
+&gt;<i> 
+</I>&gt;<i>                  If any of you come across this problem ,Kindly let me
+</I>know.
+&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Srini
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i> On 3/13/07, *Adrian-Daniel Popescu*
+</I>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>
+&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>&gt;&gt; wrote:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hi SRINI VASAN,
+</I>&gt;<i>
+</I>&gt;<i> You have almost answered to your question :) If you cannot ping the
+</I>&gt;<i> scscf.open-ims.test, icscf.open-ims.test or hss.open-ims.test is clear
+</I>&gt;<i> that your core will not work.
+</I>&gt;<i> You have still a dns configuration error somewhere. Please take a look
+</I>&gt;<i> on the dns howto available here:
+</I>&gt;<i> <A HREF="http://www.openimscore.org/docs/install.html#annexa">http://www.openimscore.org/docs/install.html#annexa</A>
+</I>&gt;<i> You probably forgot to add the sub-domains(scscf, icscf, hss) to the
+</I>&gt;<i> dnszone file.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Adrian
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> SRINI VASAN.R.J wrote:
+</I>&gt;<i>
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i>
+</I>&gt;<i> &gt;    I have downloaded ser_ims and FHoSS from openimscore.org
+</I>&gt;<i> &lt;<A HREF="http://openimscore.org">http://openimscore.org</A>&gt;
+</I>&gt;<i> &gt; &lt; <A HREF="http://openimscore.org">http://openimscore.org</A>&gt;, I followed the all the installation steps.
+</I>&gt;<i> &gt; P-CSCF,S-CSCF,I-CSCF are running successfuly but the problem is I_CSCF,
+</I>&gt;<i> &gt; S-CSCF is not interacting with HSS.
+</I>&gt;<i>
+</I>&gt;<i> &gt;   When i try ping open-ims.test its giving correct result when i try to
+</I>&gt;<i> &gt; ping scscf.open-ims.test or icscf.open-ims.test or hss.open-ims.test,
+</I>&gt;<i> &gt; its throwing unknown host error.
+</I>&gt;<i>
+</I>&gt;<i> &gt;  In my system i am using Red hat linux Enterprise edition.
+</I>&gt;<i> &gt;  java  &quot;java version &quot;1.5.0_11&quot;
+</I>&gt;<i> &gt;  bind is installed and running.
+</I>&gt;<i>
+</I>&gt;<i> &gt;  If any of u come across this problem,kindly let me know the solution.
+</I>&gt;<i>
+</I>&gt;<i> &gt; When i start SCSCF and HSS i am getting the following warnings
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; SCSCF LOG
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; 12(4907) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test
+</I>&gt;<i> &gt; 12(4907) WARNING:peer_connect(): Error opening connection to
+</I>&gt;<i> &gt; hss.open-ims.test:3868 &gt;No such file or directory
+</I>&gt;<i> &gt; 12(4907) DBG:sm_process(): Peer hss.open-ims.test       State
+</I>&gt;<i> &gt; Wait_Conn_Ack    Event I_Rcv_Conn_NAck
+</I>&gt;<i> &gt; 12(4907) --- Peer List: ---
+</I>&gt;<i> &gt; 12(4907)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i> &gt; 12(4907) ------------------
+</I>&gt;<i> &gt; 12(4907) --- Peer List: ---
+</I>&gt;<i> &gt; 12(4907)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;<i> &gt; 12(4907) ------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; HSS Log
+</I>&gt;<i>
+</I>&gt;<i> &gt; 2007-03-13 16:18:09,193 DEBUG de.fhg.fokus.hss.diam.HssDiameterStack -
+</I>&gt;<i> &gt; startup exiting
+</I>&gt;<i> &gt; 2007-03-13 16:18:09,203 INFO  de.fhg.fokus.hss.main.HssServer - main
+</I>&gt;<i> &gt; FHoSS was started and is ready for use!
+</I>&gt;<i> &gt; 2007-03-13 16:18:09,204 INFO  de.fhg.fokus.hss.main.HssServer -
+</I>&gt;<i> &gt; waitForExit Type 'exit' if you want to exit.
+</I>&gt;<i> &gt; 2007-03-13 16:18:35,734 DEBUG
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> &gt; peer icscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> &gt; 2007-03-13 16:18:35,735 ERROR
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> &gt; StateMachine: Peer icscf.open-ims.test can not be resolved.
+</I>&gt;<i> &gt; 2007-03-13 16:18:35,746 DEBUG
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> &gt; peer scscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> &gt; 2007-03-13 16:18:35,747 ERROR
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> &gt; StateMachine: Peer scscf.open-ims.test can not be resolved.
+</I>&gt;<i> &gt; 2007-03-13 16:19:05,820 DEBUG
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> &gt; peer icscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> &gt; 2007-03-13 16:19:05,821 ERROR
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> &gt; StateMachine: Peer icscf.open-ims.test can not be resolved.
+</I>&gt;<i> &gt; 2007-03-13 16:19:05,823 DEBUG
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.PeerManager - run Connecting to
+</I>&gt;<i> &gt; peer scscf.open-ims.test dynamic false dropping true
+</I>&gt;<i> &gt; 2007-03-13 16:19:05,824 ERROR
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine - I_Snd_Conn_Req
+</I>&gt;<i> &gt; StateMachine: Peer scscf.open-ims.test can not be resolved.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>&gt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+&gt;<i> -------------------------
+</I>
+&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000245.html">[OpenIMSCore-HSS] HSS -CSCS Interconnecting problem
+</A></li>
+	<LI>Next message: <A HREF="000243.html">[OpenIMSCore-HSS] Non initial SIP methods offered on HSS	Web-interface.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#248">[ date ]</a>
+              <a href="thread.html#248">[ thread ]</a>
+              <a href="subject.html#248">[ subject ]</a>
+              <a href="author.html#248">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

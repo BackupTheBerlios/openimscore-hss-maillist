@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Rtr Erro!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Erro%21&In-Reply-To=%3CDreamMail__103557_50852622057%40mail.astrocom.cn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000437.html">
+   <LINK REL="Next"  HREF="000440.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Rtr Erro!</H1>
+    <B>fancy_xiao</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Erro%21&In-Reply-To=%3CDreamMail__103557_50852622057%40mail.astrocom.cn%3E"
+       TITLE="[OpenIMSCore-HSS] Rtr Erro!">fancy_xiao at astrocom.cn
+       </A><BR>
+    <I>Mon May 28 04:35:57 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000437.html">[OpenIMSCore-HSS] [SVN-FHoSS] r288 - RTR, PPR completed; SAR fixes
+</A></li>
+        <LI>Next message: <A HREF="000440.html">[OpenIMSCore-HSS] FW: Unable to create repository data entry for	user using PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#438">[ date ]</a>
+              <a href="thread.html#438">[ thread ]</a>
+              <a href="subject.html#438">[ subject ]</a>
+              <a href="author.html#438">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>openimscore-hss&#65292;&#20320;&#22909; 
+  
+I Register one PublicIdentity to a PrivateIdentity,and then use RTR to Deregister PublicIdenetity from the PrivateIdeneity,but it is not sucessfull!
+
+Erro Code:
+type Exception report 
+
+message  
+
+description The server encountered an internal error () that prevented it from fulfilling this request. 
+
+exception  
+
+javax.servlet.ServletException: bean associated_IMPUs not found within scope 
+org.apache.jasper.runtime.PageContextImpl.doHandlePageException(PageContextImpl.java:848) 
+org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:781) 
+org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:858) 
+org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322) 
+org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291) 
+org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063) 
+org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263) 
+org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386) 
+org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318) 
+org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229) 
+org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194) 
+org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:709) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+
+
+root cause  
+
+java.lang.InstantiationException: bean associated_IMPUs not found within scope 
+org.apache.jsp.pages.user.impi_jsp._jspService(org.apache.jsp.pages.user.impi_jsp:136) 
+org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:322) 
+org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291) 
+org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1063) 
+org.apache.struts.tiles.TilesRequestProcessor.doForward(TilesRequestProcessor.java:263) 
+org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:386) 
+org.apache.struts.tiles.TilesRequestProcessor.processForwardConfig(TilesRequestProcessor.java:318) 
+org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:229) 
+org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194) 
+org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:709) 
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+
+  
+  
+fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> 
+2007-05-28 
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000437.html">[OpenIMSCore-HSS] [SVN-FHoSS] r288 - RTR, PPR completed; SAR fixes
+</A></li>
+	<LI>Next message: <A HREF="000440.html">[OpenIMSCore-HSS] FW: Unable to create repository data entry for	user using PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#438">[ date ]</a>
+              <a href="thread.html#438">[ thread ]</a>
+              <a href="subject.html#438">[ subject ]</a>
+              <a href="author.html#438">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

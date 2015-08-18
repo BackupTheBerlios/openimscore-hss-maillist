@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] problem with PUR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20problem%20with%20PUR&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7BC7%40taxis.buc.materna.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000148.html">
+   <LINK REL="Next"  HREF="000158.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] problem with PUR</H1>
+    <B>Sven.Bornemann at materna.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20problem%20with%20PUR&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7BC7%40taxis.buc.materna.com%3E"
+       TITLE="[OpenIMSCore-HSS] problem with PUR">Sven.Bornemann at materna.de
+       </A><BR>
+    <I>Wed Jan 17 13:37:41 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000148.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+        <LI>Next message: <A HREF="000158.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mona!
+I'm not sure, but you use XML (Telephonenumer tag) within XML (Sh-Data).
+So I think you have to &quot;escape&quot; your data with a &quot;CDATA&quot; section.
+
+Try &quot;&lt;![CDATA[&lt;TelephoneNumber&gt;123456789&lt;/TelephoneNumber&gt;]]&gt;&quot;
+instead of &quot;&lt;TelephoneNumber&gt;123456789&lt;/TelephoneNumber&gt;&quot;.
+
+Bye,
+Sven
+
+P.S.: It seems that you've replied to another thread instead
+of beginning a new one ;-)
+
+&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>]Im Auftrag von Mona
+</I>&gt;<i> Hanna
+</I>&gt;<i> Gesendet: Mittwoch, 17. Januar 2007 12:52
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Betreff: [OpenIMSCore-HSS] problem with PUR
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I am using the opensourceims to test the diameter Sh 
+</I>&gt;<i> interface with the HSS.
+</I>&gt;<i> I am having some problems with the PUR request when trying to store a 
+</I>&gt;<i> RepositoryData (currently not set).
+</I>&gt;<i> I checked the mailing list archive, and it seems that other 
+</I>&gt;<i> persons where 
+</I>&gt;<i> able to update/Delete the RepositoryData, so I am probably 
+</I>&gt;<i> doing something 
+</I>&gt;<i> wrong, any help is appreciated.
+</I>&gt;<i> 
+</I>&gt;<i> Below is the part of the output with the user data.
+</I>&gt;<i> 
+</I>&gt;<i> DATA:
+</I>&gt;<i> &lt;?xml version =&quot;1.0&quot; 
+</I>&gt;<i> encoding=&quot;UTF-8&quot;?&gt;&lt;Sh-Data&gt;&lt;RepositoryData&gt;&lt;ServiceIndication&gt;
+</I>&gt;<i> XXXX&lt;/ServiceIndication&gt;&lt;SequenceNumber&gt;0&lt;/SequenceNumber&gt;&lt;Ser
+</I>&gt;<i> viceData&gt;&lt;TelephoneNumber&gt;123456789&lt;/TelephoneNumber&gt;&lt;/Service
+</I>&gt;<i> Data&gt;&lt;/RepositoryData&gt;&lt;/Sh-Data&gt;
+</I>&gt;<i> 
+</I>&gt;<i> [Thread-6] ERROR de.fhg.fokus.hss.diam.sh.PURCommandListener  - 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.sh.PURCommandListener at 4693f9</A>
+</I>&gt;<i> java.lang.NullPointerException
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.util.SAX2ANY.createNodeElement(SAX2ANY.java:433)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.util.SAX2ANY.startElement(SAX2ANY.java:248)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.UnmarshalHandler.startElement(UnmarshalH
+</I>&gt;<i> andler.java:1788)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.UnmarshalHandler.startElement(UnmarshalH
+</I>&gt;<i> andler.java:1149)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.apache.xerces.parsers.AbstractSAXParser.startElement(Unknown 
+</I>&gt;<i> Source)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartEleme
+</I>&gt;<i> nt(Unknown 
+</I>&gt;<i> Source)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$Fragment
+</I>&gt;<i> ContentDispatcher.dispatch(Unknown 
+</I>&gt;<i> Source)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocu
+</I>&gt;<i> ment(Unknown 
+</I>&gt;<i> Source)
+</I>&gt;<i>         at org.apache.xerces.parsers.XML11Configuration.parse(Unknown 
+</I>&gt;<i> Source)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.apache.xerces.parsers.DTDConfiguration.parse(Unknown Source)
+</I>&gt;<i>         at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:583)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:491)
+</I>&gt;<i>         at 
+</I>&gt;<i> org.exolab.castor.xml.Unmarshaller.unmarshal(Unmarshaller.java:669)
+</I>&gt;<i>         at de.fhg.fokus.sh.data.ShData.unmarshal(ShData.java:108)
+</I>&gt;<i>         at 
+</I>&gt;<i> de.fhg.fokus.hss.diam.sh.PURCommandListener.recvMessage(PURCom
+</I>&gt;<i> mandListener.java:118)
+</I>&gt;<i>         at 
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(Diameter
+</I>&gt;<i> Worker.java:100)
+</I>&gt;<i> 
+</I>&gt;<i> One of the possible reasons that I thought of, is the format of the 
+</I>&gt;<i> ServiceData. Is the 
+</I>&gt;<i> /opt/OpenIMSCore/openimscore/FHoSS/trunk/xsd/ShDataType.xsd 
+</I>&gt;<i> used for XML 
+</I>&gt;<i> validation?
+</I>&gt;<i> If yes, should I need to define the ANY type for the 
+</I>&gt;<i> ServiceData in the 
+</I>&gt;<i> ShDataType.xsd?
+</I>&gt;<i> 
+</I>&gt;<i> (I did a svn update to make sure that I am using the latest release)
+</I>&gt;<i> 
+</I>&gt;<i> Another thing, I noticed that in all responses the mandatory AVPs: 
+</I>&gt;<i> Vendor-Specific-Application-Id and Auth-Session-State are 
+</I>&gt;<i> missing. Any 
+</I>&gt;<i> reason?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i> 
+</I>&gt;<i> Mona 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000148.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+	<LI>Next message: <A HREF="000158.html">[OpenIMSCore-HSS] problem with PUR
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

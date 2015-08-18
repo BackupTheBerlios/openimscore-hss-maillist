@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Registration	issue:	IMS_Diameter_Error_Roaming_Not_Allowed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registration%0A%09issue%3A%09IMS_Diameter_Error_Roaming_Not_Allowed&In-Reply-To=%3C49B8FB05.1010404%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000916.html">
+   <LINK REL="Next"  HREF="000918.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Registration	issue:	IMS_Diameter_Error_Roaming_Not_Allowed</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Registration%0A%09issue%3A%09IMS_Diameter_Error_Roaming_Not_Allowed&In-Reply-To=%3C49B8FB05.1010404%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Registration	issue:	IMS_Diameter_Error_Roaming_Not_Allowed">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Mar 12 13:07:33 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000916.html">[OpenIMSCore-HSS] Registration issue:	IMS_Diameter_Error_Roaming_Not_Allowed
+</A></li>
+        <LI>Next message: <A HREF="000918.html">[OpenIMSCore-HSS] Registration issue:	IMS_Diameter_Error_Roaming_Not_Allowed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#917">[ date ]</a>
+              <a href="thread.html#917">[ thread ]</a>
+              <a href="subject.html#917">[ subject ]</a>
+              <a href="author.html#917">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+to rule out the first obvious, do you have the roaming permissions on 
+the 3rd identity too? If you do, please dump also the 
+impu_visited_network table.
+
+Cheers,
+-Dragos
+
+Franz Edler wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I have encountered an issue at registration of IMS clients. I tried to
+</I>&gt;<i> verify the behaviour of implicit registration sets and have the following
+</I>&gt;<i> configured:
+</I>&gt;<i>
+</I>&gt;<i> Private User Identity: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at net1.test</A>
+</I>&gt;<i>
+</I>&gt;<i> 3 Public User Identities assigned to above Private User Identity:
+</I>&gt;<i> - sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at net1.test</A>   		implicit registration set
+</I>&gt;<i> - tel:+432252805454 			implicit registration set
+</I>&gt;<i> - sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice-private at net1.test</A> 	not within implicit registration set
+</I>&gt;<i>
+</I>&gt;<i> When sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at net1.test</A> registers the 2nd implicit PUID is automatically
+</I>&gt;<i> registered as expected.
+</I>&gt;<i> When sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice-private at net1.test</A> registers the HSS denies registration with
+</I>&gt;<i> curios failure: 403 Forbidden - HSS Roaming not allowed
+</I>&gt;<i>
+</I>&gt;<i> I have added for diagnostics the impu and impi table of hss_db before the
+</I>&gt;<i> registration:
+</I>&gt;<i>
+</I>&gt;<i> mysql&gt; select * FROM impi;
+</I>&gt;<i> +----+---------+-----------------+-------+-------------+--------------------
+</I>&gt;<i> -+-----+------------------+--------------+----+-----------------+-----------
+</I>&gt;<i> ---+------------------+------------------------+
+</I>&gt;<i> | id | id_imsu | identity        | k     | auth_scheme | default_auth_scheme
+</I>&gt;<i> | amf | op               | sqn          | ip | line_identifier |
+</I>&gt;<i> zh_uicc_type | zh_key_life_time | zh_default_auth_scheme |
+</I>&gt;<i> +----+---------+-----------------+-------+-------------+--------------------
+</I>&gt;<i> -+-----+------------------+--------------+----+-----------------+-----------
+</I>&gt;<i> ---+------------------+------------------------+
+</I>&gt;<i> |  4 |       1 | <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at net1.test</A> | alice |         127 |                   1
+</I>&gt;<i> |     |                  | 000000000293 |    |                 |
+</I>&gt;<i> 0 |             3600 |                      1 |
+</I>&gt;<i> |  2 |       2 | <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at net1.test</A>   | bob   |         127 |                   1
+</I>&gt;<i> |     |                  | 0000000000c5 |    |                 |
+</I>&gt;<i> 0 |             3600 |                      1 |
+</I>&gt;<i> +----+---------+-----------------+-------+-------------+--------------------
+</I>&gt;<i> -+-----+------------------+--------------+----+-----------------+-----------
+</I>&gt;<i> ---+------------------+------------------------+
+</I>&gt;<i> 2 rows in set (0.00 sec)
+</I>&gt;<i>
+</I>&gt;<i> mysql&gt; select * FROM impu;
+</I>&gt;<i> +----+-----------------------------+------+---------+------------+-------+--
+</I>&gt;<i> ---------------+------------------+--------------+--------------+-----------
+</I>&gt;<i> -----+--------------+
+</I>&gt;<i> | id | identity                    | type | barring | user_state | id_sp |
+</I>&gt;<i> id_implicit_set | id_charging_info | wildcard_psi | display_name |
+</I>&gt;<i> psi_activation | can_register |
+</I>&gt;<i> +----+-----------------------------+------+---------+------------+-------+--
+</I>&gt;<i> ---------------+------------------+--------------+--------------+-----------
+</I>&gt;<i> -----+--------------+
+</I>&gt;<i> |  1 | sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at net1.test</A>         |    0 |       0 |          0 |     1 |
+</I>&gt;<i> 5 |                1 |              |              |              0 |
+</I>&gt;<i> 1 |
+</I>&gt;<i> |  2 | sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at net1.test</A>           |    0 |       0 |          0 |     1 |
+</I>&gt;<i> 2 |                1 |              |              |              0 |
+</I>&gt;<i> 1 |
+</I>&gt;<i> |  6 | sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice-private at net1.test</A> |    0 |       0 |          0 |     1 |
+</I>&gt;<i> 6 |                1 |              |              |              0 |
+</I>&gt;<i> 1 |
+</I>&gt;<i> |  5 | tel:+432252805454           |    0 |       0 |          0 |     1 |
+</I>&gt;<i> 5 |                1 |              |              |              0 |
+</I>&gt;<i> 1 |
+</I>&gt;<i> +----+-----------------------------+------+---------+------------+-------+--
+</I>&gt;<i> ---------------+------------------+--------------+--------------+-----------
+</I>&gt;<i> -----+--------------+
+</I>&gt;<i> 4 rows in set (0.00 sec)
+</I>&gt;<i>
+</I>&gt;<i> This is the log of FHoSS at registration:
+</I>&gt;<i> de.fhg.fokus.hss.cx.CxExperimentalResultException:
+</I>&gt;<i> IMS_Diameter_Error_Roaming_Not_Allowed
+</I>&gt;<i>         at de.fhg.fokus.hss.cx.op.UAR.processRequest(UAR.java:160)
+</I>&gt;<i>         at de.fhg.fokus.hss.main.Task.execute(Task.java:169)
+</I>&gt;<i>         at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+</I>&gt;<i>
+</I>&gt;<i> I have also added a core trace of the unsuccessful registration.
+</I>&gt;<i>
+</I>&gt;<i> Is there any explanation or is it a bug as I guess?
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i> Franz
+</I>&gt;<i>   
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)176 - 48 32 16 00
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000916.html">[OpenIMSCore-HSS] Registration issue:	IMS_Diameter_Error_Roaming_Not_Allowed
+</A></li>
+	<LI>Next message: <A HREF="000918.html">[OpenIMSCore-HSS] Registration issue:	IMS_Diameter_Error_Roaming_Not_Allowed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#917">[ date ]</a>
+              <a href="thread.html#917">[ thread ]</a>
+              <a href="subject.html#917">[ subject ]</a>
+              <a href="author.html#917">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot; after	entering roaming-data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20%22org.hibernate.SessionException%22%20after%0A%09entering%20roaming-data&In-Reply-To=%3C20061221135652.41841.qmail%40web39808.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000109.html">
+   <LINK REL="Next"  HREF="000112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot; after	entering roaming-data</H1>
+    <B>Kedar P Bhise</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20%22org.hibernate.SessionException%22%20after%0A%09entering%20roaming-data&In-Reply-To=%3C20061221135652.41841.qmail%40web39808.mail.mud.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot; after	entering roaming-data">kbhise_if at yahoo.com
+       </A><BR>
+    <I>Thu Dec 21 14:56:52 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000109.html">[OpenIMSCore-HSS] compile FHoss error
+</A></li>
+        <LI>Next message: <A HREF="000112.html">[OpenIMSCore-HSS] OPTIONS message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#110">[ date ]</a>
+              <a href="thread.html#110">[ thread ]</a>
+              <a href="subject.html#110">[ subject ]</a>
+              <a href="author.html#110">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Franz, Peter,
+
+To me this looks more like a Hibernate issue than the HSS logic itself.
+
+A bit of Googling for &quot;org.hibernate.SessionException: Session is closed&quot; leads to a wealth of information.
+
+<A HREF="http://www.google.com/search?q=org.hibernate.SessionException%3A+Session+is+closed&amp;ie=utf-8&amp;oe=utf-8&amp;rls=org.mozilla:en-US:official&amp;client=firefox-a">http://www.google.com/search?q=org.hibernate.SessionException%3A+Session+is+closed&amp;ie=utf-8&amp;oe=utf-8&amp;rls=org.mozilla:en-US:official&amp;client=firefox-a</A>
+
+A couple of links suggest that this could be due to mismatched jar files for hibernate-annotations.jar.
+
+Franz - Do you have the hibernate framework installed on your notebook due to previous experiments? This could be a possible avenue of investigation.
+
+Kedar P Bhise
+Architect
+T-Systems India
+
+----- Original Message ----
+From: Peter Weik &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at inode.at</A>
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Sent: Thursday, December 21, 2006 2:33:26 PM
+Subject: Re: [OpenIMSCore-HSS] HSS &quot;org.hibernate.SessionException&quot; after entering roaming-data
+
+Hi Franz,
+
+it is possible to enter more than one network for roaming. We did this
+here ourselves. But I cannot reproduce your error here.
+Could you give us some more pointers on how to do this ?
+
+Regards,
+
+Peter
+
+On Wed, 2006-12-20 at 22:19 +0100, Franz Edler wrote:
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I have now successfully created two IMS-networks (net1.test and net2.test)
+</I>&gt;<i> on my notebook using VMware. I kept both default users Alice and Bob in
+</I>&gt;<i> their respective home networks. 
+</I>&gt;<i> 
+</I>&gt;<i> Registering Alice and Bob in their home network works fine. But when I tried
+</I>&gt;<i> to register BoB or Alice via the other network (roaming case) I got en error
+</I>&gt;<i> &quot;403 Forbidden - HSS roaming not allowed&quot; - which I expected.
+</I>&gt;<i> 
+</I>&gt;<i> Now I tried to enter the second network as an additional network into
+</I>&gt;<i> &quot;roaming networks&quot;. But than I got the below documented exception.
+</I>&gt;<i> 
+</I>&gt;<i> This is reproduceable.
+</I>&gt;<i> Isn't it possible to enter a second network for roaming?
+</I>&gt;<i> 
+</I>&gt;<i> Cheers
+</I>&gt;<i> Franz
+</I>&gt;<i> 
+</I>&gt;<i> --------- org.hibernate.SessionException -------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> org.hibernate.SessionException: Session is closed
+</I>&gt;<i>     at org.hibernate.jdbc.JDBCContext.connection(JDBCContext.java:131)
+</I>&gt;<i>     at
+</I>&gt;<i> org.hibernate.transaction.JDBCTransaction.begin(JDBCTransaction.java:49)
+</I>&gt;<i>     at
+</I>&gt;<i> org.hibernate.transaction.JDBCTransactionFactory.beginTransaction(JDBCTransa
+</I>&gt;<i> ctionFactory.java:24)
+</I>&gt;<i>     at
+</I>&gt;<i> org.hibernate.jdbc.JDBCContext.beginTransaction(JDBCContext.java:271)
+</I>&gt;<i>     at
+</I>&gt;<i> org.hibernate.impl.SessionImpl.beginTransaction(SessionImpl.java:1079)
+</I>&gt;<i>     at de.fhg.fokus.hss.action.HssAction.beginnTx(HssAction.java:109)
+</I>&gt;<i>     at
+</I>&gt;<i> de.fhg.fokus.hss.action.NetworksSubmitAction.execute(NetworksSubmitAction.ja
+</I>&gt;<i> va:84)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processActionPerform(RequestProces
+</I>&gt;<i> sor.java:419)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:224)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:432)
+</I>&gt;<i>     at javax.servlet.http.HttpServlet.service(HttpServlet.java:709)
+</I>&gt;<i>     at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Application
+</I>&gt;<i> FilterChain.java:252)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterCh
+</I>&gt;<i> ain.java:173)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.ja
+</I>&gt;<i> va:213)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.ja
+</I>&gt;<i> va:178)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase
+</I>&gt;<i> .java:482)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126
+</I>&gt;<i> )
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105
+</I>&gt;<i> )
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java
+</I>&gt;<i> :107)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConne
+</I>&gt;<i> ction(Http11Protocol.java:744)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.jav
+</I>&gt;<i> a:527)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWo
+</I>&gt;<i> rkerThread.java:80)
+</I>&gt;<i>     at
+</I>&gt;<i> org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.jav
+</I>&gt;<i> a:684)
+</I>&gt;<i>     at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+_______________________________________________
+OpenIMSCore-HSS mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+
+
+
+
+
+
+__________________________________________________
+Do You Yahoo!?
+Tired of spam?  Yahoo! Mail has the best spam protection around 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061221/8ec3ae02/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20061221/8ec3ae02/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000109.html">[OpenIMSCore-HSS] compile FHoss error
+</A></li>
+	<LI>Next message: <A HREF="000112.html">[OpenIMSCore-HSS] OPTIONS message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#110">[ date ]</a>
+              <a href="thread.html#110">[ thread ]</a>
+              <a href="subject.html#110">[ subject ]</a>
+              <a href="author.html#110">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

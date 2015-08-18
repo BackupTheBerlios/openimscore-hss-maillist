@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20%3A%20HSS%20user%20unknown%20Error.&In-Reply-To=%3CH000008e0009242f.1170228545.dakghar.aylus.com%40MHS%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000184.html">
+   <LINK REL="Next"  HREF="000179.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.</H1>
+    <B>Babu George</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20403%20Forbidden%20%3A%20HSS%20user%20unknown%20Error.&In-Reply-To=%3CH000008e0009242f.1170228545.dakghar.aylus.com%40MHS%3E"
+       TITLE="[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.">bgeorge at aylus.com
+       </A><BR>
+    <I>Wed Jan 31 08:29:05 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000184.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+        <LI>Next message: <A HREF="000179.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#185">[ date ]</a>
+              <a href="thread.html#185">[ thread ]</a>
+              <a href="subject.html#185">[ subject ]</a>
+              <a href="author.html#185">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Rajaram,
+
+  We don&#146;t have to set the port number in &#145;Request URI&#146;.With sipp&amp;xlite
+registration can be done this way.
+
+  What is the simulator you are using
+
+Thanks
+
+Babu
+
+ 
+
+  _____  
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A>] 
+Sent: Wednesday, January 31, 2007 12:27 PM
+To: Babu George
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">pankaj.munjal at wipro.com</A>;
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>
+Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+ 
+
+Hello Babu,
+
+ 
+
+Actually since we are using a UA client simulator and we can't set the
+outbound proxy on it.
+
+So we are explicitly setting the port number in the request URI to point
+it to the P-CSCF.
+
+ 
+
+otherwise, it's sending it to the default port 5060 where ICSCF and
+bypasses the PCSCF completely.
+
+ 
+
+- Rajaram.
+
+ 
+
+  _____  
+
+From: Babu George [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bgeorge at aylus.com</A>]
+Sent: Wed 1/31/2007 12:03 PM
+To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+Cc: openimscore-hss; Pankaj Munjal (WT01 - IP-Multimedia Carrier &amp; Ent
+Networks); weik
+Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+Rajaram,
+
+  We don&#146;t have to put the port number in the register message. Could
+you please remove this and try.
+
+ 
+
+Thanks
+
+Babu
+
+ 
+
+  _____  
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A>] 
+Sent: Wednesday, January 31, 2007 11:36 AM
+To: Babu George
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>;
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">pankaj.munjal at wipro.com</A>
+Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+ 
+
+Hello Babu,
+
+Kindly find the trace file attached.
+You can open it using ethereal.
+
+As for the setup, i have the following components up and running on the
+same machine:
+P-CSCF : port 4060
+I-CSCF : port 5060
+S-CSCF : port 6060
+HSS : (didn't check the port)
+UA Simulator : (port 5065)
+
+
+I'm sending the following REGISTER Message from UA SImulator:
+
+REGISTER sip:open-ims.test:4060 SIP/2.0
+Via: SIP/2.0/UDP open-ims.test:5065 ;branch=z9hG4bKnashds7
+Max-Forwards: 70
+To: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=456248
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A>
+CSeq: 1826 REGISTER
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at 10.117.11.71</A>:5065&gt;
+Expires: 7200
+Content-Length: 0
+Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&quot;,
+realm=&quot;open-ims.test&quot;
+
+And am getting the following response at UA Simulator:
+
+SIP/2.0 483 Too Many Hops
+Via: SIP/2.0/UDP
+open-ims.test:5065;rport=5065;received=127.0.0.1;branch=z9hG4bKnashds7
+To: Bob
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=8456b23699f06fdb908a4dfde0051a59.a59c
+From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=456248
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A>
+CSeq: 1826 REGISTER
+Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+Warning: 392 127.0.0.1:4060 &quot;Noisy feedback tells:  pid=3262
+req_src_ip=127.0.0.1 req_src_port=4060 in_uri=sip:open-ims.test:4060
+out_uri=sip:open-ims.test:4060 via_cnt==18&quot;
+Content-Length: 0
+
+The main issue here (evident in the ethereal trace) is that my SIP
+REGISTER is being sent from PCSCF to PCSCF again and this continues to
+happen till my Max-Forwards becomes 0 and PCSCF spits 483 error message.
+Ethereal trace confirms that as i see the REGISTER message being sent
+from port 4060 to 4060 repetetively.
+
+Kindly see if you can suggest something that we might have overlooked.
+
+Thanks again for your time!
+
+
+-----Original Message-----
+From: Babu George [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bgeorge at aylus.com</A>]
+Sent: Thu 1/25/2007 5:38 PM
+To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+Cc: openimscore-hss; weik
+Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+Rajaram,
+
+  Please attach the ethereal trace so that troubleshooting will be easy
+
+Thanks
+
+Babu
+
+
+
+  _____ 
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A>]
+Sent: Thursday, January 25, 2007 5:00 PM
+To: Babu George
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>
+Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+
+
+Hello Babu,
+
+i was using REGISTER sip:open-ims.test SIP/2.0.
+But to send it to the PCSCF, i modified the Request URI to:
+REGISTER sip:open-ims.test:4064 SIP/2.0
+
+but it gives me the following response:
+SIP/2.0 483 Too Many Hops
+Via: SIP/2.0/UDP
+open-ims.test:5065;rport=5065;received=127.0.0.1;branch=z9hG4bKnashds7
+To: Bob
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=8456b23699f06fdb908a4dfde0051a59.2df5
+From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=456248
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A>
+CSeq: 1826 REGISTER
+Server: Sip EXpress router (0.10.99-dev53-tm_fixes (i386/linux))
+Warning: 392 127.0.0.1:4060 &quot;Noisy feedback tells:  pid=4713
+req_src_ip=127.0.0.1 req_src_port=4060 in_uri=sip:open-ims.test:4060
+out_uri=sip:open-ims.test:4060 via_cnt==18&quot;
+Content-Length: 0
+
+I hope this is the correct way to ensure that we contact the PCSCF
+directly.
+kindly correct me if i'm wrong.
+
+Thanks,
+Rajaram
+
+-----Original Message-----
+From: Babu George [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bgeorge at aylus.com</A>]
+Sent: Thu 1/25/2007 3:28 PM
+To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+Cc: openimscore-hss; weik
+Subject: RE: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+Rajaram,
+
+ It seems you are sending the message to ICSCF instead of PCSCF.
+
+ PCSCF won't complain about the missing header P-Visited Network
+
+Thanks
+
+Babu
+
+
+
+  _____
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A>]
+Sent: Thursday, January 25, 2007 2:41 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: Re: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+
+
+
+
+Hello Peter,
+
+Thanks for pointing that out.
+I changed the Digest username to &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot; but now i get the
+following error:
+403 Forbidden- HSS Roaming not allowed.
+
+The HSS also spits an Exception:
+[Thread-9] WARN  de.fhg.fokus.hss.diam.cx.UARCommandListener  -
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">de.fhg.fokus.hss.diam.cx.UARCommandListener at d337d3</A>
+de.fhg.fokus.cx.exceptions.ims.RoamingNotAllowed
+        at
+de.fhg.fokus.hss.server.cx.op.QueryCxOperation.execute(QueryCxOperation.
+java:131)
+        at
+de.fhg.fokus.hss.server.cx.HSScxOperationsImpl.cxQuery(HSScxOperationsIm
+pl.java:99)
+        at
+de.fhg.fokus.hss.diam.cx.UARCommandListener.recvMessage(UARCommandListen
+er.java:141)
+        at
+de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.jav
+a:100)
+
+
+I traversed the code and found that it's because of improper value of
+P-Visited-Network-ID.
+What should be the correct value for this?
+
+Actually, ideally a P-CSCF should add this value to a SIP message, but
+when i send a message from my simulator(without P-Visited-Network-ID),
+it gives an error saying missing header P-Visited-Network-ID.
+Now
+1) Is P-CSCF being bypassed in my setup for a REGISTER?
+2) what should be the correct value of P-Visited-Network-ID here to
+register the default user bob here.
+
+Thanks again for your time!
+
+
+-----Original Message-----
+From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>]
+Sent: Thu 1/25/2007 2:11 PM
+To: Rajaram Tripathy (WT01 - IP-Multimedia Carrier &amp; Ent Networks)
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Subject: Re: [OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+
+Hi Pankaj,
+
+the Digest username is set to &quot;bob&quot; while it should be
+&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;
+
+Regards,
+
+Peter
+
+On Don, 2007-01-25 at 13:00 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">rajaram.tripathy at wipro.com</A> wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> We have setup open IMS components and all of them seem to be coming up
+</I>&gt;<i> properly.
+</I>&gt;<i> We are pumping a SIP REGISTER message to the IMS core using a SIP
+</I>&gt;<i> simulator.
+</I>&gt;<i> But the simulator receives the following reply : 403 Forbidden : HSS
+</I>&gt;<i> user unknown Error.
+</I>&gt;<i>
+</I>&gt;<i> The SIP REGISTER message is :
+</I>&gt;<i> REGISTER sip:open-ims.test SIP/2.0
+</I>&gt;<i> Via: SIP/2.0/UDP open-ims.test:5065 ;branch=z9hG4bKnashds7
+</I>&gt;<i> Max-Forwards: 70
+</I>&gt;<i> To: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;
+</I>&gt;<i> From: Bob &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&gt;;tag=456248
+</I>&gt;<i> Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">843817637684230 at 998sdasdh09</A>
+</I>&gt;<i> CSeq: 1826 REGISTER
+</I>&gt;<i> Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at 10.117.11.21</A>:5065&gt;
+</I>&gt;<i> Expires: 7200
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i> Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at open-ims.test</A>&quot;,
+</I>&gt;<i> realm=&quot;open-ims.test&quot;
+</I>&gt;<i> Proxy-Authorization: Digest username=&quot;bob&quot;, realm=&quot;open-ims.test&quot;
+</I>&gt;<i> P-Visited-Network-ID: &quot;Visited network number 1&quot;
+</I>&gt;<i>
+</I>&gt;<i> And the HSS throws an exception.
+</I>&gt;<i> The Exception trace is attached along with this mail.
+</I>&gt;<i>
+</I>&gt;<i> Has anyone faced the same problem.
+</I>&gt;<i> Any pointers will be highly appreciated.
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i> Pankaj
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The information contained in this electronic message and any
+</I>&gt;<i> attachments to this message are intended for the exclusive use of the
+</I>&gt;<i> addressee(s) and may contain proprietary, confidential or privileged
+</I>&gt;<i> information. If you are not the intended recipient, you should not
+</I>&gt;<i> disseminate, distribute or copy this e-mail. Please notify the sender
+</I>&gt;<i> immediately and destroy all copies of this message and any
+</I>&gt;<i> attachments.
+</I>&gt;<i>
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient
+</I>&gt;<i> should check this email and any attachments for the presence of
+</I>&gt;<i> viruses. The company accepts no liability for any damage caused by any
+</I>&gt;<i> virus transmitted by this email.
+</I>&gt;<i>
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+
+
+The information contained in this electronic message and any attachments
+to this message are intended for the exclusive use of the addressee(s)
+and may contain proprietary, confidential or privileged information. If
+you are not the intended recipient, you should not disseminate,
+distribute or copy this e-mail. Please notify the sender immediately and
+destroy all copies of this message and any attachments.
+
+WARNING: Computer viruses can be transmitted via email. The recipient
+should check this email and any attachments for the presence of viruses.
+The company accepts no liability for any damage caused by any virus
+transmitted by this email.
+
+www.wipro.com
+ 
+
+
+
+
+
+The information contained in this electronic message and any attachments
+to this message are intended for the exclusive use of the addressee(s)
+and may contain proprietary, confidential or privileged information. If
+you are not the intended recipient, you should not disseminate,
+distribute or copy this e-mail. Please notify the sender immediately and
+destroy all copies of this message and any attachments.
+
+WARNING: Computer viruses can be transmitted via email. The recipient
+should check this email and any attachments for the presence of viruses.
+The company accepts no liability for any damage caused by any virus
+transmitted by this email.
+
+www.wipro.com
+  
+
+
+
+
+
+The information contained in this electronic message and any attachments
+to this message are intended for the exclusive use of the addressee(s)
+and may contain proprietary, confidential or privileged information. If
+you are not the intended recipient, you should not disseminate,
+distribute or copy this e-mail. Please notify the sender immediately and
+destroy all copies of this message and any attachments. 
+
+WARNING: Computer viruses can be transmitted via email. The recipient
+should check this email and any attachments for the presence of viruses.
+The company accepts no liability for any damage caused by any virus
+transmitted by this email.
+
+www.wipro.com
+   
+
+
+The information contained in this electronic message and any attachments
+to this message are intended for the exclusive use of the addressee(s)
+and may contain proprietary, confidential or privileged information. If
+you are not the intended recipient, you should not disseminate,
+distribute or copy this e-mail. Please notify the sender immediately and
+destroy all copies of this message and any attachments. 
+
+WARNING: Computer viruses can be transmitted via email. The recipient
+should check this email and any attachments for the presence of viruses.
+The company accepts no liability for any damage caused by any virus
+transmitted by this email.
+
+www.wipro.com
+   
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070131/974b668d/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070131/974b668d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000184.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+	<LI>Next message: <A HREF="000179.html">[OpenIMSCore-HSS] 403 Forbidden : HSS user unknown Error.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#185">[ date ]</a>
+              <a href="thread.html#185">[ thread ]</a>
+              <a href="subject.html#185">[ subject ]</a>
+              <a href="author.html#185">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

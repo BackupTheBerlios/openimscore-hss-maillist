@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] BasicResourcePool  - Acquisition Attempt Failed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20BasicResourcePool%20%20-%20Acquisition%20Attempt%20Failed&In-Reply-To=%3C000001c72222%24a356ddc0%240200a8c0%40notebookFE%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000103.html">
+   <LINK REL="Next"  HREF="000101.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] BasicResourcePool  - Acquisition Attempt Failed</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20BasicResourcePool%20%20-%20Acquisition%20Attempt%20Failed&In-Reply-To=%3C000001c72222%24a356ddc0%240200a8c0%40notebookFE%3E"
+       TITLE="[OpenIMSCore-HSS] BasicResourcePool  - Acquisition Attempt Failed">franz.edler at inode.at
+       </A><BR>
+    <I>Sun Dec 17 22:30:52 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000103.html">[OpenIMSCore-HSS] compile FHoss error
+</A></li>
+        <LI>Next message: <A HREF="000101.html">[OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#97">[ date ]</a>
+              <a href="thread.html#97">[ thread ]</a>
+              <a href="subject.html#97">[ subject ]</a>
+              <a href="author.html#97">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am just trying to setup two networks to verify roaming behaviour.
+I use VMware to setup 2 different hosts, each with own IP address and own
+HSS, P-, I- and S-CSCF.
+
+Everything seems to work fine (different domain names in DNS, database
+adapted ...), but on one host I get a problem at HSS-start:
+
+[com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread-#0] WARN
+com.mchange.v2.resourcepool.BasicResourcePool  -
+com.mchange.v2.resourcepool.BasicResourcePool$<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">AcquireTask at 8390b0</A> --
+Acquisition Attempt Failed!!! Clearing pending acquires. While trying to
+acquire a needed new resource, we failed to succeed more than the maximum
+number of allowed acquisition attempts (30).
+
+Maybe anyone can give me a hint what above message means.
+
+Regards
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000103.html">[OpenIMSCore-HSS] compile FHoss error
+</A></li>
+	<LI>Next message: <A HREF="000101.html">[OpenIMSCore-HSS] BasicResourcePool - Acquisition Attempt Failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#97">[ date ]</a>
+              <a href="thread.html#97">[ thread ]</a>
+              <a href="subject.html#97">[ subject ]</a>
+              <a href="author.html#97">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

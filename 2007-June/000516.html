@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id mustappear immediately following the Diamter Header?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Session-Id%20problem%2C%0A%09The%20Session-Id%20mustappear%20immediately%20following%20the%20Diamter%20Header%3F&In-Reply-To=%3CDreamMail__172550_70167466708%40mail.astrocom.cn%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000510.html">
+   <LINK REL="Next"  HREF="000511.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id mustappear immediately following the Diamter Header?</H1>
+    <B>fancy_xiao</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Session-Id%20problem%2C%0A%09The%20Session-Id%20mustappear%20immediately%20following%20the%20Diamter%20Header%3F&In-Reply-To=%3CDreamMail__172550_70167466708%40mail.astrocom.cn%3E"
+       TITLE="[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id mustappear immediately following the Diamter Header?">fancy_xiao at astrocom.cn
+       </A><BR>
+    <I>Mon Jun 11 11:25:50 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000510.html">[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id	mustappear immediately following the Diamter Header?
+</A></li>
+        <LI>Next message: <A HREF="000511.html">[OpenIMSCore-HSS] [SVN-FHoSS] r311 - Sh Notification Event added	for AliasesRepositoryData
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Adrian-Daniel Popescu&#65292;&#20320;&#22909;
+
+&lt;Registration-Termination-Request&gt; ::= &lt; Diameter Header: 304, REQ, PXY,          16777216 &gt;
+                                 &lt; Session-Id &gt;
+                                 { Vendor-Specific-Application-Id }
+                                 { Auth-Session-State }
+                                 { Origin-Host }
+                                 { Origin-Realm }
+                                 { Destination-Host }
+                                 { Destination-Realm }
+                                 { User-Name }
+                                 [ Associated-Identities ]
+                                 *[ Supported-Features ]
+                                 *[ Public-Identity ]
+                                 { Deregistration-Reason }
+                                 *[ AVP ]
+                                 *[ Proxy-Info ]
+                                 *[ Route-Record ]
+
+fixed = [qual] &quot;&lt;&quot; avp-spec &quot;&gt;&quot;; Defines the fixed position of an AVP;
+
+so, i think the Session-Id AVP's position is the fixed position that follow the Diameter Header!
+
+fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+2007-06-11 
+----- Original Message ----- 
+From: Adrian-Daniel Popescu 
+To: fancy_xiao 
+Sent: 2007-06-08, 17:14:57
+Subject: Re: [OpenIMSCore-HSS] Rtr Session-Id problem, The Session-Id mustappear immediately following the Diamter Header?
+
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Dear Fancy,
+
+I know...but as you said...is a SHOULD and not a SHALL or MUST...in
+other words, doesn't matter so much the order where the Session-ID AVP
+is placed...the functionality is not altered in any way... Is
+recommended to be the first one, to optimize the parsing procedure...
+However, if you want to place it at the beginning you are very welcomed
+to provide a patch for it... I do not have time now for it...
+
+- -Adrian
+
+fancy_xiao wrote:
+&gt;<i> openimscore-hss&#65292;&#20320;&#22909; 
+</I>&gt;<i> 
+</I>&gt;<i> From the RFC3588, the Session-Id When present, the Session-Id SHOULD appear immediately following the 
+</I>&gt;<i> Diameter Header. but When FHoss RTR send to S-CSCF,the RTR's Session-Id isn't the first AVP behind the Daimeter header!
+</I>&gt;<i> The Rtr package is attached!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &#26412;&#37038;&#20214;&#38468;&#20214;&#28165;&#21333;&#22914;&#19979;&#65306;
+</I>&gt;<i> (1) rtr.cap (0.3 K)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> 
+</I>&gt;<i> 2007-06-08 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGaR4R6Yml36HNIwcRAtSjAJ9xs58KdEgxLtLjEKjPK7D7qUwVDgCeJy3N
+42bTH4jaNfI1M9oinJXsmNI=
+=vF1Q
+-----END PGP SIGNATURE-----
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070611/534f147d/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070611/534f147d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000510.html">[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id	mustappear immediately following the Diamter Header?
+</A></li>
+	<LI>Next message: <A HREF="000511.html">[OpenIMSCore-HSS] [SVN-FHoSS] r311 - Sh Notification Event added	for AliasesRepositoryData
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

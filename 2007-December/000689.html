@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r507 - Corrections and improvements:	-Infinite expiration time of subscriptions was coded as 0 and	now as -1 -Implementation of our view of interaction between	DSAI and Implicity Registered Set (see	http://lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html)	-Minor changes (optimization)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r507%20-%20Corrections%20and%20improvements%3A%0A%09-Infinite%20expiration%20time%20of%20subscriptions%20was%20coded%20as%200%20and%0A%09now%20as%20-1%20-Implementation%20of%20our%20view%20of%20interaction%20between%0A%09DSAI%20and%20Implicity%20Registered%20Set%20%28see%0A%09http%3A//lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html%29%0A%09-Minor%20changes%20%28optimization%29&In-Reply-To=%3C200712140915.lBE9FodK009200%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000688.html">
+   <LINK REL="Next"  HREF="000690.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r507 - Corrections and improvements:	-Infinite expiration time of subscriptions was coded as 0 and	now as -1 -Implementation of our view of interaction between	DSAI and Implicity Registered Set (see	http://lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html)	-Minor changes (optimization)</H1>
+    <B>emoreno at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r507%20-%20Corrections%20and%20improvements%3A%0A%09-Infinite%20expiration%20time%20of%20subscriptions%20was%20coded%20as%200%20and%0A%09now%20as%20-1%20-Implementation%20of%20our%20view%20of%20interaction%20between%0A%09DSAI%20and%20Implicity%20Registered%20Set%20%28see%0A%09http%3A//lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html%29%0A%09-Minor%20changes%20%28optimization%29&In-Reply-To=%3C200712140915.lBE9FodK009200%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r507 - Corrections and improvements:	-Infinite expiration time of subscriptions was coded as 0 and	now as -1 -Implementation of our view of interaction between	DSAI and Implicity Registered Set (see	http://lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html)	-Minor changes (optimization)">emoreno at users.berlios.de
+       </A><BR>
+    <I>Fri Dec 14 10:15:50 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000688.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Could I change port number in 200 ok message so the client will sent INVITE to p
+</A></li>
+        <LI>Next message: <A HREF="000690.html">[OpenIMSCore-HSS] HSS question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#689">[ date ]</a>
+              <a href="thread.html#689">[ thread ]</a>
+              <a href="subject.html#689">[ subject ]</a>
+              <a href="author.html#689">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: emoreno
+Date: 2007-12-14 10:15:48 +0100 (Fri, 14 Dec 2007)
+New Revision: 507 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=507">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=507</A> 
+
+Log:
+Corrections and improvements:
+-Infinite expiration time of subscriptions was coded as 0 and now as -1
+-Implementation of our view of interaction between DSAI and Implicity Registered Set (see <A HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html">http://lists.berlios.de/pipermail/openimscore-hss/2007-November/000997.html</A>)
+-Minor changes (optimization)
+
+Modified:
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/cx/op/SAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/CxEvents_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/CxEvents_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/CxEvents_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/DSAI_IMPU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/DSAI_IMPU_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/DSAI_IMPU_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/IFC_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/IFC_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/IFC_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/PNR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/PNR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/PNR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/SNR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/SNR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/SNR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+   U	FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/UDR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/07_Dynamic_Service_Activation/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=507&amp;view=diff&amp;r1=507&amp;r2=506</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000688.html">[OpenIMSCore-HSS] [OpenIMSCore-Users] Could I change port number in 200 ok message so the client will sent INVITE to p
+</A></li>
+	<LI>Next message: <A HREF="000690.html">[OpenIMSCore-HSS] HSS question
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#689">[ date ]</a>
+              <a href="thread.html#689">[ thread ]</a>
+              <a href="subject.html#689">[ subject ]</a>
+              <a href="author.html#689">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

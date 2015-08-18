@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] tel uri from ims client casues openims to query dns with no domain for an SRV
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20tel%20uri%20from%20ims%20client%20casues%20openims%20to%20query%0A%20dns%20with%20no%20domain%20for%20an%20SRV&In-Reply-To=%3CCAE6G%2Bhuz9TS-ftqZOjuv-m8y3dUCRHohsJ%3DNYecvjHrcdQTUVg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001042.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] tel uri from ims client casues openims to query dns with no domain for an SRV</H1>
+    <B>Thomas Secula</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20tel%20uri%20from%20ims%20client%20casues%20openims%20to%20query%0A%20dns%20with%20no%20domain%20for%20an%20SRV&In-Reply-To=%3CCAE6G%2Bhuz9TS-ftqZOjuv-m8y3dUCRHohsJ%3DNYecvjHrcdQTUVg%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] tel uri from ims client casues openims to query dns with no domain for an SRV">tsecula at gmail.com
+       </A><BR>
+    <I>Sun Aug 12 18:23:58 CEST 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001042.html">[OpenIMSCore-HSS] tel uri from ims client casues openims to	query dns with no domain for an SRV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1041">[ date ]</a>
+              <a href="thread.html#1041">[ thread ]</a>
+              <a href="subject.html#1041">[ subject ]</a>
+              <a href="author.html#1041">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Has anyone figured out how to make a call which results in a tel uri from
+the tcs client into openims?
+
+In my trace I see an SRV query for _sip._udp but my dns server has no
+record like that.
+
+I have tried using SIP: with user=phone using my openims domain hss returns
+invalid subscriber which results in a 604 back to the INVITE.
+
+If I try a bogus domain my dns query fails and openims returns a 478 to to
+the INVITE.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20120812/a9e2f80c/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20120812/a9e2f80c/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001042.html">[OpenIMSCore-HSS] tel uri from ims client casues openims to	query dns with no domain for an SRV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1041">[ date ]</a>
+              <a href="thread.html#1041">[ thread ]</a>
+              <a href="subject.html#1041">[ subject ]</a>
+              <a href="author.html#1041">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

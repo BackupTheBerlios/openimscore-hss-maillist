@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20%5BOpenIMSCore-Users%5D%20Load%20tests&In-Reply-To=%3C26900dc30701120715h3135643egcd9c86f171b53432%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000138.html">
+   <LINK REL="Next"  HREF="000140.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests</H1>
+    <B>Jose Silva</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20%5BOpenIMSCore-Users%5D%20Load%20tests&In-Reply-To=%3C26900dc30701120715h3135643egcd9c86f171b53432%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests">joesilvas at gmail.com
+       </A><BR>
+    <I>Fri Jan 12 16:15:56 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000138.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+        <LI>Next message: <A HREF="000140.html">[OpenIMSCore-HSS] Error when running startup.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#139">[ date ]</a>
+              <a href="thread.html#139">[ thread ]</a>
+              <a href="subject.html#139">[ subject ]</a>
+              <a href="author.html#139">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Dragos,
+
+No need to be disappointed :)
+We done some testes with Register requests and we noticed that most of
+the time of the registration process is spent on the queries to the
+HSS. So now we are going to continue the cscf's tests but with another
+HSS.
+
+Regards,
+Jose Silva
+
+2007/1/12, Dragos Vingarzan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt;:
+&gt;<i> Hmm... I don't think that we ever did performance tests with FHoSS, so
+</I>&gt;<i> we hope that you won't be disappointed in the results ;-). With the
+</I>&gt;<i> CSCF, we did quite some.
+</I>&gt;<i>
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Jose Silva wrote:
+</I>&gt;<i> &gt; ---------- Forwarded message ----------
+</I>&gt;<i> &gt; From: Jose Silva &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">joesilvas at gmail.com</A>&gt;
+</I>&gt;<i> &gt; Date: 10/01/2007 10:02
+</I>&gt;<i> &gt; Subject: Re: [OpenIMSCore-Users] Load tests
+</I>&gt;<i> &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-users at lists.berlios.de</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; What about the FHoSS, should I only look into DiameterPeerHSS.xml or
+</I>&gt;<i> &gt; are there more places a could alter to optimize performance?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; regards,
+</I>&gt;<i> &gt; Jose Silva
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2007/1/9, Dragos Vingarzan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt;:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;&gt; Hi Jose,
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Add more shared memory to the CSCFs using the command line parameter and
+</I>&gt;<i> &gt;&gt; then increase the sizes of the hash-tables. Also tune the number of
+</I>&gt;<i> &gt;&gt; forked processes based on your hardware configuration: too few and it
+</I>&gt;<i> &gt;&gt; will just not load the CPUs, too many and it will spend to much time
+</I>&gt;<i> &gt;&gt; while context switching.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; -Dragos
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Jose Silva wrote:
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt; Hi,
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt; I'm going to do some load tests on the openimscore but before I start,
+</I>&gt;<i> &gt;&gt;&gt; I want to ask if anybody can point me out what parts of the
+</I>&gt;<i> &gt;&gt;&gt; openimscore I should tune.
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt; Thanks in advance,
+</I>&gt;<i> &gt;&gt;&gt; Jose Silva
+</I>&gt;<i> &gt;&gt;&gt; _______________________________________________
+</I>&gt;<i> &gt;&gt;&gt; OpenIMSCore-Users mailing list
+</I>&gt;<i> &gt;&gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-Users at lists.berlios.de</A>
+</I>&gt;<i> &gt;&gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-users">https://lists.berlios.de/mailman/listinfo/openimscore-users</A>
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt; --
+</I>&gt;<i> &gt;&gt; -----------------------------------------
+</I>&gt;<i> &gt;&gt; Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> &gt;&gt; FOKUS/NGNI
+</I>&gt;<i> &gt;&gt; Kaiserin-Augusta-Allee 31
+</I>&gt;<i> &gt;&gt; 10589 Berlin,Germany
+</I>&gt;<i> &gt;&gt; Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> &gt;&gt; Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> &gt;&gt; eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> &gt;&gt; Web www.fokus.fraunhofer.de
+</I>&gt;<i> &gt;&gt; We could change the world if God would give us the source code...
+</I>&gt;<i> &gt;&gt; -----------------------------------------------------------------
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> -----------------------------------------
+</I>&gt;<i> Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> FOKUS/NGNI
+</I>&gt;<i> Kaiserin-Augusta-Allee 31
+</I>&gt;<i> 10589 Berlin,Germany
+</I>&gt;<i> Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> Web www.fokus.fraunhofer.de
+</I>&gt;<i> We could change the world if God would give us the source code...
+</I>&gt;<i> -----------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000138.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+	<LI>Next message: <A HREF="000140.html">[OpenIMSCore-HSS] Error when running startup.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#139">[ date ]</a>
+              <a href="thread.html#139">[ thread ]</a>
+              <a href="subject.html#139">[ subject ]</a>
+              <a href="author.html#139">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

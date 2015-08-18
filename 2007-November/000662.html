@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] DSAIs attached to IMPUs or attached to implicitly	registered Public User Identity sets?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20DSAIs%20attached%20to%20IMPUs%20or%20attached%20to%20implicitly%0A%09registered%20Public%20User%20Identity%20sets%3F&In-Reply-To=%3C067C9C32AA86BF4E89E111E2112B71BBA1B0C79A%40srvcentral00.inycom.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000661.html">
+   <LINK REL="Next"  HREF="000677.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] DSAIs attached to IMPUs or attached to implicitly	registered Public User Identity sets?</H1>
+    <B>Beatriz Calvo P&#233;rez</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20DSAIs%20attached%20to%20IMPUs%20or%20attached%20to%20implicitly%0A%09registered%20Public%20User%20Identity%20sets%3F&In-Reply-To=%3C067C9C32AA86BF4E89E111E2112B71BBA1B0C79A%40srvcentral00.inycom.es%3E"
+       TITLE="[OpenIMSCore-HSS] DSAIs attached to IMPUs or attached to implicitly	registered Public User Identity sets?">beatriz.calvo at inycom.es
+       </A><BR>
+    <I>Mon Nov 19 13:21:10 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000661.html">[OpenIMSCore-HSS] [SVN-FHoSS] r493 - Cleaning of some non-break	spaces that are shown dirty in some editors.
+</A></li>
+        <LI>Next message: <A HREF="000677.html">[OpenIMSCore-HSS] DSAIs attached to IMPUs or attached to	implicitly registered Public User Identity sets?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#662">[ date ]</a>
+              <a href="thread.html#662">[ thread ]</a>
+              <a href="subject.html#662">[ subject ]</a>
+              <a href="author.html#662">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> I have one question dealing with the DSAI concept and the implicitly registered Public User Identity sets...
+</I>&gt;<i> From my understanding, a DSAI is configured for individual IMPUs, not for implicitly registered Public User Identity sets. In such a situation, when a DSAI Value is updated for an IMPU, the updated User Profile Data has to be sent to the S-CSCF. According to the xml schema for the User Data sent through the Cx interface, the SPs for the IMPUs that belong to the same set as the IMPU for whom the DSAI Value has been changed must be sent. 
+</I>&gt;<i> 
+</I>&gt;<i> Please consider the situation:
+</I>&gt;<i> 
+</I>&gt;<i> IMPU1 belongs to an implicitly registered Public User Identity set, which is also compound of other IMPUs with the following configuration:
+</I>&gt;<i> 
+</I>&gt;<i> IMPU1: SP1
+</I>&gt;<i> IMPU2: SP1
+</I>&gt;<i> IMPU3: SP2
+</I>&gt;<i> 
+</I>&gt;<i> These Service Profiles have the next iFCs:
+</I>&gt;<i> SP1: iFC1, iFC2
+</I>&gt;<i> SP2: iFC3
+</I>&gt;<i> 
+</I>&gt;<i> We have also a DSAI with the following configuration:
+</I>&gt;<i> DSAI1
+</I>&gt;<i> iFCs associated: iFC1
+</I>&gt;<i> IMPUs attached: IMPU1, IMPU2
+</I>&gt;<i> DSAI_Value=ACTIVE for both IMPUs, IMPU1 and IMPU2
+</I>&gt;<i> 
+</I>&gt;<i> In this situation, the DSAI_Value is set to INACTIVE for IMPU1, and for IMPU2 it keeps being ACTIVE. Then the updated User Data XML has to be sent to the S-CSCF through the Cx, and here it comes the problem:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt;  &lt;&lt;Imagen (Mapa de bits independiente del dispositivo )&gt;&gt; 
+</I>&gt;<i> 
+</I>&gt;<i> What shall be done in such a situation? This could be prevented if we attached implicit sets instead of IMPUs to the DSAIs. However the specifications talk about IMPUs... Please advice on how to proceed. Thanks in advance.
+</I>&gt;<i> 
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Bea
+</I>&gt;<i> 
+</I>&gt;<i> Beatriz Calvo
+</I>&gt;<i> Instrumentacion y Componentes S.A. (Inycom)
+</I>&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se informa a quien lo reciba por error que la informaci&#243;n contenida en el mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071119/97c98679/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071119/97c98679/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ole0.bmp
+Type: image/bmp
+Size: 360614 bytes
+Desc: Imagen (Mapa de bits independiente del dispositivo )
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071119/97c98679/attachment.bin">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071119/97c98679/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000661.html">[OpenIMSCore-HSS] [SVN-FHoSS] r493 - Cleaning of some non-break	spaces that are shown dirty in some editors.
+</A></li>
+	<LI>Next message: <A HREF="000677.html">[OpenIMSCore-HSS] DSAIs attached to IMPUs or attached to	implicitly registered Public User Identity sets?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#662">[ date ]</a>
+              <a href="thread.html#662">[ thread ]</a>
+              <a href="subject.html#662">[ subject ]</a>
+              <a href="author.html#662">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

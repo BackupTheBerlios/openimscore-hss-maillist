@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] hss web console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20hss%20web%20console&In-Reply-To=%3C697FA5D6BAA3BD47961272D9916B6A6E0ED986%40MADARRMAIL7.indra.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000954.html">
+   <LINK REL="Next"  HREF="000957.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] hss web console</H1>
+    <B>&quot;Mart&#237;nez Garc&#237;a, Rebeca&quot;</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20hss%20web%20console&In-Reply-To=%3C697FA5D6BAA3BD47961272D9916B6A6E0ED986%40MADARRMAIL7.indra.es%3E"
+       TITLE="[OpenIMSCore-HSS] hss web console">remartinez at eservicios.indra.es
+       </A><BR>
+    <I>Tue Jul 21 11:35:59 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000954.html">[OpenIMSCore-HSS] need help in register
+</A></li>
+        <LI>Next message: <A HREF="000957.html">[OpenIMSCore-HSS] hss web console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#956">[ date ]</a>
+              <a href="thread.html#956">[ thread ]</a>
+              <a href="subject.html#956">[ subject ]</a>
+              <a href="author.html#956">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi All,
+
+I am in the process of installing OpenIMS in 4 machines with the following configuration:
+
+P-CSCF -&gt; xx.xx.xx.201
+S-CSCF -&gt; xx.xx.xx.202
+I-CSCF -&gt; xx.xx.xx.203
+FHoSS  -&gt; xx.xx.xx.204
+DNS    -&gt; xx.xx.xx.201
+
+I have done all necessary changes in *.cfg, *.xml and *.sql and I have had no problem until the step of starting the components. Proxy, Server and Interrogating start ok but, in the case of the FHoSS, it returns this:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">hss at hss-desktop</A>:/opt/OpenIMSCore/FHoSS/deploy$ ./startup.sh 
+Building Classpath
+Classpath is lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.1.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.3.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/c3p0-0.9.1.jar:lib/base64.jar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.6.jar:.:/usr/lib/jvm/java-6-sun//lib:/usr/lib/jvm/java-6-sun//lib/dt.jar:/usr/lib/jvm/java-6-sun//lib/tools.jar:log4j.properties:..
+2009-07-21 10:30:23,668 INFO  de.fhg.fokus.hss.main.TomcatServer - startTomcat Tomcat-Server is started.
+2009-07-21 10:30:28,005 WARN  org.apache.catalina.connector.MapperListener - registerEngine Unknown default host: 10.1.3.204
+java.io.FileNotFoundException: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/_/tldCache.ser (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:179)
+	at java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:131)
+	at org.apache.catalina.startup.TldConfig.execute(TldConfig.java:315)
+	at org.apache.catalina.core.StandardContext.processTlds(StandardContext.java:4193)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4049)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:759)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:739)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:524)
+	at de.fhg.fokus.hss.main.TomcatServer.startTomcat(TomcatServer.java:136)
+	at de.fhg.fokus.hss.main.HSSContainer.&lt;init&gt;(HSSContainer.java:74)
+	at de.fhg.fokus.hss.main.HSSContainer.main(HSSContainer.java:110)
+2009-07-21 10:30:30,828 FATAL org.apache.jasper.EmbeddedServletOptions - &lt;init&gt; The scratchDir you specified: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/_ is unusable.
+java.io.FileNotFoundException: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/manager/tldCache.ser (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:179)
+	at java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:131)
+	at org.apache.catalina.startup.TldConfig.execute(TldConfig.java:315)
+	at org.apache.catalina.core.StandardContext.processTlds(StandardContext.java:4193)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4049)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:759)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:739)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:524)
+	at de.fhg.fokus.hss.main.TomcatServer.startTomcat(TomcatServer.java:140)
+	at de.fhg.fokus.hss.main.HSSContainer.&lt;init&gt;(HSSContainer.java:74)
+	at de.fhg.fokus.hss.main.HSSContainer.main(HSSContainer.java:110)
+2009-07-21 10:30:31,650 FATAL org.apache.jasper.EmbeddedServletOptions - &lt;init&gt; The scratchDir you specified: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/manager is unusable.
+java.io.FileNotFoundException: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/hss.web.console/tldCache.ser (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:179)
+	at java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:131)
+	at org.apache.catalina.startup.TldConfig.execute(TldConfig.java:315)
+	at org.apache.catalina.core.StandardContext.processTlds(StandardContext.java:4193)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4049)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:759)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:739)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:524)
+	at de.fhg.fokus.hss.main.TomcatServer.startTomcat(TomcatServer.java:144)
+	at de.fhg.fokus.hss.main.HSSContainer.&lt;init&gt;(HSSContainer.java:74)
+	at de.fhg.fokus.hss.main.HSSContainer.main(HSSContainer.java:110)
+2009-07-21 10:30:33,112 INFO  de.fhg.fokus.hss.web.servlet.ResponseFilter - init Response Filter Initialisation!
+2009-07-21 10:30:36,114 FATAL org.apache.jasper.EmbeddedServletOptions - &lt;init&gt; The scratchDir you specified: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/hss.web.console is unusable.
+2009-07-21 10:30:36,149 INFO  de.fhg.fokus.hss.main.TomcatServer - startTomcat WebConsole of FHoSS was started !
+2009-07-21 10:30:46,087 WARN  org.hibernate.impl.SessionFactoryObjectFactory - addInstance InitialContext did not implement EventContext
+2009-07-21 10:30:46,353 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; Bean style constructor called, don't forget to configure!
+2009-07-21 10:30:46,381 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure FQDN: hss.open-ims.test
+2009-07-21 10:30:46,382 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Realm: open-ims.test
+2009-07-21 10:30:46,384 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Vendor_ID : 10415
+2009-07-21 10:30:46,385 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Product Name: JavaDiameterPeer
+2009-07-21 10:30:46,386 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure AcceptUnknwonPeers: true
+2009-07-21 10:30:46,387 INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure DropUnknownOnDisconnect: true
+2009-07-21 10:30:46,535 INFO  de.fhg.fokus.hss.main.HSSContainer - waitForExit 
+Type &quot;exit&quot; to stop FHoSS!
+
+
+
+And also if I try to start the web console, this other error appears:
+
+HTTP Status 500 -
+
+type Exception report
+
+message
+
+description The server encountered an internal error () that prevented it from fulfilling this request.
+
+exception
+
+org.apache.jasper.JasperException: Unable to compile class for JSP
+	org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:565)
+	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:293)
+	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+
+root cause
+
+java.io.FileNotFoundException: /opt/OpenIMSCore/FHoSS/deploy/work/null/10.1.3.204/hss.web.console/org/apache/jsp/index_jsp.java (No such file or directory)
+	java.io.FileOutputStream.open(Native Method)
+	java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:179)
+	java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:70)
+	org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:131)
+	org.apache.jasper.compiler.Compiler.compile(Compiler.java:286)
+	org.apache.jasper.compiler.Compiler.compile(Compiler.java:267)
+	org.apache.jasper.compiler.Compiler.compile(Compiler.java:255)
+	org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:556)
+	org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:293)
+	org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+	org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+	javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+
+
+
+I have though of a DNS or JAVA_HOME problems (open-ims.dnszone file is attached) but dig command looks ok:
+
+~$ dig @xx.xx.xx.201 pcscf.open-ims.test
+
+; &lt;&lt;&gt;&gt; DiG 9.5.1-P2 &lt;&lt;&gt;&gt; @xx.xx.xx.201 pcscf.open-ims.test
+; (1 server found)
+;; global options:  printcmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 35880
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
+
+;; QUESTION SECTION:
+;pcscf.open-ims.test.           IN      A
+
+;; ANSWER SECTION:
+pcscf.open-ims.test.    86400   IN      A       xx.xx.xx.201
+
+;; AUTHORITY SECTION:
+open-ims.test.          86400   IN      NS      ns.open-ims.test.
+
+;; ADDITIONAL SECTION:
+ns.open-ims.test.       86400   IN      A       xx.xx.xx.203
+
+;; Query time: 0 msec
+;; SERVER: xx.xx.xx.201#53(xx.xx.xx.201)
+;; WHEN: Tue Jul 21 10:19:32 2009
+;; MSG SIZE  rcvd: 86
+
+
+
+and JAVA_HOME:
+
+~$ cat /etc/profile
+
+export JAVA_HOME=/usr/lib/jvm/java-6-sun/
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+I have read all the messages in the Users and HSS mailing lists but I haven't found any solution or tip by now.
+I will really appreciate any help!
+
+Thanks in advance,
+
+Rebeca
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090721/ea962f7f/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090721/ea962f7f/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: open-ims.dnszone
+Type: application/octet-stream
+Size: 2011 bytes
+Desc: open-ims.dnszone
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090721/ea962f7f/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090721/ea962f7f/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000954.html">[OpenIMSCore-HSS] need help in register
+</A></li>
+	<LI>Next message: <A HREF="000957.html">[OpenIMSCore-HSS] hss web console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#956">[ date ]</a>
+              <a href="thread.html#956">[ thread ]</a>
+              <a href="subject.html#956">[ subject ]</a>
+              <a href="author.html#956">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

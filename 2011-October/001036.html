@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore%20%5D%20IMPU%20/%20IMPI%20formats&In-Reply-To=%3C00dd01cc8531%241734f4e0%24459edea0%24%40technikum-wien.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001035.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore%20%5D%20IMPU%20/%20IMPI%20formats&In-Reply-To=%3C00dd01cc8531%241734f4e0%24459edea0%24%40technikum-wien.at%3E"
+       TITLE="[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats">franz.edler at technikum-wien.at
+       </A><BR>
+    <I>Fri Oct  7 22:38:37 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001035.html">[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1036">[ date ]</a>
+              <a href="thread.html#1036">[ thread ]</a>
+              <a href="subject.html#1036">[ subject ]</a>
+              <a href="author.html#1036">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Rocio,
+
+ 
+
+I guess you are using a pure SIP client (not IMS aware), which does not
+include an Authorization header field in the first REGISTER request.
+
+In that case the IMPI is derived from the IMPU for registration. This is
+necessary to get authorization data for the user, otherwise there is no
+username available.
+
+ 
+
+As far as I remember this is a FOKUS specific authentication method for
+Digest-MD5 to help IMS unaware clients to register.
+
+ 
+
+BR
+
+Franz
+
+ 
+
+ 
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>] On Behalf Of Roc&#237;o Ruz
+Sent: Friday, October 07, 2011 10:43 AM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-cscf at lists.berlios.de</A>
+Subject: [OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+
+ 
+
+Hello,
+
+ 
+
+I am using Open IMS Core HSS to create my users and I have constated that
+when using this format :
+
+ 
+
+IMPI:XXXX &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>&gt; @domain
+
+IMPU :  &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>&gt; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>
+
+ 
+
+Users can get registered normally. 
+
+ 
+
+How ever if I use the following format:
+
+ 
+
+IMPI:XXXX &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">XXXX at domain</A>&gt; @domain
+
+IMPU :  &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ZZZZ at domain</A>&gt; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ZZZZ at domain</A>
+
+ 
+
+The users can not get registered, I have an : 403 forbidden : HSS User
+Unknown.
+
+My softphones are configured in the same way for both cases : 
+
+ 
+
+UserID (or UserName) = IMPU
+
+Domain: open-ims.test
+
+Password : password
+
+Auth.userName : IMPI
+
+ 
+
+Does anybody know why it seems that we can not have an IMPU and IMPI with
+different user-parts?
+
+That does not seem very logical to me.
+
+ 
+
+Thank you in advance.
+
+ 
+
+RR
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20111007/2c1e27f5/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20111007/2c1e27f5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001035.html">[OpenIMSCore-HSS] [OpenIMSCore ] IMPU / IMPI formats
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1036">[ date ]</a>
+              <a href="thread.html#1036">[ thread ]</a>
+              <a href="subject.html#1036">[ subject ]</a>
+              <a href="author.html#1036">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

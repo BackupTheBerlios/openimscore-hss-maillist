@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20while%20registration%20in%20HSS%3A%0A%09%22RegistrationFailed%3AForbidden%22&In-Reply-To=%3C000601c72e54%24a0d6a2e0%240200a8c0%40notebookFE%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000114.html">
+   <LINK REL="Next"  HREF="000115.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20while%20registration%20in%20HSS%3A%0A%09%22RegistrationFailed%3AForbidden%22&In-Reply-To=%3C000601c72e54%24a0d6a2e0%240200a8c0%40notebookFE%3E"
+       TITLE="[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;">franz.edler at inode.at
+       </A><BR>
+    <I>Tue Jan  2 10:58:56 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000114.html">[OpenIMSCore-HSS] Error while registration in HSS: &quot;Registration	Failed:Forbidden&quot;
+</A></li>
+        <LI>Next message: <A HREF="000115.html">[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#117">[ date ]</a>
+              <a href="thread.html#117">[ thread ]</a>
+              <a href="subject.html#117">[ subject ]</a>
+              <a href="author.html#117">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Gaurav,
+
+I would be further helpful to see a Wireshark trace, most easy to produce
+with tcpdump:
+tcpdump -i any -s 3000 -w /tmp/trace1.pcap port 3060 or port 4060 or port
+5060 or port 6060 or port 3868 or port 3869 or port 3870
+
+At a first look I see from HSS
+&gt;<i> de.fhg.fokus.cx.exceptions.ims.UserUnknown
+</I>Based on the authentication user name there is no user provisioned.
+
+The output 
+&gt;<i> Digest username=&quot;alice&quot;, realm=&quot;open-ims.test&quot;,
+</I>also shows, that the username is not provisioned as a NAI (<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">user at domain</A>), at
+least somewhere the domain-name is lost.
+
+Maybe that helps.
+
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000114.html">[OpenIMSCore-HSS] Error while registration in HSS: &quot;Registration	Failed:Forbidden&quot;
+</A></li>
+	<LI>Next message: <A HREF="000115.html">[OpenIMSCore-HSS] Error while registration in HSS:	&quot;RegistrationFailed:Forbidden&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#117">[ date ]</a>
+              <a href="thread.html#117">[ thread ]</a>
+              <a href="subject.html#117">[ subject ]</a>
+              <a href="author.html#117">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

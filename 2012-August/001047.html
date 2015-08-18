@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] tel uri from ims client casues openims to query dns with no domain for an SRV
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20tel%20uri%20from%20ims%20client%20casues%20openims%20to%0A%20query%20dns%20with%20no%20domain%20for%20an%20SRV&In-Reply-To=%3CCAE6G%2Bhv-P_%3DkSRUQO547p61F1J_PAM8%3DSnu06rE6F6xMUCEKbg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001046.html">
+   <LINK REL="Next"  HREF="001048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] tel uri from ims client casues openims to query dns with no domain for an SRV</H1>
+    <B>Thomas Secula</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20tel%20uri%20from%20ims%20client%20casues%20openims%20to%0A%20query%20dns%20with%20no%20domain%20for%20an%20SRV&In-Reply-To=%3CCAE6G%2Bhv-P_%3DkSRUQO547p61F1J_PAM8%3DSnu06rE6F6xMUCEKbg%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] tel uri from ims client casues openims to query dns with no domain for an SRV">tsecula at gmail.com
+       </A><BR>
+    <I>Sat Aug 18 00:47:29 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001046.html">[OpenIMSCore-HSS] tel uri from ims client casues openims to	query dns with no domain for an SRV
+</A></li>
+        <LI>Next message: <A HREF="001048.html">[OpenIMSCore-HSS] tel uri from ims client casues openims to	query dns with no domain for an SRV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1047">[ date ]</a>
+              <a href="thread.html#1047">[ thread ]</a>
+              <a href="subject.html#1047">[ subject ]</a>
+              <a href="author.html#1047">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Oh, i missed the -i any. redid with that. this should make more sense.
+
+On Fri, Aug 17, 2012 at 3:45 PM, Franz Edler
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at technikum-wien.at</A>&gt;wrote:
+
+&gt;<i> Hi Thomas,
+</I>&gt;<i>
+</I>&gt;<i> &gt; when you do a tcpdump there are 2 interfaces involved, the eth1 is the
+</I>&gt;<i> &gt; external interface that would receive invites from the client, etc it
+</I>&gt;<i> also
+</I>&gt;<i> shows
+</I>&gt;<i> &gt; the dns interactions between the pcscf and the dns server because  the
+</I>&gt;<i> dns
+</I>&gt;<i> &gt; is external.... I also included a pcap from the lo interface to see the
+</I>&gt;<i> internals
+</I>&gt;<i> &gt; from the PIS box. I redid the traces without subscribing to reg event or
+</I>&gt;<i> &gt; issuing presence from the client.
+</I>&gt;<i>
+</I>&gt;<i> The traces are not clear to me. Are the traces covering the same event?  I
+</I>&gt;<i> e.g. cannot see the INVITE request in the &quot;lo.pcap&quot; trace.
+</I>&gt;<i> Why do you not use the tcpdump command mentioned. It traces on any
+</I>&gt;<i> interface.
+</I>&gt;<i>
+</I>&gt;<i> BR
+</I>&gt;<i> Franz
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20120817/c6d8af4c/attachment-0001.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20120817/c6d8af4c/attachment-0001.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: any.pcap
+Type: application/octet-stream
+Size: 358226 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20120817/c6d8af4c/attachment-0001.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20120817/c6d8af4c/attachment-0001.obj</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001046.html">[OpenIMSCore-HSS] tel uri from ims client casues openims to	query dns with no domain for an SRV
+</A></li>
+	<LI>Next message: <A HREF="001048.html">[OpenIMSCore-HSS] tel uri from ims client casues openims to	query dns with no domain for an SRV
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1047">[ date ]</a>
+              <a href="thread.html#1047">[ thread ]</a>
+              <a href="subject.html#1047">[ subject ]</a>
+              <a href="author.html#1047">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

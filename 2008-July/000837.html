@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Sh Notify Process Question.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20Notify%20Process%20Question.&In-Reply-To=%3C486A12AE.4070109%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000836.html">
+   <LINK REL="Next"  HREF="000838.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Sh Notify Process Question.</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20Notify%20Process%20Question.&In-Reply-To=%3C486A12AE.4070109%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Sh Notify Process Question.">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Jul  1 13:19:10 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000836.html">[OpenIMSCore-HSS] Information about users
+</A></li>
+        <LI>Next message: <A HREF="000838.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for Cx	interface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#837">[ date ]</a>
+              <a href="thread.html#837">[ thread ]</a>
+              <a href="subject.html#837">[ subject ]</a>
+              <a href="author.html#837">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Eivar,
+
+Yes, it is implementation specific. The reasons go from lack of 
+resources in building complex push-models in the HSS to avoiding storms 
+of messages.
+
+Anyway, check the hss.properties and change the SH_NOTIF_CHECK_INTERVAL 
+to a lower value if you wish... but be aware that this is the interval 
+at which a table will be polled for changes... so don't do it too often 
+or you'll loose performance.
+
+Cheers,
+-Dragos
+
+
+
+Eivar Armero wrote:
+&gt;<i>
+</I>&gt;<i> Hi all, we are testing the Sh interface with a topology that consists in
+</I>&gt;<i> two AS, one of these sends  a PUR to the HSS, and the other one is
+</I>&gt;<i> subscribed to notifications, so the HSS shall to send  a PNR message
+</I>&gt;<i> when any update in the data occurs, but this is happening with a delay
+</I>&gt;<i> between 9 to 10 Seconds.
+</I>&gt;<i>
+</I>&gt;<i> we had read the Sh TS, and this delay is not contemplated in the
+</I>&gt;<i> notification process, so we think that it is because an specific
+</I>&gt;<i> implementation in the FHoSS, somebody knows if is it correct??  or why
+</I>&gt;<i> do occur this issue??
+</I>&gt;<i>
+</I>&gt;<i> we attach a trace of the DIAMETER messages taken with wireshark,
+</I>&gt;<i> where you can see the issue above described.
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your help.
+</I>&gt;<i>
+</I>&gt;<i> __________________
+</I>&gt;<i> Eivar Armero Luna
+</I>&gt;<i> Diego Rodriguez Ch.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)176 - 48 32 16 00
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000836.html">[OpenIMSCore-HSS] Information about users
+</A></li>
+	<LI>Next message: <A HREF="000838.html">[OpenIMSCore-HSS] Authentication pending flag not cleared (for Cx	interface)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#837">[ date ]</a>
+              <a href="thread.html#837">[ thread ]</a>
+              <a href="subject.html#837">[ subject ]</a>
+              <a href="author.html#837">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

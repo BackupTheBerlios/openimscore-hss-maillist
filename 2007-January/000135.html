@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Second%20mail%20-%20Found%20reproducable%20FHoSS%20bug%28%3F%29&In-Reply-To=%3C45A51008.1050109%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000134.html">
+   <LINK REL="Next"  HREF="000137.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Second%20mail%20-%20Found%20reproducable%20FHoSS%20bug%28%3F%29&In-Reply-To=%3C45A51008.1050109%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jan 10 17:10:48 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000134.html">[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)
+</A></li>
+        <LI>Next message: <A HREF="000137.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#135">[ date ]</a>
+              <a href="thread.html#135">[ thread ]</a>
+              <a href="subject.html#135">[ subject ]</a>
+              <a href="author.html#135">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+Hi Sven,
+
+Yes, it seems that is a bug. I've tried your test scenario and I
+received some unexpected responses (DIAMETER_UNABLE_TO_COMPLY) in
+situations when DIAMETER_SUCCESS should be the answer.
+I will add a bug on our project page and we will solve this problem soon.
+
+Thanks for the information,
+Adrian
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Sven.Bornemann at materna.de</A> wrote:
+&gt;<i> Hi all!
+</I>&gt;<i> 
+</I>&gt;<i> &lt;Foreword&gt;
+</I>&gt;<i> Since some Berlios mailing list component(?) split my mail from Tue Jan 9 12:49:49 CET 2007
+</I>&gt;<i> into 2 parts (One mail with the original subject '[OpenIMSCore-HSS] Found reproducable FHoSS 
+</I>&gt;<i> bug(?)' and one with 'No subject'; Seems to be causes by the leading 'From' of a line :-/) 
+</I>&gt;<i> once again my request. Sorry.
+</I>&gt;<i> &lt;/Foreword&gt;
+</I>&gt;<i> 
+</I>&gt;<i> I observed the following reproducable FHoSS error situation:
+</I>&gt;<i> 
+</I>&gt;<i> 1.  Start FHoSS
+</I>&gt;<i> 2.  Read non existing repository data by UserDataRequest
+</I>&gt;<i> 3.  Error 5012 returned since data not existing, o.k.
+</I>&gt;<i> 4.  Write repository data by ProfileUpdateRequest
+</I>&gt;<i> 5.  Success returned
+</I>&gt;<i> 6.  Read existing repository data by UserDataRequest
+</I>&gt;<i> 7.  Success returned
+</I>&gt;<i> 
+</I>&gt;<i> 8.  Read existing repository data by UserDataRequest
+</I>&gt;<i> 9.  Error 5012 returned
+</I>&gt;<i> 10. Read existing repository data by UserDataRequest
+</I>&gt;<i> 11. Error 5012 returned
+</I>&gt;<i> 12. Read existing repository data by UserDataRequest
+</I>&gt;<i> 13. Success returned
+</I>&gt;<i> 14. Read existing repository data by UserDataRequest
+</I>&gt;<i> 15. Success returned
+</I>&gt;<i> 
+</I>&gt;<i> 'From' this time 8.-15. can be repeated on and on.
+</I>&gt;<i> If FHoSS is restarted after the error conditions occurs,
+</I>&gt;<i> 8.-15. are always successful.
+</I>&gt;<i> 
+</I>&gt;<i> * I compild FHoSS with latest available revision (85)
+</I>&gt;<i> * I'm using the default FHoSS database configuration.
+</I>&gt;<i> * Each DIAMTETER PDU is sent through a new established
+</I>&gt;<i>   FHoSS connection, since I use a console utility for
+</I>&gt;<i>   the tests.
+</I>&gt;<i> 
+</I>&gt;<i> Can anybody confirm that this is a FHoSS bug?
+</I>&gt;<i> 
+</I>&gt;<i> Bye,
+</I>&gt;<i> Sven
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+
+- --
+- --------------------------------------------
+Diplomat Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Alee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFpRAI6Yml36HNIwcRAn67AKCBzIOxWSGNiwcq1CQpwIUNiABIEACeL/F8
+7kKjM6qjGfHXx7+BlU22Zzs=
+=3KBk
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000134.html">[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)
+</A></li>
+	<LI>Next message: <A HREF="000137.html">[OpenIMSCore-HSS] Fwd: [OpenIMSCore-Users] Load tests
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#135">[ date ]</a>
+              <a href="thread.html#135">[ thread ]</a>
+              <a href="subject.html#135">[ subject ]</a>
+              <a href="author.html#135">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

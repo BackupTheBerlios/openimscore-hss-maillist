@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Supported-Vendor-Id%20in%0A%20theCapabilities-Exchange-Answer&In-Reply-To=%3C20080213144317.5ECF01055%40webmxp08.emailpersonal.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000754.html">
+   <LINK REL="Next"  HREF="000756.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer</H1>
+    <B>&quot;David Ca&#241;as&quot;</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Supported-Vendor-Id%20in%0A%20theCapabilities-Exchange-Answer&In-Reply-To=%3C20080213144317.5ECF01055%40webmxp08.emailpersonal.com%3E"
+       TITLE="[OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-Exchange-Answer">davidcaleon at mailpersonal.com
+       </A><BR>
+    <I>Wed Feb 13 15:46:31 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000754.html">[OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer
+</A></li>
+        <LI>Next message: <A HREF="000756.html">[OpenIMSCore-HSS] can not run /FHoSS/trunk/deploy/startup.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#755">[ date ]</a>
+              <a href="thread.html#755">[ thread ]</a>
+              <a href="subject.html#755">[ subject ]</a>
+              <a href="author.html#755">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I`s sorry for don&#180;t send trhe trace. I&#180;m new in this, and I don&#180;t know 
+very well what to do.
+
+This is the dimater message the my AS send to the FHoSS:
+&lt;13-feb-2008 15H36' CET&gt; &lt;Info&gt; &lt;Default&gt; &lt;000000&gt; &lt;
+[Diameter.Core:340027]Sending message for connection: 
+MuxableSocketDiameter
+[local=/16.23.23.129:2566,remote=nnssvm20.esm.qcorp.net/16.38.0.112:181
+2] : [
+&lt;User-Data-Request Flags=&quot;RP&quot; AppId=&quot;16777217&quot; HopByHopId=&quot;2794226775&quot; 
+EndToEndId=&quot;1511945674&quot;&gt;
+  &lt;Session-Id&gt;david.emea.qcorp.net;1202912932;7&lt;/Session-Id&gt;
+  &lt;Origin-Host&gt;david.emea.qcorp.net&lt;/Origin-Host&gt;
+  &lt;Origin-Realm&gt;bea.com&lt;/Origin-Realm&gt;
+  &lt;Vendor-Specific-Application-Id&gt;
+    &lt;Vendor-Id&gt;10415&lt;/Vendor-Id&gt;
+    &lt;Auth-Application-Id&gt;16777217&lt;/Auth-Application-Id&gt;
+  &lt;/Vendor-Specific-Application-Id&gt;
+  &lt;Destination-Realm&gt;bea.com&lt;/Destination-Realm&gt;
+  &lt;Auth-Session-State&gt;1&lt;/Auth-Session-State&gt;
+  &lt;User-Identity&gt;
+    &lt;Public-Identity&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&lt;/Public-Identity&gt;
+  &lt;/User-Identity&gt;
+  &lt;Data-Reference&gt;0&lt;/Data-Reference&gt;
+  &lt;Service-Indication&gt;foo&lt;/Service-Indication&gt;
+&lt;/User-Data-Request&gt;
+]&gt; 
+
+And the FHoss don&#180;t send and anwser to this request. It generates the 
+exception that I mentioned in the last message:
+2008-02-13 15:36:52,413 DEBUG de.fhg.fokus.hss.main.Task - execute 
+Processing Sh-UDR!
+Exception in thread &quot;Thread-13&quot; java.lang.NullPointerException
+        at de.fhg.fokus.hss.sh.op.UDR.addShData(UDR.java:257)
+        at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:197)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:181)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+
+ Thanks.
+
+----- Mensaje original -----
+De: &quot;Weik, Peter&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Peter.Weik at fokus.fraunhofer.de</A>&gt;
+Fecha: Mi&#233;rcoles, Febrero 13, 2008 3:22 pm
+Asunto: AW: [OpenIMSCore-HSS] Supported-Vendor-Id in theCapabilities-
+Exchange-Answer
+Para: &quot;David Ca&#241;as&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">davidcaleon at mailpersonal.com</A>&gt;
+CC: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+
+&gt;<i> David,
+</I>&gt;<i> 
+</I>&gt;<i> SEND TRACES and: look into the code to ideally provide a patch (in 
+</I>&gt;<i> case you really find an error, many people used BEA successfully 
+</I>&gt;<i> with FHoSS). 
+</I>&gt;<i> How else should I be able to re-produce what you are doing ?
+</I>&gt;<i> 
+</I>&gt;<i> - Peter
+</I>&gt;<i> 
+</I>&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> [mailto:openimscore-
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">hss-bounces at lists.berlios.de</A>] Im Auftrag von &quot;David Ca&#241;as&quot;
+</I>&gt;<i> Gesendet: Mittwoch, 13. Februar 2008 15:09
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Betreff: Re: [OpenIMSCore-HSS] Supported-Vendor-Id in 
+</I>&gt;<i> theCapabilities-Exchange-Answer
+</I>&gt;<i> 
+</I>&gt;<i> Yes, my problem is with the PUR. I&#180;m trying to find a solution and 
+</I>&gt;<i> I 
+</I>&gt;<i> thought that it can be because this AVP wasn&#180;t send. Thanks for 
+</I>&gt;<i> the 
+</I>&gt;<i> information.
+</I>&gt;<i> 
+</I>&gt;<i> For the question of the PUR, I have a new problem. I`m trying to 
+</I>&gt;<i> use a 
+</I>&gt;<i> new PUR with the &quot;RepositoryData&quot; to test it instead 
+</I>&gt;<i> of &quot;MSPublicIdentity&quot;. First, I try to read a non existing 
+</I>&gt;<i> repository 
+</I>&gt;<i> data by UserDataRequest but I don&#180;t receive &quot;Error 5012, data not 
+</I>&gt;<i> existing, o.k&quot;. The FHoSS return an exception with this information:
+</I>&gt;<i> 2008-02-13 14:51:05,824 DEBUG de.fhg.fokus.hss.main.Task - execute 
+</I>&gt;<i> Processing Sh-UDR!
+</I>&gt;<i> Exception in thread &quot;Thread-18&quot; java.lang.NullPointerException
+</I>&gt;<i>        at de.fhg.fokus.hss.sh.op.UDR.addShData(UDR.java:257)
+</I>&gt;<i>        at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:197)
+</I>&gt;<i>        at de.fhg.fokus.hss.main.Task.execute(Task.java:181)
+</I>&gt;<i>        at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> The UDR that I use is: &quot;<A HREF="sh://sip:alice@open-">sh://sip:alice@open-</A>
+</I>&gt;<i> ims.test/RepositoryData/foo&quot; (foo don&#180;t exist). How can I solve 
+</I>&gt;<i> this 
+</I>&gt;<i> problem?
+</I>&gt;<i> 
+</I>&gt;<i> Note: 
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> David.
+</I>&gt;<i> 
+</I>&gt;<i> ----- Mensaje original -----
+</I>&gt;<i> De: &quot;Weik, Peter&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Peter.Weik at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i> Fecha: Mi&#233;rcoles, Febrero 13, 2008 1:22 pm
+</I>&gt;<i> Asunto: AW: [OpenIMSCore-HSS] Supported-Vendor-Id in 
+</I>&gt;<i> theCapabilities-
+</I>&gt;<i> Exchange-Answer
+</I>&gt;<i> Para: &quot;David Ca&#241;as&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">davidcaleon at mailpersonal.com</A>&gt;
+</I>&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Hi David,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; according to RFC 3588 the FHoSS probably would not need a 
+</I>&gt;<i> &gt; Supported-Vendor-Id AVP and for sure no Inband- Security-Id AVP 
+</I>&gt;<i> as 
+</I>&gt;<i> &gt; we don't use TLS per default
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &lt;RFC3588&gt;
+</I>&gt;<i> &gt; NO_INBAND_SECURITY                0
+</I>&gt;<i> &gt;      This peer does not support TLS.  This is the default value, 
+</I>&gt;<i> &gt; if the
+</I>&gt;<i> &gt;      AVP is omitted.
+</I>&gt;<i> &gt; &lt;/RFC3588&gt;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; In DiameterPeerHSS.xml you set the supported apps, for anything 
+</I>&gt;<i> &gt; more, feel free to patch the JavaDiameterPeer.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Wasn't your problem the PUR ?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - Peter
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> &gt; Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> 
+</I>&gt;<i> [mailto:openimscore-
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">hss-bounces at lists.berlios.de</A>] Im Auftrag von &quot;David Ca&#241;as&quot;
+</I>&gt;<i> &gt; Gesendet: Mittwoch, 13. Februar 2008 12:41
+</I>&gt;<i> &gt; An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> &gt; Betreff: [OpenIMSCore-HSS] Supported-Vendor-Id in 
+</I>&gt;<i> theCapabilities-
+</I>&gt;<i> &gt; Exchange-Answer
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Hello,
+</I>&gt;<i> &gt; When I connect my AS to the FHoSS, the AS send a &quot;Capabilities- 
+</I>&gt;<i> &gt; Exchange-Request&quot; and the FHoSS respond with a &quot;Capabilities-
+</I>&gt;<i> &gt; Exchange- Answer&quot;. In this answer, the fields &quot;Supported-Vendor-
+</I>&gt;<i> Id 
+</I>&gt;<i> &gt; &quot;and &quot;Inband- Security-Id&quot; are not present.
+</I>&gt;<i> &gt; How can I configure the FHoSS to send this information?Do I need 
+</I>&gt;<i> &gt; to modify some configuration&#180;s file?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; This is the trace of the Response: (I attach to the file 
+</I>&gt;<i> captured 
+</I>&gt;<i> with
+</I>&gt;<i> &gt; EtherReal)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Frame 1133 (218 bytes on wire, 218 bytes captured) Ethernet II, 
+</I>&gt;<i> &gt; Src: 16.38.24.2 (00:11:bb:eb:9f:c2), Dst: 16.38.27.180
+</I>&gt;<i> &gt; (00:17:08:32:f4:45)
+</I>&gt;<i> &gt; Internet Protocol, Src: 16.38.0.112 (16.38.0.112), Dst: 
+</I>16.38.27.180
+&gt;<i> &gt; (16.38.27.180)
+</I>&gt;<i> &gt; Transmission Control Protocol, Src Port: 1812 (1812), Dst Port: 
+</I>&gt;<i> &gt; 2614 (2614), Seq: 1, Ack: 229, Len: Diameter Protocol
+</I>&gt;<i> &gt; Version: 0x01
+</I>&gt;<i> &gt; Length: 164
+</I>&gt;<i> &gt; Flags: 0x00 (&lt;None&gt;)
+</I>&gt;<i> &gt; Command Code: Capabilities-Exchange-Answer
+</I>&gt;<i> &gt; Application-Id: None
+</I>&gt;<i> &gt; Hop-by-Hop Identifier: 0x2bb55f1a
+</I>&gt;<i> &gt; End-to-End Identifier: 0xf0468e2d
+</I>&gt;<i> &gt; Attribute Value Pairs
+</I>&gt;<i> &gt; Result-Code (Enumerated) l:0xc (12 bytes) (12 padded bytes) AVP 
+</I>&gt;<i> &gt; Code: Result-Code (268)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 12
+</I>&gt;<i> &gt; Value: 0x000007d1 (2001): DIAMETER_SUCCESS Origin-Host 
+</I>&gt;<i> &gt; (DiameterIdentity) l:0x20 (32 bytes) (32 padded bytes) AVP Code: 
+</I>&gt;<i> &gt; Origin-Host (264)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 32
+</I>&gt;<i> &gt; Identity: nnssvm20.esm.cpqcorp.net
+</I>&gt;<i> &gt; Origin-Realm (UTF8String) l:0xf (15 bytes) (16 padded bytes) AVP 
+</I>&gt;<i> &gt; Code: Origin-Realm (296)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 15
+</I>&gt;<i> &gt; UTF8String: bea.com
+</I>&gt;<i> &gt; Host-IP-Address (IpAddress) l:0xe (14 bytes) (16 padded bytes) 
+</I>&gt;<i> AVP 
+</I>&gt;<i> &gt; Code: Host-IP-Address (257)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 14
+</I>&gt;<i> &gt; Address Family: IPv4 (1)
+</I>&gt;<i> &gt; IPv4 Address: 16.38.0.112 (16.38.0.112)
+</I>&gt;<i> &gt; Vendor-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes) AVP 
+</I>&gt;<i> &gt; Code: Vendor-Id (266)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 12
+</I>&gt;<i> &gt; Value: 0x000028af (10415): 3GPP
+</I>&gt;<i> &gt; Product-Name (UTF8String) l:0x17 (23 bytes) (24 padded bytes) 
+</I>&gt;<i> AVP 
+</I>&gt;<i> &gt; Code: Product-Name (269)
+</I>&gt;<i> &gt; Flags: 0x00 (&lt;None&gt;)
+</I>&gt;<i> &gt; AVP Length: 23
+</I>&gt;<i> &gt; UTF8String: HssDiameterPeer
+</I>&gt;<i> &gt; Vendor-Specific-Application-Id (Grouped) l:0x20 (32 bytes) (32 
+</I>&gt;<i> padded&gt; bytes)
+</I>&gt;<i> &gt; AVP Code: Vendor-Specific-Application-Id (260)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 32
+</I>&gt;<i> &gt; Vendor-Specific-Application-Id Grouped AVPs Vendor-Id 
+</I>&gt;<i> (Enumerated) 
+</I>&gt;<i> &gt; l:0xc (12 bytes) (12 padded bytes) AVP Code: Vendor-Id (266)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 12
+</I>&gt;<i> &gt; Value: 0x000028af (10415): 3GPP
+</I>&gt;<i> &gt; Auth-Application-Id (Enumerated) l:0xc (12 bytes) (12 padded 
+</I>&gt;<i> &gt; bytes) AVP Code: Auth-Application-Id (258)
+</I>&gt;<i> &gt; Flags: 0x40 (Mandatory)
+</I>&gt;<i> &gt; AVP Length: 12
+</I>&gt;<i> &gt; Value: 0x01000001 (16777217): 3GPP Sh
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Thanks,
+</I>&gt;<i> &gt; David
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000754.html">[OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer
+</A></li>
+	<LI>Next message: <A HREF="000756.html">[OpenIMSCore-HSS] can not run /FHoSS/trunk/deploy/startup.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#755">[ date ]</a>
+              <a href="thread.html#755">[ thread ]</a>
+              <a href="subject.html#755">[ subject ]</a>
+              <a href="author.html#755">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

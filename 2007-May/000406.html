@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20SIP%20REGISTER%20with%20AKAv1-MD5%20auth%20with%20seagull&In-Reply-To=%3Cb33002040705180545v5d05f4b9sa891382a23a5165b%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000402.html">
+   <LINK REL="Next"  HREF="000410.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull</H1>
+    <B>JF</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20SIP%20REGISTER%20with%20AKAv1-MD5%20auth%20with%20seagull&In-Reply-To=%3Cb33002040705180545v5d05f4b9sa891382a23a5165b%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull">jfkavaka at gmail.com
+       </A><BR>
+    <I>Fri May 18 14:45:10 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000402.html">[OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull
+</A></li>
+        <LI>Next message: <A HREF="000410.html">[OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#406">[ date ]</a>
+              <a href="thread.html#406">[ thread ]</a>
+              <a href="subject.html#406">[ subject ]</a>
+              <a href="author.html#406">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Meanwhile I detected that operator id and secret key were in the wrong
+order in the external_data_client.csv file. Fixed it, but I still
+can't authenticate.
+
+JF
+
+On 5/18/07, JF &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">jfkavaka at gmail.com</A>&gt; wrote:
+&gt;<i> Oh, I forgot to mention that in the HSS I have configured:
+</I>&gt;<i> Secret Key: 9876543210FEDCBAABCDEF0123456789
+</I>&gt;<i> AMF: 1234
+</I>&gt;<i> Operator ID: ABCDEF0123456789ABCDEF0123456789
+</I>&gt;<i>
+</I>&gt;<i> And I'm getting the external info for seagull scenario from the attached file.
+</I>&gt;<i>
+</I>&gt;<i> JF
+</I>&gt;<i>
+</I>&gt;<i> On 5/18/07, JF &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">jfkavaka at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I've been trying to use seagull to register to the OpenIMSCore
+</I>&gt;<i> &gt; authenticating with AKAv1-MD5 using the attached scenario, dictionary
+</I>&gt;<i> &gt; and configuration, but the S-CSCF allways expects a different
+</I>&gt;<i> &gt; response.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; From wireshark, the 401 Unauthorized message has the following:
+</I>&gt;<i> &gt; WWW-Authenticate: Digest realm=&quot;open-ims.test&quot;,
+</I>&gt;<i> &gt; nonce=&quot;Gn2RgKAcQCuEJx7hf9eSzFe+Dg8fNhI0imfgOlM7pkE=&quot;,
+</I>&gt;<i> &gt; algorithm=AKAv1-MD5
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; From wireshark, the 2nd REGISTER has:
+</I>&gt;<i> &gt; Authorization: Digest
+</I>&gt;<i> &gt; username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&quot;,realm=&quot;open-ims.test&quot;,uri=&quot;sip:127.0.0.1:5061&quot;,nonce=&quot;Gn2RgKAcQCuEJx7hf9eSzFe+Dg8fNhI0imfgOlM7pkE=&quot;,response=&quot;81a09bce889532eb99fdc4bfacc27236&quot;,algorithm=AKAv1-MD5
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; And the S-CSCF says:
+</I>&gt;<i> &gt; 4(15978) DBG:S-CSCF:S_is_authorized: UE said:
+</I>&gt;<i> &gt; 81a09bce889532eb99fdc4bfacc27236 and we  expect
+</I>&gt;<i> &gt; 3fe9cee9fa505e0011221d7e52f4e700 ha1 1a362af1a6b0cee27c2a9e807be862f3
+</I>&gt;<i> &gt;  4(15978) DBG:S-CSCF:S_is_authorized: UE said:
+</I>&gt;<i> &gt; 81a09bce889532eb99fdc4bfacc27236, but we have &#65533;&#65533;&#65533;]&#65533;&#65533; and expect
+</I>&gt;<i> &gt; 3fe9cee9fa505e0011221d7e52f4e700
+</I>&gt;<i> &gt;  4(15978) DBG:S-CSCF:S_challenge: Challenging the REGISTER...
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Any help is appreciated.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Joao Filipe Placido
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I></PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000402.html">[OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull
+</A></li>
+	<LI>Next message: <A HREF="000410.html">[OpenIMSCore-HSS] SIP REGISTER with AKAv1-MD5 auth with seagull
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#406">[ date ]</a>
+              <a href="thread.html#406">[ thread ]</a>
+              <a href="subject.html#406">[ subject ]</a>
+              <a href="author.html#406">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

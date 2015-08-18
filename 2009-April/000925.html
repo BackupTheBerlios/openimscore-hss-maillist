@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] OpenIMSCore : HSS not starting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20OpenIMSCore%20%3A%20HSS%20not%20starting&In-Reply-To=%3C126744C39477AC45B0BD6B57A6218C4612E508D8F2%40BLRKECMBX09.ad.infosys.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000933.html">
+   <LINK REL="Next"  HREF="000926.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] OpenIMSCore : HSS not starting</H1>
+    <B>Harsha Ramanagoudra</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20OpenIMSCore%20%3A%20HSS%20not%20starting&In-Reply-To=%3C126744C39477AC45B0BD6B57A6218C4612E508D8F2%40BLRKECMBX09.ad.infosys.com%3E"
+       TITLE="[OpenIMSCore-HSS] OpenIMSCore : HSS not starting">Harsha_Ramanagoudra at infosys.com
+       </A><BR>
+    <I>Fri Apr 17 13:14:09 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000933.html">[OpenIMSCore-HSS] Patches for &quot;SIP Digest&quot; authentication scheme
+</A></li>
+        <LI>Next message: <A HREF="000926.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r648 - Fixed message	routing bug - was not routing to peers in the R_Open state.	Fixed the example - the API was changed and the default	example was not.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#925">[ date ]</a>
+              <a href="thread.html#925">[ thread ]</a>
+              <a href="subject.html#925">[ subject ]</a>
+              <a href="author.html#925">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+While starting FHoSS using startup.sh script I am facing the following exception(java.lang.ExceptionInInitializerError) and notice that nothing is started on port 3868. Tomcat webserver is started though.
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at openims</A> harsha]# netstat -anp|grep 3868
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at openims</A> harsha]# netstat -anp|grep 8080
+tcp        0      0 ::ffff:127.0.0.1:8080       :::*                        LISTEN      5307/java           
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at openims</A> harsha]# 
+
+I am outlining the steps i did below
+
+(i)I downloaded the FHoSS from the following link as i was facing issues with SVN.
+
+   <A HREF="ftp://ftp.berlios.de/pub/openimscore/snapshots">ftp://ftp.berlios.de/pub/openimscore/snapshots</A>
+
+(ii)I extracted the contents as directed in /opt/FHoSS/
+
+(iii) ant compile; ant deploy
+
+(iii)I made some changes to startup.sh script as below(mainly added CLASSPATH and JAVA_HOME variables)
+
+startup.sh
+========
+echo &quot;Building Classpath&quot;
+CLASSPATH=/opt/FHoSS
+CLASSPATH=$CLASSPATH/bin:log4j.properties
+JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0
+for i in lib/*.jar; do CLASSPATH=&quot;$i&quot;:&quot;$CLASSPATH&quot;; done
+
+for j in tomcat/lib/*.jar; do CLASSPATH=&quot;$j&quot;:&quot;$CLASSPATH&quot;; done
+echo &quot;Classpath is $CLASSPATH.&quot;
+
+# --------------------------------------------------------------
+# Start-up
+# --------------------------------------------------------------
+
+$JAVA_HOME/bin/java -cp $CLASSPATH de.fhg.fokus.hss.main.HSSContainer $1 $2 $3 $4 $5 $6 $7 $8 $9
+
+(iv)run the startup script
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at openims</A> deploy]# ./startup.sh 
+Building Classpath
+Classpath is tomcat/lib/*.jar:lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.1.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.3.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/c3p0-0.9.1.jar:lib/base64.jar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.6.jar:/opt/FHoSS/bin:log4j.properties.
+log4j:WARN No appenders could be found for logger (de.fhg.fokus.hss.main.TomcatServer).
+log4j:WARN Please initialize the log4j system properly.
+Exception in thread &quot;main&quot; java.lang.ExceptionInInitializerError
+	at de.fhg.fokus.hss.db.hibernate.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:84)
+	at de.fhg.fokus.hss.main.HSSContainer.&lt;init&gt;(HSSContainer.java:83)
+	at de.fhg.fokus.hss.main.HSSContainer.main(HSSContainer.java:110)
+Caused by: org.hibernate.HibernateException: Hibernate Dialect must be explicitly set
+	at org.hibernate.dialect.DialectFactory.determineDialect(DialectFactory.java:57)
+	at org.hibernate.dialect.DialectFactory.buildDialect(DialectFactory.java:39)
+	at org.hibernate.cfg.SettingsFactory.determineDialect(SettingsFactory.java:409)
+	at org.hibernate.cfg.SettingsFactory.buildSettings(SettingsFactory.java:119)
+	at org.hibernate.cfg.Configuration.buildSettings(Configuration.java:2006)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1289)
+	at de.fhg.fokus.hss.db.hibernate.HibernateUtil.&lt;clinit&gt;(HibernateUtil.java:79)
+	... 2 more
+
+
+I notice the main issue is caused by - { Caused by: org.hibernate.HibernateException: Hibernate Dialect must be explicitly set;}
+i dont know why it should happen as the dialect is correctly set in hibernate.properties file.
+
+/opt/FHoSS/deploy/hibernate.properties
+==============================
+
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+
+After reading through some newsgroups that had addressed similar exceptions  in Hibernate, i also copied the hibernate.cfg.xml file
+to the deploy directory, and added the database dialect property to xml file
+
+/opt/FHoSS/deploy/hibernate.cfg.xml
+===========================
+
+&lt;property name=&quot;dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;
+
+
+FHoSS is still not starting and i am getting Connection refused error on ISCSF:port 3869 and SCSCF:port 3870 when they 
+try to connect to HSS.
+
+Can someone suggest pointers to resolve this so that HSS starts correctly?
+
+Thanks
+Harsha
+**************** CAUTION - Disclaimer *****************
+This e-mail contains PRIVILEGED AND CONFIDENTIAL INFORMATION intended solely 
+for the use of the addressee(s). If you are not the intended recipient, please 
+notify the sender by e-mail and delete the original message. Further, you are not 
+to copy, disclose, or distribute this e-mail or its contents to any other person and 
+any such actions are unlawful. This e-mail may contain viruses. Infosys has taken 
+every reasonable precaution to minimize this risk, but is not liable for any damage 
+you may sustain as a result of any virus in this e-mail. You should carry out your 
+own virus checks before opening the e-mail or attachment. Infosys reserves the 
+right to monitor and review the content of all messages sent to or from this e-mail 
+address. Messages sent to or from this e-mail address may be stored on the 
+Infosys e-mail system.
+***INFOSYS******** End of Disclaimer ********INFOSYS***
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000933.html">[OpenIMSCore-HSS] Patches for &quot;SIP Digest&quot; authentication scheme
+</A></li>
+	<LI>Next message: <A HREF="000926.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r648 - Fixed message	routing bug - was not routing to peers in the R_Open state.	Fixed the example - the API was changed and the default	example was not.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#925">[ date ]</a>
+              <a href="thread.html#925">[ thread ]</a>
+              <a href="subject.html#925">[ subject ]</a>
+              <a href="author.html#925">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Sh interface problems (rev 280) and compilation	problem (rev 287)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20interface%20problems%20%28rev%20280%29%20and%20compilation%0A%09problem%20%28rev%20287%29&In-Reply-To=%3C14513D9CD9650446BF2F0A76846EE312010EA28F%40inosplex01.ptin.corpPT.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000443.html">
+   <LINK REL="Next"  HREF="000445.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Sh interface problems (rev 280) and compilation	problem (rev 287)</H1>
+    <B>Jo&#227;o Vitor Torres</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Sh%20interface%20problems%20%28rev%20280%29%20and%20compilation%0A%09problem%20%28rev%20287%29&In-Reply-To=%3C14513D9CD9650446BF2F0A76846EE312010EA28F%40inosplex01.ptin.corpPT.com%3E"
+       TITLE="[OpenIMSCore-HSS] Sh interface problems (rev 280) and compilation	problem (rev 287)">joao-v-torres at ptinovacao.pt
+       </A><BR>
+    <I>Thu May 24 19:28:02 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000443.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+        <LI>Next message: <A HREF="000445.html">[OpenIMSCore-HSS] Sh interface problems (rev 280) and compilation problem (rev 287)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#435">[ date ]</a>
+              <a href="thread.html#435">[ thread ]</a>
+              <a href="subject.html#435">[ subject ]</a>
+              <a href="author.html#435">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+ 
+
+The error noticed by placido:
+
+Added task to queue!
+de.fhg.fokus.hss.sh.ShExperimentalResultException:
+IMS_Diameter_Error_User_Data_Cannot_Be_Read
+        at de.fhg.fokus.hss.sh.op.UDR.processRequest(UDR.java:133)
+        at de.fhg.fokus.hss.main.Task.execute(Task.java:125)
+        at de.fhg.fokus.hss.main.Worker.run(Worker.java:63)
+
+is caused by a matching failure between AS name in the HSS and AVP Origin-Host in UDR message. In HSS the AS name is something like this &quot;sip:ip:port&quot;, then it is necessary to put the same name in AVP Origin-Host in UDR message including the port part. This seems strange; port part shouldn't be necessary, right?
+
+ 
+
+Messages UDA over Sh Interface are returning User-Data AVP with avp code 606. This avp code is valid in Cx interface. In Sh interface it should be 702.
+
+ 
+
+Changes in trigger points are not being updated if a registration type (Reg, DeReg and ReReg) change on Trigger Point web interface is not made.
+
+ 
+
+These issues are related to rev 280.
+
+ 
+
+Rev 287 has compilation problems:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at shipnet6</A> FHoSS]# ant compile
+
+Buildfile: build.xml
+
+ 
+
+init:
+
+    [mkdir] Created dir: /usr/local/openimscore/FHoSS/src-gen
+
+ 
+
+compile:
+
+    [javac] Compiling 174 source files to /usr/local/openimscore/FHoSS/bin
+
+    [javac] /usr/local/openimscore/FHoSS/src/de/fhg/fokus/hss/main/HSSContainer.java:105: cannot find symbol
+
+    [javac] symbol  : class CxEventsWorker
+
+    [javac] location: class de.fhg.fokus.hss.main.HSSContainer
+
+    [javac]             CxEventsWorker cxEventsWorker = new CxEventsWorker(10);
+
+    [javac]                 ^
+
+    [javac] /usr/local/openimscore/FHoSS/src/de/fhg/fokus/hss/main/HSSContainer.java:105: cannot find symbol
+
+    [javac] symbol  : class CxEventsWorker
+
+    [javac] location: class de.fhg.fokus.hss.main.HSSContainer
+
+    [javac]             CxEventsWorker cxEventsWorker = new CxEventsWorker(10);
+
+    [javac]                                                     ^
+
+    [javac] Note: Some input files use unchecked or unsafe operations.
+
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+
+    [javac] 2 errors
+
+ 
+
+BUILD FAILED
+
+/usr/local/openimscore/FHoSS/build.xml:91: Compile failed; see the compiler error output for details.
+
+ 
+
+ 
+
+Jo&#227;o Vitor Torres
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070524/32b0b629/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070524/32b0b629/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000443.html">[OpenIMSCore-HSS] (no subject)
+</A></li>
+	<LI>Next message: <A HREF="000445.html">[OpenIMSCore-HSS] Sh interface problems (rev 280) and compilation problem (rev 287)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#435">[ date ]</a>
+              <a href="thread.html#435">[ thread ]</a>
+              <a href="subject.html#435">[ subject ]</a>
+              <a href="author.html#435">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

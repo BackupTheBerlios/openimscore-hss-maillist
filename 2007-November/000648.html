@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] I can't access to hss.web.console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20I%20can%27t%20access%20to%20hss.web.console&In-Reply-To=%3C1194370577.6990.174.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000647.html">
+   <LINK REL="Next"  HREF="000649.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] I can't access to hss.web.console</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20I%20can%27t%20access%20to%20hss.web.console&In-Reply-To=%3C1194370577.6990.174.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] I can't access to hss.web.console">peter.weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Nov  6 18:36:17 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000647.html">[OpenIMSCore-HSS] I can't access to hss.web.console
+</A></li>
+        <LI>Next message: <A HREF="000649.html">[OpenIMSCore-HSS]  Could I install OpenIMS Core in Apple X Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#648">[ date ]</a>
+              <a href="thread.html#648">[ thread ]</a>
+              <a href="subject.html#648">[ subject ]</a>
+              <a href="author.html#648">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Laurent,
+
+do a simple &quot;svn update&quot; in the FHoSS directory and try to compile
+again. Post the ant logs in case it should fail again.
+
+Regards,
+
+Peter
+
+On Tue, 2007-11-06 at 17:02 +0100, laurent craignou wrote:
+&gt;<i> Hello all,
+</I>&gt;<i> 
+</I>&gt;<i> I would like update my openimscore, so I had do Hello all,
+</I>&gt;<i> # svn checkout 
+</I>&gt;<i> <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk">http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk</A> FHoSS
+</I>&gt;<i> 
+</I>&gt;<i> and in Fhoss directory I had executed :
+</I>&gt;<i> 
+</I>&gt;<i> # ant compile
+</I>&gt;<i> # ant deploy
+</I>&gt;<i> 
+</I>&gt;<i> I run all components and when I want to access to hss.web.console
+</I>&gt;<i>  I have this issue :
+</I>&gt;<i> 
+</I>&gt;<i> exception 
+</I>&gt;<i> 
+</I>&gt;<i> org.apache.jasper.JasperException: Unable to compile class for JSP
+</I>&gt;<i> org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:565) org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:293) org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291) org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241) javax.servlet.http.HttpServlet.service(HttpServlet.java:802) 
+</I>&gt;<i> 
+</I>&gt;<i> root cause 
+</I>&gt;<i> 
+</I>&gt;<i> java.io.FileNotFoundException: /opt/OpenIMSCore/FHoSS/deploy/work/null/127.0.0.1/hss.web.console/org/apache/jsp/index_jsp.java (No such file or directory) java.io.FileOutputStream.open(Native Method) java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:179) java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:70) org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:131) org.apache.jasper.compiler.Compiler.compile(Compiler.java:286) org.apache.jasper.compiler.Compiler.compile(Compiler.java:267) org.apache.jasper.compiler.Compiler.compile(Compiler.java:255) org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:556) org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:293) org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291) org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241) javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i> 
+</I>&gt;<i> Someone can i help me ?
+</I>&gt;<i> 
+</I>&gt;<i> Laurent
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000647.html">[OpenIMSCore-HSS] I can't access to hss.web.console
+</A></li>
+	<LI>Next message: <A HREF="000649.html">[OpenIMSCore-HSS]  Could I install OpenIMS Core in Apple X Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#648">[ date ]</a>
+              <a href="thread.html#648">[ thread ]</a>
+              <a href="subject.html#648">[ subject ]</a>
+              <a href="author.html#648">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

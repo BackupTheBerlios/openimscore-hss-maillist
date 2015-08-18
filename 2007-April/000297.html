@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS]  HSS Model
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%20HSS%20Model&In-Reply-To=%3C10d080960704110055h3240336p21e75e18218536f9%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000294.html">
+   <LINK REL="Next"  HREF="000300.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS]  HSS Model</H1>
+    <B>ketzal devims</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%20HSS%20Model&In-Reply-To=%3C10d080960704110055h3240336p21e75e18218536f9%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS]  HSS Model">ketzaldevims at gmail.com
+       </A><BR>
+    <I>Wed Apr 11 09:55:36 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000294.html">[OpenIMSCore-HSS] HSS Model
+</A></li>
+        <LI>Next message: <A HREF="000300.html">[OpenIMSCore-HSS] HSS Model
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#297">[ date ]</a>
+              <a href="thread.html#297">[ thread ]</a>
+              <a href="subject.html#297">[ subject ]</a>
+              <a href="author.html#297">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi peter,
+
+Sorry, i got it : (What do you mean by &quot;this feature is in the
+DB_revamp branch of FHoSS&quot;)
+
+I've checked tables in the DB_revamp branch, particularly the impu
+table, because I think the feature i'm looking for could be here.
+But I didn'n found it... :
+
+DROP TABLE IF EXISTS `impu`;
+CREATE TABLE `impu` (
+  `impu_id` int(10) unsigned NOT NULL auto_increment COMMENT 'public id',
+  `user_status` char(1) NOT NULL default '0',
+  `sip_url` varchar(255) NOT NULL default '',
+  `tel_url` varchar(255) NOT NULL default '',
+  `barring_indication` char(1) NOT NULL default '0',
+  `psi` char(1) NOT NULL default '0',
+  `psi_id` int(10) unsigned default NULL,
+  `svp_id` int(10) unsigned default NULL,
+  PRIMARY KEY  (`impu_id`),
+  KEY `FK_impu_1` (`psi_id`),
+  KEY `FK_impu_2` (`svp_id`),
+  CONSTRAINT `FK_impu_1` FOREIGN KEY (`psi_id`) REFERENCES `psi` (`psi_id`),
+  CONSTRAINT `FK_impu_2` FOREIGN KEY (`svp_id`) REFERENCES `svp` (`svp_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+thanks
+
+ketzal
+
+---------- Forwarded message ----------
+From: ketzal devims &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ketzaldevims at gmail.com</A>&gt;
+Date: 11 avr. 2007 09:38
+Subject: Re: [OpenIMSCore-HSS] HSS Model
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>
+
+Hi Peter,
+
+What do you mean by &quot;this feature is in the DB_revamp branch of FHoSS&quot;
+thanks,
+
+ketzal
+
+2007/4/10, Peter Weik &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>&gt;:
+&gt;<i>
+</I>&gt;<i> Hi Ketzal,
+</I>&gt;<i>
+</I>&gt;<i> currently this feature is in the DB_revamp branch of FHoSS. Feel free to
+</I>&gt;<i> check it out and test with it. Will take some more time until we will
+</I>&gt;<i> make the transition for FHoSS with all new features.
+</I>&gt;<i>
+</I>&gt;<i> - Peter
+</I>&gt;<i>
+</I>&gt;<i> On Tue, 2007-04-10 at 18:12 +0200, ketzal devims wrote:
+</I>&gt;<i> &gt; Hi...
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I tried to add a new user in the FHoSS. For this user, I've put one
+</I>&gt;<i> &gt; private identity, and three public identities.
+</I>&gt;<i> &gt; But, when I've done it, I haven't seen a case where I can define an
+</I>&gt;<i> &gt; Implicit Registration Set (It's to Register many public identities at
+</I>&gt;<i> &gt; the same time).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Have you implemented this functionnality?
+</I>&gt;<i> &gt; Thanks
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ketzaldev
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070411/7c173885/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070411/7c173885/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000294.html">[OpenIMSCore-HSS] HSS Model
+</A></li>
+	<LI>Next message: <A HREF="000300.html">[OpenIMSCore-HSS] HSS Model
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#297">[ date ]</a>
+              <a href="thread.html#297">[ thread ]</a>
+              <a href="subject.html#297">[ subject ]</a>
+              <a href="author.html#297">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

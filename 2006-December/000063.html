@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS installation problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20installation%20problem&In-Reply-To=%3C45782B88.6050700%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000062.html">
+   <LINK REL="Next"  HREF="000064.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS installation problem</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20installation%20problem&In-Reply-To=%3C45782B88.6050700%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS installation problem">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Dec  7 15:56:08 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000062.html">[OpenIMSCore-HSS] FHoSS installation problem
+</A></li>
+        <LI>Next message: <A HREF="000064.html">[OpenIMSCore-HSS] FHoSS installation problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#63">[ date ]</a>
+              <a href="thread.html#63">[ thread ]</a>
+              <a href="subject.html#63">[ subject ]</a>
+              <a href="author.html#63">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hello Matev&#382;,
+
+It seams that the directory src-gen is not created. The error that you
+specified comes when the directory that contains the sources does not
+exists. So, please verify if you have the &quot;src-gen&quot; folder inside your
+base directory of FHoSS. I am almost sure that is not there, and this is
+why the compilation fails.
+If is not there, please make an ant cleanall and then retake the
+procedures: ant gen, ant compile, ant deploy independently to see where
+it fails.
+
+Cheers,
+Adrian
+
+
+Matev&#382; Mesojednik wrote:
+&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> We are experiencing difficulties installing HSS package.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> ?ant gen? builds normally, but executing ?ant compile? returns the
+</I>&gt;<i> following output:
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at FoHSS</A>:/opt/OpenIMSCore/FHoSS# ant compile
+</I>&gt;<i> 
+</I>&gt;<i> Buildfile: build.xml
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> init:
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> compile:
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] Compiling 156 source files to /opt/OpenIMSCore/FHoSS/bin
+</I>&gt;<i> 
+</I>&gt;<i>     [javac] directory does not exist: -sourcepath
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> BUILD FAILED
+</I>&gt;<i> 
+</I>&gt;<i> /opt/OpenIMSCore/FHoSS/build.xml:79: Compile failed; see the compiler
+</I>&gt;<i> error output for details.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> JDK version is 1.5 as required ? where is the detailed error output located?
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Thank you in advance, really appretiate your help,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Matev&#382;
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFFeCuI6Yml36HNIwcRAoxuAJ9E0KnLgP52gSQlnUic9HAHRSnY5wCffTww
+OJdRdbfPmZ9JYHGOBIR2nXk=
+=mck3
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000062.html">[OpenIMSCore-HSS] FHoSS installation problem
+</A></li>
+	<LI>Next message: <A HREF="000064.html">[OpenIMSCore-HSS] FHoSS installation problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#63">[ date ]</a>
+              <a href="thread.html#63">[ thread ]</a>
+              <a href="subject.html#63">[ subject ]</a>
+              <a href="author.html#63">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

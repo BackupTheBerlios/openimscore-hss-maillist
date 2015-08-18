@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Reg%20Java%20Diameter%20Peer%20and%20Connecting%20from%20BEA&In-Reply-To=%3C461B6FDE.6030000%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000281.html">
+   <LINK REL="Next"  HREF="000288.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Reg%20Java%20Diameter%20Peer%20and%20Connecting%20from%20BEA&In-Reply-To=%3C461B6FDE.6030000%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 10 13:07:10 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000281.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+        <LI>Next message: <A HREF="000288.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting fromBEA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#287">[ date ]</a>
+              <a href="thread.html#287">[ thread ]</a>
+              <a href="subject.html#287">[ subject ]</a>
+              <a href="author.html#287">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi Kirshnaveni,
+
+I made a fix which adds the Proxiable flag to all Sh responses. Now it
+should be fine. Thanks for informing us regarding this issue.
+
+- -Adrian
+
+Peter Weik wrote:
+&gt;<i> Hi Kirshnaveni,
+</I>&gt;<i> 
+</I>&gt;<i> we will look into adding the proxy bit. You can speed up the process by
+</I>&gt;<i> providing a patch ;) After all, this is an Open Source project that
+</I>&gt;<i> lives from community contributions.
+</I>&gt;<i> 
+</I>&gt;<i> - Peter
+</I>&gt;<i> 
+</I>&gt;<i> On Tue, 2007-04-10 at 14:21 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Krishnaveni.Mudduluru at cognizant.com</A>
+</I>&gt;<i> wrote:
+</I>&gt;&gt;<i> Hi Peter , 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When I asked about the error that I was getting in BEA Relay,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I got the following reply from BEA ,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The relay say unexpected command because the Porxy Flag in the
+</I>&gt;&gt;<i> response is not set correctly.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> You should contact Fhoss yourself.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The proxy flag is defined in standard 3GPP TS 29.329, section 6.1.2,
+</I>&gt;&gt;<i> page 8. Ypou may notice the PXY in the headers, means that proxy flag
+</I>&gt;&gt;<i> must be set.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The User-Data-Answer (UDA) command, indicated by the Command-Code
+</I>&gt;&gt;<i> field set to 306 and the 'R' bit cleared in the Command Flags field,
+</I>&gt;&gt;<i> is sent by a server in response to the User-Data-Request command. The
+</I>&gt;&gt;<i> Experimental-Result AVP may contain one of the values defined in
+</I>&gt;&gt;<i> section 6.2 or in 3GPP TS 29.229 [6].
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Message Format
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt; User-Data-Answer &gt; ::= &lt; Diameter Header: 306, PXY, 16777217 &gt; &lt;
+</I>&gt;&gt;<i> Session-Id &gt; { Vendor-Specific-Application-Id } [ Result-Code ]
+</I>&gt;&gt;<i> [ Experimental-Result ] { Auth-Session-State } { Origin-Host }
+</I>&gt;&gt;<i> { Origin-Realm } *[ Supported-Features ] [ User-Data ] *[ AVP ]
+</I>&gt;&gt;<i> *[ Failed-AVP ] *[ Proxy-Info ] *[ Route-Record ]
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> May I know the procedure to follow , so that BEA can understand the
+</I>&gt;&gt;<i> message received from FHoSS
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> This e-mail and any files transmitted with it are for the sole use of
+</I>&gt;&gt;<i> the intended recipient(s) and may contain confidential and privileged
+</I>&gt;&gt;<i> information.
+</I>&gt;&gt;<i> If you are not the intended recipient, please contact the sender by
+</I>&gt;&gt;<i> reply e-mail and destroy all copies of the original message. 
+</I>&gt;&gt;<i> Any unauthorised review, use, disclosure, dissemination, forwarding,
+</I>&gt;&gt;<i> printing or copying of this email or any action taken in reliance on
+</I>&gt;&gt;<i> this e-mail is strictly 
+</I>&gt;&gt;<i> prohibited and may be unlawful.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGG2/e6Yml36HNIwcRAtAdAJ9Td9NnUDPPrSNlW+dsEUjiLhea/gCfdtZl
+lDKh7hZRTPO+bDBSag9kW94=
+=PuLQ
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000281.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+	<LI>Next message: <A HREF="000288.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting fromBEA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#287">[ date ]</a>
+              <a href="thread.html#287">[ thread ]</a>
+              <a href="subject.html#287">[ subject ]</a>
+              <a href="author.html#287">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

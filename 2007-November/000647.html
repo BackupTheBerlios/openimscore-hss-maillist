@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] I can't access to hss.web.console
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20I%20can%27t%20access%20to%20hss.web.console&In-Reply-To=%3C36d68e8a0711060802m18362b77i1660df8d86c1a189%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000646.html">
+   <LINK REL="Next"  HREF="000648.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] I can't access to hss.web.console</H1>
+    <B>laurent craignou</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20I%20can%27t%20access%20to%20hss.web.console&In-Reply-To=%3C36d68e8a0711060802m18362b77i1660df8d86c1a189%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] I can't access to hss.web.console">laurent.craignou at gmail.com
+       </A><BR>
+    <I>Tue Nov  6 17:02:22 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000646.html">[OpenIMSCore-HSS] hss web interface not working
+</A></li>
+        <LI>Next message: <A HREF="000648.html">[OpenIMSCore-HSS] I can't access to hss.web.console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#647">[ date ]</a>
+              <a href="thread.html#647">[ thread ]</a>
+              <a href="subject.html#647">[ subject ]</a>
+              <a href="author.html#647">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+I would like update my openimscore, so I had do Hello all,
+
+# svn checkout <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk">http://svn.berlios.de/svnroot/repos/openimscore/FHoSS/trunk</A> FHoSS
+
+and in Fhoss directory I had executed :
+
+# ant compile
+# ant deploy
+
+I run all components and when I want to access to hss.web.console I
+have this issue :
+
+*exception*
+org.apache.jasper.JasperException: Unable to compile class for JSP
+org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:565)
+org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:293)
+org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+
+*root cause*
+java.io.FileNotFoundException:
+/opt/OpenIMSCore/FHoSS/deploy/work/null/127.0.0.1/hss.web.console/org/apache/jsp/index_jsp.java
+(No such file or directory) java.io.FileOutputStream.open(Native Method)
+java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:179)
+java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:70)
+org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:131)
+org.apache.jasper.compiler.Compiler.compile(Compiler.java:286)
+org.apache.jasper.compiler.Compiler.compile(Compiler.java:267)
+org.apache.jasper.compiler.Compiler.compile(Compiler.java:255)
+org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:556)
+org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:293)
+org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:291)
+org.apache.jasper.servlet.JspServlet.service(JspServlet.java:241)
+javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+
+Someone can i help me ?
+
+Laurent
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071106/a91aac2b/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20071106/a91aac2b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000646.html">[OpenIMSCore-HSS] hss web interface not working
+</A></li>
+	<LI>Next message: <A HREF="000648.html">[OpenIMSCore-HSS] I can't access to hss.web.console
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#647">[ date ]</a>
+              <a href="thread.html#647">[ thread ]</a>
+              <a href="subject.html#647">[ subject ]</a>
+              <a href="author.html#647">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

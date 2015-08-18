@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [OpenIMSCore-CSCF] HELP
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore-CSCF%5D%20HELP&In-Reply-To=%3C318799.33860.qm%40web8811.mail.in.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000324.html">
+   <LINK REL="Next"  HREF="000320.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [OpenIMSCore-CSCF] HELP</H1>
+    <B>manikindhi jeelan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore-CSCF%5D%20HELP&In-Reply-To=%3C318799.33860.qm%40web8811.mail.in.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] [OpenIMSCore-CSCF] HELP">jeelan14 at yahoo.co.in
+       </A><BR>
+    <I>Fri Apr 13 08:23:20 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000324.html">[OpenIMSCore-HSS] MAA's Result-Code is DIAMETER_SUCCESS but	MAAmiss must AVP
+</A></li>
+        <LI>Next message: <A HREF="000320.html">[OpenIMSCore-HSS] [OpenIMSCore-CSCF] HELP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#319">[ date ]</a>
+              <a href="thread.html#319">[ thread ]</a>
+              <a href="subject.html#319">[ subject ]</a>
+              <a href="author.html#319">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+ Hi Dragos
+ 
+  don't mind we have the
+ /ser_ims/cfg/open-ims.dnszone
+  it is the forward DNS zone file right ....
+ 
+ $ORIGIN open-ims.test.
+ $TTL 1W
+ @                       1D IN SOA       localhost.
+ root.localhost. (
+                                         2006101001  
+  
+  ; serial
+                                         3H          
+  
+  ; refresh
+                                         15M         
+  
+  ; retry
+                                         1W          
+  
+  ; expiry
+                                         1D )        
+  
+  ; minimum
+ 
+                         1D IN NS        ns
+ ns                      1D IN A         10.217.92.44
+ 
+ pcscf                   1D IN A         10.217.92.44
+ 
+ open-ims.test.       	1D IN A         10.217.92.44
+ icscf                   1D IN A         10.217.92.44
+ _sip                    1D SRV 0 0 5060 icscf
+ _sip._udp               1D SRV 0 0 5060 icscf
+ _sip._tcp               1D SRV 0 0 5060 icscf
+ 
+ open-ims.test.		1D IN NAPTR 10 50 &quot;s&quot; &quot;SIP+D2U&quot;	&quot;&quot;
+ _sip._udp.open-ims.test.
+ open-ims.test.		1D IN NAPTR 20 50 &quot;s&quot; &quot;SIP+D2T&quot;	&quot;&quot;
+ _sip._tcp.open-ims.test.
+ 
+ 
+ scscf                   1D IN A         10.217.92.44
+ 
+ hss                     1D IN A         10.217.92.44
+ 
+ ue                      1D IN A         10.217.92.44
+ 
+ presence				1D IN A			10.217.92.44
+ 
+ 
+ .......now will you change it to reverse DNS sone
+ file
+
+ 
+ -jeelan
+ 
+ 
+&gt;<i> --- Dragos Vingarzan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i> wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Hello Jeelan,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; SERIOUSLY :), as the error says (&quot;could not rev.
+</I>&gt;<i> &gt; resolve 10.217.92.44&quot;) you need to set up a
+</I>&gt;<i> reverse
+</I>&gt;<i> &gt; DNS zone for your IP address to your &quot;jeelan.test&quot;
+</I>&gt;<i> &gt; domain. Obviously, we couldn't do that for you as
+</I>&gt;<i> we
+</I>&gt;<i> &gt; did not know what IP address you were going to
+</I>&gt;<i> use.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; -Dragos
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; manikindhi jeelan wrote:
+</I>&gt;<i> &gt; &gt; hai 
+</I>&gt;<i> &gt; &gt;  we are trying to install openimscore's
+</I>&gt;<i> &gt; &gt; ser_ims,hss,icscf,pcscf,scscf on fedrocore3 when
+</I>&gt;<i> &gt; we
+</I>&gt;<i> &gt; &gt; are trying loop back is showing that
+</I>&gt;<i> authorization
+</I>&gt;<i> &gt; &gt; header is not found and after changing other IP
+</I>&gt;<i> &gt; ans
+</I>&gt;<i> &gt; &gt; DOMAIN by useing the configurator.sh as 
+</I>&gt;<i> &gt; &gt; DOMAIN:open-ims.test
+</I>&gt;<i> &gt; &gt;     IP:10.217.92.44  
+</I>&gt;<i> &gt; &gt; we are getting this bug and warning in
+</I>&gt;<i> ./icscf.sh
+</I>&gt;<i> &gt; &gt;  
+</I>&gt;<i> &gt; &gt; [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> OpenIMSCore]# ./icscf.sh
+</I>&gt;<i> &gt; &gt; ./icscf.sh: line 3: killser: command not found
+</I>&gt;<i> &gt; &gt;  0(5964) WARNING: fix_socket_list: could not
+</I>&gt;<i> rev.
+</I>&gt;<i> &gt; &gt; resolve 10.217.92.44
+</I>&gt;<i> &gt; &gt;  0(5964) WARNING: fix_socket_list: could not
+</I>&gt;<i> rev.
+</I>&gt;<i> &gt; &gt; resolve 10.217.92.44
+</I>&gt;<i> &gt; &gt; Listening on
+</I>&gt;<i> &gt; &gt;              udp: 10.217.92.44
+</I>&gt;<i> [10.217.92.44]:5060
+</I>&gt;<i> &gt; &gt;              tcp: 10.217.92.44
+</I>&gt;<i> [10.217.92.44]:5060
+</I>&gt;<i> &gt; &gt; Aliases:
+</I>&gt;<i> &gt; &gt;              *: jeelan.test:*
+</I>&gt;<i> &gt; &gt;              *: icscf.jeelan.test:*
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;  0(5964) init_tcp: using epoll_lt as the io
+</I>&gt;<i> watch
+</I>&gt;<i> &gt; &gt; method (auto detected)
+</I>&gt;<i> &gt; &gt;  0(5964) Maxfwd module- initializing
+</I>&gt;<i> &gt; &gt;  0(5964) INFO:I-CSCF:mod_init: Initialization of
+</I>&gt;<i> &gt; &gt; module
+</I>&gt;<i> &gt; &gt;  0(5964) BUG: qm_*: prev. fragm. tail
+</I>&gt;<i> &gt; overwritten(0,
+</I>&gt;<i> &gt; &gt; abcdefed)[0x8172618:0x8172630]!
+</I>&gt;<i> &gt; &gt; ./icscf.sh: line 4:  5964 Aborted               
+</I>&gt;<i> 
+</I>&gt;<i> &gt; &gt; (core dumped) /opt/OpenIMSCore/ser_ims/ser -f
+</I>&gt;<i> &gt; &gt; /opt/OpenIMSCore/icscf.cfg -D -D
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; ------ Semaphore Arrays --------
+</I>&gt;<i> &gt; &gt; key        semid      owner      perms     
+</I>&gt;<i> nsems
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; [<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> OpenIMSCore]#
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; is the probleam with the OS fedrocore3 ????
+</I>&gt;<i> &gt; &gt; or something else????
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; ............CAN ANY ONE HELP US
+</I>&gt;<i> &gt; &gt; SERIOUSLY..............
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; - Jeelan
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;       Send a FREE SMS to your friend's mobile
+</I>&gt;<i> from
+</I>&gt;<i> &gt; Yahoo! Messenger. Get it now at
+</I>&gt;<i> &gt; <A HREF="http://in.messenger.yahoo.com/">http://in.messenger.yahoo.com/</A>
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; OpenIMSCore-CSCF mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-CSCF at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-cscf">https://lists.berlios.de/mailman/listinfo/openimscore-cscf</A>
+&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;   
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; -- 
+</I>&gt;<i> &gt; -----------------------------------------
+</I>&gt;<i> &gt; Dipl. Eng. Dragos Vingarzan
+</I>&gt;<i> &gt; FOKUS/NGNI
+</I>&gt;<i> &gt; Kaiserin-Augusta-Allee 31
+</I>&gt;<i> &gt; 10589 Berlin,Germany
+</I>&gt;<i> &gt; Phone +49 (0)30 - 3463 - 7385
+</I>&gt;<i> &gt; Mobile +49 (0)163 - 159 - 5221
+</I>&gt;<i> &gt; eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+</I>&gt;<i> &gt; Web www.fokus.fraunhofer.de
+</I>&gt;<i> &gt; We could change the world if God would give us the
+</I>&gt;<i> &gt; source code...
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>-----------------------------------------------------------------
+&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>       Send a FREE SMS to your friend's mobile from
+</I>&gt;<i> Yahoo! Messenger. Get it now at
+</I>&gt;<i> <A HREF="http://in.messenger.yahoo.com/">http://in.messenger.yahoo.com/</A>
+</I>&gt;<i> 
+</I>
+
+
+      Send a FREE SMS to your friend's mobile from Yahoo! Messenger. Get it now at <A HREF="http://in.messenger.yahoo.com/">http://in.messenger.yahoo.com/</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000324.html">[OpenIMSCore-HSS] MAA's Result-Code is DIAMETER_SUCCESS but	MAAmiss must AVP
+</A></li>
+	<LI>Next message: <A HREF="000320.html">[OpenIMSCore-HSS] [OpenIMSCore-CSCF] HELP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#319">[ date ]</a>
+              <a href="thread.html#319">[ thread ]</a>
+              <a href="subject.html#319">[ subject ]</a>
+              <a href="author.html#319">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

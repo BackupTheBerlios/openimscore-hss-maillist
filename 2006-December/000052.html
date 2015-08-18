@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-December/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20not%20getting%20connected%20to%20SCSCF&In-Reply-To=%3C4576BA94.9070706%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000051.html">
+   <LINK REL="Next"  HREF="000054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] HSS not getting connected to SCSCF</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20HSS%20not%20getting%20connected%20to%20SCSCF&In-Reply-To=%3C4576BA94.9070706%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] HSS not getting connected to SCSCF">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Dec  6 13:41:56 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000051.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+        <LI>Next message: <A HREF="000054.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>There is a small typo in there, probably you meant 127.0.0.1 and not 
+127.0.1.1... anyway, this works.
+
+Still, you did not send the network dump (send also the DiameterPeer.xml 
+and scscf.xml configuration files). I can't help you further without those.
+
+-Dragos
+
+Babu George wrote:
+&gt;<i> Here is my /etc/hosts file
+</I>&gt;<i> QA-20-13:/opt/OpenIMSCore# netstat -anp|grep 53254
+</I>&gt;<i> QA-20-13:/opt/OpenIMSCore# cat /etc/hosts
+</I>&gt;<i> 127.0.0.1       localhost.localdomain   localhost
+</I>&gt;<i> 127.0.1.1       debian open-ims.test scscf.open-ims.test 
+</I>&gt;<i> hss.open-ims.test icscf.open-ims.test pcscf.open-ims.test
+</I>&gt;<i>
+</I>&gt;<i> --- debian ping statistics ---
+</I>&gt;<i> 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+</I>&gt;<i> rtt min/avg/max/mdev = 0.051/0.051/0.051/0.000 ms
+</I>&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore# ping hss.open-ims.test
+</I>&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.044 ms
+</I>&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.036 ms
+</I>&gt;<i>
+</I>&gt;<i> --- debian ping statistics ---
+</I>&gt;<i> 2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+</I>&gt;<i> rtt min/avg/max/mdev = 0.036/0.040/0.044/0.004 ms
+</I>&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore# ping scscf.open-ims.test
+</I>&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.042 ms
+</I>&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.042 ms
+</I>&gt;<i>
+</I>&gt;<i> --- debian ping statistics ---
+</I>&gt;<i> 2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+</I>&gt;<i> rtt min/avg/max/mdev = 0.042/0.042/0.042/0.000 ms
+</I>&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore#
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i> Babu
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Wednesday, December 06, 2006 5:53 PM
+</I>&gt;<i> To: Babu George
+</I>&gt;<i> Cc: openimscore-hss
+</I>&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;<i>
+</I>&gt;<i> There was a reason a long time ago why we couldn't use /etc/hosts and we 
+</I>&gt;<i>
+</I>&gt;<i> used the DNS. Anyway, I don't remember exactly (something with reverse 
+</I>&gt;<i> DNS I guess).
+</I>&gt;<i>
+</I>&gt;<i> Could you send the /etc/hosts and a network trace taken while you get 
+</I>&gt;<i> these errors?
+</I>&gt;<i>
+</I>&gt;<i> -Dragos
+</I>&gt;<i>
+</I>&gt;<i> Babu George wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Dragos,
+</I>&gt;&gt;<i> I started only HSS&amp;SCSCF.I have modified the /etc/hosts file for name 
+</I>&gt;&gt;<i> resolution.Here is the error message I get now
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> [Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test not responding to connection 
+</I>&gt;&gt;<i> attempt
+</I>&gt;&gt;<i> [Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to connection 
+</I>&gt;&gt;<i> attempt
+</I>&gt;&gt;<i> [Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test not responding to connection 
+</I>&gt;&gt;<i> attempt
+</I>&gt;&gt;<i> [Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;&gt;<i>     
+</I>&gt;<i>  
+</I>&gt;<i>   
+</I>&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to connection 
+</I>&gt;&gt;<i> attempt
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks
+</I>&gt;&gt;<i> Babu-----Original Message-----
+</I>&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;<i> Sent: Wednesday, December 06, 2006 5:31 PM
+</I>&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> As you error log says:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> icscf.open-ims.test can not be resolved
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Double check if you have configured the DNS server properly.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -Dragos
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> Dragos,
+</I>&gt;&gt;&gt;<i>  The error I got was for connecting to PCSCF.I have not started 
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i> PCSCF.
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i>  So it is OK.But no idea why HSS is not getting connected to scscf
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> - StateMachine: Peer icscf.open-ims.test can not be resolved.
+</I>&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> - StateMachine: Peer scscf.open-ims.test not responding to connection 
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i> attempt
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Thanks
+</I>&gt;&gt;&gt;<i> Babu
+</I>&gt;&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;&gt;<i> From: Dragos Vingarzan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>] 
+</I>&gt;&gt;&gt;<i> Sent: Wednesday, December 06, 2006 5:18 PM
+</I>&gt;&gt;&gt;<i> To: Babu George
+</I>&gt;&gt;&gt;<i> Cc: openimscore-hss
+</I>&gt;&gt;&gt;<i> Subject: Re: [OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Hi George,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I don't know why you get that &quot;ims.test can not be resolved&quot;. Is this 
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i> a 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> bad paste of a log message?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I network trace during the start-up would help debug your problem. 
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i> You 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> should see the hosts trying to connect to each-other on port 3868, 
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i> 3869 
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> and 3870. If you can't figure it out, please post the network trace.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -Dragos
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Babu George wrote:
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> All,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>   I started the HSS server and Scscf on my machine.They are not 
+</I>&gt;&gt;&gt;&gt;<i> getting connected through the diameter interface.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Here is the error I get at Scscf     I
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents begin --------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents end ----------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents begin --------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>  5(6734) INF:S-CSCF:----------  Registrar Contents end ----------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) --- Peer List: ---
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746)  S[Closed] hss.open-ims.test:3868 D[ ]
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 17(6746) ------------------
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Here is the error message I get at HSS
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> ims.test can not be resolved.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> [Thread-10] ERROR 
+</I>&gt;&gt;&gt;&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - 
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;<i> StateMachine: 
+</I>&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> Peer scscf.open-ims.test not responding to connection attempt
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> I can ping the domain
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Aylus-QA-20-13:/opt/OpenIMSCore/FHoSS/deploy# ping open-ims.test
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> PING debian (127.0.1.1) 56(84) bytes of data.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=1 ttl=64 time=0.039 ms
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 64 bytes from debian (127.0.1.1): icmp_seq=2 ttl=64 time=0.037 ms
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Can someone help me in resolving this issue
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Babu
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>   
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000051.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+	<LI>Next message: <A HREF="000054.html">[OpenIMSCore-HSS] HSS not getting connected to SCSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#52">[ date ]</a>
+              <a href="thread.html#52">[ thread ]</a>
+              <a href="subject.html#52">[ subject ]</a>
+              <a href="author.html#52">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

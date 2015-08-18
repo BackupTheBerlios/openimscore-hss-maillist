@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Supported-Vendor-Id%20in%20the%0A%09Capabilities-Exchange-Answer&In-Reply-To=%3C20080213113655.B974B4DB5%40webmxp07.emailpersonal.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000750.html">
+   <LINK REL="Next"  HREF="000752.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer</H1>
+    <B>&quot;David Ca&#241;as&quot;</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Supported-Vendor-Id%20in%20the%0A%09Capabilities-Exchange-Answer&In-Reply-To=%3C20080213113655.B974B4DB5%40webmxp07.emailpersonal.com%3E"
+       TITLE="[OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer">davidcaleon at mailpersonal.com
+       </A><BR>
+    <I>Wed Feb 13 12:40:38 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000750.html">[OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer
+</A></li>
+        <LI>Next message: <A HREF="000752.html">[OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#751">[ date ]</a>
+              <a href="thread.html#751">[ thread ]</a>
+              <a href="subject.html#751">[ subject ]</a>
+              <a href="author.html#751">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+When I connect my AS to the FHoSS, the AS send a &quot;Capabilities-
+Exchange-Request&quot; and the FHoSS respond with a &quot;Capabilities-Exchange-
+Answer&quot;. In this answer, the fields &quot;Supported-Vendor-Id &quot;and &quot;Inband-
+Security-Id&quot; are not present.
+How can I configure the FHoSS to send this information?Do I need to 
+modify some configuration&#180;s file?
+
+This is the trace of the Response: (I attach to the file captured with 
+EtherReal)
+
+Frame 1133 (218 bytes on wire, 218 bytes captured)
+Ethernet II, Src: 16.38.24.2 (00:11:bb:eb:9f:c2), Dst: 16.38.27.180 
+(00:17:08:32:f4:45)
+Internet Protocol, Src: 16.38.0.112 (16.38.0.112), Dst: 16.38.27.180 
+(16.38.27.180)
+Transmission Control Protocol, Src Port: 1812 (1812), Dst Port: 2614 
+(2614), Seq: 1, Ack: 229, Len: Diameter Protocol
+Version: 0x01
+Length: 164
+Flags: 0x00 (&lt;None&gt;)
+Command Code: Capabilities-Exchange-Answer
+Application-Id: None
+Hop-by-Hop Identifier: 0x2bb55f1a
+End-to-End Identifier: 0xf0468e2d
+Attribute Value Pairs
+Result-Code (Enumerated) l:0xc (12 bytes) (12 padded bytes)
+AVP Code: Result-Code (268)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x000007d1 (2001): DIAMETER_SUCCESS
+Origin-Host (DiameterIdentity) l:0x20 (32 bytes) (32 padded bytes)
+AVP Code: Origin-Host (264)
+Flags: 0x40 (Mandatory)
+AVP Length: 32
+Identity: nnssvm20.esm.cpqcorp.net
+Origin-Realm (UTF8String) l:0xf (15 bytes) (16 padded bytes)
+AVP Code: Origin-Realm (296)
+Flags: 0x40 (Mandatory)
+AVP Length: 15
+UTF8String: bea.com
+Host-IP-Address (IpAddress) l:0xe (14 bytes) (16 padded bytes)
+AVP Code: Host-IP-Address (257)
+Flags: 0x40 (Mandatory)
+AVP Length: 14
+Address Family: IPv4 (1)
+IPv4 Address: 16.38.0.112 (16.38.0.112)
+Vendor-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes)
+AVP Code: Vendor-Id (266)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x000028af (10415): 3GPP
+Product-Name (UTF8String) l:0x17 (23 bytes) (24 padded bytes)
+AVP Code: Product-Name (269)
+Flags: 0x00 (&lt;None&gt;)
+AVP Length: 23
+UTF8String: HssDiameterPeer
+Vendor-Specific-Application-Id (Grouped) l:0x20 (32 bytes) (32 padded 
+bytes)
+AVP Code: Vendor-Specific-Application-Id (260)
+Flags: 0x40 (Mandatory)
+AVP Length: 32
+Vendor-Specific-Application-Id Grouped AVPs
+Vendor-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes)
+AVP Code: Vendor-Id (266)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x000028af (10415): 3GPP
+Auth-Application-Id (Enumerated) l:0xc (12 bytes) (12 padded bytes)
+AVP Code: Auth-Application-Id (258)
+Flags: 0x40 (Mandatory)
+AVP Length: 12
+Value: 0x01000001 (16777217): 3GPP Sh
+
+Thanks,
+David
+ 
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: capture
+Type: application/octet-stream
+Size: 556 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080213/9ae6477a/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20080213/9ae6477a/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000750.html">[OpenIMSCore-HSS] Supported-Vendor-Id in the	Capabilities-Exchange-Answer
+</A></li>
+	<LI>Next message: <A HREF="000752.html">[OpenIMSCore-HSS] Supported-Vendor-Id in	theCapabilities-Exchange-Answer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#751">[ date ]</a>
+              <a href="thread.html#751">[ thread ]</a>
+              <a href="subject.html#751">[ subject ]</a>
+              <a href="author.html#751">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

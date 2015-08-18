@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r386 - Fixed IMPI load on NULL	Charging-Info-Set
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-July/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r386%20-%20Fixed%20IMPI%20load%20on%20NULL%0A%09Charging-Info-Set&In-Reply-To=%3C200707061517.l66FHl0Q026122%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000581.html">
+   <LINK REL="Next"  HREF="000580.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r386 - Fixed IMPI load on NULL	Charging-Info-Set</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r386%20-%20Fixed%20IMPI%20load%20on%20NULL%0A%09Charging-Info-Set&In-Reply-To=%3C200707061517.l66FHl0Q026122%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r386 - Fixed IMPI load on NULL	Charging-Info-Set">adp at users.berlios.de
+       </A><BR>
+    <I>Fri Jul  6 17:17:47 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000581.html">[OpenIMSCore-HSS] HSS console not up.
+</A></li>
+        <LI>Next message: <A HREF="000580.html">[OpenIMSCore-HSS] [SVN-FHoSS] r387 - Small fix for tomcat	configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#579">[ date ]</a>
+              <a href="thread.html#579">[ thread ]</a>
+              <a href="subject.html#579">[ subject ]</a>
+              <a href="author.html#579">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-07-06 17:17:34 +0200 (Fri, 06 Jul 2007)
+New Revision: 386 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=386">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=386</A> 
+
+Log:
+Fixed IMPI load on NULL Charging-Info-Set
+
+Modified:
+   U	FHoSS/trunk/config/hss.properties
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/config/hss.properties?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/config/hss.properties?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/scripts/hss_db.sql
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/scripts/hss_db.sql?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/scripts/hss_db.sql?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src-web/pages/network/capability_set.jsp
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/network/capability_set.jsp?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/network/capability_set.jsp?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src-web/pages/network/preferred_scscf_set.jsp
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/network/preferred_scscf_set.jsp?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/network/preferred_scscf_set.jsp?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src-web/pages/user/impu.jsp
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/user/impu.jsp?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src-web/pages/user/impu.jsp?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src/MessageResources.properties
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/MessageResources.properties?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/MessageResources.properties?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/SAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPU.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPU.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/db/model/IMPU.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/main/TomcatServer.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/web/form/IMPU_Form.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/form/IMPU_Form.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/web/form/IMPU_Form.java?rev=386&amp;view=diff&amp;r1=386&amp;r2=385</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000581.html">[OpenIMSCore-HSS] HSS console not up.
+</A></li>
+	<LI>Next message: <A HREF="000580.html">[OpenIMSCore-HSS] [SVN-FHoSS] r387 - Small fix for tomcat	configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#579">[ date ]</a>
+              <a href="thread.html#579">[ thread ]</a>
+              <a href="subject.html#579">[ subject ]</a>
+              <a href="author.html#579">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

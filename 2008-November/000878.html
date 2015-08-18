@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r601 - Fixed the AKAv2 MD5: - was	implemented after draft-torvinen-http-digest-aka-v2-00 and	not rfc4169 - the XRESv2 is not XRES||IK||CK but	base64(HMAC_MD5(XRES||IK|CK,	&quot;http-digest-akav2-password&quot;) 	- the IK' is HMAC_MD5(IK,	&quot;http-digest-akav2-integritykey&quot;) 	- the CK' is HMAC_MD5(CK,	&quot;http-digest-akav2-cipherkey&quot;)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r601%20-%20Fixed%20the%20AKAv2%20MD5%3A%20-%20was%0A%09implemented%20after%20draft-torvinen-http-digest-aka-v2-00%20and%0A%09not%20rfc4169%20-%20the%20XRESv2%20is%20not%20XRES%7C%7CIK%7C%7CCK%20but%0A%09base64%28HMAC_MD5%28XRES%7C%7CIK%7CCK%2C%0A%09%22http-digest-akav2-password%22%29%20%09-%20the%20IK%27%20is%20HMAC_MD5%28IK%2C%0A%09%22http-digest-akav2-integritykey%22%29%20%09-%20the%20CK%27%20is%20HMAC_MD5%28CK%2C%0A%09%22http-digest-akav2-cipherkey%22%29&In-Reply-To=%3C200811121652.mACGqhMI018802%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000879.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r601 - Fixed the AKAv2 MD5: - was	implemented after draft-torvinen-http-digest-aka-v2-00 and	not rfc4169 - the XRESv2 is not XRES||IK||CK but	base64(HMAC_MD5(XRES||IK|CK,	&quot;http-digest-akav2-password&quot;) 	- the IK' is HMAC_MD5(IK,	&quot;http-digest-akav2-integritykey&quot;) 	- the CK' is HMAC_MD5(CK,	&quot;http-digest-akav2-cipherkey&quot;)</H1>
+    <B>vingarzan at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r601%20-%20Fixed%20the%20AKAv2%20MD5%3A%20-%20was%0A%09implemented%20after%20draft-torvinen-http-digest-aka-v2-00%20and%0A%09not%20rfc4169%20-%20the%20XRESv2%20is%20not%20XRES%7C%7CIK%7C%7CCK%20but%0A%09base64%28HMAC_MD5%28XRES%7C%7CIK%7CCK%2C%0A%09%22http-digest-akav2-password%22%29%20%09-%20the%20IK%27%20is%20HMAC_MD5%28IK%2C%0A%09%22http-digest-akav2-integritykey%22%29%20%09-%20the%20CK%27%20is%20HMAC_MD5%28CK%2C%0A%09%22http-digest-akav2-cipherkey%22%29&In-Reply-To=%3C200811121652.mACGqhMI018802%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r601 - Fixed the AKAv2 MD5: - was	implemented after draft-torvinen-http-digest-aka-v2-00 and	not rfc4169 - the XRESv2 is not XRES||IK||CK but	base64(HMAC_MD5(XRES||IK|CK,	&quot;http-digest-akav2-password&quot;) 	- the IK' is HMAC_MD5(IK,	&quot;http-digest-akav2-integritykey&quot;) 	- the CK' is HMAC_MD5(CK,	&quot;http-digest-akav2-cipherkey&quot;)">vingarzan at users.berlios.de
+       </A><BR>
+    <I>Wed Nov 12 17:52:43 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000879.html">[OpenIMSCore-HSS] Trigger point - request URI generic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#878">[ date ]</a>
+              <a href="thread.html#878">[ thread ]</a>
+              <a href="subject.html#878">[ subject ]</a>
+              <a href="author.html#878">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: vingarzan
+Date: 2008-11-12 17:52:41 +0100 (Wed, 12 Nov 2008)
+New Revision: 601 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=601">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=601</A> 
+
+Log:
+Fixed the AKAv2 MD5:
+	- was implemented after draft-torvinen-http-digest-aka-v2-00 and not rfc4169 
+	- the XRESv2 is not XRES||IK||CK but base64(HMAC_MD5(XRES||IK|CK,&quot;http-digest-akav2-password&quot;)
+	- the IK' is HMAC_MD5(IK,&quot;http-digest-akav2-integritykey&quot;)
+	- the CK' is HMAC_MD5(CK,&quot;http-digest-akav2-cipherkey&quot;)
+
+
+Modified:
+   U	FHoSS/trunk/src/de/fhg/fokus/hss/auth/DigestAKA.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/auth/DigestAKA.java?rev=601&amp;view=diff&amp;r1=601&amp;r2=600">http://svn.berlios.de/viewcvs/openimscore/FHoSS/trunk/src/de/fhg/fokus/hss/auth/DigestAKA.java?rev=601&amp;view=diff&amp;r1=601&amp;r2=600</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000879.html">[OpenIMSCore-HSS] Trigger point - request URI generic
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#878">[ date ]</a>
+              <a href="thread.html#878">[ thread ]</a>
+              <a href="subject.html#878">[ subject ]</a>
+              <a href="author.html#878">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

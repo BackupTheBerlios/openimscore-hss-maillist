@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error when running startup.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20when%20running%20startup.sh&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA131848E%40EXCHSRV.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000140.html">
+   <LINK REL="Next"  HREF="000142.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error when running startup.sh</H1>
+    <B>Emin, Umut</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20when%20running%20startup.sh&In-Reply-To=%3C804B13F8F3D94A4AB18B9B01ACB68FA131848E%40EXCHSRV.fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Error when running startup.sh">Umut.Emin at fokus.fraunhofer.de
+       </A><BR>
+    <I>Sat Jan 13 14:04:36 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000140.html">[OpenIMSCore-HSS] Error when running startup.sh
+</A></li>
+        <LI>Next message: <A HREF="000142.html">[OpenIMSCore-HSS] Authentication
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#141">[ date ]</a>
+              <a href="thread.html#141">[ thread ]</a>
+              <a href="subject.html#141">[ subject ]</a>
+              <a href="author.html#141">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hei Asma,
+
+check out your dns configuration. See for further
+information:
+
+<A HREF="http://openimscore.org/docs/install.html#annexa">http://openimscore.org/docs/install.html#annexa</A>
+
+Test your settings with the example there until 
+you get your `named`(dns) working.
+
+Greetz,
+Umut
+
+
+-----Urspr&#252;ngliche Nachricht-----
+Von: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A> im Auftrag von Asma Elmangosh
+Gesendet: Sa 13.01.2007 12:35
+An: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+Betreff: [OpenIMSCore-HSS] Error when running startup.sh
+ 
+Hi;
+
+when running startup.sh
+
+I got the following error, Please any explanation about this error and how
+to slove.
+
+Thanks;
+
+Asma
+
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> OpenIMSCore]# cd /opt/OpenIMSCore/FHoSS/deploy/
+[<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">root at localhost</A> deploy]# ./startup.sh
+Building Classpath
+Classpath is lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-
+2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mysql-connector-java-3.0.14-production-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/castor-1.0.5.jar:lib/c3p0-oracle-thin-extras-0.9.0.2.jar:lib/c3p0-0.9.0.2.jar:lib/base64.jar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.5H3.jar:.
+[main] INFO  de.fhg.fokus.hss.main.HssServer  - Starting ...
+[main] INFO  org.apache.catalina.startup.Embedded  - Starting tomcat server
+[main] INFO  org.apache.catalina.core.StandardEngine  - Starting Servlet
+Engine: Apache Tomcat/5.5.9
+[main] INFO  org.apache.catalina.core.StandardHost  - XML validation
+disabled
+[main] INFO  org.apache.coyote.http11.Http11Protocol  - Initializing Coyote
+HTTP/1.1 on http-8080
+[main] INFO  org.apache.coyote.http11.Http11Protocol   - Starting Coyote
+HTTP/1.1 on http-8080
+log4j:WARN No appenders could be found for logger (
+org.apache.catalina.loader.WebappClassLoader).
+log4j:WARN Please initialize the log4j system properly.
+[main] INFO  org.apache.struts.tiles.TilesPlugin   - Tiles definition
+factory loaded for module ''.
+[main] INFO  org.apache.struts.validator.ValidatorPlugIn  - Loading
+validation rules file from '/WEB-INF/validator-rules.xml'
+[main] INFO  org.apache.struts.validator.ValidatorPlugIn   - Loading
+validation rules file from '/WEB-INF/validation.xml'
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - FQDN:
+hss.open-ims.test
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer   - Realm:
+open-ims.test
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Vendor_ID :
+10415
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Product
+Name: JavaDiameterPeer
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+AcceptUnknwonPeers: true
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+DropUnknownOnDisconnect: true
+[main] INFO  org.hibernate.cfg.Environment  - Hibernate 3.0.5
+[main] INFO  org.hibernate.cfg.Environment  - loaded properties from
+resource hibernate.properties: {hibernate.c3p0.timeout=300,
+hibernate.connection.driver_class=com.mysql.jdbc.Driver,
+hibernate.connection.isolation=4 ,
+hibernate.cglib.use_reflection_optimizer=true,
+hibernate.c3p0.max_statements=50, hibernate.c3p0.max_size=20,
+hibernate.dialect=org.hibernate.dialect.MySQLDialect,
+hibernate.c3p0.idle_test_period=3000, hibernate.c3p0.min_size=2 ,
+hibernate.connection.username=hss,
+hibernate.connection.url=jdbc:<A HREF="mysql://127.0.0.1:3306/hssdb,">mysql://127.0.0.1:3306/hssdb,</A>
+hibernate.connection.password=****}
+[main] INFO  org.hibernate.cfg.Environment  - using CGLIB reflection
+optimizer
+[main] INFO  org.hibernate.cfg.Environment  - using JDK 1.4
+java.sql.Timestamp handling
+[main] INFO  org.hibernate.cfg.Configuration  - configuring from resource:
+/hibernate.cfg.xml
+[main] INFO  org.hibernate.cfg.Configuration  - Configuration resource:
+/hibernate.cfg.xml
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Network.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Network -&gt; networks
+[main] INFO  org.hibernate.cfg.Configuration   - Mapping resource:
+mappings/Imsu.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Imsu -&gt; imsu
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Impi.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Impi -&gt; impi
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Impi.impus -&gt; impu2impi
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Impi.roams -&gt; roam
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Impu.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder   - Mapping class:
+de.fhg.fokus.hss.model.Impu -&gt; impu
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Impu.impis -&gt; impu2impi
+[main] INFO  org.hibernate.cfg.Configuration   - Mapping resource:
+mappings/Ifc.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Ifc -&gt; ifc
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Ifc.svp -&gt; ifc2svp
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Ifc2svp.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Ifc2svp -&gt; ifc2svp
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Spt.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Spt -&gt; spt
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Trigpt.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Trigpt -&gt; trigpt
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Apsvr.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder   - Mapping class:
+de.fhg.fokus.hss.model.Apsvr -&gt; apsvr
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Psi.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Psi -&gt; psi
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Psi.impus -&gt; psi2impu
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/PsiTempl.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.PsiTempl -&gt; psi_templ
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Chrginfo.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder   - Mapping class:
+de.fhg.fokus.hss.model.Chrginfo -&gt; chrginfo
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/AsPermList.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.AsPermList -&gt; as_perm_list
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/RepData.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.RepData -&gt; rep_data
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/NotifyRepData.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.NotifyRepData -&gt; notify_rep_data
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/NotifyImsUserState.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.NotifyImsUserState -&gt; notify_ims_user_state
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/NotifyScscfname.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.NotifyScscfname -&gt; notify_scscfname
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/NotifyIfc.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.NotifyIfc -&gt; notify_ifc
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/DiamServer.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.DiamServer -&gt; diam_servers
+[main] INFO  org.hibernate.cfg.Configuration   - Mapping resource:
+mappings/Uss.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.UserSecSettings -&gt; uss
+[main] INFO  org.hibernate.cfg.Configuration  - Mapping resource:
+mappings/Svp.hbm.xml
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping class:
+de.fhg.fokus.hss.model.Svp -&gt; svp
+[main] INFO  org.hibernate.cfg.Configuration  - Configured SessionFactory:
+foo
+[main] INFO  org.hibernate.cfg.Configuration   - processing extends queue
+[main] INFO  org.hibernate.cfg.Configuration  - processing collection
+mappings
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Imsu.impis -&gt; impi
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Impu.notifyImsUserStates -&gt; notify_ims_user_state
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Impu.notifyScscfnames -&gt; notify_scscfname
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Trigpt.spts -&gt; spt
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.PsiTempl.psis -&gt; psi
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.RepData.notifyRepDatas -&gt; notify_rep_data
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Svp.ifc2svps -&gt; ifc2svp
+[main] INFO  org.hibernate.cfg.HbmBinder  - Mapping collection:
+de.fhg.fokus.hss.model.Svp.impus -&gt; impu
+[main] INFO  org.hibernate.cfg.Configuration  - processing association
+property references
+[main] INFO  org.hibernate.cfg.Configuration  - processing foreign key
+constraints
+[main] INFO  org.hibernate.connection.C3P0ConnectionProvider  - C3P0 using
+driver: com.mysql.jdbc.Driver at URL: jdbc:<A HREF="mysql://127.0.0.1:3306/hssdb">mysql://127.0.0.1:3306/hssdb</A>
+[main] INFO  org.hibernate.connection.C3P0ConnectionProvider  - Connection
+properties: {user=hss, password=****}
+[main] INFO  org.hibernate.connection.C3P0ConnectionProvider  - autocommit
+mode: false
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer icscf.open-ims.test can not be resolved.
+[main] INFO  com.mchange.v2.log.MLog  - MLog clients using log4j logging.
+[main] INFO  com.mchange.v2.c3p0.C3P0Registry   - Initializing
+c3p0-0.9.0.2[built 26-September-2005 12:55:26 -0400; debug? true;
+trace: 10]
+[main] INFO  org.hibernate.connection.C3P0ConnectionProvider  - JDBC
+isolation level: REPEATABLE_READ
+[main] INFO  com.mchange.v2.c3p0.PoolBackedDataSource   - Initializing c3p0
+pool... <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.mchange.v2.c3p0.PoolBackedDataSource at 2e323</A> [
+connectionPoolDataSource -&gt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.mchange.v2.c3p0.WrapperConnectionPoolDataSource at b1cd0</A> [ acquireIncrement
+-&gt; 1, acquireRetryAttempts -&gt; 30, acquireRetryDelay -&gt; 1000,
+autoCommitOnClose -&gt; false, automaticTestTable -&gt; null,
+breakAfterAcquireFailure -&gt; false, checkoutTimeout -&gt; 0,
+connectionTesterClassName -&gt;
+com.mchange.v2.c3p0.impl.DefaultConnectionTester, factoryClassLocation -&gt;
+null, forceIgnoreUnresolvedTransactions -&gt; false, identityToken -&gt; b1cd0,
+idleConnectionTestPeriod -&gt; 3000, initialPoolSize -&gt; 2, maxIdleTime -&gt; 300,
+maxPoolSize -&gt; 20, maxStatements -&gt; 50, maxStatementsPerConnection -&gt; 0,
+minPoolSize -&gt; 2, nestedDataSource -&gt; com.mchange.v2.c3p0.DriverManag
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">erDataSource at e41bc3</A> [ description -&gt; null, driverClass -&gt; null,
+factoryClassLocation -&gt; null, identityToken -&gt; e41bc3, jdbcUrl -&gt;
+jdbc:<A HREF="mysql://127.0.0.1:3306/hssdb,">mysql://127.0.0.1:3306/hssdb,</A> properties -&gt; {user=******,
+password=******} ], preferredTestQuery -&gt; null, propertyCycle -&gt; 300,
+testConnectionOnCheckin -&gt; false, testConnectionOnCheckout -&gt; false,
+usesTraditionalReflectiveProxies -&gt; false ], factoryClassLocation -&gt; null,
+identityToken -&gt; 2e323, numHelperThreads -&gt; 3 ]
+[main] INFO  org.hibernate.cfg.SettingsFactory  - RDBMS: MySQL, version:
+5.0.27
+[main] INFO  org.hibernate.cfg.SettingsFactory  - JDBC driver: MySQL-AB JDBC
+Driver, version: mysql-connector-java-3.1.12 ( $Date: 2005-11-17 15:53:48
++0100 (Thu, 17 Nov 2005) $, $Revision$ )
+[main] INFO  org.hibernate.dialect.Dialect  - Using dialect:
+org.hibernate.dialect.MySQLDialect
+[main] INFO  org.hibernate.transaction.TransactionFactoryFactory  - Using
+default transaction strategy (direct JDBC transactions)
+[main] INFO  org.hibernate.transaction.TransactionManagerLookupFactory  - No
+TransactionManagerLookup configured (in JTA environment, use of read-write
+or transactional second-level cache is not recommended)
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Automatic flush during
+beforeCompletion(): disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Automatic session close at
+end of transaction: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory   - JDBC batch size: 15
+[main] INFO  org.hibernate.cfg.SettingsFactory  - JDBC batch updates for
+versioned data: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Scrollable result sets:
+enabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - JDBC3 getGeneratedKeys():
+enabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Connection release mode:
+null
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Maximum outer join fetch
+depth: 2
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Default batch fetch size:
+1
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Generate SQL with
+comments: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory   - Order SQL updates by
+primary key: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Query translator:
+org.hibernate.hql.ast.ASTQueryTranslatorFactory
+[main] INFO  org.hibernate.hql.ast.ASTQueryTranslatorFactory   - Using
+ASTQueryTranslatorFactory
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Query language
+substitutions: {}
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Second-level cache:
+enabled
+[main] INFO  org.hibernate.cfg.SettingsFactory   - Query cache: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Cache provider:
+org.hibernate.cache.EhCacheProvider
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Optimize cache for minimal
+puts: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Structured second-level
+cache entries: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Statistics: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory   - Deleted entity synthetic
+identifier rollback: disabled
+[main] INFO  org.hibernate.cfg.SettingsFactory  - Default entity-mode: pojo
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer scscf.open-ims.test can not be resolved.
+[main] INFO  org.hibernate.impl.SessionFactoryImpl  - building session
+factory
+[main] WARN  net.sf.ehcache.config.Configurator  - No configuration found.
+Configuring ehcache from ehcache-failsafe.xml found in the classpath:
+jar:file:/opt/OpenIMSCore/FHoSS/deploy/lib/ehcache-
+1.1.jar!/ehcache-failsafe.xml
+[main] INFO  org.hibernate.impl.SessionFactoryObjectFactory  - Factory name:
+foo
+[main] INFO  org.hibernate.util.NamingHelper  - JNDI InitialContext
+properties:{}
+[main] INFO  org.hibernate.impl.SessionFactoryObjectFactory  - Bound factory
+to JNDI name: foo
+[main] WARN  org.hibernate.impl.SessionFactoryObjectFactory   -
+InitialContext did not implement EventContext
+[main] INFO  org.hibernate.impl.SessionFactoryImpl  - Checking 0 named
+queries
+[main] INFO  de.fhg.fokus.hss.main.HssServer  - FHoSS was started and is
+ready to use.
+Type 'exit' to exit
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer icscf.open-ims.test can not be resolved.
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine   -
+StateMachine: Peer scscf.open-ims.test can not be resolved.
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer icscf.open-ims.test can not be resolved.
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070113/368727fe/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20070113/368727fe/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000140.html">[OpenIMSCore-HSS] Error when running startup.sh
+</A></li>
+	<LI>Next message: <A HREF="000142.html">[OpenIMSCore-HSS] Authentication
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#141">[ date ]</a>
+              <a href="thread.html#141">[ thread ]</a>
+              <a href="subject.html#141">[ subject ]</a>
+              <a href="author.html#141">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

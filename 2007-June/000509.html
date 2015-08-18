@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Rtr Session-Id problem, The Session-Id mustappear immediately following the Diamter Header?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Session-Id%20problem%2C%0A%20The%20Session-Id%20mustappear%20immediately%20following%20the%20Diamter%20Header%3F&In-Reply-To=%3C466936DA.7060500%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000508.html">
+   <LINK REL="Next"  HREF="000510.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Rtr Session-Id problem, The Session-Id mustappear immediately following the Diamter Header?</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Rtr%20Session-Id%20problem%2C%0A%20The%20Session-Id%20mustappear%20immediately%20following%20the%20Diamter%20Header%3F&In-Reply-To=%3C466936DA.7060500%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Rtr Session-Id problem, The Session-Id mustappear immediately following the Diamter Header?">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Jun  8 13:00:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000508.html">[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id mustappear immediately following the Diamter Header?
+</A></li>
+        <LI>Next message: <A HREF="000510.html">[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id	mustappear immediately following the Diamter Header?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#509">[ date ]</a>
+              <a href="thread.html#509">[ thread ]</a>
+              <a href="subject.html#509">[ subject ]</a>
+              <a href="author.html#509">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Well, if you use the OpenIMSCore, you are already part of the mafia ;-).
+
+Please understand that we are not paid directly to develop the Open IMS
+Core in the exact way that you want it to be. The Open IMS Core is an
+open source project and anyone is welcomed to contribute. As such each
+member has its own targets. The benefit is that we are all sharing (or
+should be sharing!) our contributions so that others can benefit. This
+is the open source model and it does not work too well if just one of
+the party is contributing and all the rest benefit without giving
+anything back. In any case, you have already contributed because you
+reviewed our work and spotted lots and lots of bugs, so you are part of
+the team already.
+
+An because &quot;there is no free lunch&quot;, everybody is driven in the end by
+financial reasons. In FOKUS's case, we are using the Open IMS Core to
+promote our IMS expertise and we are also implementing on-demand
+features for our customers. To conclude, if anyone needs a features
+there are 2 possibilities:
+1. They could implement it themselves and contribute it back
+2. They could find somebody to implement it for them and pay for it
+An option that does not involve spending some sorts of resources does
+not exists.
+
+In this particular case of the SessionId AVP, we are not at all troubled
+by this and we are sorry, but we can not justify the resources that we
+need to spend on providing a solution.
+
+-Dragos
+
+
+fancy_xiao wrote:
+&gt;<i> Mail
+</I>&gt;<i> Adrian-Daniel Popescu&#65292;&#20320;&#22909;
+</I>&gt;<i> hehe! but i am not the member of the openimscore organization!
+</I>&gt;<i>
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&lt;mailto:&lt;!--AID_FROMADDRESS_BEGIN--&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&lt;!--AID_FROMADDRESS_END--&gt;&gt;
+&gt;<i> 2007-06-08
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> *From: *Adrian-Daniel Popescu &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adp at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i> *To: *fancy_xiao &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;<i> *Sent: *2007-06-08, 17:14:57
+</I>&gt;<i> *Subject: *Re: [OpenIMSCore-HSS] Rtr Session-Id problem, The Session-Id
+</I>mustappear immediately following the Diamter Header?
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Dear Fancy,
+</I>&gt;<i>
+</I>&gt;<i> I know...but as you said...is a SHOULD and not a SHALL or MUST...in
+</I>&gt;<i> other words, doesn't matter so much the order where the Session-ID AVP
+</I>&gt;<i> is placed...the functionality is not altered in any way... Is
+</I>&gt;<i> recommended to be the first one, to optimize the parsing procedure...
+</I>&gt;<i> However, if you want to place it at the beginning you are very welcomed
+</I>&gt;<i> to provide a patch for it... I do not have time now for it...
+</I>&gt;<i>
+</I>&gt;<i> -Adrian
+</I>&gt;<i>
+</I>&gt;<i> fancy_xiao wrote:
+</I>&gt;<i> &gt; openimscore-hss`}
+</I>&gt;<i>
+</I>&gt;<i> &gt; From the RFC3588, the Session-Id When present, the Session-Id SHOULD
+</I>&gt;<i> appear immediately following the
+</I>&gt;<i> &gt; Diameter Header. but When FHoss RTR send to S-CSCF,the RTR's
+</I>&gt;<i> Session-Id isn't the first AVP behind the Daimeter header!
+</I>&gt;<i> &gt; The Rtr package is attached!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; ,&#174;&#246;D&#246;U&#130;
+</I>&gt;<i> &gt; (1) rtr.cap (0.3 K)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; fancy_xiao<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> &lt;mailto: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;<i> &gt; 2007-06-08
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> &lt;mailto:
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>&gt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+&gt;<i> -------------------------
+</I>
+&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000508.html">[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id mustappear immediately following the Diamter Header?
+</A></li>
+	<LI>Next message: <A HREF="000510.html">[OpenIMSCore-HSS] Rtr Session-Id problem,	The Session-Id	mustappear immediately following the Diamter Header?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#509">[ date ]</a>
+              <a href="thread.html#509">[ thread ]</a>
+              <a href="subject.html#509">[ subject ]</a>
+              <a href="author.html#509">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

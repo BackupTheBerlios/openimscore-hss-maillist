@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r361 - Reworked the	RealmRouting: - aligned with the CDiameterPeer implementation	- added extra functions to send messages without the peerFQDN	parameters
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-JavaDiameterPeer%5D%20r361%20-%20Reworked%20the%0A%09RealmRouting%3A%20-%20aligned%20with%20the%20CDiameterPeer%20implementation%0A%09-%20added%20extra%20functions%20to%20send%20messages%20without%20the%20peerFQDN%0A%09parameters&In-Reply-To=%3C200706282107.l5SL7qen025928%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000537.html">
+   <LINK REL="Next"  HREF="000539.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r361 - Reworked the	RealmRouting: - aligned with the CDiameterPeer implementation	- added extra functions to send messages without the peerFQDN	parameters</H1>
+    <B>vingarzan at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-JavaDiameterPeer%5D%20r361%20-%20Reworked%20the%0A%09RealmRouting%3A%20-%20aligned%20with%20the%20CDiameterPeer%20implementation%0A%09-%20added%20extra%20functions%20to%20send%20messages%20without%20the%20peerFQDN%0A%09parameters&In-Reply-To=%3C200706282107.l5SL7qen025928%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r361 - Reworked the	RealmRouting: - aligned with the CDiameterPeer implementation	- added extra functions to send messages without the peerFQDN	parameters">vingarzan at users.berlios.de
+       </A><BR>
+    <I>Thu Jun 28 23:07:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000537.html">[OpenIMSCore-HSS] [SVN-FHoSS] r360 - Fixed possible	NumberFormatException issue on not well formated IPs
+</A></li>
+        <LI>Next message: <A HREF="000539.html">[OpenIMSCore-HSS] [JavaDiameterPeer feature] JDiameterPeer support	for realm routing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#538">[ date ]</a>
+              <a href="thread.html#538">[ thread ]</a>
+              <a href="subject.html#538">[ subject ]</a>
+              <a href="author.html#538">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: vingarzan
+Date: 2007-06-28 23:07:47 +0200 (Thu, 28 Jun 2007)
+New Revision: 361 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=361">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=361</A> 
+
+Log:
+Reworked the RealmRouting:
+- aligned with the CDiameterPeer implementation
+- added extra functions to send messages without the peerFQDN parameters
+
+
+
+Added:
+   A	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/routing/
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/routing/?rev=361">http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/routing/?rev=361</A>
+   A	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/routing/RoutingEngine.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/routing/RoutingEngine.java?rev=361&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/routing/RoutingEngine.java?rev=361&amp;view=markup</A>
+Modified:
+   U	JavaDiameterPeer/trunk/DiameterPeer.xml
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/DiameterPeer.xml?rev=361&amp;view=diff&amp;r1=361&amp;r2=360">http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/DiameterPeer.xml?rev=361&amp;view=diff&amp;r1=361&amp;r2=360</A>
+   U	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java?rev=361&amp;view=diff&amp;r1=361&amp;r2=360">http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/DiameterPeer.java?rev=361&amp;view=diff&amp;r1=361&amp;r2=360</A>
+   U	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/data/AVP.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/data/AVP.java?rev=361&amp;view=diff&amp;r1=361&amp;r2=360">http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/data/AVP.java?rev=361&amp;view=diff&amp;r1=361&amp;r2=360</A>
+   U	JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/transaction/TransactionWorker.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/transaction/TransactionWorker.java?rev=361&amp;view=diff&amp;r1=361&amp;r2=360">http://svn.berlios.de/viewcvs/openimscore/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/transaction/TransactionWorker.java?rev=361&amp;view=diff&amp;r1=361&amp;r2=360</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000537.html">[OpenIMSCore-HSS] [SVN-FHoSS] r360 - Fixed possible	NumberFormatException issue on not well formated IPs
+</A></li>
+	<LI>Next message: <A HREF="000539.html">[OpenIMSCore-HSS] [JavaDiameterPeer feature] JDiameterPeer support	for realm routing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#538">[ date ]</a>
+              <a href="thread.html#538">[ thread ]</a>
+              <a href="subject.html#538">[ subject ]</a>
+              <a href="author.html#538">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme Unsupported
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20403%20-%20HSS%20Authentication%20Scheme%20Unsupported&In-Reply-To=%3CBANLkTimrKrd9Zj%2BqSqVw97e7OYUMut6q5g%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001024.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme Unsupported</H1>
+    <B>irsalina ss</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Fwd%3A%20403%20-%20HSS%20Authentication%20Scheme%20Unsupported&In-Reply-To=%3CBANLkTimrKrd9Zj%2BqSqVw97e7OYUMut6q5g%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme Unsupported">ichi8884 at gmail.com
+       </A><BR>
+    <I>Thu Apr 14 09:51:36 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001024.html">[OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme	Unsupported
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1023">[ date ]</a>
+              <a href="thread.html#1023">[ thread ]</a>
+              <a href="subject.html#1023">[ subject ]</a>
+              <a href="author.html#1023">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+I've already followed the steps to use MD5 for authentication scheme.
+1. I commented this line in scscf.cfg
+
+*modparam(&#8220;scscf&#8221;,&#8221;registration_default_algorithm&#8221;,&#8221;AKAv1-MD5&#8243;)*
+
+*2. *I uncommented the line of MD5
+
+*modparam(&#8220;scscf&#8221;,&#8221;registration_default_algorithm&#8221;,&#8221;MD5&#8243;)*
+
+3. I uncommented this line
+
+*modparam(&#8220;scscf&#8221;,&#8221;registration_default_algorithm&#8221;,&#8221;HSS-Selected&#8221;)*
+
+I restard all the openimscore and tick only Digest-MD5 from the 7 choices,
+and choose the default: Digest-MD5. I still have the error: 403 Forbidden -
+HSS Authentication Scheme Unsupported
+
+If I tick all 7 choices, eventhough I choose the default Digest-MD5,
+openimscore still use Akav1-MD5, i don't know why.
+
+
+Could you tell me in which steps I missed?
+
+Thank you very much.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110414/78e88689/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20110414/78e88689/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001024.html">[OpenIMSCore-HSS] Fwd: 403 - HSS Authentication Scheme	Unsupported
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1023">[ date ]</a>
+              <a href="thread.html#1023">[ thread ]</a>
+              <a href="subject.html#1023">[ subject ]</a>
+              <a href="author.html#1023">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

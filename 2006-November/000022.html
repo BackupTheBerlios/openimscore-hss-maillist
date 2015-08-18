@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%3D%3Fbig5%3Fb%3Fpl7C0KFHIFJlOiAgcmUgOiBjb21waWxlIGVy%3F%3D%0A%20%3D%3Fbig5%3Fb%3Fcm9yIG9mIEZIb1NTIGFuZCBKRGlhbWV0ZXJQZWVy%3F%3D&In-Reply-To=%3C630428.20540.qm%40web60822.mail.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000006.html">
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer</H1>
+    <B>Dennis Yeung</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%3D%3Fbig5%3Fb%3Fpl7C0KFHIFJlOiAgcmUgOiBjb21waWxlIGVy%3F%3D%0A%20%3D%3Fbig5%3Fb%3Fcm9yIG9mIEZIb1NTIGFuZCBKRGlhbWV0ZXJQZWVy%3F%3D&In-Reply-To=%3C630428.20540.qm%40web60822.mail.yahoo.com%3E"
+       TITLE="[OpenIMSCore-HSS] &#22238;&#35206;&#65306; Re:  re : compile error of FHoSS and JDiameterPeer">otyeung at yahoo.com
+       </A><BR>
+    <I>Tue Nov 28 04:26:02 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000006.html">[OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer
+</A></li>
+        <LI>Next message: <A HREF="000007.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r27 - in	JavaDiameterPeer/trunk: doxygen/img	src/de/fhg/fokus/diameter/DiameterPeer/peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Yes. You are right. My problem is fixed now. 
+
+Thank you very much!
+
+
+--- Gustavo Garc&#31337;a Bernardo &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ggb at tid.es</A>&gt; &#35498;&#65306;
+
+&gt;<i> Are you sure you are using JDK 1.5? You need it.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; -----Mensaje original-----
+</I>&gt;<i> &gt; De: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss-bounces at lists.berlios.de</A>
+</I>&gt;<i> [mailto:openimscore-hss-
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bounces at lists.berlios.de</A>] En nombre de Dennis
+</I>&gt;<i> Yeung
+</I>&gt;<i> &gt; Enviado el: lunes, 27 de noviembre de 2006 8:09
+</I>&gt;<i> &gt; Para: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> &gt; Asunto: [OpenIMSCore-HSS] re : compile error of
+</I>&gt;<i> FHoSS and JDiameterPeer
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I ran into a problem with compile FHoSS. I
+</I>&gt;<i> downloaded
+</I>&gt;<i> &gt; the SVN trunk for FHoSS and start to run &quot;ant gen
+</I>&gt;<i> &gt; compile deploy&quot;, but I get the following compile
+</I>&gt;<i> &gt; error:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>####################################################################
+&gt;<i> &gt; compile:
+</I>&gt;<i> &gt;     [javac] Compiling 329 source files to
+</I>&gt;<i> &gt; /opt/FHoSS/bin
+</I>&gt;<i> &gt;     [javac]
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>/opt/FHoSS/src/de/fhg/fokus/hss/diam/AVPCodes.java:47:
+&gt;<i> &gt; cannot access
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.data.AVP
+</I>&gt;<i> &gt;     [javac] bad class file:
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>/opt/FHoSS/lib/jdp.jar(de/fhg/fokus/diameter/DiameterPeer/data/AVP.class)
+&gt;<i> &gt;     [javac] class file has wrong version 49.0,
+</I>&gt;<i> should
+</I>&gt;<i> &gt; be 48.0
+</I>&gt;<i> &gt;     [javac] Please remove or make sure it appears
+</I>&gt;<i> in
+</I>&gt;<i> &gt; the correct subdirectory of the classpath.
+</I>&gt;<i> &gt;     [javac] import
+</I>&gt;<i> &gt; de.fhg.fokus.diameter.DiameterPeer.data.AVP;
+</I>&gt;<i> &gt;     [javac]
+</I>&gt;<i> &gt;     ^
+</I>&gt;<i> &gt;     [javac] 1 error
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; BUILD FAILED
+</I>&gt;<i> &gt; /opt/FHoSS/build.xml:89: Compile failed; see the
+</I>&gt;<i> &gt; compiler error output for details.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>####################################################################
+&gt;<i> &gt; 
+</I>&gt;<i> &gt; I guess it is complaining about missing
+</I>&gt;<i> JDiameterPeer,
+</I>&gt;<i> &gt; so I go to build the JDiameterPeer trunk first.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; When I run &quot;ant compile&quot; in the directory where
+</I>&gt;<i> &gt; &quot;build.xml&quot; for JDiameterPeer is located, I got
+</I>&gt;<i> the
+</I>&gt;<i> &gt; following error messages instead:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>####################################################################
+&gt;<i> &gt; compile:
+</I>&gt;<i> &gt;     [javac] Compiling 26 source files to
+</I>&gt;<i> &gt; /root/depot/JavaDiameterPeer/trunk/classes
+</I>&gt;<i> &gt;     [javac]
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>/root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+&gt;<i> &gt; DiameterPeer.java:110:
+</I>&gt;<i> &gt; &lt;identifier&gt; expected
+</I>&gt;<i> &gt;     [javac]     public Vector&lt;Acceptor&gt; acceptors;
+</I>&gt;<i> &gt;     [javac]                      ^
+</I>&gt;<i> &gt;     [javac]
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>/root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+&gt;<i> &gt; DiameterPeer.java:119:
+</I>&gt;<i> &gt; &lt;identifier&gt; expected
+</I>&gt;<i> &gt;     [javac]     public Vector&lt;Application&gt;
+</I>&gt;<i> &gt; AuthApp,AcctApp;
+</I>&gt;<i> &gt;     [javac]                      ^
+</I>&gt;<i> &gt;     [javac]
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>/root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+&gt;<i> &gt; DiameterPeer.java:122:
+</I>&gt;<i> &gt; &lt;identifier&gt; expected
+</I>&gt;<i> &gt;     [javac]     public HashMap&lt;String,
+</I>&gt;<i> &gt; TreeMap&lt;Integer, String&gt;&gt; routingTable;
+</I>&gt;<i> &gt;     [javac]                       ^
+</I>&gt;<i> &gt;     [javac]
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>/root/depot/JavaDiameterPeer/trunk/src/de/fhg/fokus/diameter/DiameterPeer/
+&gt;<i> &gt; DiameterPeer.java:131:
+</I>&gt;<i> &gt; &lt;identifier&gt; expected
+</I>&gt;<i> &gt;     [javac]     public Vector&lt;EventListener&gt;
+</I>&gt;<i> &gt; eventListeners;
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; etc......
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>####################################################################
+&gt;<i> &gt; 
+</I>&gt;<i> &gt; Does anyone know how to compile JDiameterPeer and
+</I>&gt;<i> make
+</I>&gt;<i> &gt; it usable to FHoss?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Any help is appreciated. Thanks.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Regards,
+</I>&gt;<i> &gt; Dennis
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; _______________________________________
+</I>&gt;<i> &gt;  YM - &#38626;&#32218;&#35338;&#24687;
+</I>&gt;<i> &gt; 
+</I>&gt;<i>
+</I>&#23601;&#31639;&#20320;&#27794;&#26377;&#19978;&#32178;&#65292;&#20320;&#30340;&#26379;&#21451;&#20173;&#21487;&#20197;&#30041;&#19979;&#35338;&#24687;&#32102;&#20320;&#65292;&#30070;&#20320;&#19978;&#32178;&#26178;&#23601;&#33021;&#31435;&#21363;&#30475;&#21040;&#65292;&#20219;&#20309;&#35498;&#35441;&#37117;&#20871;&#36208;&#22833;&#12290;
+&gt;<i> &gt;  <A HREF="http://messenger.yahoo.com.hk">http://messenger.yahoo.com.hk</A>
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; OpenIMSCore-HSS mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+&gt;<i> 
+</I>
+
+_______________________________________
+ YM - &#38626;&#32218;&#35338;&#24687;
+ &#23601;&#31639;&#20320;&#27794;&#26377;&#19978;&#32178;&#65292;&#20320;&#30340;&#26379;&#21451;&#20173;&#21487;&#20197;&#30041;&#19979;&#35338;&#24687;&#32102;&#20320;&#65292;&#30070;&#20320;&#19978;&#32178;&#26178;&#23601;&#33021;&#31435;&#21363;&#30475;&#21040;&#65292;&#20219;&#20309;&#35498;&#35441;&#37117;&#20871;&#36208;&#22833;&#12290;
+ <A HREF="http://messenger.yahoo.com.hk">http://messenger.yahoo.com.hk</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000006.html">[OpenIMSCore-HSS] re : compile error of FHoSS and JDiameterPeer
+</A></li>
+	<LI>Next message: <A HREF="000007.html">[OpenIMSCore-HSS] [SVN-JavaDiameterPeer] r27 - in	JavaDiameterPeer/trunk: doxygen/img	src/de/fhg/fokus/diameter/DiameterPeer/peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

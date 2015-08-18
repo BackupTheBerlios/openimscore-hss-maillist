@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r244 - Fixes MAR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r244%20-%20Fixes%20MAR&In-Reply-To=%3C200704201609.l3KG95c8015711%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000351.html">
+   <LINK REL="Next"  HREF="000349.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r244 - Fixes MAR</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r244%20-%20Fixes%20MAR&In-Reply-To=%3C200704201609.l3KG95c8015711%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r244 - Fixes MAR">adp at users.berlios.de
+       </A><BR>
+    <I>Fri Apr 20 18:09:05 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000351.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+        <LI>Next message: <A HREF="000349.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#348">[ date ]</a>
+              <a href="thread.html#348">[ thread ]</a>
+              <a href="subject.html#348">[ subject ]</a>
+              <a href="author.html#348">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-04-20 18:09:00 +0200 (Fri, 20 Apr 2007)
+New Revision: 244 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=244">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=244</A> 
+
+Log:
+Fixes MAR
+
+Removed:
+   D	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/AuthenticationVector.java
+   D	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/Cx.java
+   D	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/Sh.java
+Modified:
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/auth/AuthenticationVector.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/auth/AuthenticationVector.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/auth/AuthenticationVector.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/auth/HexCodec.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/auth/HexCodec.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/auth/HexCodec.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxConstants.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxConstants.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/CxConstants.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/IMPI.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/IMPI.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/model/IMPI.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/DiameterStack.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/DiameterStack.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/DiameterStack.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/UtilAVP.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/UtilAVP.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/diam/UtilAVP.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/IMPI_Submit.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/IMPI_Submit.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/action/IMPI_Submit.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/IMPI_Form.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/IMPI_Form.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/web/form/IMPI_Form.java?rev=244&amp;view=diff&amp;r1=244&amp;r2=243</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000351.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+	<LI>Next message: <A HREF="000349.html">[OpenIMSCore-HSS] Problem to start openimscore particularly	FHOSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#348">[ date ]</a>
+              <a href="thread.html#348">[ thread ]</a>
+              <a href="subject.html#348">[ subject ]</a>
+              <a href="author.html#348">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

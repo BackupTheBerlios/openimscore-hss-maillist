@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] create Preferred S-CSCF ERRO!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20create%20Preferred%20S-CSCF%20ERRO%21&In-Reply-To=%3C462601B8.2020303%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000334.html">
+   <LINK REL="Next"  HREF="000337.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] create Preferred S-CSCF ERRO!</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20create%20Preferred%20S-CSCF%20ERRO%21&In-Reply-To=%3C462601B8.2020303%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] create Preferred S-CSCF ERRO!">adrian-daniel.popescu at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Apr 18 13:32:08 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000334.html">[OpenIMSCore-HSS] create Preferred S-CSCF ERRO!
+</A></li>
+        <LI>Next message: <A HREF="000337.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005 - While sending SNR	from diameter client to HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#335">[ date ]</a>
+              <a href="thread.html#335">[ thread ]</a>
+              <a href="subject.html#335">[ subject ]</a>
+              <a href="author.html#335">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+hi,
+
+This is still not implemented related to the web interface...is the only
+thing that not works for moment (from the web console), but it will soon
+;) This was not considered a priority and remained to be implemented at
+the end.
+
+- -Adrian
+
+
+fancy_xiao wrote:
+&gt;<i> openimscore-hss&#65292;&#20320;&#22909;
+</I>&gt;<i>  
+</I>&gt;<i> when i call create Preferred S-CSCF in the FHOSS website , can't find
+</I>&gt;<i> that jsp
+</I>&gt;<i>  
+</I>&gt;<i> zhe http erro info:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>   HTTP Status 404 - /error.jsp
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> *type* Status report
+</I>&gt;<i> 
+</I>&gt;<i> *message* _/error.jsp_
+</I>&gt;<i> 
+</I>&gt;<i> *description* _The requested resource (/error.jsp) is not available._
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> zhe FHOSS erro INFO:
+</I>&gt;<i> 2007-04-18 10:05:32,505 ERROR de.fhg.fokus.hss.HssExceptionHandler -
+</I>&gt;<i> execute exception occured
+</I>&gt;<i> java.lang.NullPointerException
+</I>&gt;<i>         at
+</I>&gt;<i> de.fhg.fokus.hss.web.action.PrefS_Load.execute(PrefS_Load.java:77)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:419)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:224)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.process(ActionServlet.java:1194)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.struts.action.ActionServlet.doGet(ActionServlet.java:414)
+</I>&gt;<i>         at javax.servlet.http.HttpServlet.service(HttpServlet.java:689)
+</I>&gt;<i>         at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:856)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:744)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+</I>&gt;<i>         at
+</I>&gt;<i> org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+</I>&gt;<i>         at java.lang.Thread.run(Thread.java:595)
+</I>&gt;<i>  
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &lt;mailto:&lt;!--AID_FROMADDRESS_BEGIN--&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&lt;!--AID_FROMADDRESS_END--&gt;&gt;
+</I>&gt;<i> 2007-04-18
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGJgG36Yml36HNIwcRAnmTAJ4oMMPBFCBcIVnsD1Qq+vPc/onHMwCfftIB
+1DWazvILgJiXwyOg5t5T2EY=
+=qsD4
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000334.html">[OpenIMSCore-HSS] create Preferred S-CSCF ERRO!
+</A></li>
+	<LI>Next message: <A HREF="000337.html">[OpenIMSCore-HSS] Missing AVP: error code: 5005 - While sending SNR	from diameter client to HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#335">[ date ]</a>
+              <a href="thread.html#335">[ thread ]</a>
+              <a href="subject.html#335">[ subject ]</a>
+              <a href="author.html#335">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

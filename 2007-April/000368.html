@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r259 - Additions Sh Data Parser &amp; UDR
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r259%20-%20Additions%20Sh%20Data%20Parser%20%26%20UDR&In-Reply-To=%3C200704271607.l3RG7hZW006708%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000367.html">
+   <LINK REL="Next"  HREF="000369.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r259 - Additions Sh Data Parser &amp; UDR</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r259%20-%20Additions%20Sh%20Data%20Parser%20%26%20UDR&In-Reply-To=%3C200704271607.l3RG7hZW006708%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r259 - Additions Sh Data Parser &amp; UDR">adp at users.berlios.de
+       </A><BR>
+    <I>Fri Apr 27 18:07:43 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000367.html">[OpenIMSCore-HSS] [SVN-FHoSS] r258 - Adding parser forSh-Data-Type	Document
+</A></li>
+        <LI>Next message: <A HREF="000369.html">[OpenIMSCore-HSS] Application Server connection to HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#368">[ date ]</a>
+              <a href="thread.html#368">[ thread ]</a>
+              <a href="subject.html#368">[ subject ]</a>
+              <a href="author.html#368">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-04-27 18:07:29 +0200 (Fri, 27 Apr 2007)
+New Revision: 259 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=259">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=259</A> 
+
+Log:
+Additions Sh Data Parser &amp; UDR
+
+Added:
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/AliasesRepositoryData.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/AliasesRepositoryData.java?rev=259&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/AliasesRepositoryData.java?rev=259&amp;view=markup</A>
+   A	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/RepositoryData.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/RepositoryData.java?rev=259&amp;view=markup">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/RepositoryData.java?rev=259&amp;view=markup</A>
+Removed:
+   D	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/CSUserState.java
+   D	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/PSUserState.java
+   D	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/TransparentData.java
+Modified:
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Task.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Worker.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Worker.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/main/Worker.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/CSLocationInformation.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/CSLocationInformation.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/CSLocationInformation.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/PSLocationInformation.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/PSLocationInformation.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/PSLocationInformation.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShData.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShData.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShData.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataExtension.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataExtension.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataExtension.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataParser.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataParser.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataParser.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataTags.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataTags.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShDataTags.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShIMSData.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShIMSData.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/data/ShIMSData.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=259&amp;view=diff&amp;r1=259&amp;r2=258</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000367.html">[OpenIMSCore-HSS] [SVN-FHoSS] r258 - Adding parser forSh-Data-Type	Document
+</A></li>
+	<LI>Next message: <A HREF="000369.html">[OpenIMSCore-HSS] Application Server connection to HSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#368">[ date ]</a>
+              <a href="thread.html#368">[ thread ]</a>
+              <a href="subject.html#368">[ subject ]</a>
+              <a href="author.html#368">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

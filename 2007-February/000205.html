@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] registration state in release 6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20registration%20state%20in%20release%206&In-Reply-To=%3C45D19C5A.7080504%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000204.html">
+   <LINK REL="Next"  HREF="000206.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] registration state in release 6</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20registration%20state%20in%20release%206&In-Reply-To=%3C45D19C5A.7080504%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] registration state in release 6">vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Feb 13 12:09:14 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000204.html">[OpenIMSCore-HSS] registration state in release 6
+</A></li>
+        <LI>Next message: <A HREF="000206.html">[OpenIMSCore-HSS] registration state in release 6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#205">[ date ]</a>
+              <a href="thread.html#205">[ thread ]</a>
+              <a href="subject.html#205">[ subject ]</a>
+              <a href="author.html#205">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Luis,
+
+It's over my competence to answer all of your questions, but I will try
+for some.
+
+Lu&#237;s Filipe Silva wrote:
+&gt;<i> Hi everyone!
+</I>&gt;<i>  
+</I>&gt;<i> I'm studying your HSS and I noticed that it support release 6 and of course you have a relationship of many-to-many between the private and the public identities. The problem for me arises when you define the registration state only related with the public identity. For me, and according to the spec (I think), the registration state is related with a set of identities (i.e, one private and one public). So, when you are processing a registration you are registring a set of a private and a public rather then only the public.
+</I>&gt;<i>   
+</I>If you are referring to the implicit set, this is being working on, I
+think. On the S-CSCF this should already be working.
+&gt;<i>  
+</I>&gt;<i> &quot;For Shared Public User Identities, the S-CSCF shall initiate this procedure towards the HSS for each Private User Identity undergoing a Registration or Deregistration related to the Shared Public User Identity. &quot; - 29.228
+</I>&gt;<i>   
+</I>I think this is a little out of context. This implies that once a SIM
+card registers, the S-CSCF should automatically register the other? I
+don't think so
+&gt;<i>  
+</I>&gt;<i> I understand shared public identities a set of public identities belonging to the same private. So you can register, for example, the public identity sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob at ptinovacao.pt</A> with the private <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob1 at ptinovacao.pt</A> but you can also register the same public with a different private (<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">bob2 at ptinovacao.pt</A>). You have to consider two different registrations.
+</I>&gt;<i>   
+</I>yes. This is new to R6 from R5 - a public associated to many privates.
+This is a hard topic, but should be manageable.
+&gt;<i>  
+</I>&gt;<i> This is the case of Deregistration:
+</I>&gt;<i> &quot;If the Public User Identity is currently registered with more than one Private User Identity, the HSS shall keep the registration state of the Public User Identity as Registered and retain the S-CSCF name associated with the Public User Identity.&quot;
+</I>&gt;<i>   
+</I>This is a little difficult. The S-CSCF deals with contacts. And now, it
+only sends a SAR for deregistration when all contacts have been deleted.
+Sending one earlier might confuse a HSS that is not implementing what
+your are saying above and leave the user in an inconsistent state
+between the S-CSCF and HSS.
+&gt;<i>  
+</I>&gt;<i> Can you handle this case, according with your database structure and logic?
+</I>&gt;<i>   
+</I>If not, we should change it :).
+&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i> Is that Correct? 
+</I>&gt;<i>  
+</I>&gt;<i> Regards,
+</I>&gt;<i>  
+</I>&gt;<i> Lu&#237;s Silva
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+eMail <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">vingarzan at fokus.fraunhofer.de</A>
+Web www.fokus.fraunhofer.de
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000204.html">[OpenIMSCore-HSS] registration state in release 6
+</A></li>
+	<LI>Next message: <A HREF="000206.html">[OpenIMSCore-HSS] registration state in release 6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#205">[ date ]</a>
+              <a href="thread.html#205">[ thread ]</a>
+              <a href="subject.html#205">[ subject ]</a>
+              <a href="author.html#205">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

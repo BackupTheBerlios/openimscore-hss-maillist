@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error compiling HSS - revision 516
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20compiling%20HSS%20-%20revision%20516&In-Reply-To=%3C47A6FAD6.7040601%40tid.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000735.html">
+   <LINK REL="Next"  HREF="000733.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error compiling HSS - revision 516</H1>
+    <B>Santiago Gimeno</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20compiling%20HSS%20-%20revision%20516&In-Reply-To=%3C47A6FAD6.7040601%40tid.es%3E"
+       TITLE="[OpenIMSCore-HSS] Error compiling HSS - revision 516">sg223 at tid.es
+       </A><BR>
+    <I>Mon Feb  4 12:45:26 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000735.html">[OpenIMSCore-HSS] Setting DNS
+</A></li>
+        <LI>Next message: <A HREF="000733.html">[OpenIMSCore-HSS] [SVN-FHoSS] r517 - Small Fix in the Wildcard PSI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#732">[ date ]</a>
+              <a href="thread.html#732">[ thread ]</a>
+              <a href="subject.html#732">[ subject ]</a>
+              <a href="author.html#732">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I can't figure out how to compile the HSS module. I receive this error 
+message:
+
+Buildfile: build.xml
+
+init:
+    [mkdir] Created dir: /opt/imscore/FHoSS/bin
+
+compile:
+    [javac] Compiling 191 source files to /opt/imscore/FHoSS/bin
+    [javac] 
+/opt/imscore/FHoSS/src/de/fhg/fokus/hss/web/action/IMPU_Search.java:98: 
+incompatible types
+    [javac] found   : de.fhg.fokus.hss.db.model.IMPU
+    [javac] required: java.lang.Object[]
+    [javac]                             queryResult = 
+IMPU_DAO.get_by_Wildcarded_Identity(session, form.getIdentity(), 
+firstResult, rowsPerPage);
+    
+[javac]                                                                              
+^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error
+
+BUILD FAILED
+/opt/imscore/FHoSS/build.xml:44: Compile failed; see the compiler error 
+output for details.
+
+My java -version output is:
+
+java version &quot;1.6.0_04&quot;
+Java(TM) SE Runtime Environment (build 1.6.0_04-b12)
+Java HotSpot(TM) Client VM (build 10.0-b19, mixed mode, sharing)
+
+And my JAVA_HOME variable is set to:
+
+JAVA_HOME=/usr/java/jdk1.6.0_04
+
+Any idea of what might be happening? Thank you in advance.
+Best regards,
+
+Santi
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000735.html">[OpenIMSCore-HSS] Setting DNS
+</A></li>
+	<LI>Next message: <A HREF="000733.html">[OpenIMSCore-HSS] [SVN-FHoSS] r517 - Small Fix in the Wildcard PSI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#732">[ date ]</a>
+              <a href="thread.html#732">[ thread ]</a>
+              <a href="subject.html#732">[ subject ]</a>
+              <a href="author.html#732">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

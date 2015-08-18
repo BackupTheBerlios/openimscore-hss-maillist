@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-January/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Second%20mail%20-%20Found%20reproducable%20FHoSS%20bug%28%3F%29&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7B93%40taxis.buc.materna.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000132.html">
+   <LINK REL="Next"  HREF="000135.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)</H1>
+    <B>Sven.Bornemann at materna.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Second%20mail%20-%20Found%20reproducable%20FHoSS%20bug%28%3F%29&In-Reply-To=%3CDAE692177CCBC94C807D3445E6A0CEC2018C7B93%40taxis.buc.materna.com%3E"
+       TITLE="[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)">Sven.Bornemann at materna.de
+       </A><BR>
+    <I>Wed Jan 10 13:36:30 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000132.html">[OpenIMSCore-HSS] Found reproducable FHoSS bug(?)
+</A></li>
+        <LI>Next message: <A HREF="000135.html">[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all!
+
+&lt;Foreword&gt;
+Since some Berlios mailing list component(?) split my mail from Tue Jan 9 12:49:49 CET 2007
+into 2 parts (One mail with the original subject '[OpenIMSCore-HSS] Found reproducable FHoSS 
+bug(?)' and one with 'No subject'; Seems to be causes by the leading 'From' of a line :-/) 
+once again my request. Sorry.
+&lt;/Foreword&gt;
+
+I observed the following reproducable FHoSS error situation:
+
+1.  Start FHoSS
+2.  Read non existing repository data by UserDataRequest
+3.  Error 5012 returned since data not existing, o.k.
+4.  Write repository data by ProfileUpdateRequest
+5.  Success returned
+6.  Read existing repository data by UserDataRequest
+7.  Success returned
+
+8.  Read existing repository data by UserDataRequest
+9.  Error 5012 returned
+10. Read existing repository data by UserDataRequest
+11. Error 5012 returned
+12. Read existing repository data by UserDataRequest
+13. Success returned
+14. Read existing repository data by UserDataRequest
+15. Success returned
+
+'From' this time 8.-15. can be repeated on and on.
+If FHoSS is restarted after the error conditions occurs,
+8.-15. are always successful.
+
+* I compild FHoSS with latest available revision (85)
+* I'm using the default FHoSS database configuration.
+* Each DIAMTETER PDU is sent through a new established
+  FHoSS connection, since I use a console utility for
+  the tests.
+
+Can anybody confirm that this is a FHoSS bug?
+
+Bye,
+Sven
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000132.html">[OpenIMSCore-HSS] Found reproducable FHoSS bug(?)
+</A></li>
+	<LI>Next message: <A HREF="000135.html">[OpenIMSCore-HSS] Second mail - Found reproducable FHoSS bug(?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

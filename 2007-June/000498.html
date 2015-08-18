@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [SVN-FHoSS] r309 - Notification Events added for	IMSUserState and SCSCFName.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r309%20-%20Notification%20Events%20added%20for%0A%09IMSUserState%20and%20SCSCFName.&In-Reply-To=%3C200706061857.l56IvqP7023703%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000499.html">
+   <LINK REL="Next"  HREF="000500.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [SVN-FHoSS] r309 - Notification Events added for	IMSUserState and SCSCFName.</H1>
+    <B>adp at users.berlios.de</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BSVN-FHoSS%5D%20r309%20-%20Notification%20Events%20added%20for%0A%09IMSUserState%20and%20SCSCFName.&In-Reply-To=%3C200706061857.l56IvqP7023703%40sheep.berlios.de%3E"
+       TITLE="[OpenIMSCore-HSS] [SVN-FHoSS] r309 - Notification Events added for	IMSUserState and SCSCFName.">adp at users.berlios.de
+       </A><BR>
+    <I>Wed Jun  6 20:57:52 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000499.html">[OpenIMSCore-HSS] Add AS to HSS
+</A></li>
+        <LI>Next message: <A HREF="000500.html">[OpenIMSCore-HSS] Communicate IMS with application server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#498">[ date ]</a>
+              <a href="thread.html#498">[ thread ]</a>
+              <a href="subject.html#498">[ subject ]</a>
+              <a href="author.html#498">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: adp
+Date: 2007-06-06 20:57:49 +0200 (Wed, 06 Jun 2007)
+New Revision: 309 <A HREF="http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=309">http://svn.berlios.de/viewcvs/openimscore?view=rev&amp;rev=309</A> 
+
+Log:
+ Notification Events added for IMSUserState and SCSCFName. 
+
+Modified:
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/MAR.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/SAR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/cx/op/SAR.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/DB_Op.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/DB_Op.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/DB_Op.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPI_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPI_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPI_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/IMPU_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/ShNotification_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/ShNotification_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/ShNotification_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/ShSubscription_DAO.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/ShSubscription_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/db/op/ShSubscription_DAO.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+   U	FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java
+		<A HREF="http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308">http://svn.berlios.de/viewcvs/openimscore/FHoSS/branches/01_RevampDB/src/de/fhg/fokus/hss/sh/op/UDR.java?rev=309&amp;view=diff&amp;r1=309&amp;r2=308</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000499.html">[OpenIMSCore-HSS] Add AS to HSS
+</A></li>
+	<LI>Next message: <A HREF="000500.html">[OpenIMSCore-HSS] Communicate IMS with application server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#498">[ date ]</a>
+              <a href="thread.html#498">[ thread ]</a>
+              <a href="subject.html#498">[ subject ]</a>
+              <a href="author.html#498">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

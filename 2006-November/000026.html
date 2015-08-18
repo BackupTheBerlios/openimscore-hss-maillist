@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2006-November/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20requires%20a%20set%20V-bit%20for%20Origin-Host%0A%09and%20Origin-Realm&In-Reply-To=%3C1164718200.10556.122.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   <LINK REL="Next"  HREF="000027.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20FHoSS%20requires%20a%20set%20V-bit%20for%20Origin-Host%0A%09and%20Origin-Realm&In-Reply-To=%3C1164718200.10556.122.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Nov 28 13:50:00 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+</A></li>
+        <LI>Next message: <A HREF="000027.html">[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Sven,
+
+my bad, I fixed this with r31. Now the M-bit is also set properly.
+
+Regards,
+
+Peter
+
+On Tue, 2006-11-28 at 12:53 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sven.bornemann at Materna.de</A> wrote:
+&gt;<i> Hi Peter!
+</I>&gt;<i> I think you made a mistake during your changes.
+</I>&gt;<i> You've cleared the M-bit flag but that was not &quot;good&quot; ;-)
+</I>&gt;<i> 
+</I>&gt;<i> Modified: FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> --- FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java	2006-11-27 09:43:28 UTC (rev 27)
+</I>&gt;<i> +++ FHoSS/trunk/src/de/fhg/fokus/hss/diam/sh/ShCommandListener.java	2006-11-27 14:51:07 UTC (rev 28)
+</I>&gt;<i> @@ -262,7 +262,7 @@
+</I>&gt;<i>      {
+</I>&gt;<i>          AVP originHostAVP =
+</I>&gt;<i>              avpLookUp(
+</I>&gt;<i> -                requestMessage, AVPCodes._ORIGIN_HOST, true, Vendor.V3GPP);
+</I>&gt;<i> +                requestMessage, AVPCodes._ORIGIN_HOST, false, Vendor.DIAM);
+</I>&gt;<i>          String originHost = new String(originHostAVP.data);
+</I>&gt;<i>  
+</I>&gt;<i>          return originHost;
+</I>&gt;<i> 
+</I>&gt;<i> Now FHoSS answers with 5005 (missing AVP), since I still set the required
+</I>&gt;<i> M-bit on Origin-Host and Origin-Realm.
+</I>&gt;<i> 
+</I>&gt;<i> Bye,
+</I>&gt;<i> Sven
+</I>&gt;<i> 
+</I>&gt;<i> -----Urspr&#252;ngliche Nachricht-----
+</I>&gt;<i> Von: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">weik at fokus.fraunhofer.de</A>]
+</I>&gt;<i> Gesendet: Montag, 27. November 2006 15:52
+</I>&gt;<i> An: Bornemann, Sven
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-hss at lists.berlios.de</A>
+</I>&gt;<i> Betreff: Re: FHoSS requires a set V-bit for Origin-Host and Origin-Realm
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> the r28 fixes this bug. Thanks for digging in the RFC ;)
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> 
+</I>&gt;<i> Peter
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> On Mon, 2006-11-27 at 15:08 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">sven.bornemann at Materna.de</A> wrote:
+</I>&gt;<i> &gt; Hi!
+</I>&gt;<i> &gt; Im getting an 5005 (AVP missing) when I omit the V-bit
+</I>&gt;<i> &gt; and Vendor-Id in the Origin-Host AVP of the UDR PDU.
+</I>&gt;<i> &gt; RFC 3588 says that Origin-Host (as well a Origin-Realm)
+</I>&gt;<i> &gt; must not have the V-bit set. If I set the V-bit on the
+</I>&gt;<i> &gt; Origin-Host and Origin-Realm AVP the UDR is successfully
+</I>&gt;<i> &gt; answered.
+</I>&gt;<i> &gt; I debugged the FHoSS. It's loadOriginHost of ShCommandListener.java 
+</I>&gt;<i> &gt; which explicit requires the 3GPP-Vendor-Id.
+</I>&gt;<i> &gt; Am I wrong? Can you please check. 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Bye,
+</I>&gt;<i> &gt; Sven
+</I>&gt;<i> &gt; P.S.: Sorry, by mistake this request was already posted with 
+</I>&gt;<i> &gt; the subject &quot;Wireshark plugin for HSS's Sh and CxinterfacePDUs?&quot; 
+</I>&gt;<i> &gt; at Mon Nov 27 15:05:09 CET 2006 :-/
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+</A></li>
+	<LI>Next message: <A HREF="000027.html">[OpenIMSCore-HSS] FHoSS requires a set V-bit for Origin-Host	and Origin-Realm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

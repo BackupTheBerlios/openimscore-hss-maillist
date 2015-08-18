@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [OpenIMSCore-CSCF] Network-forced	deregistration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore-CSCF%5D%20Network-forced%0A%09deregistration&In-Reply-To=%3C46C9DDC8.4090600%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000615.html">
+   <LINK REL="Next"  HREF="000618.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [OpenIMSCore-CSCF] Network-forced	deregistration</H1>
+    <B>Dragos Vingarzan</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BOpenIMSCore-CSCF%5D%20Network-forced%0A%09deregistration&In-Reply-To=%3C46C9DDC8.4090600%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] [OpenIMSCore-CSCF] Network-forced	deregistration">Dragos.Vingarzan at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Aug 20 20:30:32 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000615.html">[OpenIMSCore-HSS] [Home Subscriber Server bug] Default	authentication not retained
+</A></li>
+        <LI>Next message: <A HREF="000618.html">[OpenIMSCore-HSS] Sh MSISDN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#617">[ date ]</a>
+              <a href="thread.html#617">[ thread ]</a>
+              <a href="subject.html#617">[ subject ]</a>
+              <a href="author.html#617">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Vijay,
+
+Normally the NOTIFY contains enough information. However, parsing it,
+then keeping track of ids and then making sense and acting on it is
+quite a big process, so it might be that this was not yet implement, but
+I can't be sure for UCTClient. For OpenIC_Lite, I think that the
+respective part of the code was left out and the NOTIFY are used just
+for debugging reasons.
+
+-Dragos
+
+Varma, Vijay K wrote:
+&gt;<i> Hi Peter,
+</I>&gt;<i>
+</I>&gt;<i> Thanks. Network-forced deregistration works when following your
+</I>&gt;<i> procedure. However, I noticed the following:
+</I>&gt;<i>
+</I>&gt;<i> Even though the FoHSS changes the registration status of the user to
+</I>&gt;<i> NOT-REGISTERED, the client (both UCTclient as well as OpenIC_Lite)
+</I>&gt;<i> status stays as Registered. 
+</I>&gt;<i>
+</I>&gt;<i> So my question is: 
+</I>&gt;<i>
+</I>&gt;<i> Does the SIP Notify message from OSIMS core lack any the parameter
+</I>&gt;<i> necessary to change the registration status of the client or is there a
+</I>&gt;<i> bug in both clients that makes them think that they are still
+</I>&gt;<i> registered? Thanks,
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Vijay
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Peter Weik [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">peter.weik at fokus.fraunhofer.de</A>] 
+</I>&gt;<i> Sent: Friday, August 10, 2007 6:24 AM
+</I>&gt;<i> To: Varma, Vijay K
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">openimscore-cscf at lists.berlios.de</A>; HSS-OpenIMSCore
+</I>&gt;<i> Subject: Re: [OpenIMSCore-CSCF] Network-forced deregistration
+</I>&gt;<i>
+</I>&gt;<i> Hi Vijay,
+</I>&gt;<i>
+</I>&gt;<i> you can do it by registering a user and then go the IMPU you registered
+</I>&gt;<i> on the web console. 
+</I>&gt;<i> &gt;From there you click on the &quot;List of associated IMPIs&quot; link and on the
+</I>&gt;<i> lower right hand side of the IMPI page there is the means to
+</I>&gt;<i> manually trigger Registration Termination Requests (RTR) that force
+</I>&gt;<i> de-registration of a user.
+</I>&gt;<i>
+</I>&gt;<i> Hope that helped to solve the question,
+</I>&gt;<i>
+</I>&gt;<i> Peter
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 2007-08-09 at 12:35 -0400, Varma, Vijay K wrote: 
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi Peter,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Can I perform a network-forced deregistration on OSIMS testbed? If so,
+</I>&gt;&gt;<i> how do I do it? I have version &gt;390 OSIMS core which has a Release 7
+</I>&gt;&gt;<i> FoHSS. Thanks,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Vijay
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-CSCF mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-CSCF at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-cscf">https://lists.berlios.de/mailman/listinfo/openimscore-cscf</A>
+</I>&gt;&gt;<i>     
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-CSCF mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-CSCF at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-cscf">https://lists.berlios.de/mailman/listinfo/openimscore-cscf</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+-- 
+-----------------------------------------
+Dipl. Eng. Dragos Vingarzan
+Fraunhofer FOKUS/NGNI
+Kaiserin-Augusta-Allee 31
+10589 Berlin,Germany
+Phone +49 (0)30 - 3463 - 7385
+Mobile +49 (0)163 - 159 - 5221
+Web www.fokus.fraunhofer.de www.openimscore.org
+We could change the world if God would give us the source code...
+-----------------------------------------------------------------
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000615.html">[OpenIMSCore-HSS] [Home Subscriber Server bug] Default	authentication not retained
+</A></li>
+	<LI>Next message: <A HREF="000618.html">[OpenIMSCore-HSS] Sh MSISDN
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#617">[ date ]</a>
+              <a href="thread.html#617">[ thread ]</a>
+              <a href="subject.html#617">[ subject ]</a>
+              <a href="author.html#617">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

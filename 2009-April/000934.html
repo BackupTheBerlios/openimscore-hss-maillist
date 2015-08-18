@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] [PATCH] Fix reading of DiameterPeerHSS.xml
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BPATCH%5D%20Fix%20reading%20of%20DiameterPeerHSS.xml&In-Reply-To=%3CDC6F86A94046A64094043D44A3A708F70557FD4E%40sestoex02.enea.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000930.html">
+   <LINK REL="Next"  HREF="000936.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] [PATCH] Fix reading of DiameterPeerHSS.xml</H1>
+    <B>Robert H&#246;gberg</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20%5BPATCH%5D%20Fix%20reading%20of%20DiameterPeerHSS.xml&In-Reply-To=%3CDC6F86A94046A64094043D44A3A708F70557FD4E%40sestoex02.enea.se%3E"
+       TITLE="[OpenIMSCore-HSS] [PATCH] Fix reading of DiameterPeerHSS.xml">Robert.Hoegberg at enea.com
+       </A><BR>
+    <I>Mon Apr 27 17:55:23 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000930.html">[OpenIMSCore-HSS] [SVN-FHoSS] r650 - Applied Pandurangan R S patch	for supporting 3GPP SIP Digest as defined 3GPP TS 29.228	v8.5.0 in the HSS
+</A></li>
+        <LI>Next message: <A HREF="000936.html">[OpenIMSCore-HSS] [PATCH] Fix reading of DiameterPeerHSS.xml
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#934">[ date ]</a>
+              <a href="thread.html#934">[ thread ]</a>
+              <a href="subject.html#934">[ subject ]</a>
+              <a href="author.html#934">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+after the jdp.jar update in r649 FHoSS no longer reads its configuration file properly. FHoSS needs to adapt to the new DiameterPeer constructor, which no longer accepts a file name as its argument.
+
+I'm attaching a patch which resolves this issue.
+
+Regards
+Robert
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: fhoss.patch
+Type: application/octet-stream
+Size: 704 bytes
+Desc: fhoss.patch
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090427/0cb6b1a0/attachment.obj">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20090427/0cb6b1a0/attachment.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000930.html">[OpenIMSCore-HSS] [SVN-FHoSS] r650 - Applied Pandurangan R S patch	for supporting 3GPP SIP Digest as defined 3GPP TS 29.228	v8.5.0 in the HSS
+</A></li>
+	<LI>Next message: <A HREF="000936.html">[OpenIMSCore-HSS] [PATCH] Fix reading of DiameterPeerHSS.xml
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#934">[ date ]</a>
+              <a href="thread.html#934">[ thread ]</a>
+              <a href="subject.html#934">[ subject ]</a>
+              <a href="author.html#934">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

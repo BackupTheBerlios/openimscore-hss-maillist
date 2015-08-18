@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2010-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Setting%20Up%20Open%20IMS%20Core%2C%0A%09error%20opening%20%09connection%20to%20hss.test&In-Reply-To=%3CAANLkTinBdOTQcAxw6A215H3fAKxntEAf%3Dz7n6E_O5XfK%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000995.html">
+   <LINK REL="Next"  HREF="000997.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test</H1>
+    <B>Jeffrey Lou</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Setting%20Up%20Open%20IMS%20Core%2C%0A%09error%20opening%20%09connection%20to%20hss.test&In-Reply-To=%3CAANLkTinBdOTQcAxw6A215H3fAKxntEAf%3Dz7n6E_O5XfK%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test">jeffrey5337 at gmail.com
+       </A><BR>
+    <I>Tue Aug  3 08:50:38 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000995.html">[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+</A></li>
+        <LI>Next message: <A HREF="000997.html">[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#996">[ date ]</a>
+              <a href="thread.html#996">[ thread ]</a>
+              <a href="subject.html#996">[ subject ]</a>
+              <a href="author.html#996">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+here is the log:
+p-cscf:
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">user at ubuntu</A>:/opt/OpenIMSCore$ ./pcscf.sh
+pfkey_open: Operation not permitted
+pfkey_open: Operation not permitted
+Listening on
+             udp: 127.0.0.1 [127.0.0.1]:4060
+             tcp: 127.0.0.1 [127.0.0.1]:4060
+Aliases:
+             tcp: localhost:4060
+             udp: localhost:4060
+             *: pcscf.test:4060
+
+ 0(2772) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(2772) Maxfwd module- initializing
+ 0(2772) INFO:P-CSCF:mod_init: Initialization of module
+ 0(2772) INFOP-CSCF:mod_init: E-CSCF uri is sip:ecscf.test:7060
+ 0(2772) INFO: udp_init: SO_RCVBUF is initially 112640
+ 0(2772) INFO: udp_init: SO_RCVBUF is finally 262142
+ 1(2773) INFO:P-CSCF:mod_init: Initialization of module in child [1]
+ 0(2772) INFO:P-CSCF:mod_init: Initialization of module in child [0]
+ 5(2777) INFO:P-CSCF:mod_init: Initialization of module in child [-1]
+ 9(2781) INFO:P-CSCF:mod_init: Initialization of module in child [7]
+ 3(2775) INFO:P-CSCF:mod_init: Initialization of module in child [3]
+ 6(2778) INFO:P-CSCF:mod_init: Initialization of module in child [-1]
+10(2782) INFO:P-CSCF:mod_init: Initialization of module in child [8]
+11(2783) INFO:P-CSCF:mod_init: Initialization of module in child [-4]
+ 8(2780) INFO:P-CSCF:mod_init: Initialization of module in child [6]
+ 4(2776) INFO:P-CSCF:mod_init: Initialization of module in child [4]
+ 7(2779) INFO:P-CSCF:mod_init: Initialization of module in child [5]
+ 2(2774) INFO:P-CSCF:mod_init: Initialization of module in child [2]
+ 5(2777) INF:P-CSCF:----------  Registrar Contents begin --------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents end ----------
+ 5(2777) INF:P-CSCF:----------  Subscription list begin ---------
+ 5(2777) INF:P-CSCF:----------  Subscription list end -----------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents begin --------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents end ----------
+ 5(2777) INF:P-CSCF:----------  Subscription list begin ---------
+ 5(2777) INF:P-CSCF:----------  Subscription list end -----------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents begin --------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents end ----------
+ 5(2777) INF:P-CSCF:----------  Subscription list begin ---------
+ 5(2777) INF:P-CSCF:----------  Subscription list end -----------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents begin --------
+ 5(2777) INF:P-CSCF:----------  Registrar Contents end ----------
+ 5(2777) INF:P-CSCF:----------  Subscription list begin ---------
+ 5(2777) INF:P-CSCF:----------  Subscription list end -----------
+
+i-cscf:
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">user at ubuntu</A>:/opt/OpenIMSCore$ ./icscf.sh
+Listening on
+             udp: 127.0.0.1 [127.0.0.1]:5060
+             tcp: 127.0.0.1 [127.0.0.1]:5060
+Aliases:
+             tcp: localhost:5060
+             udp: localhost:5060
+             *: test:*
+             *: icscf.test:*
+
+ 0(2790) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(2790) Maxfwd module- initializing
+ 0(2790) INFO:I-CSCF:mod_init: Initialization of module
+ 0(2790) INF:I-CSCF:icscf_db_get_nds: Loaded 1 trusted domains
+ 0(2790) INF:I-CSCF:icscf_db_get_capabilities: Loaded 2 capabilities for 1
+S-CSCFs (0 invalid entries in db)
+ 0(2790) Twofish encryption ready
+ 0(2790) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(2790) Diameter Peer Config:
+ 0(2790) FQDN    : icscf.test
+ 0(2790) Realm   : test
+ 0(2790) VendorID: 10415
+ 0(2790) ProdName: CDiameterPeer
+ 0(2790) AcceptUn: [X]
+ 0(2790) DropUnkn: [X]
+ 0(2790) Tc      : 30
+ 0(2790) Workers : 4
+ 0(2790) QueueLen: 8
+ 0(2790) TranTime: 5
+ 0(2790) SessHash: 128
+ 0(2790) DefAuthT: 60
+ 0(2790) MaxAuthT: 300
+ 0(2790) Peers   : 1
+ 0(2790) FQDN:  hss.test  Realm: test  Port: 3868
+ 0(2790) Acceptors : 1
+ 0(2790) Port:  3869  Bind: 127.0.0.1
+ 0(2790) Applications : 3
+ 0(2790) Auth ID:  16777216  Vendor: 10415
+ 0(2790) Auth ID:  16777216  Vendor: 4491
+ 0(2790) Auth ID:  16777216  Vendor: 13019
+ 0(2790) Routing Table :
+ 0(2790) DefaultRoute: [  10] hss.test
+ 0(2790) INFO: udp_init: SO_RCVBUF is initially 112640
+ 0(2790) INFO: udp_init: SO_RCVBUF is finally 262142
+ 1(2791) INFO:I-CSCF:mod_init: Initialization of module in child [1]
+receiver child=0 sock=127.0.0.1:5060
+ 3(2793) INFO:I-CSCF:mod_init: Initialization of module in child [3]
+receiver child=2 sock=127.0.0.1:5060
+ 0(2790) INFO:I-CSCF:mod_init: Initialization of module in child [0] main
+ 5(2795)  0(2790) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+INFO:I-CSCF:mod_init: Initialization of module in child [-1] slow timer
+ 6(2796) INFO:I-CSCF:mod_init: Initialization of module in child [-1] timer
+ 7(2797) INFO:I-CSCF:mod_init: Initialization of module in child [1001]
+cdp_worker
+ 7(2797) INFO:[0] Worker process started...
+ 9(2799) INFO:I-CSCF:mod_init: Initialization of module in child [1003]
+cdp_worker
+ 9(2799) INFO:[2] Worker process started...
+ 8(2798) INFO:I-CSCF:mod_init: Initialization of module in child [1002]
+cdp_worker
+ 8(2798) INFO:[1] Worker process started...
+10(2800) INFO:I-CSCF:mod_init: Initialization of module in child [1004]
+cdp_worker
+10(2800) INFO:[3] Worker process started...
+12(2802) INFO:I-CSCF:mod_init: Initialization of module in child [1000]
+cdp_receiver_peer
+12(2802) INFO:receiver_process(): [hss.test] Receiver process doing init on
+new process...
+12(2802) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for
+peer [hss.test]
+ 0(2790) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+12(2802) INFO:receiver_process(): [hss.test] Receiver process starting up...
+12(2802) --- Receiver [cdp_receiver_peer=hss.test] Serviced Peers: ---
+12(2802)  Peer: [hss.test]  TCP Socket: [-1] Recv.State: [0]
+12(2802) --------------------------------------------------------
+15(2805) INFO:I-CSCF:mod_init: Initialization of module in child [5] tcp
+receiver child=0
+14(2804) INFO:I-CSCF:mod_init: Initialization of module in child [1001]
+cdp_timer
+14(2804) INFO:Timer process starting up...
+13(2803) INFO:I-CSCF:mod_init: Initialization of module in child [1000]
+cdp_acceptor
+13(2803) INFO:Acceptor process starting up...
+ 4(2794) INFO:I-CSCF:mod_init: Initialization of module in child [4]
+receiver child=3 sock=127.0.0.1:5060
+13(2803) INFO:create_socket(): Trying to open/bind/listen on 127.0.0.1 port
+3869
+13(2803) INFO:create_socket(): Successful socket open/bind/listen on
+127.0.0.1 port 3869
+13(2803) INFO:... Acceptor opened sockets. Entering accept loop ...
+11(2801) INFO:I-CSCF:mod_init: Initialization of module in child [1002]
+cdp_receiver_peer_unkown
+16(2806) 11(2801) INFO:I-CSCF:mod_init: Initialization of module in child
+[6] tcp receiver child=1
+INFO:receiver_process(): [] Receiver process doing init on new process...
+11(2801) INFO:receiver_process(): [] Receiver process starting up...
+11(2801) --- Receiver [cdp receiver peer unknown] Serviced Peers: ---
+11(2801) --------------------------------------------------------
+17(2807) INFO:I-CSCF:mod_init: Initialization of module in child [7] tcp
+receiver child=2
+18(2808) INFO:I-CSCF:mod_init: Initialization of module in child [8] tcp
+receiver child=3
+ 2(2792) INFO:I-CSCF:mod_init: Initialization of module in child [2]
+receiver child=1 sock=127.0.0.1:5060
+19(2809) INFO:I-CSCF:mod_init: Initialization of module in child [-4] tcp
+main process
+14(2804) DBG:peer_timer(): Peer hss.test State 0
+14(2804) DBG:I_Snd_Conn_Req(): Peer hss.test
+14(2804) INFO:peer_connect(): Trying to connect to 127.0.0.1 port 3868
+14(2804) WARNING:peer_connect(): Error opening connection to to 127.0.0.1
+port 3868 &gt;Connection refused
+14(2804) --- Peer List: ---
+14(2804)  S[Closed] hss.test:3868 D[ ]
+14(2804) ------------------
+14(2804) --- Peer List: ---
+14(2804)  S[Closed] hss.test:3868 D[ ]
+14(2804) ------------------
+13(2803) INFO:accept_connection(): new tcp connection accepted!
+11(2801) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for
+peer []
+11(2801) --- Peer List: ---
+11(2801)  S[Closed] hss.test:3868 D[ ]
+11(2801)  S[R_Open] hss.open-ims.test:3868 D[X]
+11(2801)  [16777216,10415]
+11(2801)  [16777216,4491]
+11(2801)  [16777216,13019]
+11(2801)  [16777217,10415]
+11(2801)  [16777221,10415]
+11(2801) ------------------
+14(2804) --- Peer List: ---
+14(2804)  S[Closed] hss.test:3868 D[ ]
+14(2804)  S[R_Open] hss.open-ims.test:3868 D[X]
+14(2804)  [16777216,10415]
+14(2804)  [16777216,4491]
+14(2804)  [16777216,13019]
+14(2804)  [16777217,10415]
+14(2804)  [16777221,10415]
+14(2804) ------------------
+
+s-cscf:
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">user at ubuntu</A>:/opt/OpenIMSCore$ ./scscf.sh
+Listening on
+             udp: 127.0.0.1 [127.0.0.1]:6060
+             tcp: 127.0.0.1 [127.0.0.1]:6060
+Aliases:
+             tcp: localhost:6060
+             udp: localhost:6060
+             *: scscf.test:6060
+
+ 0(2816) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(2816) Maxfwd module- initializing
+ 0(2816) INFO:S-CSCF:mod_init: Initialization of module
+ 0(2816) INFO:ISC: - init
+ 0(2816) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(2816) Diameter Peer Config:
+ 0(2816) FQDN    : scscf.test
+ 0(2816) Realm   : test
+ 0(2816) VendorID: 10415
+ 0(2816) ProdName: CDiameterPeer
+ 0(2816) AcceptUn: [X]
+ 0(2816) DropUnkn: [X]
+ 0(2816) Tc      : 30
+ 0(2816) Workers : 4
+ 0(2816) QueueLen: 8
+ 0(2816) TranTime: 5
+ 0(2816) SessHash: 128
+ 0(2816) DefAuthT: 60
+ 0(2816) MaxAuthT: 300
+ 0(2816) Peers   : 1
+ 0(2816) FQDN:  hss.test  Realm: test  Port: 3868
+ 0(2816) Acceptors : 1
+ 0(2816) Port:  3870  Bind: 127.0.0.1
+ 0(2816) Applications : 3
+ 0(2816) Auth ID:  16777216  Vendor: 10415
+ 0(2816) Auth ID:  16777216  Vendor: 4491
+ 0(2816) Auth ID:  16777216  Vendor: 13019
+ 0(2816) Routing Table :
+ 0(2816) DefaultRoute: [  10] hss.test
+ 0(2816) INFO: udp_init: SO_RCVBUF is initially 112640
+ 0(2816) INFO: udp_init: SO_RCVBUF is finally 262142
+ 1(2817) INFO:S-CSCF:mod_child_init: Initialization of module in child [1]
+ 0(2816) INFO:S-CSCF:mod_child_init: Initialization of module in child [0]
+ 0(2816) INFO:ISC: - child init [0]
+ 0(2816) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 0(2816) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+ 7(2823) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1001]
+ 7(2823) INFO:ISC: - child init [1001]
+ 7(2823) INFO:[0] Worker process started...
+ 9(2825) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1003]
+ 9(2825) INFO:ISC: - child init [1003]
+ 9(2825) INFO:[2] Worker process started...
+ 1(2817) INFO:ISC: - child init [1]
+ 6(2822) INFO:S-CSCF:mod_child_init: Initialization of module in child [-1]
+ 8(2824) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1002]
+ 6(2822) INFO:ISC: - child init [-1]
+ 8(2824) INFO:ISC: - child init [1002]
+ 8(2824) INFO:[1] Worker process started...
+11(2827) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1002]
+10(2826) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1004]
+11(2827) INFO:ISC: - child init [1002]
+11(2827) INFO:receiver_process(): [] Receiver process doing init on new
+process...
+11(2827) INFO:receiver_process(): [] Receiver process starting up...
+11(2827) --- Receiver [cdp receiver peer unknown] Serviced Peers: ---
+10(2826) 11(2827) --------------------------------------------------------
+INFO:ISC: - child init [1004]
+10(2826) INFO:[3] Worker process started...
+12(2828) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1000]
+13(2829) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1000]
+12(2828) INFO:ISC: - child init [1000]
+12(2828) INFO:receiver_process(): [hss.test] Receiver process doing init on
+new process...
+12(2828) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for
+peer [hss.test]
+13(2829) INFO:ISC: - child init [1000]
+12(2828) INFO:receiver_process(): [hss.test] Receiver process starting up...
+13(2829) 12(2828) INFO:Acceptor process starting up...
+--- Receiver [cdp_receiver_peer=hss.test] Serviced Peers: ---
+12(2828)  Peer: [hss.test]  TCP Socket: [-1] Recv.State: [0]
+12(2828) --------------------------------------------------------
+13(2829) INFO:create_socket(): Trying to open/bind/listen on 127.0.0.1 port
+3870
+13(2829) INFO:create_socket(): Successful socket open/bind/listen on
+127.0.0.1 port 3870
+13(2829) INFO:... Acceptor opened sockets. Entering accept loop ...
+ 4(2820) INFO:S-CSCF:mod_child_init: Initialization of module in child [4]
+15(2831) INFO:S-CSCF:mod_child_init: Initialization of module in child [5]
+ 4(2820) INFO:ISC: - child init [4]
+14(2830) INFO:S-CSCF:mod_child_init: Initialization of module in child
+[1001]
+15(2831) INFO:ISC: - child init [5]
+18(2834) INFO:S-CSCF:mod_child_init: Initialization of module in child [8]
+14(2830) INFO:ISC: - child init [1001]
+14(2830) INFO:Timer process starting up...
+16(2832) INFO:S-CSCF:mod_child_init: Initialization of module in child [6]
+18(2834) INFO:ISC: - child init [8]
+ 5(2821) INFO:S-CSCF:mod_child_init: Initialization of module in child [-1]
+16(2832) INFO:ISC: - child init [6]
+17(2833) INFO:S-CSCF:mod_child_init: Initialization of module in child [7]
+ 5(2821) INFO:ISC: - child init [-1]
+ 3(2819) INFO:S-CSCF:mod_child_init: Initialization of module in child [3]
+17(2833) INFO:ISC: - child init [7]
+19(2835) INFO:S-CSCF:mod_child_init: Initialization of module in child [-4]
+19(2835) INFO:ISC: - child init [-4]
+ 2(2818) INFO:S-CSCF:mod_child_init: Initialization of module in child [2]
+ 3(2819) INFO:ISC: - child init [3]
+ 2(2818) INFO:ISC: - child init [2]
+14(2830) DBG:peer_timer(): Peer hss.test State 0
+14(2830) DBG:I_Snd_Conn_Req(): Peer hss.test
+14(2830) INFO:peer_connect(): Trying to connect to 127.0.0.1 port 3868
+14(2830) WARNING:peer_connect(): Error opening connection to to 127.0.0.1
+port 3868 &gt;Connection refused
+14(2830) --- Peer List: ---
+14(2830)  S[Closed] hss.test:3868 D[ ]
+14(2830) ------------------
+14(2830) --- Peer List: ---
+14(2830)  S[Closed] hss.test:3868 D[ ]
+14(2830) ------------------
+13(2829) INFO:accept_connection(): new tcp connection accepted!
+11(2827) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for
+peer []
+11(2827) --- Peer List: ---
+11(2827)  S[Closed] hss.test:3868 D[ ]
+11(2827)  S[R_Open] hss.open-ims.test:3868 D[X]
+11(2827)  [16777216,10415]
+11(2827)  [16777216,4491]
+11(2827)  [16777216,13019]
+11(2827)  [16777217,10415]
+11(2827)  [16777221,10415]
+11(2827) ------------------
+ 5(2821) INF:S-CSCF:----------  Registrar Contents begin --------
+ 5(2821) INF:S-CSCF:----------  Registrar Contents end ----------
+14(2830) --- Peer List: ---
+14(2830)  S[Closed] hss.test:3868 D[ ]
+14(2830)  S[R_Open] hss.open-ims.test:3868 D[X]
+14(2830)  [16777216,10415]
+14(2830)  [16777216,4491]
+14(2830)  [16777216,13019]
+14(2830)  [16777217,10415]
+14(2830)  [16777221,10415]
+14(2830) ------------------
+14(2830) --- Peer List: ---
+14(2830)  S[Closed] hss.test:3868 D[ ]
+14(2830)  S[R_Open] hss.open-ims.test:3868 D[X]
+14(2830)  [16777216,10415]
+14(2830)  [16777216,4491]
+14(2830)  [16777216,13019]
+14(2830)  [16777217,10415]
+14(2830)  [16777221,10415]
+
+startup.sh:
+<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">user at ubuntu</A>:/opt/OpenIMSCore/FHoSS/deploy$ ./startup.sh
+Building Classpath
+Classpath is
+lib/xml-apis.jar:lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/xalan-2.4.0.jar:lib/tomcat-util.jar:lib/tomcat-http.jar:lib/tomcat-coyote.jar:lib/struts.jar:lib/servlets-default.jar:lib/servlet-api.jar:lib/naming-resources.jar:lib/naming-factory.jar:lib/mysql-connector-java-3.1.12-bin.jar:lib/mx4j-3.0.1.jar:lib/log4j.jar:lib/junit.jar:lib/junitee.jar:lib/jta.jar:lib/jsp-api.jar:lib/jmx.jar:lib/jdp.jar:lib/jasper-runtime.jar:lib/jasper-compiler-jdt.jar:lib/jasper-compiler.jar:lib/hibernate3.jar:lib/FHoSS.jar:lib/ehcache-1.1.jar:lib/dom4j-1.6.1.jar:lib/commons-validator.jar:lib/commons-modeler.jar:lib/commons-logging.jar:lib/commons-logging-1.0.4.jar:lib/commons-lang.jar:lib/commons-fileupload.jar:lib/commons-el.jar:lib/commons-digester.jar:lib/commons-collections-3.1.jar:lib/commons-beanutils.jar:lib/cglib-2.1.3.jar:lib/catalina-optional.jar:lib/catalina.jar:lib/c3p0-0.9.1.jar:lib/base64.jar:lib/asm.jar:lib/asm-attrs.jar:lib/antlr-2.7.6.jar::log4j.properties:..
+2010-08-03 14:47:41,358 INFO  de.fhg.fokus.hss.main.TomcatServer -
+startTomcat Tomcat-Server is started.
+2010-08-03 14:47:42,033 WARN  org.apache.catalina.connector.MapperListener -
+registerEngine Unknown default host: 127.0.0.1
+2010-08-03 14:47:42,511 INFO  de.fhg.fokus.hss.web.servlet.ResponseFilter -
+init Response Filter Initialisation!
+2010-08-03 14:47:42,928 INFO  de.fhg.fokus.hss.main.TomcatServer -
+startTomcat WebConsole of FHoSS was started !
+2010-08-03 14:47:45,086 WARN  org.hibernate.impl.SessionFactoryObjectFactory
+- addInstance InitialContext did not implement EventContext
+2010-08-03 14:47:45,118 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - &lt;init&gt; Bean style
+constructor called, don't forget to configure!
+2010-08-03 14:47:45,121 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure FQDN:
+hss.open-ims.test
+2010-08-03 14:47:45,121 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Realm:
+open-ims.test
+2010-08-03 14:47:45,122 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Vendor_ID :
+10415
+2010-08-03 14:47:45,122 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure Product Name:
+JavaDiameterPeer
+2010-08-03 14:47:45,122 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure
+AcceptUnknwonPeers: true
+2010-08-03 14:47:45,122 INFO
+ de.fhg.fokus.diameter.DiameterPeer.DiameterPeer - configure
+DropUnknownOnDisconnect: true
+2010-08-03 14:47:45,134 INFO  de.fhg.fokus.hss.main.HSSContainer -
+waitForExit
+Type &quot;exit&quot; to stop FHoSS!
+
+Again, Thanks :)
+
+On 3 August 2010 14:40, Jeffrey Lou &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">jeffrey5337 at gmail.com</A>&gt; wrote:
+
+&gt;<i> Hi Franz,
+</I>&gt;<i>
+</I>&gt;<i> I have done a modification on etc/hosts by adding hss.test to my hostname.
+</I>&gt;<i> now it &quot;seems&quot; like running good. But I am not sure is it a correct way of
+</I>&gt;<i> doing so or not...
+</I>&gt;<i>
+</I>&gt;<i> But when I use the UCT IMS Client to register, it report another error:
+</I>&gt;<i> Forbidden - HSS Roaming not allowed (for REGISTER)
+</I>&gt;<i>
+</I>&gt;<i> ps: I try to drop and readd the database, after adding, I would like to
+</I>&gt;<i> check the database by using command: show database;
+</I>&gt;<i> but &quot;ERROR 1064 (42000): You have an error in your SQL syntax&quot; occurs.
+</I>&gt;<i>
+</I>&gt;<i> Thanks alot for your help.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Jeffrey
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 3 August 2010 12:47, Franz Edler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz.edler at technikum-wien.at</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt;       I also just notice it, I cannot ping hss.test but
+</I>&gt;&gt;<i> hss.open-ims.test.
+</I>&gt;&gt;<i> &gt;       so it should be hss.open-ims.test right?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Yes.
+</I>&gt;&gt;<i> The most easiest way to repair the misconfiguration (out of my experience)
+</I>&gt;&gt;<i> is to delete the database tables
+</I>&gt;&gt;<i>          drop database icscf;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          drop database hss_db;
+</I>&gt;&gt;<i> and restart your installation at Step 4: Configure the Environment.
+</I>&gt;&gt;<i> Log what you have done.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If the problem then still exists your log should be analyzed.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> BR
+</I>&gt;&gt;<i> Franz
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/openimscore-hss/attachments/20100803/076ba813/attachment.html">https://lists.berlios.de/pipermail/openimscore-hss/attachments/20100803/076ba813/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000995.html">[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+</A></li>
+	<LI>Next message: <A HREF="000997.html">[OpenIMSCore-HSS] Setting Up Open IMS Core,	error opening 	connection to hss.test
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#996">[ date ]</a>
+              <a href="thread.html#996">[ thread ]</a>
+              <a href="subject.html#996">[ subject ]</a>
+              <a href="author.html#996">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

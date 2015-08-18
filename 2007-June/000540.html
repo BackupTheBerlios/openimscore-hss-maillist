@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] XML schema for UDA
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20XML%20schema%20for%20UDA&In-Reply-To=%3C4684C19C.5040605%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000533.html">
+   <LINK REL="Next"  HREF="000534.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] XML schema for UDA</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20XML%20schema%20for%20UDA&In-Reply-To=%3C4684C19C.5040605%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] XML schema for UDA">adp at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Jun 29 10:23:56 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000533.html">[OpenIMSCore-HSS] XML schema for UDA
+</A></li>
+        <LI>Next message: <A HREF="000534.html">[OpenIMSCore-HSS] [SVN-FHoSS] r348 - Added following authentication	methods : CableLabs Digest ETSI HTTP DIGEST NASS Bundled
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#540">[ date ]</a>
+              <a href="thread.html#540">[ thread ]</a>
+              <a href="subject.html#540">[ subject ]</a>
+              <a href="author.html#540">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi Jo&#227;o Vitor,
+
+You have right. I will change it to Sh-Data.
+Thanks for reporting the problem.
+
+Regards,
+Adrian
+
+Jo&#227;o Vitor Torres wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> The root element for the xml in the User-Data AVP in UDA messages should
+</I>&gt;<i> be Sh-Data, not ShData.  I've attached the schema from 3GPP TS 29.328
+</I>&gt;<i> Rel7 for your reference.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> The problem is in lines 55 e 56 of ShDataTypes.java file.
+</I>&gt;<i> 
+</I>&gt;<i>         public static final String ShData_s = &quot;&lt;ShData&gt;&quot;;
+</I>&gt;<i> 
+</I>&gt;<i>         public static final String ShData_e = &quot;&lt;/ShData&gt;&quot;;
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> **Jo&#227;o Vitor Torres**
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGhMGc6Yml36HNIwcRAnHKAJ9XF6zHO3m149ABYO4eNcj+qXLsOgCgmKtn
+vdOtHW8FwapJL9zVm9NkH1w=
+=VrM9
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000533.html">[OpenIMSCore-HSS] XML schema for UDA
+</A></li>
+	<LI>Next message: <A HREF="000534.html">[OpenIMSCore-HSS] [SVN-FHoSS] r348 - Added following authentication	methods : CableLabs Digest ETSI HTTP DIGEST NASS Bundled
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#540">[ date ]</a>
+              <a href="thread.html#540">[ thread ]</a>
+              <a href="subject.html#540">[ subject ]</a>
+              <a href="author.html#540">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

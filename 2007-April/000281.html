@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Reg%20Java%20Diameter%20Peer%20and%20Connecting%20from%20BEA&In-Reply-To=%3C1176196082.14060.60.camel%40alean%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000277.html">
+   <LINK REL="Next"  HREF="000287.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Reg%20Java%20Diameter%20Peer%20and%20Connecting%20from%20BEA&In-Reply-To=%3C1176196082.14060.60.camel%40alean%3E"
+       TITLE="[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Apr 10 11:08:02 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000277.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+        <LI>Next message: <A HREF="000287.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#281">[ date ]</a>
+              <a href="thread.html#281">[ thread ]</a>
+              <a href="subject.html#281">[ subject ]</a>
+              <a href="author.html#281">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kirshnaveni,
+
+we will look into adding the proxy bit. You can speed up the process by
+providing a patch ;) After all, this is an Open Source project that
+lives from community contributions.
+
+- Peter
+
+On Tue, 2007-04-10 at 14:21 +0530, <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">Krishnaveni.Mudduluru at cognizant.com</A>
+wrote:
+&gt;<i> Hi Peter , 
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> When I asked about the error that I was getting in BEA Relay,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> I got the following reply from BEA ,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> The relay say unexpected command because the Porxy Flag in the
+</I>&gt;<i> response is not set correctly.
+</I>&gt;<i> 
+</I>&gt;<i> You should contact Fhoss yourself.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> The proxy flag is defined in standard 3GPP TS 29.329, section 6.1.2,
+</I>&gt;<i> page 8. Ypou may notice the PXY in the headers, means that proxy flag
+</I>&gt;<i> must be set.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> The User-Data-Answer (UDA) command, indicated by the Command-Code
+</I>&gt;<i> field set to 306 and the 'R' bit cleared in the Command Flags field,
+</I>&gt;<i> is sent by a server in response to the User-Data-Request command. The
+</I>&gt;<i> Experimental-Result AVP may contain one of the values defined in
+</I>&gt;<i> section 6.2 or in 3GPP TS 29.229 [6].
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Message Format
+</I>&gt;<i> 
+</I>&gt;<i> &lt; User-Data-Answer &gt; ::= &lt; Diameter Header: 306, PXY, 16777217 &gt; &lt;
+</I>&gt;<i> Session-Id &gt; { Vendor-Specific-Application-Id } [ Result-Code ]
+</I>&gt;<i> [ Experimental-Result ] { Auth-Session-State } { Origin-Host }
+</I>&gt;<i> { Origin-Realm } *[ Supported-Features ] [ User-Data ] *[ AVP ]
+</I>&gt;<i> *[ Failed-AVP ] *[ Proxy-Info ] *[ Route-Record ]
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> May I know the procedure to follow , so that BEA can understand the
+</I>&gt;<i> message received from FHoSS
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> This e-mail and any files transmitted with it are for the sole use of
+</I>&gt;<i> the intended recipient(s) and may contain confidential and privileged
+</I>&gt;<i> information.
+</I>&gt;<i> If you are not the intended recipient, please contact the sender by
+</I>&gt;<i> reply e-mail and destroy all copies of the original message. 
+</I>&gt;<i> Any unauthorised review, use, disclosure, dissemination, forwarding,
+</I>&gt;<i> printing or copying of this email or any action taken in reliance on
+</I>&gt;<i> this e-mail is strictly 
+</I>&gt;<i> prohibited and may be unlawful.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000277.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+	<LI>Next message: <A HREF="000287.html">[OpenIMSCore-HSS] Reg Java Diameter Peer and Connecting from BEA
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#281">[ date ]</a>
+              <a href="thread.html#281">[ thread ]</a>
+              <a href="subject.html#281">[ subject ]</a>
+              <a href="author.html#281">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

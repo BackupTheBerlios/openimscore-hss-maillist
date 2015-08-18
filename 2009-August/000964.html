@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20401%20Unauthorized%20-%20Challenging%20the%20UE&In-Reply-To=%3C94ea6c5d0908170124w443044ccia8bb2859f8f50094%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000963.html">
+   <LINK REL="Next"  HREF="000965.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE</H1>
+    <B>Brian Sexton</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Error%20401%20Unauthorized%20-%20Challenging%20the%20UE&In-Reply-To=%3C94ea6c5d0908170124w443044ccia8bb2859f8f50094%40mail.gmail.com%3E"
+       TITLE="[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE">brian.w.sexton at gmail.com
+       </A><BR>
+    <I>Mon Aug 17 10:24:52 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000963.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+        <LI>Next message: <A HREF="000965.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#964">[ date ]</a>
+              <a href="thread.html#964">[ thread ]</a>
+              <a href="subject.html#964">[ subject ]</a>
+              <a href="author.html#964">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz
+
+I changed the HSS authentication to &quot;Early IMS&quot; and put the clients IP
+address into the IP address field but its still failing on the
+authentication. Heres the output from the console of my application.
+
+
+20:14:11.421 Opened tcp(1cb37664) [192.168.1.11:58910]
+20:14:11.578 SipCore createRequest
+20:14:11.625 SipClientConnectionImpl send Request [REGISTER sip:open-ims.test]
+20:14:11.625 SipClientConnectionImpl is sending Request [REGISTER
+sip:open-ims.test]
+20:14:11.625 No maddr was found
+20:14:11.656 Created SipClientTransaction (0)
+20:14:11.656 SipClientTransaction (0) is sending Request [REGISTER
+sip:open-ims.test] to tcp//192.168.75.129:4060
+20:14:11.656 Reserve From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453651609
+
+[192.168.75.129:4060;tcp]
+20:14:11.656 Opened tcp(f828ed68) [192.168.75.1:2255]&lt;=&gt;[192.168.75.129:4060]
+20:14:11.656 SET KEEPALIVE 150
+20:14:11.671 SipClientTransport is sending Request [REGISTER
+sip:open-ims.test] to 192.168.75.129:4060/tcp
+
+20:14:11.671 [192.168.75.1:2255]--tcp(f828ed68)--&gt;[192.168.75.129:4060]
+
+REGISTER sip:open-ims.test SIP/2.0
+Max-Forwards: 70
+CSeq: 800 REGISTER
+Expires: 3600
+Content-Length: 0
+Contact: &lt;sip:192.168.1.11:58910;transport=tcp&gt;;message;+g.3gpp.app-ref=&quot;urn%3Aurn-xxx%3Acom.ericsson.client.IjcuChat&quot;
+User-Agent: Ijcu Client
+P-Preferred-Identity: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+Route: &lt;sip:192.168.75.129:4060;transport=tcp&gt;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453651609
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">dcee6a6ad6791fa2888c41d05bfb78a2 at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:2255;branch=z9hG4bK0cc2add3355d32f544121c94386bfcf4
+
+
+20:14:11.687 setTimerBorF
+20:14:11.687 <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.ericsson.research.sip.jsr180.SipConnectionImpl at ea0ef881</A>
+leaving send() new state=7
+
+20:14:11.921 [192.168.75.1:2255]&lt;--tcp(f828ed68)--[192.168.75.129:4060]
+
+SIP/2.0 403 Forbidden - HSS Authentication Scheme Unsupported
+CSeq: 800 REGISTER
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 192.168.75.129:6060 &quot;Noisy feedback tells:  pid=6811
+req_src_ip=192.168.75.129 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=099be80a632a37ddf364328f324f6e4c-157e
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453651609
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">dcee6a6ad6791fa2888c41d05bfb78a2 at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:2255;branch=z9hG4bK0cc2add3355d32f544121c94386bfcf4;received=192.168.75.1;rport=2255
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+
+20:14:11.921 SipClientTransport received Response [403 Forbidden - HSS
+Authentication Scheme Unsupported]
+20:14:11.921 Found matching SipClientTransaction (0)
+20:14:11.921 SipClientTransaction (0) received Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER sip:open-ims.test]
+20:14:11.921 Release From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453651609
+
+[192.168.75.129:4060;tcp]
+20:14:11.921 Clearing timer BorF
+20:14:11.921 SipClientConnectionImpl received Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test] from SipClientTransaction (0)
+20:14:11.937 &lt;-No dialog found
+20:14:11.937 **&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">dcee6a6ad6791fa2888c41d05bfb78a2 at 192.168.1.111250453651609099be80a632a37ddf364328f324f6e4c-157e</A>
+20:14:11.937 SipClientConnectionImpl doMessage(Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test])
+20:14:11.937 SipClientConnectionImpl receive(0)...
+20:14:11.937 SipClientConnectionImpl receive(0) - Response [403
+Forbidden - HSS Authentication Scheme Unsupported] to Request
+[REGISTER sip:open-ims.test]
+20:14:11.937 UnregisterTransaction() SipClientTransaction (0)
+20:14:11.937 Closed SipClientTransaction (0)
+20:14:12.937 SipCore createRequest
+20:14:12.968 SipClientConnectionImpl send Request [REGISTER sip:open-ims.test]
+20:14:12.968 SipClientConnectionImpl is sending Request [REGISTER
+sip:open-ims.test]
+20:14:12.968 No maddr was found
+20:14:12.968 Created SipClientTransaction (1)
+20:14:12.968 SipClientTransaction (1) is sending Request [REGISTER
+sip:open-ims.test] to tcp//192.168.75.129:4060
+20:14:12.968 Reserve From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453652953
+
+[192.168.75.129:4060;tcp]
+20:14:12.968 SipClientTransport is sending Request [REGISTER
+sip:open-ims.test] to 192.168.75.129:4060/tcp
+
+20:14:13.000 [192.168.75.1:2255]--tcp(f828ed68)--&gt;[192.168.75.129:4060]
+
+REGISTER sip:open-ims.test SIP/2.0
+Max-Forwards: 70
+CSeq: 777 REGISTER
+Expires: 3600
+Content-Length: 0
+Contact: &lt;sip:192.168.1.11:58910;transport=tcp&gt;;message;+g.3gpp.app-ref=&quot;urn%3Aurn-xxx%3Acom.ericsson.client.IjcuChat&quot;
+User-Agent: Ijcu Client
+P-Preferred-Identity: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+Route: &lt;sip:192.168.75.129:4060;transport=tcp&gt;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453652953
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">c1475005ebd5b5263cec4f1f31a17af4 at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:2255;branch=z9hG4bK4baaa68f9abd549c24229e1324e1d44b
+
+
+20:14:13.046 setTimerBorF
+20:14:13.046 <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.ericsson.research.sip.jsr180.SipConnectionImpl at 84aee8b</A>
+leaving send() new state=7
+
+20:14:13.140 [192.168.75.1:2255]&lt;--tcp(f828ed68)--[192.168.75.129:4060]
+
+SIP/2.0 403 Forbidden - HSS Authentication Scheme Unsupported
+CSeq: 777 REGISTER
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 192.168.75.129:6060 &quot;Noisy feedback tells:  pid=6814
+req_src_ip=192.168.75.129 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=099be80a632a37ddf364328f324f6e4c-7489
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453652953
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">c1475005ebd5b5263cec4f1f31a17af4 at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:2255;branch=z9hG4bK4baaa68f9abd549c24229e1324e1d44b;received=192.168.75.1;rport=2255
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+
+20:14:13.140 SipClientTransport received Response [403 Forbidden - HSS
+Authentication Scheme Unsupported] 20:14:13.140 Found matching
+SipClientTransaction (1) 20:14:13.140 SipClientTransaction (1)
+received Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test] 20:14:13.140 Release From:
+&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453652953
+
+[192.168.75.129:4060;tcp]
+20:14:13.140 Clearing timer BorF
+20:14:13.140 SipClientConnectionImpl received Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test] from SipClientTransaction (1) 20:14:13.140 &lt;-No
+dialog found 20:14:13.140
+**&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">c1475005ebd5b5263cec4f1f31a17af4 at 192.168.1.111250453652953099be80a632a37ddf364328f324f6e4c-7489</A>
+20:14:13.140 SipClientConnectionImpl doMessage(Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test])
+20:14:13.140 SipClientConnectionImpl receive(0)...
+20:14:13.156 SipClientConnectionImpl receive(0) - Response [403
+Forbidden - HSS Authentication Scheme Unsupported] to Request
+[REGISTER sip:open-ims.test]
+20:14:13.156 UnregisterTransaction() SipClientTransaction (1)
+20:14:13.156 Closed SipClientTransaction (1)
+20:14:14.156 SipCore createRequest
+20:14:14.187 SipClientConnectionImpl send Request [REGISTER sip:open-ims.test]
+20:14:14.187 SipClientConnectionImpl is sending Request [REGISTER
+sip:open-ims.test]
+20:14:14.187 No maddr was found
+20:14:14.187 Created SipClientTransaction (2)
+20:14:14.187 SipClientTransaction (2) is sending Request [REGISTER
+sip:open-ims.test] to tcp//192.168.75.129:4060
+20:14:14.187 Reserve From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453654171
+
+[192.168.75.129:4060;tcp]
+20:14:14.187 SipClientTransport is sending Request [REGISTER
+sip:open-ims.test] to 192.168.75.129:4060/tcp
+
+20:14:14.265 [192.168.75.1:2255]--tcp(f828ed68)--&gt;[192.168.75.129:4060]
+
+REGISTER sip:open-ims.test SIP/2.0
+Max-Forwards: 70
+CSeq: 622 REGISTER
+Expires: 3600
+Content-Length: 0
+Contact: &lt;sip:192.168.1.11:58910;transport=tcp&gt;;message;+g.3gpp.app-ref=&quot;urn%3Aurn-xxx%3Acom.ericsson.client.IjcuChat&quot;
+User-Agent: Ijcu Client
+P-Preferred-Identity: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+Route: &lt;sip:192.168.75.129:4060;transport=tcp&gt;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453654171
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ad6493fcd9651bd1ad076b97fa792c6e at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:2255;branch=z9hG4bK79a4977071347c0c1fa2de80edb12f8e
+
+
+20:14:14.296 setTimerBorF
+20:14:14.296 <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">com.ericsson.research.sip.jsr180.SipConnectionImpl at c5c7331</A>
+leaving send() new state=7
+
+20:14:14.312 [192.168.75.1:2255]&lt;--tcp(f828ed68)--[192.168.75.129:4060]
+
+SIP/2.0 403 Forbidden - HSS Authentication Scheme Unsupported
+CSeq: 622 REGISTER
+Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+Content-Length: 0
+Warning: 392 192.168.75.129:6060 &quot;Noisy feedback tells:  pid=6811
+req_src_ip=192.168.75.129 req_src_port=5060 in_uri=sip:scscf.open-ims.test:6060
+out_uri=sip:scscf.open-ims.test:6060 via_cnt==3&quot;
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=099be80a632a37ddf364328f324f6e4c-bee7
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453654171
+Call-ID: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ad6493fcd9651bd1ad076b97fa792c6e at 192.168.1.11</A>
+Via: SIP/2.0/TCP
+192.168.1.111:2255;branch=z9hG4bK79a4977071347c0c1fa2de80edb12f8e;received=192.168.75.1;rport=2255
+Path: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">term at pcscf.open-ims.test</A>:4060;lr&gt;
+
+
+20:14:14.328 SipClientTransport received Response [403 Forbidden - HSS
+Authentication Scheme Unsupported]
+20:14:14.328 Found matching SipClientTransaction (2)
+20:14:14.328 SipClientTransaction (2) received Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER sip:open-ims.test]
+20:14:14.328 Release From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">alice at open-ims.test</A>&gt;;tag=1250453654171
+
+[192.168.75.129:4060;tcp]
+20:14:14.328 Clearing timer BorF
+20:14:14.328 SipClientConnectionImpl received Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test] from SipClientTransaction (2)
+20:14:14.328 &lt;-No dialog found
+20:14:14.328 **&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">ad6493fcd9651bd1ad076b97fa792c6e at 192.168.1.111250453654171099be80a632a37ddf364328f324f6e4c-bee7</A>
+20:14:14.328 SipClientConnectionImpl doMessage(Response [403 Forbidden
+- HSS Authentication Scheme Unsupported] to Request [REGISTER
+sip:open-ims.test])
+20:14:14.328 SipClientConnectionImpl receive(0)...
+20:14:14.328 SipClientConnectionImpl receive(0) - Response [403
+Forbidden - HSS Authentication Scheme Unsupported] to Request
+[REGISTER sip:open-ims.test]
+20:14:14.328 UnregisterTransaction() SipClientTransaction (2)
+20:14:14.328 Closed SipClientTransaction (2) Execution completed.
+6542100 bytecodes executed
+1526 thread switches
+1918 classes in the system (including system classes)
+58504 dynamic objects allocated (3483684 bytes)
+211 garbage collections (2633300 bytes collected)
+
+
+On Sun, Aug 16, 2009 at 8:38 PM, Franz Edler&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">franz-edler at aon.at</A>&gt; wrote:
+&gt;<i> Hi Brian,
+</I>&gt;<i>
+</I>&gt;&gt;<i> Is there any way to turn off authentication in the HSS?
+</I>&gt;<i>
+</I>&gt;<i> No. But if you use &quot;Early IMS&quot; IP based authentication the HSS only checks
+</I>&gt;<i> the IP-Address of the client and no challenge/response algorithm is used.
+</I>&gt;<i>
+</I>&gt;<i> See the authentication data to be provisioned at Private User Identity.
+</I>&gt;<i>
+</I>&gt;<i> regards
+</I>&gt;<i> Franz
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000963.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+	<LI>Next message: <A HREF="000965.html">[OpenIMSCore-HSS] Error 401 Unauthorized - Challenging the UE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#964">[ date ]</a>
+              <a href="thread.html#964">[ thread ]</a>
+              <a href="subject.html#964">[ subject ]</a>
+              <a href="author.html#964">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Trigger Point bug in	FHoss	about	RegistrationTypes?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Trigger%20Point%20bug%20in%0A%09FHoss%09about%09RegistrationTypes%3F&In-Reply-To=%3C465BEA5F.2000606%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000426.html">
+   <LINK REL="Next"  HREF="000419.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Trigger Point bug in	FHoss	about	RegistrationTypes?</H1>
+    <B>Adrian-Daniel Popescu</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Trigger%20Point%20bug%20in%0A%09FHoss%09about%09RegistrationTypes%3F&In-Reply-To=%3C465BEA5F.2000606%40fokus.fraunhofer.de%3E"
+       TITLE="[OpenIMSCore-HSS] Trigger Point bug in	FHoss	about	RegistrationTypes?">adp at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue May 29 10:54:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000426.html">[OpenIMSCore-HSS] Trigger Point bug in FHoss	about	RegistrationTypes?
+</A></li>
+        <LI>Next message: <A HREF="000419.html">[OpenIMSCore-HSS] Billing for SIP calls
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#439">[ date ]</a>
+              <a href="thread.html#439">[ thread ]</a>
+              <a href="subject.html#439">[ subject ]</a>
+              <a href="author.html#439">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Yes, you are right; I will change it in the next commit.
+
+- -Adrian
+
+fancy_xiao wrote:
+&gt;<i> Adrian-Daniel Popescu&#65292;&#20320;&#22909;
+</I>&gt;<i> The RegistrationType attribute is a list of value , maybe more than one
+</I>&gt;<i> value,but FHoSS is only one value?
+</I>&gt;<i>  
+</I>&gt;<i> fancy_xiao&#65292;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>
+</I>&gt;<i> &lt;mailto:&lt;!--AID_FROMADDRESS_BEGIN--&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&lt;!--AID_FROMADDRESS_END--&gt;&gt;
+</I>&gt;<i> 2007-05-23
+</I>&gt;<i> 
+</I>&gt;<i>     ----- Original Message -----
+</I>&gt;<i>     *From: *Adrian-Daniel Popescu
+</I>&gt;<i>     &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">adrian-daniel.popescu at fokus.fraunhofer.de</A>&gt;
+</I>&gt;<i>     *To: *fancy_xiao &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;<i>     *Sent: *2007-05-22, 19:42:35
+</I>&gt;<i>     *Subject: *Re: [OpenIMSCore-HSS] Trigger Point bug in FHoss about
+</I>&gt;<i>     RegistrationTypes?
+</I>&gt;<i> 
+</I>&gt;<i> Dear Fancy,
+</I>&gt;<i> 
+</I>&gt;<i> I know that the Registration Type is relevant only to a SPT with a SIP
+</I>&gt;<i> Method of REGISTER. Even that the information is showed on the web
+</I>&gt;<i> interface, it is simply ignored in all the irrelevant situations; the
+</I>&gt;<i> functionality is not affected at all!
+</I>&gt;<i> However, maybe is better to remove it, as I can see that this
+</I>&gt;<i> information can be so annoying for some people... For the moment, please
+</I>&gt;<i> ignore it!
+</I>&gt;<i> 
+</I>&gt;<i> -Adrian
+</I>&gt;<i> 
+</I>&gt;<i> fancy_xiao wrote:
+</I>&gt;&gt;<i> openimscore-hss`}
+</I>&gt;<i> 
+</I>&gt;&gt;<i> TS29228 indicate that the
+</I>&gt;&gt;<i> RegistrationType is a list of value ,and it relevant only to SIP
+</I>&gt;<i> Method SPT with value &quot;REGISTER&quot; and it could be missed;
+</I>&gt;&gt;<i> when missed indicate that this SPT could matches to all REGISTER
+</I>&gt;<i> message!
+</I>&gt;<i> 
+</I>&gt;&gt;<i> in TS29228:
+</I>&gt;&gt;<i> The attribute RegistrationType of the class Service Point Trigger
+</I>&gt;<i> is relevant only to the SIP Method SPT with a value of &quot;REGISTER&quot;
+</I>&gt;<i> and its' support is optional in the HSS and in the S-CSCF. The
+</I>&gt;<i> RegistrationType may contain a list of values that define whether
+</I>&gt;<i> the SPT matches to REGISTER messages that are related to initial
+</I>&gt;<i> registrations, re-registrations, and/or de-registrations. If
+</I>&gt;<i> RegistrationTypes are given, the SIP Method SPT with a value of
+</I>&gt;<i> &quot;REGISTER&quot; shall match if any of the RegistrationTypes match and the
+</I>&gt;<i> S-CSCF supports the RegistrationType attribute. If the SIP Method
+</I>&gt;<i> SPT contains value &quot;REGISTER&quot;, and no RegistrationType is given, or
+</I>&gt;<i> if the S-CSCF does not support the RegistrationType attribute, the
+</I>&gt;<i> SIP Method SPT matches to all REGISTER messages. The attribute
+</I>&gt;<i> RegistrationType may be discarded if it is present in an SPT
+</I>&gt;&gt;<i> other than SIP Method with value &quot;REGISTER&quot;.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> fancy_xiao<A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A> &lt;mailto: <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">fancy_xiao at astrocom.cn</A>&gt;
+</I>&gt;&gt;<i> 2007-05-22
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A> &lt;mailto:
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> --
+</I>&gt;<i> --------------------------------------------
+</I>&gt;<i> Diploma Engineer Adrian Popescu
+</I>&gt;<i> FOKUS Fraunhofer Institute
+</I>&gt;<i> Next Generation Network Infrastructures
+</I>&gt;<i> Kaiserin-Augusta-Allee 31, 10589, Berlin
+</I>&gt;<i> Work Phone: +49 303 463 7364
+</I>&gt;<i> Mobile: +49 178 153 7466
+</I>&gt;<i> E-Mail: adp at fokus.fraunhofer.de
+</I>&gt;<i> Web: www.fokus.fraunhofer.de
+</I>&gt;<i> --------------------------------------------
+</I>
+&gt;<i> ------------------------------------------------------------------------
+</I>
+&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+
+- --
+- --------------------------------------------
+Diploma Engineer Adrian Popescu
+FOKUS Fraunhofer Institute
+Next Generation Network Infrastructures
+Kaiserin-Augusta-Allee 31, 10589, Berlin
+Work Phone: +49 303 463 7364
+Mobile: +49 178 153 7466
+E-Mail: adp at fokus.fraunhofer.de
+Web: www.fokus.fraunhofer.de
+- --------------------------------------------
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.3 (GNU/Linux)
+Comment: Using GnuPG with Mozilla - <A HREF="http://enigmail.mozdev.org">http://enigmail.mozdev.org</A>
+
+iD8DBQFGW+pf6Yml36HNIwcRAticAJkBHv8739oVmXjfxHKz1scF3Oy+bgCeKfsW
+NVCqf5z4OgobTjFGsJkfrfM=
+=LREr
+-----END PGP SIGNATURE-----
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000426.html">[OpenIMSCore-HSS] Trigger Point bug in FHoss	about	RegistrationTypes?
+</A></li>
+	<LI>Next message: <A HREF="000419.html">[OpenIMSCore-HSS] Billing for SIP calls
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#439">[ date ]</a>
+              <a href="thread.html#439">[ thread ]</a>
+              <a href="subject.html#439">[ subject ]</a>
+              <a href="author.html#439">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>

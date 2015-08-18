@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [OpenIMSCore-HSS] Trigger for unregistered service does not	work
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/openimscore-hss/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Trigger%20for%20unregistered%20service%20does%20not%09work&In-Reply-To=%3C1174855555.5202.36.camel%40localhost%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000263.html">
+   <LINK REL="Next"  HREF="000265.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[OpenIMSCore-HSS] Trigger for unregistered service does not	work</H1>
+    <B>Peter Weik</B> 
+    <A HREF="mailto:openimscore-hss%40lists.berlios.de?Subject=Re%3A%20%5BOpenIMSCore-HSS%5D%20Trigger%20for%20unregistered%20service%20does%20not%09work&In-Reply-To=%3C1174855555.5202.36.camel%40localhost%3E"
+       TITLE="[OpenIMSCore-HSS] Trigger for unregistered service does not	work">weik at fokus.fraunhofer.de
+       </A><BR>
+    <I>Sun Mar 25 22:45:55 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000263.html">[OpenIMSCore-HSS] Trigger for unregistered service does not work
+</A></li>
+        <LI>Next message: <A HREF="000265.html">[OpenIMSCore-HSS] [SVN-FHoSS] r211 - xml.xsd added to the project.	Instalation guide completed with indications,	regarding compilation of FHoSS,	when an Internet connection is not available.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Franz,
+
+just like the EarlyIMS feature (and some others), the support for
+unregistered user profiles will come in the near future. Please see the
+developments in the branch of FHoSS
+(<A HREF="http://svn.berlios.de/wsvn/openimscore/FHoSS/branches/01_RevampDB/?rev=0&amp;sc=0">http://svn.berlios.de/wsvn/openimscore/FHoSS/branches/01_RevampDB/?rev=0&amp;sc=0</A>) for the latest updates to the HSS and for latest feature additions.
+
+- Peter
+
+On Sam, 2007-03-24 at 14:46 +0100, Franz Edler wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> I tried to activate a triggerpoint for unregistered service terminating, but
+</I>&gt;<i> did not succeed. This is what I found (referring to the attached wireshark
+</I>&gt;<i> trace):
+</I>&gt;<i> 
+</I>&gt;<i> - the user profile was correctly set (in packet 4, PPR SessionCase = 2
+</I>&gt;<i> (TERMINATING_UNREGISTERED)
+</I>&gt;<i> - at the incoming INVITE the HSS responds (in packet 109 LIA) with a
+</I>&gt;<i> permanent failure (DIAMETER_ERROR_IDENTITY_NOT_REGISTERED) instead of a
+</I>&gt;<i> success (DIAMETER_UNREGISTERED_SERVICE)
+</I>&gt;<i> 
+</I>&gt;<i> cheers
+</I>&gt;<i> Franz
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-HSS mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">OpenIMSCore-HSS at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-hss">https://lists.berlios.de/mailman/listinfo/openimscore-hss</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000263.html">[OpenIMSCore-HSS] Trigger for unregistered service does not work
+</A></li>
+	<LI>Next message: <A HREF="000265.html">[OpenIMSCore-HSS] [SVN-FHoSS] r211 - xml.xsd added to the project.	Instalation guide completed with indications,	regarding compilation of FHoSS,	when an Internet connection is not available.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#264">[ date ]</a>
+              <a href="thread.html#264">[ thread ]</a>
+              <a href="subject.html#264">[ subject ]</a>
+              <a href="author.html#264">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/openimscore-hss">More information about the OpenIMSCore-HSS
+mailing list</a><br>
+</body></html>
